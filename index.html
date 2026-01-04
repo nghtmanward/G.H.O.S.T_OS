@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ghost OS</title>
+    <style>
+      :root { --glow-color: rgba(255, 255, 255, 0.35); }
+
+      body {
+        background: rgba(0,0,0,0.2);
+        color: white;
+        font-family: monospace;
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .ghost-container {
+        padding: 40px;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: 0 0 30px var(--glow-color);
+        text-align: center;
+      }
+
+      #ghost-state {
+        margin-top: 10px;
+        font-size: 20px;
+        color: #ffffff;
+        opacity: 0.9;
+      }
+
+      #latent-visualizer {
+        display: flex;
+        gap: 4px;
+        margin-top: 30px;
+        height: 120px;
+        align-items: flex-end;
+        justify-content: center;
+      }
+
+      .latent-bar {
+        width: 8px;
+        background: #00ffff55;
+        transition: height 0.25s ease;
+      }
+
+      #loss-display,
+      #prediction-loss,
+      #anomaly-display {
+        margin-top: 10px;
+        font-size: 18px;
+        color: #00ffff;
+      }
+
+      #latent-3d-container {
+        margin-top: 25px;
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+      }
+
+      .latent-layer {
+        display: grid;
+        grid-template-columns: repeat(4, 14px);
+        grid-auto-rows: 14px;
+        gap: 4px;
+      }
+
+      .latent-cell {
+        width: 14px;
+        height: 14px;
+        border-radius: 3px;
+        background: rgba(0, 255, 255, 0.2);
+      }
+
+      #latent-history {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .history-row {
+        display: flex;
+        gap: 2px;
+      }
+
+      .history-cell {
+        width: 6px;
+        height: 6px;
+        background: rgba(0,255,255,0.2);
+      }
+
+      .attention-bar {
+        width: 10px;
+        background: #ffaa00;
+        transition: height 0.25s ease;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="ghost-container">
+      <h1>The Ghost Stirs...</h1>
+
+      <div id="ghost-state"></div>
+
+      <div id="ghost-voice" style="margin-top:10px; font-size:18px; opacity:0.8;"></div>
+      <div id="latent-visualizer"></div>
+      <div id="loss-display"></div>
+      <div id="prediction-loss"></div>
+      <div id="anomaly-display"></div>
+      <div id="attention-bars" style="display:flex; gap:4px; height:100px; margin-top:10px;"></div>
+      <div id="latent-3d-container"></div>
+      <div id="latent-history"></div>
+    </div>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>

@@ -1,5 +1,22 @@
 const { ipcRenderer } = require('electron');
 
+let video = null;
+
+async function startWebcam() {
+  video = document.getElementById("webcam");
+
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+    video.srcObject = stream;
+    await video.play();
+    console.log("Webcam started");
+  } catch (err) {
+    console.error("Webcam error:", err);
+  }
+}
+
+startWebcam();
+
 window.addEventListener('mousemove', e => {
   ipcRenderer.send('mouse-move', e.clientX, e.clientY);
 });
@@ -23,6 +40,20 @@ window.addEventListener('focus', () => {
 window.addEventListener('blur', () => {
   ipcRenderer.send('focus-change', false);
 });
+
+function extractFacialFeatures(video) {
+  if (!video) return null;
+
+  // Placeholder until you add real detection
+  return {
+    smile: Math.random(),
+    frown: Math.random(),
+    eyeOpen: Math.random(),
+    browTension: Math.random(),
+    jawTension: Math.random(),
+    motionEnergy: Math.random()
+  };
+}
 
 async function updateGhost() {
   const result = await ipcRenderer.invoke('ghost-input');
@@ -107,5 +138,11 @@ async function updateGhost() {
     histDiv.appendChild(row);
   });
 }
+
+setInterval(() => {
+  if (!video) return;
+  const features = extractFacialFeatures(video);
+  ipcRenderer.send("facial-features", features);
+}, 100);
 
 setInterval(updateGhost, 100);

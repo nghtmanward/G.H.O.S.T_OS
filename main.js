@@ -12,6 +12,9 @@ const Persistence = require('./core/persistence');
 const ThoughtEngine = require('./core/thought_engine');
 const VoiceEngine = require('./core/voice_engine');
 const PersonalityEngine = require('./core/personality_engine');
+const FacialEmotionalTellEngine = require('./core/facial_emotional_tell_engine');
+
+let webcamFeatures = null;
 
 const engine = new CompressionEngine(8, 32);
 const behavior = new BehaviorEngine();
@@ -24,7 +27,7 @@ const personality = new PersonalityEngine();
 const episodic = new EpisodicMemory();
 const reflection = new ReflectionState();
 const thoughtMapper = new ThoughtMapper();
-
+const facial = new FacialEmotionalTellEngine();
 
 
 // LOAD MEMORY ON STARTUP
@@ -73,6 +76,8 @@ ipcMain.handle('ghost-input', () => {
 
   const attendedInput = attention.applyAttention(rawInput);
 
+  const facialState = facial.update(webcamFeatures);
+
   const pre = engine.predictNext();
   const predLossBefore = engine.predictiveLoss(attendedInput, pre);
 
@@ -88,14 +93,16 @@ ipcMain.handle('ghost-input', () => {
     predLoss: result.predLoss,
     latent: result.latent,
     slow: engine.slow,
-    fast: engine.fast
+    fast: engine.fast,
+    facial: facialState
   });
 
   const personalityState = personality.update({
     anomaly: result.anomaly,
     predLoss: result.predLoss,
     intensity: behaviorState.intensity,
-    mood: behaviorState.mood
+    mood: behaviorState.mood,
+    facial: facialState
   });
 
   // --- M4.1: Build reflection state ---
@@ -120,7 +127,8 @@ ipcMain.handle('ghost-input', () => {
     latent: result.latent,
     styleBias: personalityState.styleBias,
     moodBaseline: personalityState.moodBaseline,
-    traits: personalityState.traits
+    traits: personalityState.traits,
+    facial: facialState
   });
 
   // Store voice output in episodic memory
@@ -157,6 +165,11 @@ ipcMain.on('key-press', () => mapper.updateKeypress());
 ipcMain.on('mouse-click', () => mapper.updateClick());
 ipcMain.on('mouse-scroll', (e, delta) => mapper.updateScroll(delta));
 ipcMain.on('focus-change', (e, state) => mapper.setFocus(state));
+ipcMain.on("facial-features", (event, data) => {
+  webcamFeatures = data;
+});
+
+
 
 app.whenReady().then(() => {
   createWindow();

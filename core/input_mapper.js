@@ -12,10 +12,32 @@ class InputMapper {
     this.idleTime = 0;
     this.focused = true;
 
+    // --- NEW: visual sensory defaults ---
+    this.visual = {
+      brightness: 0,
+      motion: 0,
+      edges: 0,
+      entropy: 0
+    };
+
     setInterval(() => {
       this.idleTime += 0.1;
     }, 100);
   }
+
+  // --- NEW: update visual sensory input ---
+  updateVisual(data) {
+  if (!data) return;
+
+  this.visual = {
+    brightness: Number.isFinite(data.brightness) ? data.brightness : 0,
+    motion:     Number.isFinite(data.motion)     ? data.motion     : 0,
+    edges:      Number.isFinite(data.edges)      ? data.edges      : 0,
+    entropy:    Number.isFinite(data.entropy)    ? data.entropy    : 0
+  };
+}
+
+
 
   updateMouse(x, y) {
     const dx = x - this.lastMouseX;
@@ -67,14 +89,20 @@ class InputMapper {
     this.decay();
 
     return [
-      this.mouseSpeed,            // 0
-      this.mouseDirectionChange,  // 1
-      this.keypressCount,         // 2
+      this.mouseSpeed,                 // 0
+      this.mouseDirectionChange,       // 1
+      this.keypressCount,              // 2
       Math.min(1, this.idleTime / 10), // 3
-      this.focused ? 1 : 0,       // 4
-      this.clickCount,            // 5
-      this.scrollIntensity,       // 6
-      1                           // 7 heartbeat
+      this.focused ? 1 : 0,            // 4
+      this.clickCount,                 // 5
+      this.scrollIntensity,            // 6
+      1,                               // 7 heartbeat
+
+      // --- NEW VISUAL SENSORY INPUT ---
+      this.visual.brightness,          // 8
+      this.visual.motion,              // 9
+      this.visual.edges,               // 10
+      this.visual.entropy              // 11
     ];
   }
 }

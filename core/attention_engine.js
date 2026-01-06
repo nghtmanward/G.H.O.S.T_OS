@@ -1,5 +1,5 @@
 class AttentionEngine {
-  constructor(inputDim = 8) {
+  constructor(inputDim = 12) {
     this.inputDim = inputDim;
 
     // Start with equal attention on all channels
@@ -14,22 +14,25 @@ class AttentionEngine {
   }
 
   updateAttention(inputVector, predLossBefore, predLossAfter) {
-    const improvement = predLossBefore - predLossAfter;
+  const improvement = predLossBefore - predLossAfter;
 
-    // If prediction improved, reward active dimensions
-    for (let i = 0; i < this.inputDim; i++) {
-      const contribution = Math.abs(inputVector[i]);
-      this.utility[i] += improvement * contribution;
-    }
+  for (let i = 0; i < this.inputDim; i++) {
+    const contribution = Math.abs(inputVector[i]);
+    const delta = improvement * contribution;
 
-    // Convert utility → weights
-    const minU = Math.min(...this.utility);
-    const shifted = this.utility.map(u => u - minU + 0.0001);
+    this.utility[i] += Number.isFinite(delta) ? delta : 0;
+  }
 
-    const sum = shifted.reduce((a, b) => a + b, 0);
-    this.weights = shifted.map(v => v / sum);
+  const minU = Math.min(...this.utility);
+  const shifted = this.utility.map(u =>
+    Number.isFinite(u - minU) ? (u - minU + 0.0001) : 0.0001
+  );
 
-    return this.weights;
+  const sum = shifted.reduce((a, b) => a + b, 0) || 1;
+
+  this.weights = shifted.map(v => v / sum);
+
+  return this.weights;
   }
 }
 

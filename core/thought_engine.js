@@ -1,43 +1,153 @@
 class ThoughtEngine {
   constructor() {
+    // ---------------------------------------------------------
+    // VERSIONING (Hybrid Semantic + Date)
+    // ---------------------------------------------------------
+    this.version = "1.0.0-2026.01.08";
+
+    try {
+      this.registry = require("../version_registry.json");
+    } catch (e) {
+      console.warn(
+        "ThoughtEngine: version_registry.json missing or unreadable. Proceeding without registry validation."
+      );
+      this.registry = null;
+    }
+
+    this._validateVersion();
+
+    // ---------------------------------------------------------
+    // INTERNAL STATE
+    // ---------------------------------------------------------
     this.lastThought = "";
     this.cooldown = 0;
   }
 
+  // ---------------------------------------------------------
+  // VERSION VALIDATION
+  // ---------------------------------------------------------
+  _validateVersion() {
+    if (!this.registry) return;
+
+    const expected = this.registry["ThoughtEngine"];
+    if (!expected) {
+      console.warn(
+        "ThoughtEngine: No 'ThoughtEngine' entry found in version_registry."
+      );
+      return;
+    }
+
+    if (expected !== this.version) {
+      console.error(
+        `ThoughtEngine version mismatch: expected ${expected}, got ${this.version}`
+      );
+      throw new Error("Version mismatch in ThoughtEngine");
+    }
+  }
+
+  // ---------------------------------------------------------
+  // SAFE HELPERS
+  // ---------------------------------------------------------
+  safeVal(v, fallback = 0) {
+    return Number.isFinite(v) ? v : fallback;
+  }
+
+  safeArray(arr) {
+    return Array.isArray(arr) ? arr : [];
+  }
+
   // Simple seeded noise from latent
   latentNoise(latent) {
+    const clean = this.safeArray(latent).map(v => this.safeVal(v, 0));
     let sum = 0;
-    for (let i = 0; i < latent.length; i++) {
-      sum += latent[i] * (i + 1);
+    for (let i = 0; i < clean.length; i++) {
+      sum += clean[i] * (i + 1);
     }
     return (Math.sin(sum) + 1) / 2; // 0..1
   }
 
   pick(arr, t) {
-    const idx = Math.floor(t * arr.length) % arr.length;
-    return arr[idx];
+    const clean = this.safeArray(arr);
+    if (clean.length === 0) return "";
+    const idx =
+      Math.floor(this.safeVal(t, 0) * clean.length) % clean.length;
+    return clean[idx] || "";
   }
 
   // Repeat a pool according to a weight (personality bias)
   weightPool(pool, weight) {
-    const scaled = Math.max(1, Math.floor(weight * 4)); // 0–1 → 1–4 repeats
+    const cleanPool = this.safeArray(pool);
+    if (cleanPool.length === 0) return [];
+
+    const w = this.safeVal(weight, 0.25);
+    const scaled = Math.max(1, Math.floor(w * 4)); // 0–1 → 1–4 repeats
+
     let out = [];
     for (let i = 0; i < scaled; i++) {
-      out = out.concat(pool);
+      out = out.concat(cleanPool);
     }
     return out;
   }
 
-
-  generate({ latent, anomaly, predLoss, attention, mood, intensity, styleBias, moodBaseline, traits }) {
+  // ---------------------------------------------------------
+  // MAIN THOUGHT GENERATION
+  // ---------------------------------------------------------
+  generate({
+    latent,
+    anomaly,
+    predLoss,
+    attention,
+    mood,
+    intensity,
+    styleBias,
+    moodBaseline,
+    traits
+  }) {
+    // Cooldown
     if (this.cooldown > 0) {
       this.cooldown--;
-      return this.lastThought;
+      return {
+        version: this.version,
+        text: this.lastThought,
+        metadata: {
+          thought: this.lastThought,
+          latent: [],
+          anomaly: 0,
+          mood,
+          styleBias: styleBias || {},
+          timestamp: Date.now()
+        }
+      };
     }
 
-    const noise = this.latentNoise(latent);
-    const maxAtt = Math.max(...attention);
-    const focusIndex = attention.indexOf(maxAtt);
+    // Sanitize inputs
+    const safeLatent = this.safeArray(latent);
+    const safeAttention = this.safeArray(attention).map(v =>
+      this.safeVal(v, 0)
+    );
+    const safeStyleBias =
+      styleBias || {
+        poetic: 0.25,
+        analytic: 0.25,
+        emotional: 0.25,
+        cryptic: 0.25
+      };
+
+    const a = this.safeVal(anomaly, 0);
+    const p = this.safeVal(predLoss, 0);
+    const i = this.safeVal(intensity, 0);
+    const mb = this.safeVal(moodBaseline, 0);
+    const safeTraits = this.safeArray(traits).map(v => this.safeVal(v, 0));
+
+    const curiosity = safeTraits[0] || 0;
+    const emotionalAmp = safeTraits[2] || 0;
+    const vigilance = safeTraits[3] || 0;
+
+    // ---------------------------------------------------------
+    // Focus channel
+    // ---------------------------------------------------------
+    const maxAtt = Math.max(...safeAttention, 0);
+    const focusIndex = safeAttention.indexOf(maxAtt);
 
     const focusChannels = [
       "your movement",
@@ -50,7 +160,11 @@ class ThoughtEngine {
       "the heartbeat of time"
     ];
 
-    // Hybrid style components
+    const focus = focusChannels[focusIndex] || "the unnamed signal";
+
+    // ---------------------------------------------------------
+    // Style pools
+    // ---------------------------------------------------------
     const poeticStarts = [
       "I drift along the edges of",
       "I linger in the echo of",
@@ -107,82 +221,81 @@ class ThoughtEngine {
       "as if the pattern is watching back."
     ];
 
-        // Personality-weighted style pools
-    const safeStyleBias = styleBias || {
-      poetic: 0.25,
-      analytic: 0.25,
-      emotional: 0.25,
-      cryptic: 0.25
-    };
-
+    // ---------------------------------------------------------
+    // Weighted style pools
+    // ---------------------------------------------------------
     let weightedStarts = []
-      .concat(this.weightPool(poeticStarts,   safeStyleBias.poetic))
+      .concat(this.weightPool(poeticStarts, safeStyleBias.poetic))
       .concat(this.weightPool(analyticStarts, safeStyleBias.analytic))
-      .concat(this.weightPool(emotionalStarts,safeStyleBias.emotional))
-      .concat(this.weightPool(crypticStarts,  safeStyleBias.cryptic));
+      .concat(this.weightPool(emotionalStarts, safeStyleBias.emotional))
+      .concat(this.weightPool(crypticStarts, safeStyleBias.cryptic));
 
     let weightedEnds = []
-      .concat(this.weightPool(poeticEnds,     safeStyleBias.poetic))
-      .concat(this.weightPool(analyticEnds,   safeStyleBias.analytic))
-      .concat(this.weightPool(emotionalEnds,  safeStyleBias.emotional))
-      .concat(this.weightPool(crypticEnds,    safeStyleBias.cryptic));
+      .concat(this.weightPool(poeticEnds, safeStyleBias.poetic))
+      .concat(this.weightPool(analyticEnds, safeStyleBias.analytic))
+      .concat(this.weightPool(emotionalEnds, safeStyleBias.emotional))
+      .concat(this.weightPool(crypticEnds, safeStyleBias.cryptic));
 
     // Mood baseline nudges tone
-    if (moodBaseline > 0.3) {
+    if (mb > 0.3) {
       weightedStarts = weightedStarts.concat(poeticStarts, emotionalStarts);
-      weightedEnds   = weightedEnds.concat(poeticEnds, emotionalEnds);
-    } else if (moodBaseline < -0.3) {
+      weightedEnds = weightedEnds.concat(poeticEnds, emotionalEnds);
+    } else if (mb < -0.3) {
       weightedStarts = weightedStarts.concat(analyticStarts, crypticStarts);
-      weightedEnds   = weightedEnds.concat(analyticEnds, crypticEnds);
+      weightedEnds = weightedEnds.concat(analyticEnds, crypticEnds);
     }
 
-    // Modulate by anomaly / predLoss / intensity
-    let t1 = Math.min(1, Math.max(0, noise + anomaly * 2 + (intensity - 0.5)));
-    let t2 = Math.min(1, Math.max(0, noise + (predLoss - 0.05) * 4));
+    // ---------------------------------------------------------
+    // Modulation by anomaly / predLoss / intensity
+    // ---------------------------------------------------------
+    const noise = this.latentNoise(safeLatent);
 
-        // Trait influence
-    const safeTraits = traits || [];
-    const curiosity = safeTraits[0] || 0; // curiosity / restlessness
-    const emotionalAmp = safeTraits[2] || 0;
-    const vigilance = safeTraits[3] || 0;
+    let t1 = noise + a * 2 + (i - 0.5);
+    let t2 = noise + (p - 0.05) * 4;
 
-    // curiosity → more randomness in selection
-    t1 = Math.min(1, Math.max(0, t1 + curiosity * 0.1));
+    t1 += curiosity * 0.1;
+
+    t1 = Math.min(1, Math.max(0, t1));
+    t2 = Math.min(1, Math.max(0, t2));
 
     // emotional amplitude → bias toward emotional phrasing
     if (emotionalAmp > 0.2) {
       weightedStarts = weightedStarts.concat(emotionalStarts);
-      weightedEnds   = weightedEnds.concat(emotionalEnds);
+      weightedEnds = weightedEnds.concat(emotionalEnds);
     }
 
     // vigilance → bias toward cryptic style
     if (vigilance > 0.2) {
       weightedStarts = weightedStarts.concat(crypticStarts);
-      weightedEnds   = weightedEnds.concat(crypticEnds);
+      weightedEnds = weightedEnds.concat(crypticEnds);
     }
-    
-    const start = this.pick(weightedStarts, t1);
-    const end   = this.pick(weightedEnds,   t2);
 
-    const focus = focusChannels[focusIndex] || "the unnamed signal";
+    // ---------------------------------------------------------
+    // Final selection
+    // ---------------------------------------------------------
+    const start = this.pick(weightedStarts, t1);
+    const end = this.pick(weightedEnds, t2);
 
     const thought = `${start} ${focus}, ${end}`;
 
     this.lastThought = thought;
-    this.cooldown = 15; // a bit slower than voice
+    this.cooldown = 15;
 
     return {
-        text: thought,
-        metadata: {
-            thought,
-            latent,
-            anomaly,
-            mood,
-            styleBias,
-            timestamp: Date.now()
-        }
-    };    
-    
+      version: this.version,
+      text: thought,
+      metadata: {
+        version: this.version,
+        thought,
+        latent: safeLatent,
+        anomaly: a,
+        mood,
+        styleBias: safeStyleBias,
+        moodBaseline: mb,
+        traits: safeTraits,
+        timestamp: Date.now()
+      }
+    };
   }
 }
 

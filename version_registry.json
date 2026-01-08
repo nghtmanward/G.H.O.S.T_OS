@@ -1,0 +1,16 @@
+{
+  "Compression": "1.0.0-2026.01.08",
+  "EpisodicMemory": "1.1.0-2026.01.08",
+  "Persistence": "1.1.0-2026.01.08",
+  "AttentionEngine": "1.0.0-2026.01.08",
+  "ThoughtEngine": "1.0.0-2026.01.08",
+  "ReflectionState": "1.0.0-2026.01.08",
+  "ThoughtMapper": "1.0.0-2026.01.08",
+  "PersonalityEngine": "1.0.0-2026.01.08",
+  "BehaviorEngine": "1.0.0-2026.01.08",
+  "FacialEmotionalTellEngine": "1.0.0-2026.01.08",
+  "VoiceEngine": "1.0.0-2026.01.08",
+  "InputMapper": "1.0.0-2026.01.08",
+  "VisualSensoryEngine": "1.0.0-2026.01.08",
+  "AnomalyBuffer": "1.0.0-2026.01.08"
+}

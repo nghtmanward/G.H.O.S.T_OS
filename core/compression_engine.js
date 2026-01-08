@@ -1,27 +1,47 @@
 class CompressionEngine {
-  constructor(inputDim, latentDim = 32) {
+  constructor(inputDim = 784, latentDim = 32) {
     this.inputDim = inputDim;
     this.latentDim = latentDim;
 
+    // Local module version (Hybrid Semantic + Date)
+    this.version = "1.0.0-2026.01.08";
+
+    // Central registry reference (expects a "Compression" entry)
+    try {
+      this.registry = require("./version_registry.json");
+    } catch (e) {
+      console.warn(
+        "CompressionEngine: version_registry.json not found or unreadable. Proceeding without central registry validation."
+      );
+      this.registry = null;
+    }
+
+    // Validate version on startup (if registry is available)
+    this._validateVersion();
+
     // Multi‑scale latent channels
-    this.fast = Array(latentDim).fill(0);
-    this.slow = Array(latentDim).fill(0);
+    this.fast = Array(this.latentDim).fill(0);
+    this.slow = Array(this.latentDim).fill(0);
     this.slowRate = 0.01;
 
     // Combined latent
-    this.latent = Array(latentDim).fill(0);
+    this.latent = Array(this.latentDim).fill(0);
 
-    // Structure matrix
-    this.structure = Array(inputDim).fill(0).map(() =>
-      Array(inputDim).fill(0)
-    );
+    // Structure matrix (co‑occurrence, lightweight)
+    this.structure = Array(this.inputDim)
+      .fill(0)
+      .map(() => Array(this.inputDim).fill(0));
 
-    // Projection matrix
-    this.proj = Array(inputDim).fill(0).map(() =>
-      Array(latentDim).fill(0).map(() => (Math.random() * 2 - 1) * 0.1)
-    );
+    // Projection matrix: inputDim × latentDim
+    this.proj = Array(this.inputDim)
+      .fill(0)
+      .map(() =>
+        Array(this.latentDim)
+          .fill(0)
+          .map(() => (Math.random() * 2 - 1) * 0.05)
+      );
 
-    this.learningRate = 0.01;
+    this.learningRate = 0.001; // slightly lower for 784‑dim stability
 
     // Prediction loss history for anomaly detection
     this.predLossHistory = [];
@@ -33,23 +53,51 @@ class CompressionEngine {
   }
 
   // ---------------------------------------------------------
+  // VERSION VALIDATION
+  // ---------------------------------------------------------
+  _validateVersion() {
+    if (!this.registry) {
+      // No registry available; we already warned in constructor
+      return;
+    }
+
+    const expected = this.registry["Compression"];
+    if (!expected) {
+      console.warn(
+        "CompressionEngine: No 'Compression' entry found in version_registry."
+      );
+      return;
+    }
+
+    if (expected !== this.version) {
+      console.error(
+        `CompressionEngine version mismatch: expected ${expected}, got ${this.version}`
+      );
+      throw new Error("Version mismatch in CompressionEngine");
+    }
+  }
+
+  // ---------------------------------------------------------
   // INGEST
   // ---------------------------------------------------------
   ingest(input, nextInput = null) {
-    this._updateStructure(input);
-    this._updateLatent(input);
+    const cleanInput = this._sanitizeInput(input);
+
+    this._updateStructure(cleanInput);
+    this._updateLatent(cleanInput);
 
     const recon = this.reconstruct();
     const prediction = this.predictNext();
 
     // Train reconstruction
-    this._train(input, recon);
+    this._train(cleanInput, recon);
 
     // Predictive training
     let predLoss = 0;
     if (nextInput) {
-      predLoss = this.predictiveLoss(nextInput, prediction);
-      this._trainPredictive(nextInput, prediction);
+      const cleanNext = this._sanitizeInput(nextInput);
+      predLoss = this.predictiveLoss(cleanNext, prediction);
+      this._trainPredictive(cleanNext, prediction);
       this.computeAnomaly(predLoss);
     }
 
@@ -59,7 +107,11 @@ class CompressionEngine {
       this.latentHistory.shift();
     }
 
+    // Validate latent output shape and values before returning
+    this._validateOutput(this.latent);
+
     return {
+      version: this.version,
       latent: this.latent,
       latent3D: this.getLatent3D(),
       latentHistory: this.latentHistory,
@@ -71,14 +123,32 @@ class CompressionEngine {
   }
 
   // ---------------------------------------------------------
-  // STRUCTURE UPDATE
+  // SANITIZE INPUT
+  // ---------------------------------------------------------
+  _sanitizeInput(input) {
+    const out = new Array(this.inputDim);
+
+    const len = Math.min(input.length, this.inputDim);
+    for (let i = 0; i < len; i++) {
+      const v = input[i];
+      out[i] = isFinite(v) ? v : 0;
+    }
+    for (let i = len; i < this.inputDim; i++) {
+      out[i] = 0;
+    }
+
+    return out;
+  }
+
+  // ---------------------------------------------------------
+  // STRUCTURE UPDATE (lightweight)
   // ---------------------------------------------------------
   _updateStructure(input) {
+    // Increment only diagonal entries for active pixels
     for (let i = 0; i < this.inputDim; i++) {
-      if (!input[i]) continue;
-      for (let j = 0; j < this.inputDim; j++) {
-        if (!input[j]) continue;
-        this.structure[i][j] += 1;
+      const v = input[i];
+      if (v > 0.5 && isFinite(v)) {
+        this.structure[i][i] += 1;
       }
     }
   }
@@ -93,7 +163,11 @@ class CompressionEngine {
     for (let j = 0; j < this.latentDim; j++) {
       let sum = 0;
       for (let i = 0; i < this.inputDim; i++) {
-        sum += input[i] * this.proj[i][j];
+        const v = input[i];
+        const w = this.proj[i][j];
+        if (isFinite(v) && isFinite(w)) {
+          sum += v * w;
+        }
       }
       update[j] = Math.tanh(sum);
     }
@@ -106,15 +180,20 @@ class CompressionEngine {
 
     // Slow channel (memory)
     for (let j = 0; j < this.latentDim; j++) {
-      this.slow[j] = (1 - this.slowRate) * this.slow[j] + this.slowRate * update[j];
+      this.slow[j] =
+        (1 - this.slowRate) * this.slow[j] + this.slowRate * update[j];
     }
 
     // Combine channels
     this.latent = this.fast.map((v, j) => v + this.slow[j]);
 
     // Normalize
-    const norm = Math.sqrt(this.latent.reduce((s, v) => s + v * v, 0)) || 1;
-    this.latent = this.latent.map(v => v / norm);
+    const normSq = this.latent.reduce(
+      (s, v) => (isFinite(v) ? s + v * v : s),
+      0
+    );
+    const norm = Math.sqrt(normSq) || 1;
+    this.latent = this.latent.map(v => (isFinite(v) ? v / norm : 0));
   }
 
   // ---------------------------------------------------------
@@ -126,8 +205,13 @@ class CompressionEngine {
     for (let i = 0; i < this.inputDim; i++) {
       let sum = 0;
       for (let j = 0; j < this.latentDim; j++) {
-        sum += this.latent[j] * this.proj[i][j];
+        const l = this.latent[j];
+        const w = this.proj[i][j];
+        if (isFinite(l) && isFinite(w)) {
+          sum += l * w;
+        }
       }
+      // Sigmoid
       out[i] = 1 / (1 + Math.exp(-sum));
     }
 
@@ -135,62 +219,98 @@ class CompressionEngine {
   }
 
   // ---------------------------------------------------------
-  // PREDICTION
+  // PREDICTION (same as reconstruction for now)
   // ---------------------------------------------------------
   predictNext() {
-    const out = Array(this.inputDim).fill(0);
-
-    for (let i = 0; i < this.inputDim; i++) {
-      let sum = 0;
-      for (let j = 0; j < this.latentDim; j++) {
-        sum += this.latent[j] * this.proj[i][j];
-      }
-      out[i] = 1 / (1 + Math.exp(-sum));
-    }
-
-    return out;
+    return this.reconstruct();
   }
 
   // ---------------------------------------------------------
   // LOSSES
   // ---------------------------------------------------------
   loss(original, recon) {
+    const len = Math.min(original.length, recon.length);
+    if (len === 0) return 0;
+
     let sum = 0;
-    for (let i = 0; i < original.length; i++) {
-      const diff = original[i] - recon[i];
+    for (let i = 0; i < len; i++) {
+      const o = original[i];
+      const r = recon[i];
+      if (!isFinite(o) || !isFinite(r)) continue;
+      const diff = o - r;
       sum += diff * diff;
     }
-    return sum / original.length;
+    return sum / len;
   }
 
   predictiveLoss(actualNext, predictedNext) {
+    const len = Math.min(actualNext.length, predictedNext.length);
+    if (len === 0) return 0;
+
     let sum = 0;
-    for (let i = 0; i < actualNext.length; i++) {
-      const diff = actualNext[i] - predictedNext[i];
+    for (let i = 0; i < len; i++) {
+      const a = actualNext[i];
+      const p = predictedNext[i];
+      if (!isFinite(a) || !isFinite(p)) continue;
+      const diff = a - p;
       sum += diff * diff;
     }
-    return sum / actualNext.length;
+    return sum / len;
   }
 
   // ---------------------------------------------------------
   // TRAINING
   // ---------------------------------------------------------
   _train(input, recon) {
-    const error = input.map((v, i) => v - recon[i]);
+    const len = Math.min(this.inputDim, input.length, recon.length);
+    const error = new Array(len);
 
-    for (let i = 0; i < this.inputDim; i++) {
+    for (let i = 0; i < len; i++) {
+      const v = input[i];
+      const r = recon[i];
+      if (!isFinite(v) || !isFinite(r)) {
+        error[i] = 0;
+      } else {
+        error[i] = v - r;
+      }
+    }
+
+    for (let i = 0; i < len; i++) {
+      const e = error[i];
+      if (!isFinite(e)) continue;
       for (let j = 0; j < this.latentDim; j++) {
-        this.proj[i][j] += this.learningRate * error[i] * this.latent[j];
+        const l = this.latent[j];
+        if (!isFinite(l)) continue;
+        this.proj[i][j] += this.learningRate * e * l;
       }
     }
   }
 
   _trainPredictive(actualNext, predictedNext) {
-    const error = actualNext.map((v, i) => v - predictedNext[i]);
+    const len = Math.min(
+      this.inputDim,
+      actualNext.length,
+      predictedNext.length
+    );
+    const error = new Array(len);
 
-    for (let i = 0; i < this.inputDim; i++) {
+    for (let i = 0; i < len; i++) {
+      const a = actualNext[i];
+      const p = predictedNext[i];
+      if (!isFinite(a) || !isFinite(p)) {
+        error[i] = 0;
+      } else {
+        error[i] = a - p;
+      }
+    }
+
+    for (let i = 0; i < len; i++) {
+      const e = error[i];
+      if (!isFinite(e)) continue;
       for (let j = 0; j < this.latentDim; j++) {
-        this.proj[i][j] += this.learningRate * error[i] * this.latent[j];
+        const l = this.latent[j];
+        if (!isFinite(l)) continue;
+        this.proj[i][j] += this.learningRate * e * l;
       }
     }
   }
@@ -199,23 +319,52 @@ class CompressionEngine {
   // ANOMALY DETECTION
   // ---------------------------------------------------------
   computeAnomaly(predLoss) {
-    this.predLossHistory.push(predLoss);
+    const safeLoss = isFinite(predLoss) ? predLoss : 0;
+
+    this.predLossHistory.push(safeLoss);
     if (this.predLossHistory.length > 100) {
       this.predLossHistory.shift();
     }
 
-    const avg = this.predLossHistory.reduce((a, b) => a + b, 0) /
-                this.predLossHistory.length;
+    const sum = this.predLossHistory.reduce(
+      (a, b) => (isFinite(b) ? a + b : a),
+      0
+    );
+    const count =
+      this.predLossHistory.filter(v => isFinite(v)).length || 1;
+    const avg = sum / count;
 
-    this.anomaly = predLoss - avg;
+    this.anomaly = safeLoss - avg;
+    if (!isFinite(this.anomaly)) this.anomaly = 0;
+
     return this.anomaly;
+  }
+
+  // ---------------------------------------------------------
+  // OUTPUT VALIDATION
+  // ---------------------------------------------------------
+  _validateOutput(latent) {
+    if (!Array.isArray(latent) || latent.length !== this.latentDim) {
+      throw new Error("CompressionEngine: latent vector shape mismatch");
+    }
+
+    for (let i = 0; i < latent.length; i++) {
+      const v = latent[i];
+      if (!isFinite(v)) {
+        throw new Error(
+          "CompressionEngine: latent vector contains invalid values"
+        );
+      }
+    }
   }
 
   // ---------------------------------------------------------
   // 3D LATENT
   // ---------------------------------------------------------
   getLatent3D() {
-    const w = 4, h = 4, d = 2;
+    const w = 4,
+      h = 4,
+      d = 2;
     const out = [];
     let idx = 0;
 
@@ -224,7 +373,9 @@ class CompressionEngine {
       for (let y = 0; y < h; y++) {
         const row = [];
         for (let x = 0; x < w; x++) {
-          row.push(this.latent[idx++]);
+          const v = this.latent[idx] ?? 0;
+          row.push(v);
+          idx++;
         }
         layer.push(row);
       }

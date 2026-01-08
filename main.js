@@ -14,13 +14,21 @@ const VoiceEngine = require('./core/voice_engine');
 const PersonalityEngine = require('./core/personality_engine');
 const FacialEmotionalTellEngine = require('./core/facial_emotional_tell_engine');
 
+const { DatasetStreamer } = require('./core/dataset_streamer');
+const streamer = new DatasetStreamer();
+let trainingOffset = 0;
+
 let webcamFeatures = null;
+
+// ⭐ NEW: anomaly buffer
+const AnomalyBuffer = require('./core/anomaly_buffer');
+const anomalyBuffer = new AnomalyBuffer();
 
 /* -----------------------------------------
    CORE ENGINES
 ----------------------------------------- */
 
-const engine = new CompressionEngine(12, 32);   // 12‑dim input vector
+const engine = new CompressionEngine(784, 32);
 const behavior = new BehaviorEngine();
 const mapper = new InputMapper();
 const attention = new AttentionEngine(12);
@@ -61,6 +69,45 @@ setInterval(() => {
     attention: attention.weights
   });
 }, 5000);
+
+/* -----------------------------------------
+   DEVELOPMENTAL TRAINING LOOP (LOCAL MNIST)
+----------------------------------------- */
+
+async function developmentalTraining() {
+  while (true) {
+    try {
+      const sample = await streamer.streamMNIST(trainingOffset);
+
+      if (!sample) {
+        console.log(`🔄 Rewinding MNIST dataset...`);
+        trainingOffset = 0;
+        continue;
+      }
+
+      console.log(`🧮 MNIST sample ${trainingOffset} ingested`);
+
+      let vector = sample.pixels.map(v => v / 255);
+
+      if (!Array.isArray(vector) || vector.length !== 784) {
+        console.log(`⚠️ Invalid MNIST vector at row ${trainingOffset}`);
+        trainingOffset++;
+        continue;
+      }
+
+      vector = vector.map(v => (isFinite(v) ? v : 0));
+
+      engine.ingest(vector, vector);
+
+      trainingOffset++;
+      await new Promise(r => setTimeout(r, 10));
+
+    } catch (err) {
+      console.error("❌ Training error:", err);
+      await new Promise(r => setTimeout(r, 500));
+    }
+  }
+}
 
 /* -----------------------------------------
    CREATE WINDOW
@@ -107,7 +154,8 @@ ipcMain.handle('ghost-input', () => {
   const rawInput = mapper.getVector();
   const attendedInput = attention.applyAttention(rawInput);
 
-  const facialState = facial.update(webcamFeatures);
+  const safeFacial = webcamFeatures || {};
+  const facialState = facial.update(safeFacial);
 
   const pre = engine.predictNext();
   const predLossBefore = engine.predictiveLoss(attendedInput, pre);
@@ -132,8 +180,7 @@ ipcMain.handle('ghost-input', () => {
     anomaly: result.anomaly,
     predLoss: result.predLoss,
     intensity: behaviorState.intensity,
-    mood: behaviorState.mood,
-    facial: facialState
+    mood: behaviorState.mood
   });
 
   const reflectionState = reflection.build({
@@ -156,43 +203,51 @@ ipcMain.handle('ghost-input', () => {
     latent: result.latent,
     styleBias: personalityState.styleBias,
     moodBaseline: personalityState.moodBaseline,
-    traits: personalityState.traits,
-    facial: facialState
+    traits: personalityState.traits
   });
 
-  // Store episodic memory
-  if (typeof voiceLine === "string") {
-    episodic.addEpisode(voiceLine, {
-      thought: voiceLine,
+  // ⭐ NEW: anomaly buffer ingestion
+  const anomalyFlag = anomalyBuffer.ingest({
+    anomaly: result.anomaly,
+    predLoss: result.predLoss,
+    latent: result.latent,
+    mood: behaviorState.mood,
+    traits: personalityState.traits,
+    source: "ghost-input"
+  });
+
+  // ⭐ NEW: anomaly-aware episodic memory write
+  if (anomalyBuffer.shouldRecordEpisode(anomalyFlag)) {
+    const metadata = {
+      thought: typeof voiceLine === "string" ? voiceLine : voiceLine?.text,
       latent: result.latent,
       anomaly: result.anomaly,
       mood: behaviorState.mood,
       styleBias: personalityState.styleBias,
+      traits: personalityState.traits,
       timestamp: Date.now()
-    });
-  } else if (voiceLine && voiceLine.metadata) {
-    episodic.addEpisode(voiceLine.text, voiceLine.metadata);
-  }
+    };
 
-  /* -----------------------------------------
-     SAFE RETURN OBJECT (no null/undefined)
-  ----------------------------------------- */
+    const filtered = anomalyBuffer.filterMetadata(metadata);
+    episodic.addEpisode(filtered.thought, filtered);
+  } else {
+    console.log("⚠️ Episode quarantined due to anomaly:", anomalyFlag);
+  }
 
   return {
     ...result,
     loss: engine.loss(attendedInput, result.recon),
     behavior: behaviorState,
     attention: attention.weights,
-
-    // ⭐ SAFE voice output (never null/undefined)
     voice: typeof voiceLine === "string"
       ? voiceLine
       : (voiceLine?.text || ""),
-
     personality: personalityState,
-    episodicMemory: episodic.getSummary(),
+    memorySummary: episodic.getSummary(),
     reflection: reflectionState,
-    thoughtSeed: thoughtSeed || ""
+    thoughtSeed: thoughtSeed || "",
+    anomalyFlag,
+    anomalyQuarantine: anomalyBuffer.getQuarantine()
   };
 });
 
@@ -212,4 +267,5 @@ ipcMain.on('focus-change', (e, state) => mapper.setFocus(state));
 
 app.whenReady().then(() => {
   createWindow();
+  developmentalTraining();
 });

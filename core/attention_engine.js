@@ -1,38 +1,120 @@
 class AttentionEngine {
-  constructor(inputDim = 12) {
+  constructor(inputDim = 784) {
     this.inputDim = inputDim;
 
-    // Start with equal attention on all channels
-    this.weights = Array(inputDim).fill(1 / inputDim);
+    // ---------------------------------------------------------
+    // VERSIONING (Hybrid Semantic + Date)
+    // ---------------------------------------------------------
+    this.version = "1.0.0-2026.01.08";
 
-    // Track usefulness of each dimension
-    this.utility = Array(inputDim).fill(0);
+    try {
+      this.registry = require("../version_registry.json");
+    } catch (e) {
+      console.warn(
+        "AttentionEngine: version_registry.json missing or unreadable. Proceeding without registry validation."
+      );
+      this.registry = null;
+    }
+
+    this._validateVersion();
+
+    // ---------------------------------------------------------
+    // INTERNAL STATE
+    // ---------------------------------------------------------
+    this.weights = Array(this.inputDim).fill(1 / this.inputDim);
+    this.utility = Array(this.inputDim).fill(0);
   }
 
+  // ---------------------------------------------------------
+  // VERSION VALIDATION
+  // ---------------------------------------------------------
+  _validateVersion() {
+    if (!this.registry) return;
+
+    const expected = this.registry["AttentionEngine"];
+    if (!expected) {
+      console.warn(
+        "AttentionEngine: No 'AttentionEngine' entry found in version_registry."
+      );
+      return;
+    }
+
+    if (expected !== this.version) {
+      console.error(
+        `AttentionEngine version mismatch: expected ${expected}, got ${this.version}`
+      );
+      throw new Error("Version mismatch in AttentionEngine");
+    }
+  }
+
+  // ---------------------------------------------------------
+  // APPLY ATTENTION
+  // ---------------------------------------------------------
   applyAttention(inputVector) {
-    return inputVector.map((v, i) => v * this.weights[i]);
+    if (!Array.isArray(inputVector)) return Array(this.inputDim).fill(0);
+
+    const len = Math.min(inputVector.length, this.weights.length);
+    const out = new Array(len);
+
+    for (let i = 0; i < len; i++) {
+      const v = inputVector[i];
+      const w = this.weights[i];
+      out[i] = isFinite(v) && isFinite(w) ? v * w : 0;
+    }
+
+    this._validateOutput(out);
+    return out;
   }
 
+  // ---------------------------------------------------------
+  // UPDATE ATTENTION
+  // ---------------------------------------------------------
   updateAttention(inputVector, predLossBefore, predLossAfter) {
-  const improvement = predLossBefore - predLossAfter;
+    if (!isFinite(predLossBefore) || !isFinite(predLossAfter)) {
+      return this.weights;
+    }
 
-  for (let i = 0; i < this.inputDim; i++) {
-    const contribution = Math.abs(inputVector[i]);
-    const delta = improvement * contribution;
+    const improvement = predLossBefore - predLossAfter;
+    const len = Math.min(inputVector.length, this.inputDim);
 
-    this.utility[i] += Number.isFinite(delta) ? delta : 0;
+    for (let i = 0; i < len; i++) {
+      const v = inputVector[i];
+      const contribution = Math.abs(isFinite(v) ? v : 0);
+      const delta = improvement * contribution;
+
+      if (isFinite(delta)) {
+        this.utility[i] += delta;
+      }
+    }
+
+    const minU = Math.min(...this.utility);
+
+    const shifted = this.utility.map(u => {
+      const val = u - minU + 0.0001;
+      return isFinite(val) ? val : 0.0001;
+    });
+
+    const sum = shifted.reduce((a, b) => a + b, 0) || 1;
+
+    this.weights = shifted.map(v => v / sum);
+
+    this._validateOutput(this.weights);
+    return this.weights;
   }
 
-  const minU = Math.min(...this.utility);
-  const shifted = this.utility.map(u =>
-    Number.isFinite(u - minU) ? (u - minU + 0.0001) : 0.0001
-  );
+  // ---------------------------------------------------------
+  // OUTPUT VALIDATION
+  // ---------------------------------------------------------
+  _validateOutput(arr) {
+    if (!Array.isArray(arr)) {
+      throw new Error("AttentionEngine: output is not an array");
+    }
 
-  const sum = shifted.reduce((a, b) => a + b, 0) || 1;
-
-  this.weights = shifted.map(v => v / sum);
-
-  return this.weights;
+    for (let v of arr) {
+      if (!isFinite(v)) {
+        throw new Error("AttentionEngine: output contains invalid values");
+      }
+    }
   }
 }
 

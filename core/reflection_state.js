@@ -1,17 +1,59 @@
-// core/reflection_state.js
-
 class ReflectionState {
   constructor() {
-    this.historyWindow = 32; // how many timesteps of latent/anomaly we consider
+    // ---------------------------------------------------------
+    // VERSIONING (Hybrid Semantic + Date)
+    // ---------------------------------------------------------
+    this.version = "1.0.0-2026.01.08";
+
+    try {
+      this.registry = require("../version_registry.json");
+    } catch (e) {
+      console.warn(
+        "ReflectionState: version_registry.json missing or unreadable. Proceeding without registry validation."
+      );
+      this.registry = null;
+    }
+
+    this._validateVersion();
+
+    // ---------------------------------------------------------
+    // INTERNAL SETTINGS
+    // ---------------------------------------------------------
+    this.historyWindow = 32;
   }
 
+  // ---------------------------------------------------------
+  // VERSION VALIDATION
+  // ---------------------------------------------------------
+  _validateVersion() {
+    if (!this.registry) return;
+
+    const expected = this.registry["ReflectionState"];
+    if (!expected) {
+      console.warn(
+        "ReflectionState: No 'ReflectionState' entry found in version_registry."
+      );
+      return;
+    }
+
+    if (expected !== this.version) {
+      console.error(
+        `ReflectionState version mismatch: expected ${expected}, got ${this.version}`
+      );
+      throw new Error("Version mismatch in ReflectionState");
+    }
+  }
+
+  // ---------------------------------------------------------
+  // MAIN REFLECTION BUILD
+  // ---------------------------------------------------------
   build({
-    latentHistory = [],       // array of latent vectors (recent → last)
-    anomalyHistory = [],      // array of anomaly values (recent → last)
-    predLossHistory = [],     // array of prediction loss values
-    memorySummary = null,     // from episodicMemory.getSummary()
-    personality = null,       // { moodBaseline, traits, styleBias }
-    attention = []            // current attention weights
+    latentHistory = [],
+    anomalyHistory = [],
+    predLossHistory = [],
+    memorySummary = null,
+    personality = null,
+    attention = []
   } = {}) {
     const latentDrift = this.computeLatentDrift(latentHistory);
     const anomalyTrend = this.computeTrend(anomalyHistory);
@@ -20,23 +62,66 @@ class ReflectionState {
     const memoryLoad = this.computeMemoryLoad(memorySummary);
     const moodState = this.computeMoodState(personality);
 
-    return {
-      latentDrift,      // how “restless” the inner state feels
-      anomalyTrend,     // are things getting weirder or calmer
-      lossTrend,        // is the world getting more/less predictable
-      attentionFocus,   // what the ghost is currently “looking at”
-      memoryLoad,       // how full/heavy its memory feels
-      moodState,        // distilled mood + traits
+    const snapshot = {
+      version: this.version,
+      latentDrift,
+      anomalyTrend,
+      lossTrend,
+      attentionFocus,
+      memoryLoad,
+      moodState,
       timestamp: Date.now()
     };
+
+    this._validateSnapshot(snapshot);
+    return snapshot;
   }
 
+  // ---------------------------------------------------------
+  // SNAPSHOT VALIDATION
+  // ---------------------------------------------------------
+  _validateSnapshot(s) {
+    if (!s || typeof s !== "object") {
+      throw new Error("ReflectionState: invalid snapshot object");
+    }
+
+    if (!isFinite(s.timestamp)) {
+      throw new Error("ReflectionState: invalid timestamp");
+    }
+
+    // Validate numeric fields inside nested structures
+    const numericChecks = [
+      s.latentDrift?.magnitude,
+      s.latentDrift?.volatility,
+      s.anomalyTrend?.slope,
+      s.anomalyTrend?.recentAvg,
+      s.lossTrend?.slope,
+      s.lossTrend?.recentAvg,
+      s.attentionFocus?.dominantWeight,
+      s.attentionFocus?.entropy,
+      s.memoryLoad?.fillRatio,
+      s.memoryLoad?.count,
+      s.memoryLoad?.limit,
+      s.moodState?.moodBaseline,
+      s.moodState?.emotionality,
+      s.moodState?.curiosity
+    ];
+
+    for (let v of numericChecks) {
+      if (v !== undefined && !isFinite(v)) {
+        throw new Error("ReflectionState: snapshot contains invalid numeric values");
+      }
+    }
+  }
+
+  // ---------------------------------------------------------
+  // LATENT DRIFT
+  // ---------------------------------------------------------
   computeLatentDrift(latentHistory) {
     if (!Array.isArray(latentHistory) || latentHistory.length < 2) {
       return { magnitude: 0, volatility: 0 };
     }
 
-    // Use up to historyWindow most recent entries
     const recent = latentHistory.slice(-this.historyWindow);
     let totalDist = 0;
     let maxStep = 0;
@@ -48,6 +133,8 @@ class ReflectionState {
       if (!Array.isArray(prev) || !Array.isArray(cur)) continue;
 
       const dist = this.euclideanDistance(prev, cur);
+      if (!isFinite(dist)) continue;
+
       totalDist += dist;
       if (dist > maxStep) maxStep = dist;
       steps++;
@@ -56,20 +143,30 @@ class ReflectionState {
     if (steps === 0) return { magnitude: 0, volatility: 0 };
 
     return {
-      magnitude: totalDist / steps, // average movement in latent space
-      volatility: maxStep           // biggest single jump
+      magnitude: totalDist / steps,
+      volatility: maxStep
     };
   }
 
+  // ---------------------------------------------------------
+  // TREND ANALYSIS
+  // ---------------------------------------------------------
   computeTrend(values) {
     if (!Array.isArray(values) || values.length < 2) {
       return { direction: 0, slope: 0, recentAvg: 0 };
     }
 
-    const recent = values.slice(-this.historyWindow);
+    const recent = values
+      .slice(-this.historyWindow)
+      .map(v => (isFinite(v) ? v : 0));
+
     const n = recent.length;
 
-    let sumX = 0, sumY = 0, sumXY = 0, sumXX = 0;
+    let sumX = 0,
+      sumY = 0,
+      sumXY = 0,
+      sumXX = 0;
+
     for (let i = 0; i < n; i++) {
       const x = i;
       const y = recent[i];
@@ -81,6 +178,7 @@ class ReflectionState {
 
     const denom = n * sumXX - sumX * sumX;
     const slope = denom === 0 ? 0 : (n * sumXY - sumX * sumY) / denom;
+
     const recentAvg = recent.reduce((a, b) => a + b, 0) / n;
 
     let direction = 0;
@@ -88,23 +186,29 @@ class ReflectionState {
     if (slope > eps) direction = 1;
     else if (slope < -eps) direction = -1;
 
-    return { direction, slope, recentAvg };
+    return {
+      direction,
+      slope: isFinite(slope) ? slope : 0,
+      recentAvg: isFinite(recentAvg) ? recentAvg : 0
+    };
   }
 
+  // ---------------------------------------------------------
+  // ATTENTION FOCUS
+  // ---------------------------------------------------------
   computeAttentionFocus(attention) {
     if (!Array.isArray(attention) || attention.length === 0) {
-      return {
-        dominantIndex: null,
-        dominantWeight: 0,
-        entropy: 0
-      };
+      return { dominantIndex: null, dominantWeight: 0, entropy: 0 };
     }
 
+    const clean = attention.map(v => (isFinite(v) ? v : 0));
+
     let maxIdx = 0;
-    let maxVal = attention[0];
+    let maxVal = clean[0];
     let sum = 0;
-    for (let i = 0; i < attention.length; i++) {
-      const v = attention[i] ?? 0;
+
+    for (let i = 0; i < clean.length; i++) {
+      const v = clean[i];
       sum += v;
       if (v > maxVal) {
         maxVal = v;
@@ -112,11 +216,10 @@ class ReflectionState {
       }
     }
 
-    // Normalize for entropy
     let entropy = 0;
     if (sum > 0) {
-      for (let i = 0; i < attention.length; i++) {
-        const p = (attention[i] ?? 0) / sum;
+      for (let i = 0; i < clean.length; i++) {
+        const p = clean[i] / sum;
         if (p > 0) entropy -= p * Math.log2(p);
       }
     }
@@ -124,23 +227,25 @@ class ReflectionState {
     return {
       dominantIndex: maxIdx,
       dominantWeight: maxVal,
-      entropy // low entropy = very focused, high entropy = spread out
+      entropy: isFinite(entropy) ? entropy : 0
     };
   }
 
+  // ---------------------------------------------------------
+  // MEMORY LOAD
+  // ---------------------------------------------------------
   computeMemoryLoad(memorySummary) {
     if (!memorySummary) {
-      return {
-        fillRatio: 0,
-        count: 0,
-        limit: 0,
-        feelsHeavy: false
-      };
+      return { fillRatio: 0, count: 0, limit: 0, feelsHeavy: false };
     }
 
-    const { count = 0, limit = 1 } = memorySummary;
-    const safeLimit = limit <= 0 ? 1 : limit;
-    const fillRatio = Math.max(0, Math.min(1, count / safeLimit));
+    const count = isFinite(memorySummary.count) ? memorySummary.count : 0;
+    const limit =
+      isFinite(memorySummary.limit) && memorySummary.limit > 0
+        ? memorySummary.limit
+        : 1;
+
+    const fillRatio = Math.max(0, Math.min(1, count / limit));
 
     return {
       fillRatio,
@@ -150,6 +255,9 @@ class ReflectionState {
     };
   }
 
+  // ---------------------------------------------------------
+  // MOOD STATE
+  // ---------------------------------------------------------
   computeMoodState(personality) {
     if (!personality) {
       return {
@@ -160,42 +268,45 @@ class ReflectionState {
       };
     }
 
-    const {
-      moodBaseline = 0,
-      traits = [],
-      styleBias = {}
-    } = personality;
+    const { moodBaseline = 0, traits = [], styleBias = {} } = personality;
 
-    const safeTraits = Array.isArray(traits) ? traits : [0, 0, 0, 0];
+    const safeTraits = Array.isArray(traits)
+      ? traits.map(v => (isFinite(v) ? v : 0))
+      : [0, 0, 0, 0];
+
     const curiosity = safeTraits[0] || 0;
     const emotionality = safeTraits[2] || 0;
 
-    // Pick dominant style, similar to episodic memory
     let styleHint = "neutral";
     let max = -Infinity;
+
     for (let k in styleBias || {}) {
       const v = styleBias[k];
-      if (typeof v === "number" && v > max) {
+      if (isFinite(v) && v > max) {
         max = v;
         styleHint = k;
       }
     }
 
     return {
-      moodBaseline,
+      moodBaseline: isFinite(moodBaseline) ? moodBaseline : 0,
       emotionality,
       curiosity,
       styleHint
     };
   }
 
+  // ---------------------------------------------------------
+  // EUCLIDEAN DISTANCE
+  // ---------------------------------------------------------
   euclideanDistance(a, b) {
     const len = Math.min(a.length, b.length);
     if (len === 0) return 0;
+
     let sum = 0;
     for (let i = 0; i < len; i++) {
-      const da = a[i] ?? 0;
-      const db = b[i] ?? 0;
+      const da = isFinite(a[i]) ? a[i] : 0;
+      const db = isFinite(b[i]) ? b[i] : 0;
       const d = da - db;
       sum += d * d;
     }

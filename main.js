@@ -13,6 +13,10 @@ const ThoughtEngine = require('./core/thought_engine');
 const VoiceEngine = require('./core/voice_engine');
 const PersonalityEngine = require('./core/personality_engine');
 const FacialEmotionalTellEngine = require('./core/facial_emotional_tell_engine');
+const { ShardManager } = require('./core/shard_manager');
+const { DreamingEngine } = require('./core/dreaming_engine');
+const { EmotionEngine } = require('./core/emotion_engine');
+const { TemporalEngine } = require('./core/temporal_engine');
 
 const { DatasetStreamer } = require('./core/dataset_streamer');
 const streamer = new DatasetStreamer();
@@ -20,7 +24,7 @@ let trainingOffset = 0;
 
 let webcamFeatures = null;
 
-// ⭐ NEW: anomaly buffer
+// NEW: anomaly buffer
 const AnomalyBuffer = require('./core/anomaly_buffer');
 const anomalyBuffer = new AnomalyBuffer();
 
@@ -40,6 +44,13 @@ const episodic = new EpisodicMemory();
 const reflection = new ReflectionState();
 const thoughtMapper = new ThoughtMapper();
 const facial = new FacialEmotionalTellEngine();
+const emotion = new EmotionEngine();
+const temporal = new TemporalEngine();
+
+// NEW: episodic shard manager + dreaming engine + episode counter
+const shardManager = new ShardManager();
+const dreamingEngine = new DreamingEngine();
+let episodeCount = 0;
 
 /* -----------------------------------------
    LOAD MEMORY ON STARTUP
@@ -80,12 +91,12 @@ async function developmentalTraining() {
       const sample = await streamer.streamMNIST(trainingOffset);
 
       if (!sample) {
-        console.log(`🔄 Rewinding MNIST dataset...`);
+        console.log(`Rewinding MNIST dataset...`);
         trainingOffset = 0;
         continue;
       }
 
-      console.log(`🧮 MNIST sample ${trainingOffset} ingested`);
+      console.log(`MNIST sample ${trainingOffset} ingested`);
 
       let vector = sample.pixels.map(v => v / 255);
 
@@ -103,7 +114,7 @@ async function developmentalTraining() {
       await new Promise(r => setTimeout(r, 10));
 
     } catch (err) {
-      console.error("❌ Training error:", err);
+      console.error("Training error:", err);
       await new Promise(r => setTimeout(r, 500));
     }
   }
@@ -183,6 +194,14 @@ ipcMain.handle('ghost-input', () => {
     mood: behaviorState.mood
   });
 
+  // ⭐ Emotion state must be computed BEFORE using it
+  const emotionState = emotion.update({
+    anomaly: result.anomaly,
+    predLoss: result.predLoss,
+    mood: behaviorState.mood,
+    dream: false
+  });
+
   const reflectionState = reflection.build({
     latentHistory: engine.latentHistory || [],
     anomalyHistory: engine.anomalyHistory || [],
@@ -198,15 +217,27 @@ ipcMain.handle('ghost-input', () => {
     anomaly: result.anomaly,
     predLoss: result.predLoss,
     attention: attention.weights,
+
+    // Behavior-driven mood (fast-changing)
     mood: behaviorState.mood,
+
+    // Emotion engine (slow + deep)
+    emotionalMood: emotionState.mood,
+    moodBaseline: emotionState.baseline,
+    emotionalIntensity: emotionState.intensity,
+
+    // Cognitive intensity
     intensity: behaviorState.intensity,
+
+    // Latent vector
     latent: result.latent,
+
+    // Personality shaping
     styleBias: personalityState.styleBias,
-    moodBaseline: personalityState.moodBaseline,
     traits: personalityState.traits
   });
 
-  // ⭐ NEW: anomaly buffer ingestion
+  // NEW: anomaly buffer ingestion
   const anomalyFlag = anomalyBuffer.ingest({
     anomaly: result.anomaly,
     predLoss: result.predLoss,
@@ -216,7 +247,7 @@ ipcMain.handle('ghost-input', () => {
     source: "ghost-input"
   });
 
-  // ⭐ NEW: anomaly-aware episodic memory write
+  // NEW: anomaly-aware episodic memory write
   if (anomalyBuffer.shouldRecordEpisode(anomalyFlag)) {
     const metadata = {
       thought: typeof voiceLine === "string" ? voiceLine : voiceLine?.text,
@@ -225,11 +256,64 @@ ipcMain.handle('ghost-input', () => {
       mood: behaviorState.mood,
       styleBias: personalityState.styleBias,
       traits: personalityState.traits,
-      timestamp: Date.now()
+      timestamp: Date.now(),
+      type: 'experience'
     };
 
     const filtered = anomalyBuffer.filterMetadata(metadata);
+
+    // Existing episodic memory
     episodic.addEpisode(filtered.thought, filtered);
+
+    // NEW: write to shard-based episodic memory
+    shardManager.addEpisode({
+      text: filtered.thought,
+      anomaly: filtered.anomaly,
+      mood: filtered.mood,
+      style: filtered.styleBias,
+      latentMag: Array.isArray(filtered.latent)
+        ? Math.sqrt(filtered.latent.reduce((sum, v) => sum + v * v, 0))
+        : 0,
+      timestamp: filtered.timestamp,
+      type: filtered.type,
+      traits: filtered.traits
+    });
+
+    // ⭐ NEW: feed into temporal engine
+    temporal.ingestEpisode({
+      timestamp: filtered.timestamp,
+      type: filtered.type,
+      anomaly: filtered.anomaly,
+      mood: filtered.mood,
+      emotionalWeight: emotionState.intensity,
+      baseline: emotionState.baseline
+    });
+
+    // NEW: increment episode counter and trigger dreaming every 20 episodes
+    episodeCount++;
+    const DREAM_INTERVAL = 20;
+
+    if (episodeCount % DREAM_INTERVAL === 0) {
+      const dreams = dreamingEngine.runDreamCycle({
+        seedCount: 3,
+        clusterSize: 5,
+        maxDreams: 5
+      });
+
+      console.log(`🌙 Dream cycle completed: ${dreams.length} dreams generated.`);
+
+      // ⭐ Feed dreams into temporal engine
+      dreams.forEach(d => {
+        temporal.ingestEpisode({
+          timestamp: d.timestamp,
+          type: "dream",
+          anomaly: d.anomaly,
+          mood: d.mood,
+          emotionalWeight: d.emotionalWeight,
+          baseline: emotionState.baseline
+        });
+      });
+    }
   } else {
     console.log("⚠️ Episode quarantined due to anomaly:", anomalyFlag);
   }
@@ -247,7 +331,10 @@ ipcMain.handle('ghost-input', () => {
     reflection: reflectionState,
     thoughtSeed: thoughtSeed || "",
     anomalyFlag,
-    anomalyQuarantine: anomalyBuffer.getQuarantine()
+    anomalyQuarantine: anomalyBuffer.getQuarantine(),
+
+    // ⭐ NEW: temporal summary
+    temporalSummary: temporal.buildSummary()
   };
 });
 

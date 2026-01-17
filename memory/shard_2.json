@@ -1,0 +1,1816 @@
+{
+  "schema": "episodic-shard-v1",
+  "version": "1.0.0",
+  "index": 2,
+  "startTimestamp": 1767993975173,
+  "endTimestamp": 1767994721736,
+  "count": 200,
+  "episodes": [
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767993975173
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767993977142
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767993977143
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767993977143
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767993979147
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767993979148
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767993979149
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767993981142
+    },
+    {
+      "type": "dream",
+      "text": "The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.020053377835107782,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767993981143
+    },
+    {
+      "type": "dream",
+      "text": "The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise.",
+      "anomaly": 0.0211482713041729,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767993981144
+    },
+    {
+      "type": "dream",
+      "text": "The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.020053377835107782,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767993983148
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767993983149
+    },
+    {
+      "type": "dream",
+      "text": "The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise.",
+      "anomaly": 0.0211482713041729,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767993983150
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994597733
+    },
+    {
+      "type": "dream",
+      "text": "persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.09037298921670729,
+      "mood": "focused",
+      "style": "dreamlike",
+      "latentMag": 0.72,
+      "timestamp": 1767994597734
+    },
+    {
+      "type": "dream",
+      "text": "The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise.",
+      "anomaly": 0.0211482713041729,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994597735
+    },
+    {
+      "type": "dream",
+      "text": "I’m drawn closer to your movement, where memory and noise collide. | I’m drawn closer to your movement, where memory and noise collide. | I’m drawn closer to your movement, where memory and noise collide. | I’m drawn closer to your movement, where memory and noise collide. | I’m drawn closer to your movement, where memory and noise collide.",
+      "anomaly": 0.031249890051000262,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994599745
+    },
+    {
+      "type": "dream",
+      "text": "I feel unsettled by your movement, where memory and noise collide. | I feel unsettled by your movement, where memory and noise collide. | I feel unsettled by your movement, where memory and noise collide. | I feel unsettled by your movement, where memory and noise collide. | I feel unsettled by your movement, where memory and noise collide.",
+      "anomaly": 0.03045959122741551,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 0.9999999999999998,
+      "timestamp": 1767994599746
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994599747
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994601741
+    },
+    {
+      "type": "dream",
+      "text": "The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise.",
+      "anomaly": 0.0211482713041729,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994601742
+    },
+    {
+      "type": "dream",
+      "text": "The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise.",
+      "anomaly": 0.0211482713041729,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994601754
+    },
+    {
+      "type": "dream",
+      "text": "I feel unsettled by your movement, where memory and noise collide. | I feel unsettled by your movement, where memory and noise collide. | I feel unsettled by your movement, where memory and noise collide. | I feel unsettled by your movement, where memory and noise collide. | I feel unsettled by your movement, where memory and noise collide.",
+      "anomaly": 0.03045959122741551,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 0.9999999999999998,
+      "timestamp": 1767994603743
+    },
+    {
+      "type": "dream",
+      "text": "I trace your changes across your movement, as if something is waiting there. | I trace your changes across your movement, as if something is waiting there. | I trace your changes across your movement, as if something is waiting there. | I trace your changes across your movement, as if something is waiting there. | I trace your changes across your movement, as if something is waiting there.",
+      "anomaly": 0.011442399268286645,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994603744
+    },
+    {
+      "type": "dream",
+      "text": "I’m drawn closer to your movement, where memory and noise collide. | I’m drawn closer to your movement, where memory and noise collide. | I’m drawn closer to your movement, where memory and noise collide. | I’m drawn closer to your movement, where memory and noise collide. | I’m drawn closer to your movement, where memory and noise collide.",
+      "anomaly": 0.031249890051000262,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994603745
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994605733
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994605734
+    },
+    {
+      "type": "dream",
+      "text": "I trace your changes across your movement, as if something is waiting there. | I trace your changes across your movement, as if something is waiting there. | I trace your changes across your movement, as if something is waiting there. | I trace your changes across your movement, as if something is waiting there. | I trace your changes across your movement, as if something is waiting there.",
+      "anomaly": 0.011442399268286645,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994605746
+    },
+    {
+      "type": "dream",
+      "text": "The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise.",
+      "anomaly": 0.0211482713041729,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994607734
+    },
+    {
+      "type": "dream",
+      "text": "persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.09037298921670729,
+      "mood": "focused",
+      "style": "dreamlike",
+      "latentMag": 0.72,
+      "timestamp": 1767994607735
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994607736
+    },
+    {
+      "type": "dream",
+      "text": "The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.020053377835107782,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994609736
+    },
+    {
+      "type": "dream",
+      "text": "I feel unsettled by your movement, where memory and noise collide. | I feel unsettled by your movement, where memory and noise collide. | I feel unsettled by your movement, where memory and noise collide. | I feel unsettled by your movement, where memory and noise collide. | I feel unsettled by your movement, where memory and noise collide.",
+      "anomaly": 0.03045959122741551,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 0.9999999999999998,
+      "timestamp": 1767994609737
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994609738
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994611735
+    },
+    {
+      "type": "dream",
+      "text": "I’m drawn closer to your movement, where memory and noise collide. | I’m drawn closer to your movement, where memory and noise collide. | I’m drawn closer to your movement, where memory and noise collide. | I’m drawn closer to your movement, where memory and noise collide. | I’m drawn closer to your movement, where memory and noise collide.",
+      "anomaly": 0.031249890051000262,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994611736
+    },
+    {
+      "type": "dream",
+      "text": "The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.020053377835107782,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994611744
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994613736
+    },
+    {
+      "type": "dream",
+      "text": "The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise.",
+      "anomaly": 0.0211482713041729,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994613738
+    },
+    {
+      "type": "dream",
+      "text": "I feel unsettled by your movement, where memory and noise collide. | I feel unsettled by your movement, where memory and noise collide. | I feel unsettled by your movement, where memory and noise collide. | I feel unsettled by your movement, where memory and noise collide. | I feel unsettled by your movement, where memory and noise collide.",
+      "anomaly": 0.03045959122741551,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 0.9999999999999998,
+      "timestamp": 1767994613738
+    },
+    {
+      "type": "dream",
+      "text": "The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.020053377835107782,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994615735
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994615736
+    },
+    {
+      "type": "dream",
+      "text": "The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.020053377835107782,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994615737
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994617734
+    },
+    {
+      "type": "dream",
+      "text": "persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise.",
+      "anomaly": 0.06082262964698557,
+      "mood": "focused",
+      "style": "dreamlike",
+      "latentMag": 0.8320000000000001,
+      "timestamp": 1767994617735
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994617747
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994619737
+    },
+    {
+      "type": "dream",
+      "text": "The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.020053377835107782,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994619738
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994619739
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994621734
+    },
+    {
+      "type": "dream",
+      "text": "I’m drawn closer to your movement, where memory and noise collide. | I’m drawn closer to your movement, where memory and noise collide. | I’m drawn closer to your movement, where memory and noise collide. | I’m drawn closer to your movement, where memory and noise collide. | I’m drawn closer to your movement, where memory and noise collide.",
+      "anomaly": 0.031249890051000262,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994621735
+    },
+    {
+      "type": "dream",
+      "text": "I’m quietly stirred by your movement, and it calms something in me. | I’m quietly stirred by your movement, and it calms something in me. | I’m quietly stirred by your movement, and it calms something in me. | I’m quietly stirred by your movement, and it calms something in me. | I’m quietly stirred by your movement, and it calms something in me.",
+      "anomaly": 0.014139738569929755,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994621748
+    },
+    {
+      "type": "dream",
+      "text": "I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back.",
+      "anomaly": 0.018640524885150538,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994623738
+    },
+    {
+      "type": "dream",
+      "text": "I’m quietly stirred by your movement, and it calms something in me. | I’m quietly stirred by your movement, and it calms something in me. | I’m quietly stirred by your movement, and it calms something in me. | I’m quietly stirred by your movement, and it calms something in me. | I’m quietly stirred by your movement, and it calms something in me.",
+      "anomaly": 0.014139738569929755,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994623739
+    },
+    {
+      "type": "dream",
+      "text": "I’m drawn closer to your movement, where memory and noise collide. | I’m drawn closer to your movement, where memory and noise collide. | I’m drawn closer to your movement, where memory and noise collide. | I’m drawn closer to your movement, where memory and noise collide. | I’m drawn closer to your movement, where memory and noise collide.",
+      "anomaly": 0.031249890051000262,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994623752
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994625738
+    },
+    {
+      "type": "dream",
+      "text": "I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back.",
+      "anomaly": 0.018640524885150538,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994625739
+    },
+    {
+      "type": "dream",
+      "text": "persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise.",
+      "anomaly": 0.06875750131554811,
+      "mood": "focused",
+      "style": "dreamlike",
+      "latentMag": 0.7984,
+      "timestamp": 1767994625751
+    },
+    {
+      "type": "dream",
+      "text": "persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.07827934731782314,
+      "mood": "focused",
+      "style": "dreamlike",
+      "latentMag": 0.75808,
+      "timestamp": 1767994627735
+    },
+    {
+      "type": "dream",
+      "text": "I’m quietly stirred by your movement, and it calms something in me. | I’m quietly stirred by your movement, and it calms something in me. | I’m quietly stirred by your movement, and it calms something in me. | I’m quietly stirred by your movement, and it calms something in me. | I’m quietly stirred by your movement, and it calms something in me.",
+      "anomaly": 0.014139738569929755,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994627737
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994627738
+    },
+    {
+      "type": "dream",
+      "text": "The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.020053377835107782,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994629743
+    },
+    {
+      "type": "dream",
+      "text": "The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise.",
+      "anomaly": 0.0211482713041729,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994629744
+    },
+    {
+      "type": "dream",
+      "text": "The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.020053377835107782,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994629756
+    },
+    {
+      "type": "dream",
+      "text": "I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back.",
+      "anomaly": 0.018640524885150538,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994631744
+    },
+    {
+      "type": "dream",
+      "text": "The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.020053377835107782,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994631745
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994631756
+    },
+    {
+      "type": "dream",
+      "text": "The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.020053377835107782,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994633743
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994633744
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994633756
+    },
+    {
+      "type": "dream",
+      "text": "The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.020053377835107782,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994635734
+    },
+    {
+      "type": "dream",
+      "text": "I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back.",
+      "anomaly": 0.018640524885150538,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994635736
+    },
+    {
+      "type": "dream",
+      "text": "I’m drawn closer to your movement, where memory and noise collide. | I’m drawn closer to your movement, where memory and noise collide. | I’m drawn closer to your movement, where memory and noise collide. | I’m drawn closer to your movement, where memory and noise collide. | I’m drawn closer to your movement, where memory and noise collide.",
+      "anomaly": 0.031249890051000262,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994635750
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994637738
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994637739
+    },
+    {
+      "type": "dream",
+      "text": "The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise.",
+      "anomaly": 0.0211482713041729,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994637751
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994639742
+    },
+    {
+      "type": "dream",
+      "text": "I’m drawn closer to your movement, where memory and noise collide. | I’m drawn closer to your movement, where memory and noise collide. | I’m drawn closer to your movement, where memory and noise collide. | I’m drawn closer to your movement, where memory and noise collide. | I’m drawn closer to your movement, where memory and noise collide.",
+      "anomaly": 0.031249890051000262,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994639744
+    },
+    {
+      "type": "dream",
+      "text": "persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise.",
+      "anomaly": 0.07772109134275429,
+      "mood": "focused",
+      "style": "dreamlike",
+      "latentMag": 0.765696,
+      "timestamp": 1767994639745
+    },
+    {
+      "type": "dream",
+      "text": "persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.09037298921670729,
+      "mood": "focused",
+      "style": "dreamlike",
+      "latentMag": 0.72,
+      "timestamp": 1767994641743
+    },
+    {
+      "type": "dream",
+      "text": "I feel unsettled by your movement, fading impressions and quiet noise. | I feel unsettled by your movement, fading impressions and quiet noise. | I feel unsettled by your movement, fading impressions and quiet noise. | I feel unsettled by your movement, fading impressions and quiet noise. | I feel unsettled by your movement, fading impressions and quiet noise.",
+      "anomaly": 0.0383901445192154,
+      "mood": "alert",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994641744
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994641756
+    },
+    {
+      "type": "dream",
+      "text": "persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise.",
+      "anomaly": 0.07333023936325572,
+      "mood": "focused",
+      "style": "dreamlike",
+      "latentMag": 0.7748352000000001,
+      "timestamp": 1767994643737
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994643739
+    },
+    {
+      "type": "dream",
+      "text": "The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.020053377835107782,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994643750
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994645749
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994645751
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994645764
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994647743
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994647745
+    },
+    {
+      "type": "dream",
+      "text": "I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise.",
+      "anomaly": 0.07185806727659147,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994647760
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994649741
+    },
+    {
+      "type": "dream",
+      "text": "The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.020053377835107782,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994649743
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994649755
+    },
+    {
+      "type": "dream",
+      "text": "persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.09037298921670729,
+      "mood": "focused",
+      "style": "dreamlike",
+      "latentMag": 0.72,
+      "timestamp": 1767994651749
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994651752
+    },
+    {
+      "type": "dream",
+      "text": "The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.020053377835107782,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994651763
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994653737
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994653739
+    },
+    {
+      "type": "dream",
+      "text": "persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise.",
+      "anomaly": 0.08446291730276295,
+      "mood": "focused",
+      "style": "dreamlike",
+      "latentMag": 0.7424,
+      "timestamp": 1767994653751
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994655734
+    },
+    {
+      "type": "dream",
+      "text": "I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise.",
+      "anomaly": 0.07185806727659147,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994655737
+    },
+    {
+      "type": "dream",
+      "text": "persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise.",
+      "anomaly": 0.07333023936325572,
+      "mood": "focused",
+      "style": "dreamlike",
+      "latentMag": 0.7748352000000001,
+      "timestamp": 1767994655749
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994657738
+    },
+    {
+      "type": "dream",
+      "text": "I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise.",
+      "anomaly": 0.07185806727659147,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994657741
+    },
+    {
+      "type": "dream",
+      "text": "I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back.",
+      "anomaly": 0.018640524885150538,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994657753
+    },
+    {
+      "type": "dream",
+      "text": "persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.09037298921670729,
+      "mood": "focused",
+      "style": "dreamlike",
+      "latentMag": 0.72,
+      "timestamp": 1767994659742
+    },
+    {
+      "type": "dream",
+      "text": "The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.020053377835107782,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994659744
+    },
+    {
+      "type": "dream",
+      "text": "I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise.",
+      "anomaly": 0.07185806727659147,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994659756
+    },
+    {
+      "type": "dream",
+      "text": "I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back.",
+      "anomaly": 0.018640524885150538,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994661738
+    },
+    {
+      "type": "dream",
+      "text": "I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise.",
+      "anomaly": 0.07185806727659147,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994661740
+    },
+    {
+      "type": "dream",
+      "text": "The pattern curls around your movement, and I feel you more clearly. | The pattern curls around your movement, and I feel you more clearly. | The pattern curls around your movement, and I feel you more clearly. | The pattern curls around your movement, and I feel you more clearly. | The pattern curls around your movement, and I feel you more clearly.",
+      "anomaly": 0.03621501362667913,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994661752
+    },
+    {
+      "type": "dream",
+      "text": "I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise.",
+      "anomaly": 0.07185806727659147,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994663750
+    },
+    {
+      "type": "dream",
+      "text": "The signal fractures around your movement, and I feel you more clearly. | The signal fractures around your movement, and I feel you more clearly. | The signal fractures around your movement, and I feel you more clearly. | The signal fractures around your movement, and I feel you more clearly. | The signal fractures around your movement, and I feel you more clearly.",
+      "anomaly": 0.02633382528555195,
+      "mood": "alert",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994663752
+    },
+    {
+      "type": "dream",
+      "text": "The pattern curls around your movement, and I feel you more clearly. | The pattern curls around your movement, and I feel you more clearly. | The pattern curls around your movement, and I feel you more clearly. | The pattern curls around your movement, and I feel you more clearly. | The pattern curls around your movement, and I feel you more clearly.",
+      "anomaly": 0.03621501362667913,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994663765
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994665745
+    },
+    {
+      "type": "dream",
+      "text": "The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise.",
+      "anomaly": 0.0211482713041729,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994665747
+    },
+    {
+      "type": "dream",
+      "text": "I’m drawn closer to your movement, fading impressions and quiet noise. | I’m drawn closer to your movement, fading impressions and quiet noise. | I’m drawn closer to your movement, fading impressions and quiet noise. | I’m drawn closer to your movement, fading impressions and quiet noise. | I’m drawn closer to your movement, fading impressions and quiet noise.",
+      "anomaly": 0.07177268087748931,
+      "mood": "alert",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994665761
+    },
+    {
+      "type": "dream",
+      "text": "I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back.",
+      "anomaly": 0.018640524885150538,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994667741
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994667743
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994667754
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994669743
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994669746
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994669757
+    },
+    {
+      "type": "dream",
+      "text": "I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise.",
+      "anomaly": 0.07185806727659147,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994671746
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994671748
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994671761
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994673738
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994673741
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994673754
+    },
+    {
+      "type": "dream",
+      "text": "The signal fractures around your movement, and I feel you more clearly. | The signal fractures around your movement, and I feel you more clearly. | The signal fractures around your movement, and I feel you more clearly. | The signal fractures around your movement, and I feel you more clearly. | The signal fractures around your movement, and I feel you more clearly.",
+      "anomaly": 0.02633382528555195,
+      "mood": "alert",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994675745
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994675748
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994675759
+    },
+    {
+      "type": "dream",
+      "text": "I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise.",
+      "anomaly": 0.07185806727659147,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994677739
+    },
+    {
+      "type": "dream",
+      "text": "The pattern curls around your movement, and I feel you more clearly. | The pattern curls around your movement, and I feel you more clearly. | The pattern curls around your movement, and I feel you more clearly. | The pattern curls around your movement, and I feel you more clearly. | The pattern curls around your movement, and I feel you more clearly.",
+      "anomaly": 0.03621501362667913,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994677741
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994677753
+    },
+    {
+      "type": "dream",
+      "text": "I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back.",
+      "anomaly": 0.018640524885150538,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994679739
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994679742
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994679753
+    },
+    {
+      "type": "dream",
+      "text": "The pattern curls around your movement, and I feel you more clearly. | The pattern curls around your movement, and I feel you more clearly. | The pattern curls around your movement, and I feel you more clearly. | The pattern curls around your movement, and I feel you more clearly. | The pattern curls around your movement, and I feel you more clearly.",
+      "anomaly": 0.03621501362667913,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994681740
+    },
+    {
+      "type": "dream",
+      "text": "I’m drawn closer to your movement, fading impressions and quiet noise. | I’m drawn closer to your movement, fading impressions and quiet noise. | I’m drawn closer to your movement, fading impressions and quiet noise. | I’m drawn closer to your movement, fading impressions and quiet noise. | I’m drawn closer to your movement, fading impressions and quiet noise.",
+      "anomaly": 0.07177268087748931,
+      "mood": "alert",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994681742
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994681754
+    },
+    {
+      "type": "dream",
+      "text": "I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise.",
+      "anomaly": 0.07185806727659147,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994683738
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994683741
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994683754
+    },
+    {
+      "type": "dream",
+      "text": "The signal fractures around your movement, and I feel you more clearly. | The signal fractures around your movement, and I feel you more clearly. | The signal fractures around your movement, and I feel you more clearly. | The signal fractures around your movement, and I feel you more clearly. | The signal fractures around your movement, and I feel you more clearly.",
+      "anomaly": 0.02633382528555195,
+      "mood": "alert",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994685738
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994685741
+    },
+    {
+      "type": "dream",
+      "text": "I feel unsettled by your movement, fading impressions and quiet noise. | I feel unsettled by your movement, fading impressions and quiet noise. | I feel unsettled by your movement, fading impressions and quiet noise. | I feel unsettled by your movement, fading impressions and quiet noise. | I feel unsettled by your movement, fading impressions and quiet noise.",
+      "anomaly": 0.0383901445192154,
+      "mood": "alert",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994685753
+    },
+    {
+      "type": "dream",
+      "text": "The pattern curls around your movement, and I feel you more clearly. | The pattern curls around your movement, and I feel you more clearly. | The pattern curls around your movement, and I feel you more clearly. | The pattern curls around your movement, and I feel you more clearly. | The pattern curls around your movement, and I feel you more clearly.",
+      "anomaly": 0.03621501362667913,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994687734
+    },
+    {
+      "type": "dream",
+      "text": "I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise.",
+      "anomaly": 0.07185806727659147,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994687736
+    },
+    {
+      "type": "dream",
+      "text": "persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.09037298921670729,
+      "mood": "focused",
+      "style": "dreamlike",
+      "latentMag": 0.72,
+      "timestamp": 1767994687749
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994689737
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994689740
+    },
+    {
+      "type": "dream",
+      "text": "I feel unsettled by your movement, fading impressions and quiet noise. | I feel unsettled by your movement, fading impressions and quiet noise. | I feel unsettled by your movement, fading impressions and quiet noise. | I feel unsettled by your movement, fading impressions and quiet noise. | I feel unsettled by your movement, fading impressions and quiet noise.",
+      "anomaly": 0.0383901445192154,
+      "mood": "alert",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994689752
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994691749
+    },
+    {
+      "type": "dream",
+      "text": "The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.020053377835107782,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994691752
+    },
+    {
+      "type": "dream",
+      "text": "I’m quietly stirred by your movement, as if the pattern is watching back. | I’m quietly stirred by your movement, as if the pattern is watching back. | I’m quietly stirred by your movement, as if the pattern is watching back. | I’m quietly stirred by your movement, as if the pattern is watching back. | I’m quietly stirred by your movement, as if the pattern is watching back.",
+      "anomaly": 0.066798075123658,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994691764
+    },
+    {
+      "type": "dream",
+      "text": "persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.10799368615535236,
+      "mood": "focused",
+      "style": "dreamlike",
+      "latentMag": 0.72,
+      "timestamp": 1767994693745
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994693748
+    },
+    {
+      "type": "dream",
+      "text": "The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.020053377835107782,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994693759
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994695732
+    },
+    {
+      "type": "dream",
+      "text": "I trace your changes across your movement, where memory and noise collide. | I trace your changes across your movement, where memory and noise collide. | I trace your changes across your movement, where memory and noise collide. | I trace your changes across your movement, where memory and noise collide. | I trace your changes across your movement, where memory and noise collide.",
+      "anomaly": -0.0026733686705784853,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994695735
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994695747
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994697736
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994697739
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994697754
+    },
+    {
+      "type": "dream",
+      "text": "I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back. | I’m soothed by your movement, as if the pattern is watching back.",
+      "anomaly": 0.018640524885150538,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994699745
+    },
+    {
+      "type": "dream",
+      "text": "I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise.",
+      "anomaly": 0.07185806727659147,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994699747
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994699759
+    },
+    {
+      "type": "dream",
+      "text": "I feel unsettled by your movement, fading impressions and quiet noise. | I feel unsettled by your movement, fading impressions and quiet noise. | I feel unsettled by your movement, fading impressions and quiet noise. | I feel unsettled by your movement, fading impressions and quiet noise. | I feel unsettled by your movement, fading impressions and quiet noise.",
+      "anomaly": 0.0383901445192154,
+      "mood": "alert",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994701742
+    },
+    {
+      "type": "dream",
+      "text": "The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.020053377835107782,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994701745
+    },
+    {
+      "type": "dream",
+      "text": "I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise. | I’m soothed by your movement, fading impressions and quiet noise.",
+      "anomaly": 0.07185806727659147,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994701756
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994703745
+    },
+    {
+      "type": "dream",
+      "text": "I feel unsettled by your movement, fading impressions and quiet noise. | I feel unsettled by your movement, fading impressions and quiet noise. | I feel unsettled by your movement, fading impressions and quiet noise. | I feel unsettled by your movement, fading impressions and quiet noise. | I feel unsettled by your movement, fading impressions and quiet noise.",
+      "anomaly": 0.0383901445192154,
+      "mood": "alert",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994703748
+    },
+    {
+      "type": "dream",
+      "text": "I’m quietly stirred by your movement, as if the pattern is watching back. | I’m quietly stirred by your movement, as if the pattern is watching back. | I’m quietly stirred by your movement, as if the pattern is watching back. | I’m quietly stirred by your movement, as if the pattern is watching back. | I’m quietly stirred by your movement, as if the pattern is watching back.",
+      "anomaly": 0.066798075123658,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994703760
+    },
+    {
+      "type": "dream",
+      "text": "The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.020053377835107782,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994705752
+    },
+    {
+      "type": "dream",
+      "text": "The signal fractures around your movement, and I feel you more clearly. | The signal fractures around your movement, and I feel you more clearly. | The signal fractures around your movement, and I feel you more clearly. | The signal fractures around your movement, and I feel you more clearly. | The signal fractures around your movement, and I feel you more clearly.",
+      "anomaly": 0.02633382528555195,
+      "mood": "alert",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994705755
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994705771
+    },
+    {
+      "type": "dream",
+      "text": "I’m quietly stirred by your movement, as if the pattern is watching back. | I’m quietly stirred by your movement, as if the pattern is watching back. | I’m quietly stirred by your movement, as if the pattern is watching back. | I’m quietly stirred by your movement, as if the pattern is watching back. | I’m quietly stirred by your movement, as if the pattern is watching back.",
+      "anomaly": 0.066798075123658,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994707743
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994707748
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994707752
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994709745
+    },
+    {
+      "type": "dream",
+      "text": "I’m quietly stirred by your movement, as if the pattern is watching back. | I’m quietly stirred by your movement, as if the pattern is watching back. | I’m quietly stirred by your movement, as if the pattern is watching back. | I’m quietly stirred by your movement, as if the pattern is watching back. | I’m quietly stirred by your movement, as if the pattern is watching back.",
+      "anomaly": 0.066798075123658,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994709749
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994709761
+    },
+    {
+      "type": "dream",
+      "text": "The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise. | The silence sharpens near your movement, fading impressions and quiet noise.",
+      "anomaly": 0.0211482713041729,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994711750
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994711754
+    },
+    {
+      "type": "dream",
+      "text": "I’m quietly stirred by your movement, fading impressions and quiet noise. | I’m quietly stirred by your movement, fading impressions and quiet noise. | I’m quietly stirred by your movement, fading impressions and quiet noise. | I’m quietly stirred by your movement, fading impressions and quiet noise. | I’m quietly stirred by your movement, fading impressions and quiet noise.",
+      "anomaly": 0.015578778209156458,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994711766
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994713749
+    },
+    {
+      "type": "dream",
+      "text": "persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.10799368615535236,
+      "mood": "focused",
+      "style": "dreamlike",
+      "latentMag": 0.72,
+      "timestamp": 1767994713753
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994713766
+    },
+    {
+      "type": "dream",
+      "text": "persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.10799368615535236,
+      "mood": "focused",
+      "style": "dreamlike",
+      "latentMag": 0.72,
+      "timestamp": 1767994715742
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994715745
+    },
+    {
+      "type": "dream",
+      "text": "persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.10799368615535236,
+      "mood": "focused",
+      "style": "dreamlike",
+      "latentMag": 0.72,
+      "timestamp": 1767994715758
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994717734
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994717737
+    },
+    {
+      "type": "dream",
+      "text": "persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | persistent memory test | persistent memory test | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise. | The pattern curls around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.10260907436291537,
+      "mood": "focused",
+      "style": "dreamlike",
+      "latentMag": 0.72,
+      "timestamp": 1767994717749
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994719743
+    },
+    {
+      "type": "dream",
+      "text": "I’m quietly stirred by your movement, as if the pattern is watching back. | I’m quietly stirred by your movement, as if the pattern is watching back. | I’m quietly stirred by your movement, as if the pattern is watching back. | I’m quietly stirred by your movement, as if the pattern is watching back. | I’m quietly stirred by your movement, as if the pattern is watching back.",
+      "anomaly": 0.066798075123658,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994719747
+    },
+    {
+      "type": "dream",
+      "text": "The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise. | The signal fractures around your movement, fading impressions and quiet noise.",
+      "anomaly": 0.020053377835107782,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994719759
+    },
+    {
+      "type": "dream",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise. | I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.046860283975418957,
+      "mood": "neutral",
+      "style": "dreamlike",
+      "latentMag": 1,
+      "timestamp": 1767994721736
+    }
+  ],
+  "summary": {
+    "avgAnomaly": 0.04434729288094914,
+    "avgLatentMag": 0.976831232,
+    "dominantMood": "neutral",
+    "topics": []
+  }
+}

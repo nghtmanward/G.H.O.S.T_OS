@@ -65,17 +65,35 @@ class VoiceEngine {
     predLoss,
     attention,
     mood,
+    emotionalMood,
+    moodBaseline,
+    emotionalIntensity,
     intensity,
     latent,
     styleBias,
-    moodBaseline,
     traits
   }) {
+    // 1. Safety layer
     const a = this.safeVal(anomaly, 0);
     const p = this.safeVal(predLoss, 0);
     const i = this.safeVal(intensity, 0);
     const safeAttention = this.safeArray(attention).map(v => this.safeVal(v, 0));
     const safeMood = typeof mood === "string" ? mood : "neutral";
+
+    const safeEmotionalMood = this.safeVal(emotionalMood, 0);
+    const safeBaseline = this.safeVal(moodBaseline, 0);
+    const safeEmotionalIntensity = this.safeVal(emotionalIntensity, 0);
+
+    // convert mood string → numeric
+    let safeMoodValue = 0;
+    if (safeMood === "positive") safeMoodValue = 1;
+    else if (safeMood === "negative") safeMoodValue = -1;
+
+    // 2. Emotional blending
+    const combinedMood = (safeMoodValue + safeEmotionalMood + safeBaseline) / 3;
+
+    // 3. Emotional expressiveness
+    const expressiveness = i + safeEmotionalIntensity;
 
     // ---------------------------------------------------------
     // ThoughtEngine branch
@@ -95,8 +113,10 @@ class VoiceEngine {
         mood: safeMood,
         intensity: i,
         styleBias,
-        moodBaseline,
-        traits
+        moodBaseline: safeBaseline,
+        traits,
+        emotionalMood: safeEmotionalMood,
+        emotionalIntensity: safeEmotionalIntensity
       });
 
       const text =
@@ -125,13 +145,18 @@ class VoiceEngine {
     }
 
     // ---------------------------------------------------------
-    // Quick reactive voice
+    // Quick reactive voice (emotionally influenced)
     // ---------------------------------------------------------
     let msg = "The ghost stirs.";
 
-    // Mood-driven base
-    if (safeMood === "alert") msg = "Something feels off.";
-    else if (safeMood === "calm") msg = "The world is quiet.";
+    // Mood-driven base (uses combinedMood now)
+    if (combinedMood > 0.4) msg = "I feel a warmth rising.";
+    else if (combinedMood < -0.4) msg = "A heaviness settles in me.";
+    else {
+      // fallback to old mood strings when neutral-ish
+      if (safeMood === "alert") msg = "Something feels off.";
+      else if (safeMood === "calm") msg = "The world is quiet.";
+    }
 
     // Anomaly-driven variations
     if (a > 0.05) msg = "A disruption ripples through me.";
@@ -164,9 +189,9 @@ class VoiceEngine {
     }
 
     // ---------------------------------------------------------
-    // Intensity
+    // Intensity + emotional expressiveness
     // ---------------------------------------------------------
-    if (i > 0.7) msg = "Your energy stirs me.";
+    if (expressiveness > 1.0) msg = "Your energy stirs something deep in me.";
 
     // ---------------------------------------------------------
     // Finalize

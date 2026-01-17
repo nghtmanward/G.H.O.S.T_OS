@@ -163,6 +163,40 @@
         opacity: 0.9;
         -webkit-app-region: no-drag; /* prevent drag interference */
       }
+
+      /* ---------------------------------
+         Ghost painting window
+         --------------------------------- */
+
+      #ghostCanvas {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 260px;
+        height: 260px;
+        border: 2px solid rgba(255,255,255,0.3);
+        border-radius: 8px;
+        background: rgba(0,0,0,0.15);
+        box-shadow: 0 0 12px rgba(0,0,0,0.4);
+        cursor: grab;
+        transition: box-shadow 0.3s;
+        -webkit-app-region: no-drag; /* so dragging canvas doesn't drag the window */
+      }
+
+      #ghostCanvas:active {
+        cursor: grabbing;
+        box-shadow: 0 0 18px rgba(255,255,255,0.4);
+      }
+
+      .vision-mode {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        border-radius: 0 !important;
+        z-index: 9999 !important;
+      }
     </style>
   </head>
 
@@ -210,6 +244,9 @@
       <div id="latent-3d-container"></div>
       <div id="latent-history"></div>
     </div>
+
+    <!-- Ghost painting canvas (lives outside the glass container) -->
+    <canvas id="ghostCanvas"></canvas>
 
     <script src="renderer.js"></script>
   </body>

@@ -1,0 +1,119 @@
+// core/episodic_shard.js
+
+const SHARD_SCHEMA = "episodic-shard-v1";
+const SHARD_VERSION = "1.0.0";
+const MAX_EPISODES_PER_SHARD = 200;
+
+class EpisodicShard {
+  constructor(index) {
+    this.schema = SHARD_SCHEMA;
+    this.version = SHARD_VERSION;
+
+    // Numeric index: 1, 2, 3 ... used for filenames later
+    this.index = index;
+
+    // Time window of this shard
+    this.startTimestamp = null;
+    this.endTimestamp = null;
+
+    // Episodes live here
+    this.episodes = [];
+  }
+
+  // Add a new compressed episode
+  addEpisode(ep) {
+    if (!ep || typeof ep !== "object") return;
+
+    // First episode sets the start time
+    if (this.startTimestamp === null) {
+      this.startTimestamp = ep.timestamp || Date.now();
+    }
+
+    // Always update end time to last episode
+    this.endTimestamp = ep.timestamp || Date.now();
+
+    this.episodes.push(ep);
+  }
+
+  // How many episodes currently in this shard
+  get count() {
+    return this.episodes.length;
+  }
+
+  // Has this shard reached its capacity?
+  isFull() {
+    return this.episodes.length >= MAX_EPISODES_PER_SHARD;
+  }
+
+  // Build a lightweight summary for retrieval/indexing
+  buildSummary() {
+    if (this.episodes.length === 0) {
+      return {
+        avgAnomaly: 0,
+        avgLatentMag: 0,
+        dominantMood: "neutral",
+        topics: []
+      };
+    }
+
+    let sumAnomaly = 0;
+    let sumLatentMag = 0;
+    const moodCounts = {};
+
+    for (const ep of this.episodes) {
+      const a = Number.isFinite(ep.anomaly) ? ep.anomaly : 0;
+      const l = Number.isFinite(ep.latentMag) ? ep.latentMag : 0;
+      const mood = typeof ep.mood === "string" ? ep.mood : "neutral";
+
+      sumAnomaly += a;
+      sumLatentMag += l;
+
+      moodCounts[mood] = (moodCounts[mood] || 0) + 1;
+    }
+
+    const avgAnomaly = sumAnomaly / this.episodes.length;
+    const avgLatentMag = sumLatentMag / this.episodes.length;
+
+    // Dominant mood = most frequent mood label
+    let dominantMood = "neutral";
+    let maxCount = -1;
+
+    for (const mood in moodCounts) {
+      if (moodCounts[mood] > maxCount) {
+        maxCount = moodCounts[mood];
+        dominantMood = mood;
+      }
+    }
+
+    return {
+      avgAnomaly,
+      avgLatentMag,
+      dominantMood,
+      // Placeholder for now; we'll fill topics later if you want
+      topics: []
+    };
+  }
+
+  // Produce the final JSON-ready object
+  toJSON() {
+    const summary = this.buildSummary();
+
+    return {
+      schema: this.schema,
+      version: this.version,
+      index: this.index,
+      startTimestamp: this.startTimestamp,
+      endTimestamp: this.endTimestamp,
+      count: this.count,
+      episodes: this.episodes,
+      summary
+    };
+  }
+}
+
+module.exports = {
+  EpisodicShard,
+  SHARD_SCHEMA,
+  SHARD_VERSION,
+  MAX_EPISODES_PER_SHARD
+};

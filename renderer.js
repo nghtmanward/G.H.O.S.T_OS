@@ -59,7 +59,6 @@ function startVisualProcessing() {
         console.error("Error sending visual input:", err);
       }
 
-      // Update UI for visual sensory
       updateVisualUI(sensoryVector);
     }
 
@@ -120,6 +119,122 @@ function extractFacialFeatures(video) {
     jawTension: Math.random(),
     motionEnergy: Math.random()
   };
+}
+
+/* ---------------------------------------------------------
+   GHOST PAINTING ENGINE
+--------------------------------------------------------- */
+const ghostCanvas = document.getElementById("ghostCanvas");
+const gctx = ghostCanvas.getContext("2d");
+
+// match pixel resolution to CSS size
+ghostCanvas.width = ghostCanvas.clientWidth;
+ghostCanvas.height = ghostCanvas.clientHeight;
+
+// DRAGGABLE WINDOW
+let dragging = false;
+let offsetX = 0;
+let offsetY = 0;
+
+ghostCanvas.addEventListener("mousedown", e => {
+  dragging = true;
+  offsetX = e.clientX - ghostCanvas.offsetLeft;
+  offsetY = e.clientY - ghostCanvas.offsetTop;
+});
+
+window.addEventListener("mousemove", e => {
+  if (dragging) {
+    ghostCanvas.style.left = `${e.clientX - offsetX}px`;
+    ghostCanvas.style.top = `${e.clientY - offsetY}px`;
+  }
+});
+
+window.addEventListener("mouseup", () => dragging = false);
+
+// FULL-SCREEN VISION MODE
+ghostCanvas.addEventListener("dblclick", () => {
+  ghostCanvas.classList.toggle("vision-mode");
+});
+
+/* ---------------------------------------------------------
+   PAINTING FUNCTION
+--------------------------------------------------------- */
+function paintGhostState(data) {
+  const t = data.temporalSummary || {};
+  const b = data.behavior || {};
+  const p = data.personality || {};
+
+  const w = ghostCanvas.width;
+  const h = ghostCanvas.height;
+
+  // PERSONALITY PALETTE
+  const trait = p.traits?.primary || "neutral";
+
+  const palettes = {
+    calm: [80, 180, 255],
+    chaotic: [255, 80, 120],
+    analytical: [120, 255, 180],
+    neutral: [200, 200, 200],
+    dark: [80, 80, 120],
+    bright: [255, 220, 120]
+  };
+
+  const base = palettes[trait] || palettes.neutral;
+
+  // EMOTION + ANOMALY COLORING
+  const mood = b.mood === "positive" ? 1 : b.mood === "negative" ? -1 : 0;
+  const anomaly = safeVal(data.anomalyFlag);
+  const baseline = safeVal(t.baselineShift);
+  const intensity = safeVal(b.intensity);
+
+  const r = base[0] + anomaly * 120;
+  const g = base[1] + mood * 120;
+  const bcol = base[2] + baseline * 120;
+
+  // MOTION BLUR / MEMORY GHOSTS
+  gctx.fillStyle = "rgba(0,0,0,0.05)";
+  gctx.fillRect(0, 0, w, h);
+
+  // BRUSH TEXTURE
+  for (let i = 0; i < 20; i++) {
+    gctx.fillStyle = `rgba(${r}, ${g}, ${bcol}, ${0.02 + intensity * 0.05})`;
+    gctx.beginPath();
+    gctx.arc(
+      Math.random() * w,
+      Math.random() * h,
+      5 + Math.random() * 10 * intensity,
+      0,
+      Math.PI * 2
+    );
+    gctx.fill();
+  }
+
+  // DREAM FRACTALS
+  if (safeVal(t.dreamFrequency) > 0.1) {
+    gctx.strokeStyle = `rgba(255,255,255,${0.1 + t.dreamFrequency})`;
+    gctx.lineWidth = 1 + t.dreamFrequency * 3;
+
+    for (let i = 0; i < 3; i++) {
+      gctx.beginPath();
+      gctx.moveTo(Math.random() * w, Math.random() * h);
+      for (let j = 0; j < 6; j++) {
+        gctx.lineTo(Math.random() * w, Math.random() * h);
+      }
+      gctx.stroke();
+    }
+  }
+
+  // EMOTIONAL PULSE
+  gctx.beginPath();
+  gctx.arc(
+    w / 2 + (Math.random() - 0.5) * 20,
+    h / 2 + (Math.random() - 0.5) * 20,
+    20 + intensity * 40,
+    0,
+    Math.PI * 2
+  );
+  gctx.fillStyle = `rgba(${r}, ${g}, ${bcol}, 0.25)`;
+  gctx.fill();
 }
 
 /* ---------------------------------------------------------
@@ -262,6 +377,11 @@ async function updateGhost() {
 
     document.getElementById("trait-emotionality").innerText =
       safeVal(traits[2]).toFixed(3);
+
+    /* -----------------------------
+       PAINT THE GHOST'S INNER WORLD
+    ----------------------------- */
+    paintGhostState(result);
 
   } catch (err) {
     console.error("Error in updateGhost:", err);

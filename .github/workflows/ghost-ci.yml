@@ -28,3 +28,4 @@ jobs:
     - name: Run Ghost_OS tests (placeholder)
       run: |
         echo "Ghost_OS test suite not implemented yet"
+        echo "Add tests in /core, /memory, or /datasets and update this step"

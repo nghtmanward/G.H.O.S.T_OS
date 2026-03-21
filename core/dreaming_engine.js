@@ -81,7 +81,8 @@ class DreamingEngine {
         clusterSize
       );
 
-      const cluster = clusterScored.map(c => c.episode);
+      // FIXED: SemanticEngine returns { item, score }
+      const cluster = clusterScored.map(c => c.item);
 
       // 4) Build dream episode
       const dream = this.buildDreamEpisode(cluster);

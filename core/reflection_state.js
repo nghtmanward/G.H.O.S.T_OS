@@ -1,47 +1,81 @@
+// /core/reflection_state.js
+
+const mainMemory = require("./main_memory");
+const { RetrievalEngine } = require("./retrieval_engine");
+const retrieval = new RetrievalEngine();
+
 class ReflectionState {
   constructor() {
-    // ---------------------------------------------------------
-    // VERSIONING (Hybrid Semantic + Date)
-    // ---------------------------------------------------------
-    this.version = "1.0.0-2026.01.08";
+    this.version = "2.0.0-2026.01.08"; // upgraded for semantic integration
 
     try {
       this.registry = require("../version_registry.json");
     } catch (e) {
-      console.warn(
-        "ReflectionState: version_registry.json missing or unreadable. Proceeding without registry validation."
-      );
+      console.warn("ReflectionState: version registry missing.");
       this.registry = null;
     }
 
     this._validateVersion();
 
-    // ---------------------------------------------------------
-    // INTERNAL SETTINGS
-    // ---------------------------------------------------------
     this.historyWindow = 32;
   }
 
-  // ---------------------------------------------------------
-  // VERSION VALIDATION
-  // ---------------------------------------------------------
   _validateVersion() {
     if (!this.registry) return;
-
     const expected = this.registry["ReflectionState"];
-    if (!expected) {
-      console.warn(
-        "ReflectionState: No 'ReflectionState' entry found in version_registry."
-      );
-      return;
+    if (!expected) return;
+    if (expected !== this.version) {
+      throw new Error("ReflectionState version mismatch");
+    }
+  }
+
+  // ---------------------------------------------------------
+  // NEW: Semantic Memory Summary
+  // ---------------------------------------------------------
+  computeSemanticSummary() {
+    const tertiary = mainMemory.tertiary || [];
+
+    if (tertiary.length === 0) {
+      return {
+        strongestTheme: null,
+        strongestSummary: null,
+        memoryStrength: 0,
+        related: []
+      };
     }
 
-    if (expected !== this.version) {
-      console.error(
-        `ReflectionState version mismatch: expected ${expected}, got ${this.version}`
-      );
-      throw new Error("Version mismatch in ReflectionState");
+    // strongest long-term memory
+    const strongest = [...tertiary].sort((a, b) => b.strength - a.strength)[0];
+
+    const related = retrieval.retrieve(strongest.summary || strongest.theme);
+
+    return {
+      strongestTheme: strongest.theme,
+      strongestSummary: strongest.summary,
+      memoryStrength: strongest.strength,
+      related
+    };
+  }
+
+  // ---------------------------------------------------------
+  // NEW: Temporal Arc Summary
+  // ---------------------------------------------------------
+  computeTemporalArc(temporalSummary) {
+    if (!temporalSummary) {
+      return {
+        moodTrend: 0,
+        anomalyTrend: 0,
+        dreamFrequency: 0,
+        baselineShift: 0
+      };
     }
+
+    return {
+      moodTrend: temporalSummary.moodTrend || 0,
+      anomalyTrend: temporalSummary.anomalyTrend || 0,
+      dreamFrequency: temporalSummary.dreamFrequency || 0,
+      baselineShift: temporalSummary.baselineShift || 0
+    };
   }
 
   // ---------------------------------------------------------
@@ -53,7 +87,8 @@ class ReflectionState {
     predLossHistory = [],
     memorySummary = null,
     personality = null,
-    attention = []
+    attention = [],
+    temporalSummary = null
   } = {}) {
     const latentDrift = this.computeLatentDrift(latentHistory);
     const anomalyTrend = this.computeTrend(anomalyHistory);
@@ -61,6 +96,9 @@ class ReflectionState {
     const attentionFocus = this.computeAttentionFocus(attention);
     const memoryLoad = this.computeMemoryLoad(memorySummary);
     const moodState = this.computeMoodState(personality);
+
+    const semantic = this.computeSemanticSummary();
+    const temporalArc = this.computeTemporalArc(temporalSummary);
 
     const snapshot = {
       version: this.version,
@@ -70,6 +108,8 @@ class ReflectionState {
       attentionFocus,
       memoryLoad,
       moodState,
+      semantic,
+      temporalArc,
       timestamp: Date.now()
     };
 
@@ -89,7 +129,6 @@ class ReflectionState {
       throw new Error("ReflectionState: invalid timestamp");
     }
 
-    // Validate numeric fields inside nested structures
     const numericChecks = [
       s.latentDrift?.magnitude,
       s.latentDrift?.volatility,
@@ -104,7 +143,12 @@ class ReflectionState {
       s.memoryLoad?.limit,
       s.moodState?.moodBaseline,
       s.moodState?.emotionality,
-      s.moodState?.curiosity
+      s.moodState?.curiosity,
+      s.semantic?.memoryStrength,
+      s.temporalArc?.moodTrend,
+      s.temporalArc?.anomalyTrend,
+      s.temporalArc?.dreamFrequency,
+      s.temporalArc?.baselineShift
     ];
 
     for (let v of numericChecks) {

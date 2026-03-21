@@ -8,7 +8,7 @@ class CompressionEngine {
 
     // Central registry reference (expects a "Compression" entry)
     try {
-      this.registry = require("./version_registry.json");
+      this.registry = require("../version_registry.json");
     } catch (e) {
       console.warn(
         "CompressionEngine: version_registry.json not found or unreadable. Proceeding without central registry validation."

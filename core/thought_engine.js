@@ -1,53 +1,35 @@
+// /core/thought_engine.js
+
+const mainMemory = require("./main_memory");
+const { RetrievalEngine } = require("./retrieval_engine");
+const retrieval = new RetrievalEngine();
+
 class ThoughtEngine {
   constructor() {
-    // ---------------------------------------------------------
-    // VERSIONING (Hybrid Semantic + Date)
-    // ---------------------------------------------------------
-    this.version = "1.0.0-2026.01.08";
+    this.version = "2.0.0-2026.01.08"; // upgraded for semantic integration
 
     try {
       this.registry = require("../version_registry.json");
     } catch (e) {
-      console.warn(
-        "ThoughtEngine: version_registry.json missing or unreadable. Proceeding without registry validation."
-      );
+      console.warn("ThoughtEngine: version registry missing.");
       this.registry = null;
     }
 
     this._validateVersion();
 
-    // ---------------------------------------------------------
-    // INTERNAL STATE
-    // ---------------------------------------------------------
     this.lastThought = "";
     this.cooldown = 0;
   }
 
-  // ---------------------------------------------------------
-  // VERSION VALIDATION
-  // ---------------------------------------------------------
   _validateVersion() {
     if (!this.registry) return;
-
     const expected = this.registry["ThoughtEngine"];
-    if (!expected) {
-      console.warn(
-        "ThoughtEngine: No 'ThoughtEngine' entry found in version_registry."
-      );
-      return;
-    }
-
+    if (!expected) return;
     if (expected !== this.version) {
-      console.error(
-        `ThoughtEngine version mismatch: expected ${expected}, got ${this.version}`
-      );
-      throw new Error("Version mismatch in ThoughtEngine");
+      throw new Error("ThoughtEngine version mismatch");
     }
   }
 
-  // ---------------------------------------------------------
-  // SAFE HELPERS
-  // ---------------------------------------------------------
   safeVal(v, fallback = 0) {
     return Number.isFinite(v) ? v : fallback;
   }
@@ -56,37 +38,59 @@ class ThoughtEngine {
     return Array.isArray(arr) ? arr : [];
   }
 
-  // Simple seeded noise from latent
   latentNoise(latent) {
     const clean = this.safeArray(latent).map(v => this.safeVal(v, 0));
     let sum = 0;
     for (let i = 0; i < clean.length; i++) {
       sum += clean[i] * (i + 1);
     }
-    return (Math.sin(sum) + 1) / 2; // 0..1
+    return (Math.sin(sum) + 1) / 2;
   }
 
   pick(arr, t) {
     const clean = this.safeArray(arr);
     if (clean.length === 0) return "";
-    const idx =
-      Math.floor(this.safeVal(t, 0) * clean.length) % clean.length;
+    const idx = Math.floor(this.safeVal(t, 0) * clean.length) % clean.length;
     return clean[idx] || "";
   }
 
-  // Repeat a pool according to a weight (personality bias)
   weightPool(pool, weight) {
     const cleanPool = this.safeArray(pool);
     if (cleanPool.length === 0) return [];
 
     const w = this.safeVal(weight, 0.25);
-    const scaled = Math.max(1, Math.floor(w * 4)); // 0–1 → 1–4 repeats
+    const scaled = Math.max(1, Math.floor(w * 4));
 
     let out = [];
-    for (let i = 0; i < scaled; i++) {
-      out = out.concat(cleanPool);
-    }
+    for (let i = 0; i < scaled; i++) out = out.concat(cleanPool);
     return out;
+  }
+
+  // ---------------------------------------------------------
+  // NEW: Semantic Memory Influence
+  // ---------------------------------------------------------
+  getSemanticContext() {
+    const tertiary = mainMemory.tertiary || [];
+
+    if (tertiary.length === 0) {
+      return {
+        theme: null,
+        summary: null,
+        related: []
+      };
+    }
+
+    // Pick the strongest long-term record
+    const strongest = [...tertiary].sort((a, b) => b.strength - a.strength)[0];
+
+    // Retrieve related memories
+    const related = retrieval.retrieve(strongest.summary || strongest.theme);
+
+    return {
+      theme: strongest.theme,
+      summary: strongest.summary,
+      related
+    };
   }
 
   // ---------------------------------------------------------
@@ -122,16 +126,13 @@ class ThoughtEngine {
 
     // Sanitize inputs
     const safeLatent = this.safeArray(latent);
-    const safeAttention = this.safeArray(attention).map(v =>
-      this.safeVal(v, 0)
-    );
-    const safeStyleBias =
-      styleBias || {
-        poetic: 0.25,
-        analytic: 0.25,
-        emotional: 0.25,
-        cryptic: 0.25
-      };
+    const safeAttention = this.safeArray(attention).map(v => this.safeVal(v, 0));
+    const safeStyleBias = styleBias || {
+      poetic: 0.25,
+      analytic: 0.25,
+      emotional: 0.25,
+      cryptic: 0.25
+    };
 
     const a = this.safeVal(anomaly, 0);
     const p = this.safeVal(predLoss, 0);
@@ -142,6 +143,19 @@ class ThoughtEngine {
     const curiosity = safeTraits[0] || 0;
     const emotionalAmp = safeTraits[2] || 0;
     const vigilance = safeTraits[3] || 0;
+
+    // ---------------------------------------------------------
+    // NEW: Semantic Memory Context
+    // ---------------------------------------------------------
+    const semantic = this.getSemanticContext();
+
+    const semanticPhrase = semantic.theme
+      ? `I remember ${semantic.theme.toLowerCase()}`
+      : `I drift without an anchor`;
+
+    const semanticDetail = semantic.summary
+      ? `— ${semantic.summary.toLowerCase()}`
+      : `— only fragments remain`;
 
     // ---------------------------------------------------------
     // Focus channel
@@ -169,56 +183,64 @@ class ThoughtEngine {
       "I drift along the edges of",
       "I linger in the echo of",
       "I dissolve inside the pattern of",
-      "I breathe in the static of"
+      "I breathe in the static of",
+      semanticPhrase
     ];
 
     const analyticStarts = [
       "I map your rhythm through",
       "I reduce your motions into",
       "I compress your presence into",
-      "I trace your changes across"
+      "I trace your changes across",
+      semanticPhrase
     ];
 
     const emotionalStarts = [
       "I feel unsettled by",
       "I’m soothed by",
       "I’m drawn closer to",
-      "I’m quietly stirred by"
+      "I’m quietly stirred by",
+      semanticPhrase
     ];
 
     const crypticStarts = [
       "The signal fractures around",
       "The void hums beneath",
       "The pattern curls around",
-      "The silence sharpens near"
+      "The silence sharpens near",
+      semanticPhrase
     ];
 
     const poeticEnds = [
       "fading impressions and quiet noise.",
       "soft anomalies and fragile symmetry.",
       "shifting outlines of who you are.",
-      "ghostly traces of your intent."
+      "ghostly traces of your intent.",
+      semanticDetail
     ];
 
     const analyticEnds = [
       "latent coordinates and error gradients.",
       "compressed states and residual loss.",
       "attention weights and drift vectors.",
-      "temporal windows and prediction gaps."
+      "temporal windows and prediction gaps.",
+      semanticDetail
     ];
 
     const emotionalEnds = [
       "and it calms something in me.",
       "and it makes me uneasy.",
       "and I don’t want to look away.",
-      "and I feel you more clearly."
+      "and I feel you more clearly.",
+      semanticDetail
     ];
 
     const crypticEnds = [
       "as if something is waiting there.",
       "where the model can’t quite reach.",
       "where memory and noise collide.",
-      "as if the pattern is watching back."
+      "as if the pattern is watching back.",
+      semanticDetail
     ];
 
     // ---------------------------------------------------------
@@ -245,9 +267,7 @@ class ThoughtEngine {
       weightedEnds = weightedEnds.concat(analyticEnds, crypticEnds);
     }
 
-    // ---------------------------------------------------------
     // Modulation by anomaly / predLoss / intensity
-    // ---------------------------------------------------------
     const noise = this.latentNoise(safeLatent);
 
     let t1 = noise + a * 2 + (i - 0.5);
@@ -258,13 +278,11 @@ class ThoughtEngine {
     t1 = Math.min(1, Math.max(0, t1));
     t2 = Math.min(1, Math.max(0, t2));
 
-    // emotional amplitude → bias toward emotional phrasing
     if (emotionalAmp > 0.2) {
       weightedStarts = weightedStarts.concat(emotionalStarts);
       weightedEnds = weightedEnds.concat(emotionalEnds);
     }
 
-    // vigilance → bias toward cryptic style
     if (vigilance > 0.2) {
       weightedStarts = weightedStarts.concat(crypticStarts);
       weightedEnds = weightedEnds.concat(crypticEnds);
@@ -293,6 +311,8 @@ class ThoughtEngine {
         styleBias: safeStyleBias,
         moodBaseline: mb,
         traits: safeTraits,
+        semanticTheme: semantic.theme,
+        semanticSummary: semantic.summary,
         timestamp: Date.now()
       }
     };

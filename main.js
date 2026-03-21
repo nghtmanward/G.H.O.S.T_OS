@@ -194,7 +194,7 @@ ipcMain.handle('ghost-input', () => {
     mood: behaviorState.mood
   });
 
-  // ⭐ Emotion state must be computed BEFORE using it
+  // Emotion state must be computed BEFORE using it
   const emotionState = emotion.update({
     anomaly: result.anomaly,
     predLoss: result.predLoss,
@@ -279,7 +279,7 @@ ipcMain.handle('ghost-input', () => {
       traits: filtered.traits
     });
 
-    // ⭐ NEW: feed into temporal engine
+    // NEW: feed into temporal engine
     temporal.ingestEpisode({
       timestamp: filtered.timestamp,
       type: filtered.type,
@@ -300,9 +300,9 @@ ipcMain.handle('ghost-input', () => {
         maxDreams: 5
       });
 
-      console.log(`🌙 Dream cycle completed: ${dreams.length} dreams generated.`);
+      console.log(`Dream cycle completed: ${dreams.length} dreams generated.`);
 
-      // ⭐ Feed dreams into temporal engine
+      // Feed dreams into temporal engine
       dreams.forEach(d => {
         temporal.ingestEpisode({
           timestamp: d.timestamp,
@@ -315,7 +315,7 @@ ipcMain.handle('ghost-input', () => {
       });
     }
   } else {
-    console.log("⚠️ Episode quarantined due to anomaly:", anomalyFlag);
+    console.log("Episode quarantined due to anomaly:", anomalyFlag);
   }
 
   return {
@@ -333,7 +333,7 @@ ipcMain.handle('ghost-input', () => {
     anomalyFlag,
     anomalyQuarantine: anomalyBuffer.getQuarantine(),
 
-    // ⭐ NEW: temporal summary
+    // NEW: temporal summary
     temporalSummary: temporal.buildSummary()
   };
 });

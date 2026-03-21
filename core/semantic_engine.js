@@ -1,22 +1,11 @@
-// core/semantic_engine.js
+// /core/semantic_engine.js
+
+const { encodeText } = require("./encoder");
 
 class SemanticEngine {
-  constructor(embeddingFn) {
-    // embeddingFn: a function that takes text and returns a vector
-    this.embed = embeddingFn || this.defaultEmbed;
-  }
-
-  // -------------------------------
-  // DEFAULT EMBEDDING (placeholder)
-  // -------------------------------
-  defaultEmbed(text) {
-    // Simple hash-based embedding for now
-    const vec = new Array(32).fill(0);
-    for (let i = 0; i < text.length; i++) {
-      const idx = i % 32;
-      vec[idx] += text.charCodeAt(i) / 255;
-    }
-    return vec;
+  constructor(embeddingFn = encodeText) {
+    // embeddingFn: function(text) → vector
+    this.embed = embeddingFn;
   }
 
   // -------------------------------
@@ -33,20 +22,64 @@ class SemanticEngine {
   }
 
   // -------------------------------
-  // FIND MOST SIMILAR EPISODES
+  // GENERIC SEMANTIC SEARCH
   // -------------------------------
-  findSimilarEpisodes(query, episodes, topK = 5) {
+  _search(query, items, textFn, topK = 5) {
     const qVec = this.embed(query);
 
-    const scored = episodes.map(ep => {
-      const epVec = this.embed(ep.text);
-      const score = this.cosine(qVec, epVec);
-      return { episode: ep, score };
+    const scored = items.map(item => {
+      const text = textFn(item) || "";
+      const vec = this.embed(text);
+      const score = this.cosine(qVec, vec);
+      return { item, score };
     });
 
     return scored
       .sort((a, b) => b.score - a.score)
       .slice(0, topK);
+  }
+
+  // -------------------------------
+  // SEARCH RAW EPISODIC EPISODES
+  // -------------------------------
+  findSimilarEpisodes(query, episodes, topK = 5) {
+    return this._search(query, episodes, ep => ep.text, topK);
+  }
+
+  // -------------------------------
+  // SEARCH SEMANTIC SHARDS
+  // (encoded shards from consolidation)
+  // -------------------------------
+  findSimilarShards(query, shards, topK = 5) {
+    return this._search(query, shards, shard => shard.originalText, topK);
+  }
+
+  // -------------------------------
+  // SEARCH TERTIARY RECORDS
+  // (long-term semantic memory)
+  // -------------------------------
+  findSimilarTertiary(query, tertiaryRecords, topK = 5) {
+    return this._search(query, tertiaryRecords, rec => rec.summary, topK);
+  }
+
+  // -------------------------------
+  // SEARCH THEMES
+  // (cluster labels)
+  // -------------------------------
+  findSimilarThemes(query, tertiaryRecords, topK = 5) {
+    return this._search(query, tertiaryRecords, rec => rec.theme, topK);
+  }
+
+  // -------------------------------
+  // UNIFIED SEMANTIC RETRIEVAL
+  // -------------------------------
+  retrieveRelevantMemories(query, { episodes = [], shards = [], tertiary = [] }) {
+    return {
+      episodes: this.findSimilarEpisodes(query, episodes, 5),
+      shards: this.findSimilarShards(query, shards, 5),
+      tertiary: this.findSimilarTertiary(query, tertiary, 5),
+      themes: this.findSimilarThemes(query, tertiary, 5)
+    };
   }
 }
 

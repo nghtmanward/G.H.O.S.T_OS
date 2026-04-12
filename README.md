@@ -14,7 +14,7 @@ Ghost is designed to *think*, not just respond.
 
 ---
 
-## 🧠 **Core Concept**
+## **Core Concept**
 
 Ghost_OS is built around a simple idea:
 
@@ -26,7 +26,7 @@ Ghost’s identity, memory, behavior, and continuity live inside the system itse
 
 ---
 
-## 🧩 **Architecture Overview**
+## **Architecture Overview**
 
 ```
 Ghost_OS/
@@ -59,34 +59,34 @@ Ghost_OS/
 
 ---
 
-## ⚙️ **Features**
+## **Features**
 
-### **🧠 Cognitive Engine (JS)**
+### **Cognitive Engine (JS)**
 - Persistent internal state  
 - Emotional variables  
 - Behavior selection  
 - Cognitive loop with perception → evaluation → action  
 
-### **🗂️ Native Memory Organ (C++)**
+### **Native Memory Organ (C++)**
 - Fast vector memory  
 - Embedding storage  
 - Long‑term recall  
 - Memory consolidation  
 
-### **🐍 Python Knowledge Organ**
+### **Python Knowledge Organ**
 - LLM access  
 - Retrieval tools  
 - Knowledge analysis  
 - External reasoning  
 
-### **🖥️ Electron Interface**
+### **Electron Interface**
 - Real‑time mind visualization  
 - Logs, memory, and state display  
 - Interactive input  
 
 ---
 
-## 🚀 **Installation**
+## **Installation**
 
 ### **1. Clone the repo**
 ```
@@ -120,7 +120,7 @@ Ghost will launch in an Electron window and begin its cognitive loop.
 
 ---
 
-## 🧬 **How Ghost Thinks**
+## **How Ghost Thinks**
 
 Ghost’s cognition is built around a loop:
 
@@ -143,7 +143,7 @@ This loop runs continuously, giving Ghost continuity and personality.
 
 ---
 
-## 🛠️ **Development Notes**
+## **Development Notes**
 
 ### **.gitignore**
 Make sure your repo ignores:
@@ -167,7 +167,7 @@ Ghost is a **platform**, not a script.
 
 ---
 
-## 🗺️ **Roadmap**
+## **Roadmap**
 
 ### **Short‑term**
 - Improve memory consolidation  

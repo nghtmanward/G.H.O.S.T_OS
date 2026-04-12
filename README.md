@@ -1,5 +1,3 @@
----
-
 # 🜁 **Ghost_OS**  
 ### *A Modular Cognitive Architecture Built Across JS, C++, and Python*
 

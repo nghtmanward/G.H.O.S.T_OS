@@ -1,0 +1,54 @@
+cmake_minimum_required(VERSION 3.10)
+project(ghost_core LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Path to node-addon-api
+set(NODE_ADDON_API_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../node_modules/node-addon-api")
+
+# Detect Node.js version dynamically
+execute_process(
+    COMMAND node -p "process.versions.node"
+    OUTPUT_VARIABLE NODE_VERSION
+)
+string(REPLACE "\n" "" NODE_VERSION ${NODE_VERSION})
+
+# Paths to node-gyp headers and node.lib
+set(NODE_GYP_BASE "C:/Users/$ENV{USERNAME}/AppData/Local/node-gyp/Cache/${NODE_VERSION}")
+set(NODE_JS_INCLUDE_DIR "${NODE_GYP_BASE}/include/node")
+set(NODE_JS_LIB "${NODE_GYP_BASE}/x64/node.lib")
+
+include_directories(
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${NODE_ADDON_API_DIR}
+    ${NODE_JS_INCLUDE_DIR}
+)
+
+file(GLOB GHOST_CORE_SOURCES
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
+)
+
+set(BINDING_CPP
+    ${CMAKE_CURRENT_SOURCE_DIR}/../node_bindings/binding.cpp
+)
+
+add_library(ghost_core MODULE
+    ${GHOST_CORE_SOURCES}
+    ${BINDING_CPP}
+)
+
+set_target_properties(ghost_core PROPERTIES
+    PREFIX ""
+    SUFFIX ".node"
+)
+
+# Link against node.lib so napi_* resolves
+target_link_libraries(ghost_core PRIVATE "${NODE_JS_LIB}")
+
+if (WIN32)
+    target_compile_definitions(ghost_core PRIVATE
+        _CRT_SECURE_NO_WARNINGS
+        NAPI_DISABLE_CPP_EXCEPTIONS
+    )
+endif()

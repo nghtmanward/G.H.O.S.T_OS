@@ -63,7 +63,10 @@ class AttentionEngine {
     }
 
     this._validateOutput(out);
-    return out;
+    return {
+      attended: out,
+      weights: this.weights
+    };
   }
 
   // ---------------------------------------------------------

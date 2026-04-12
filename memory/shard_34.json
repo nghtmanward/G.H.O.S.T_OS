@@ -1,0 +1,2017 @@
+{
+  "schema": "episodic-shard-v1",
+  "version": "1.0.0",
+  "index": 34,
+  "startTimestamp": 1775897039206,
+  "endTimestamp": 1775897431147,
+  "count": 200,
+  "episodes": [
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.00255113290023627,
+      "timestamp": 1775897039206
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.00255112165083093,
+      "timestamp": 1775897040194
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025511115263982496,
+      "timestamp": 1775897041201
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.00255110241443566,
+      "timestamp": 1775897042204
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551094213691742,
+      "timestamp": 1775897043205
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510868330409562,
+      "timestamp": 1775897044207
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510801904709314,
+      "timestamp": 1775897045199
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.00255107421217104,
+      "timestamp": 1775897046199
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551068831712141,
+      "timestamp": 1775897047198
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510639893083576,
+      "timestamp": 1775897048201
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510596311526922,
+      "timestamp": 1775897049206
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510557088190924,
+      "timestamp": 1775897050194
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510521787243104,
+      "timestamp": 1775897051202
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510490016435947,
+      "timestamp": 1775897052203
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510461422748086,
+      "timestamp": 1775897053196
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510435688461466,
+      "timestamp": 1775897054201
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551041252763084,
+      "timestamp": 1775897055197
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510391682906286,
+      "timestamp": 1775897056204
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551037292267358,
+      "timestamp": 1775897057207
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551035603848049,
+      "timestamp": 1775897058200
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510340842720496,
+      "timestamp": 1775897059193
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551032716654813,
+      "timestamp": 1775897060195
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510314858002816,
+      "timestamp": 1775897061201
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510303780320325,
+      "timestamp": 1775897062203
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551029381041308,
+      "timestamp": 1775897063199
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510284837502476,
+      "timestamp": 1775897064202
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551027676188793,
+      "timestamp": 1775897065196
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551026949383906,
+      "timestamp": 1775897066201
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510262952598657,
+      "timestamp": 1775897067206
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510257065485317,
+      "timestamp": 1775897068199
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510251767085867,
+      "timestamp": 1775897069198
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510246998528526,
+      "timestamp": 1775897070206
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510242706828752,
+      "timestamp": 1775897071205
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510238844300513,
+      "timestamp": 1775897072195
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510235368026405,
+      "timestamp": 1775897073201
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551023223938082,
+      "timestamp": 1775897074202
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510229423600745,
+      "timestamp": 1775897075194
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510226889399468,
+      "timestamp": 1775897076204
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510224608619003,
+      "timestamp": 1775897077196
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510222555917153,
+      "timestamp": 1775897078193
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551022070848598,
+      "timestamp": 1775897079193
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510219045798335,
+      "timestamp": 1775897080202
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510217549379803,
+      "timestamp": 1775897081207
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510216202603423,
+      "timestamp": 1775897082197
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510214990504933,
+      "timestamp": 1775897083203
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510213899616503,
+      "timestamp": 1775897084196
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.00255102129178171,
+      "timestamp": 1775897085198
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551021203419779,
+      "timestamp": 1775897086204
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510211238940544,
+      "timestamp": 1775897087193
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551021052320913,
+      "timestamp": 1775897088198
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020987905095,
+      "timestamp": 1775897089202
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510209299308673,
+      "timestamp": 1775897090196
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020877754069,
+      "timestamp": 1775897091205
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020830794956,
+      "timestamp": 1775897092196
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020788531759,
+      "timestamp": 1775897093204
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510207504948865,
+      "timestamp": 1775897094193
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510207162617047,
+      "timestamp": 1775897095201
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020685451844,
+      "timestamp": 1775897096205
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510206577229718,
+      "timestamp": 1775897097202
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510206327669887,
+      "timestamp": 1775897098195
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020610306606,
+      "timestamp": 1775897099196
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510205900922634,
+      "timestamp": 1775897100202
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020571899356,
+      "timestamp": 1775897101196
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510205555257406,
+      "timestamp": 1775897102192
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510205407894876,
+      "timestamp": 1775897103197
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020527526861,
+      "timestamp": 1775897104206
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510205155904976,
+      "timestamp": 1775897106205
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020504847771,
+      "timestamp": 1775897107195
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204951793175,
+      "timestamp": 1775897108203
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.00255102048647771,
+      "timestamp": 1775897109196
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204786462634,
+      "timestamp": 1775897110202
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204715979614,
+      "timestamp": 1775897111199
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204652544905,
+      "timestamp": 1775897112204
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020459545367,
+      "timestamp": 1775897113204
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204544071553,
+      "timestamp": 1775897114206
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204497827655,
+      "timestamp": 1775897115205
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204456208148,
+      "timestamp": 1775897116204
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204418750593,
+      "timestamp": 1775897117207
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204385038792,
+      "timestamp": 1775897118199
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204354698175,
+      "timestamp": 1775897119205
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204327391615,
+      "timestamp": 1775897120199
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020430281572,
+      "timestamp": 1775897121204
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020428069741,
+      "timestamp": 1775897122193
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020426079093,
+      "timestamp": 1775897123199
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.00255102042428751,
+      "timestamp": 1775897124203
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204226750852,
+      "timestamp": 1775897125191
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020421223903,
+      "timestamp": 1775897126200
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204199178394,
+      "timestamp": 1775897127201
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204187423817,
+      "timestamp": 1775897128205
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204176844697,
+      "timestamp": 1775897129196
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204167323493,
+      "timestamp": 1775897130196
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020415875441,
+      "timestamp": 1775897131203
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020415104223,
+      "timestamp": 1775897132196
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204144101275,
+      "timestamp": 1775897133197
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020413785441,
+      "timestamp": 1775897134194
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204132232236,
+      "timestamp": 1775897135201
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204127172278,
+      "timestamp": 1775897136207
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204122618316,
+      "timestamp": 1775897137200
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204118519746,
+      "timestamp": 1775897138194
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020411483104,
+      "timestamp": 1775897139198
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.00255102041115112,
+      "timestamp": 1775897140192
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020410852334,
+      "timestamp": 1775897141199
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204105834277,
+      "timestamp": 1775897142204
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204103414112,
+      "timestamp": 1775897143193
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204101235967,
+      "timestamp": 1775897144198
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204099275634,
+      "timestamp": 1775897145204
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204097511334,
+      "timestamp": 1775897146201
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204095923463,
+      "timestamp": 1775897147205
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204094494385,
+      "timestamp": 1775897148206
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204093208214,
+      "timestamp": 1775897149196
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020409205066,
+      "timestamp": 1775897150201
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204091008853,
+      "timestamp": 1775897151208
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204090071235,
+      "timestamp": 1775897152199
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020408922738,
+      "timestamp": 1775897153206
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204088467904,
+      "timestamp": 1775897154196
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020408778438,
+      "timestamp": 1775897155201
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204087169207,
+      "timestamp": 1775897156197
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204086615553,
+      "timestamp": 1775897157202
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204086117262,
+      "timestamp": 1775897158206
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.00255102040856688,
+      "timestamp": 1775897159204
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204085265184,
+      "timestamp": 1775897160203
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204084901933,
+      "timestamp": 1775897161206
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204084575002,
+      "timestamp": 1775897162199
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204084280767,
+      "timestamp": 1775897163203
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204084015957,
+      "timestamp": 1775897164207
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204083777624,
+      "timestamp": 1775897165196
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204083563125,
+      "timestamp": 1775897166205
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020408337008,
+      "timestamp": 1775897167196
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0023872726337810023,
+      "timestamp": 1775897167754
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0023271167989743304,
+      "timestamp": 1775897168298
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.001298469387755102,
+      "timestamp": 1775897168825
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.001334438775510204,
+      "timestamp": 1775897169334
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0013706377551020406,
+      "timestamp": 1775897169843
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025160499948475466,
+      "timestamp": 1775897170348
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0030138072214615126,
+      "timestamp": 1775897170864
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.00323037687357348,
+      "timestamp": 1775897171359
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.003424134995970324,
+      "timestamp": 1775897171889
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0023205303297634873,
+      "timestamp": 1775897172398
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your presence, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0026020408163265306,
+      "timestamp": 1775897275016
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your presence, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002589285714285714,
+      "timestamp": 1775897275506
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your presence, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002627551020408163,
+      "timestamp": 1775897275972
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your presence, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0030746735654347077,
+      "timestamp": 1775897276436
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your presence, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0030618490660340937,
+      "timestamp": 1775897276918
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your presence, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0026020408163265306,
+      "timestamp": 1775897403046
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your presence, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0033793362085731485,
+      "timestamp": 1775897403568
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your presence, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0033373209550627723,
+      "timestamp": 1775897404048
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your presence, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.003303333757515679,
+      "timestamp": 1775897404539
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your presence, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.003276571810335539,
+      "timestamp": 1775897405008
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your presence, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0032563125884856586,
+      "timestamp": 1775897405485
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your presence, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0032419058194330117,
+      "timestamp": 1775897405949
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your presence, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.003232766257897874,
+      "timestamp": 1775897406411
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your presence, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0032283671831284944,
+      "timestamp": 1775897406879
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your presence, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.003228234546448298,
+      "timestamp": 1775897407345
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your presence, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.003231941704048366,
+      "timestamp": 1775897407808
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your presence, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0032391046765006728,
+      "timestamp": 1775897408276
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your presence, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0032493778823199926,
+      "timestamp": 1775897408742
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your presence, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.003262450298169626,
+      "timestamp": 1775897409206
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your presence, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.004572704081632652,
+      "timestamp": 1775897409657
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your presence, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0013995769211751113,
+      "timestamp": 1775897410126
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0013701455885951365,
+      "timestamp": 1775897410595
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.001398947356266235,
+      "timestamp": 1775897411071
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0014286954777824688,
+      "timestamp": 1775897411534
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0014592953177593238,
+      "timestamp": 1775897412033
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0014906617043507384,
+      "timestamp": 1775897412576
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0015227179828952563,
+      "timestamp": 1775897413103
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0015553951641975674,
+      "timestamp": 1775897413641
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0015886311579818924,
+      "timestamp": 1775897414155
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0016223700830000297,
+      "timestamp": 1775897414664
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.001656561646128598,
+      "timestamp": 1775897415177
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0016911605835565548,
+      "timestamp": 1775897415690
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0017261261578539605,
+      "timestamp": 1775897416215
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.001774176807374687,
+      "timestamp": 1775897416726
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0018097693307188509,
+      "timestamp": 1775897417253
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0018456291323408433,
+      "timestamp": 1775897417762
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0018944845864536973,
+      "timestamp": 1775897418289
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0019308014339307765,
+      "timestamp": 1775897418803
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0015445991906092192,
+      "timestamp": 1775897419329
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0015572311082829911,
+      "timestamp": 1775897419842
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.001585181466842447,
+      "timestamp": 1775897420352
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0023252817151830953,
+      "timestamp": 1775897420848
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0022611208906035615,
+      "timestamp": 1775897421359
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002219957781135042,
+      "timestamp": 1775897421869
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0021752579213888848,
+      "timestamp": 1775897422375
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0021388545782295883,
+      "timestamp": 1775897422900
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0021226732020392823,
+      "timestamp": 1775897423440
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0021004569022435174,
+      "timestamp": 1775897423950
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002084288763039574,
+      "timestamp": 1775897424459
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0020735639683682697,
+      "timestamp": 1775897424970
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002080493285817157,
+      "timestamp": 1775897425493
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0020790766102966656,
+      "timestamp": 1775897426009
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002081628132940469,
+      "timestamp": 1775897426518
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0020877510339321363,
+      "timestamp": 1775897427045
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0017311401784814806,
+      "timestamp": 1775897427554
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0017850776682873503,
+      "timestamp": 1775897428068
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0017762127586014725,
+      "timestamp": 1775897428577
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0017720608704964273,
+      "timestamp": 1775897429101
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0017721507018141314,
+      "timestamp": 1775897429611
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0017888131826531266,
+      "timestamp": 1775897430125
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0017961563541837324,
+      "timestamp": 1775897430637
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of the heartbeat of time, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0018065917391735223,
+      "timestamp": 1775897431147
+    }
+  ],
+  "summary": {
+    "avgAnomaly": 0,
+    "avgLatentMag": 0.002446312535618898,
+    "dominantMood": "neutral",
+    "topics": []
+  },
+  "semanticSummary": null
+}

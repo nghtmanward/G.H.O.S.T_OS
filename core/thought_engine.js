@@ -6,7 +6,7 @@ const retrieval = new RetrievalEngine();
 
 class ThoughtEngine {
   constructor() {
-    this.version = "2.0.0-2026.01.08"; // upgraded for semantic integration
+    this.version = "2.1.0-2026.04.04"; // upgraded for native semantic integration
 
     try {
       this.registry = require("../version_registry.json");
@@ -67,7 +67,7 @@ class ThoughtEngine {
   }
 
   // ---------------------------------------------------------
-  // NEW: Semantic Memory Influence
+  // NEW: Semantic Memory Influence (Native + JS Hybrid)
   // ---------------------------------------------------------
   getSemanticContext() {
     const tertiary = mainMemory.tertiary || [];
@@ -76,20 +76,30 @@ class ThoughtEngine {
       return {
         theme: null,
         summary: null,
-        related: []
+        related: [],
+        nativeRelated: []
       };
     }
 
-    // Pick the strongest long-term record
+    // Pick strongest long-term semantic record
     const strongest = [...tertiary].sort((a, b) => b.strength - a.strength)[0];
 
-    // Retrieve related memories
-    const related = retrieval.retrieve(strongest.summary || strongest.theme);
+    const query = strongest.summary || strongest.theme || "";
+
+    // JS semantic retrieval
+    const related = retrieval.retrieve(query);
+
+    // Native semantic retrieval (episodic + shards)
+    const nativeRelated = {
+      episodic: retrieval.findByMeaningNative(query, 5),
+      shards: retrieval.findSimilarSemanticShardsNative(query, 5)
+    };
 
     return {
       theme: strongest.theme,
       summary: strongest.summary,
-      related
+      related,
+      nativeRelated
     };
   }
 
@@ -145,7 +155,7 @@ class ThoughtEngine {
     const vigilance = safeTraits[3] || 0;
 
     // ---------------------------------------------------------
-    // NEW: Semantic Memory Context
+    // NEW: Semantic Memory Context (Hybrid)
     // ---------------------------------------------------------
     const semantic = this.getSemanticContext();
 
@@ -313,6 +323,8 @@ class ThoughtEngine {
         traits: safeTraits,
         semanticTheme: semantic.theme,
         semanticSummary: semantic.summary,
+        semanticRelated: semantic.related,
+        semanticNative: semantic.nativeRelated,
         timestamp: Date.now()
       }
     };

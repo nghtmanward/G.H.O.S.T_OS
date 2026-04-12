@@ -4,38 +4,67 @@
     <meta charset="UTF-8" />
     <title>Ghost OS</title>
     <style>
-      :root { --glow-color: rgba(255, 255, 255, 0.35); }
+      :root {
+        --glow-color: rgba(255, 255, 255, 0.35);
+      }
 
       body {
-        background: rgba(0,0,0,0.2);
+        background: #0a0a0c;
         color: white;
         font-family: monospace;
         margin: 0;
         height: 100vh;
         overflow-x: hidden;
-        overflow-y: auto;      /* allow scrolling */
+        overflow-y: auto;
         display: flex;
         justify-content: center;
-        align-items: flex-start; /* prevents clipping bottom */
-        padding-top: 40px;
+        align-items: flex-start;
+        padding-top: 20px;
       }
+
+      /* ----------------------------- */
+      /* DRAG REGION FIX               */
+      /* ----------------------------- */
+
+      .titlebar {
+        -webkit-app-region: drag;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .titlebar h1 {
+        margin: 0;
+        padding: 0;
+        font-size: 24px;
+        font-weight: bold;
+        -webkit-app-region: drag;
+      }
+
+      /* Everything else must NOT drag */
+      .ghost-container * {
+        -webkit-app-region: no-drag;
+      }
+
+      /* ----------------------------- */
+      /* MAIN UI CONTAINER             */
+      /* ----------------------------- */
 
       .ghost-container {
-        padding: 40px;
-        border-radius: 20px;
-        backdrop-filter: blur(10px);
-        background: rgba(255, 255, 255, 0.05);
+        position: relative;
+        z-index: 2;
+
+        padding: 20px;
+        border-radius: 16px;
+
+        backdrop-filter: blur(0.5px);
+        background: rgba(0, 0, 0, 0.03);
+
         box-shadow: 0 0 30px var(--glow-color);
+
         text-align: center;
 
-        max-height: 90vh;       /* keep inside window */
-        overflow-y: auto;       /* scroll inside container */
-      }
-
-      h1 {
-        margin-top: 0;
-        margin-bottom: 10px;
-        -webkit-app-region: drag; /* draggable window */
+        max-height: 82vh;
+        overflow-y: auto;
       }
 
       #ghost-state {
@@ -51,10 +80,29 @@
         opacity: 0.8;
       }
 
+      #attention-bars {
+        display: flex;
+        gap: 4px;
+        min-height: 100px;
+        height: 100px;
+        margin-top: 12px;
+        justify-content: center;
+        align-items: flex-end;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        padding: 6px;
+        border-radius: 6px;
+      }
+
+      .attention-bar {
+        width: 1px;
+        background: #ffaa00;
+        transition: height 0.25s ease;
+      }
+
       #latent-visualizer {
         display: flex;
         gap: 4px;
-        margin-top: 30px;
+        margin-top: 20px;
         height: 120px;
         align-items: flex-end;
         justify-content: center;
@@ -74,23 +122,8 @@
         color: #00ffff;
       }
 
-      #attention-bars {
-        display: flex;
-        gap: 4px;
-        height: 100px;
-        margin-top: 10px;
-        justify-content: center;
-        align-items: flex-end;
-      }
-
-      .attention-bar {
-        width: 10px;
-        background: #ffaa00;
-        transition: height 0.25s ease;
-      }
-
       #latent-3d-container {
-        margin-top: 25px;
+        margin-top: 16px;
         display: flex;
         gap: 16px;
         justify-content: center;
@@ -101,6 +134,10 @@
         grid-template-columns: repeat(4, 14px);
         grid-auto-rows: 14px;
         gap: 4px;
+
+        position: relative;
+        z-index: 0 !important;
+        pointer-events: none;
       }
 
       .latent-cell {
@@ -111,7 +148,7 @@
       }
 
       #latent-history {
-        margin-top: 20px;
+        margin-top: 12px;
         display: flex;
         flex-direction: column;
         gap: 2px;
@@ -127,7 +164,7 @@
       .history-cell {
         width: 6px;
         height: 6px;
-        background: rgba(0,255,255,0.2);
+        background: rgba(0, 255, 255, 0.2);
       }
 
       #status-row {
@@ -155,84 +192,53 @@
       .status-line {
         margin: 2px 0;
       }
-
-      #webcam {
-        width: 200px;
-        margin-bottom: 10px;
-        border-radius: 6px;
-        opacity: 0.9;
-        -webkit-app-region: no-drag; /* prevent drag interference */
-      }
-
-      /* ---------------------------------
-         Ghost painting window
-         --------------------------------- */
-
-      #ghostCanvas {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        width: 260px;
-        height: 260px;
-        border: 2px solid rgba(255,255,255,0.3);
-        border-radius: 8px;
-        background: rgba(0,0,0,0.15);
-        box-shadow: 0 0 12px rgba(0,0,0,0.4);
-        cursor: grab;
-        transition: box-shadow 0.3s;
-        -webkit-app-region: no-drag; /* so dragging canvas doesn't drag the window */
-      }
-
-      #ghostCanvas:active {
-        cursor: grabbing;
-        box-shadow: 0 0 18px rgba(255,255,255,0.4);
-      }
-
-      .vision-mode {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100vw !important;
-        height: 100vh !important;
-        border-radius: 0 !important;
-        z-index: 9999 !important;
-      }
     </style>
   </head>
 
   <body>
     <div class="ghost-container">
-      <h1>The Ghost Stirs...</h1>
 
-      <video id="webcam" autoplay muted playsinline></video>
-      <canvas id="webcam-canvas" width="320" height="240" style="display:none;"></canvas>
+      <!-- DRAGGABLE TITLEBAR -->
+      <div class="titlebar">
+        <h1>The Ghost Stirs...</h1>
+      </div>
 
       <div id="ghost-state"></div>
-      <div id="ghost-voice"></div>
+
+      <div id="attention-bars"></div>
 
       <div id="status-row">
         <div class="status-block">
-          <span class="status-label">Visual sensory</span>
-          <div class="status-line">Brightness: <span id="vis-brightness">0.00</span></div>
-          <div class="status-line">Motion: <span id="vis-motion">0.00</span></div>
-          <div class="status-line">Edges: <span id="vis-edges">0.00</span></div>
-          <div class="status-line">Entropy: <span id="vis-entropy">0.00</span></div>
-        </div>
-
-        <div class="status-block">
           <span class="status-label">Emotional tell</span>
-          <div class="status-line">Emotion: <span id="emotion-label">neutral</span></div>
-          <div class="status-line">Valence: <span id="emotion-valence">0.00</span></div>
-          <div class="status-line">Arousal: <span id="emotion-arousal">0.00</span></div>
-          <div class="status-line">Tension: <span id="emotion-tension">0.00</span></div>
+          <div class="status-line">
+            Emotion: <span id="emotion-label">neutral</span>
+          </div>
+          <div class="status-line">
+            Valence: <span id="emotion-valence">0.00</span>
+          </div>
+          <div class="status-line">
+            Arousal: <span id="emotion-arousal">0.00</span>
+          </div>
+          <div class="status-line">
+            Tension: <span id="emotion-tension">0.00</span>
+          </div>
         </div>
 
         <div class="status-block">
           <span class="status-label">Memory & mood</span>
-          <div class="status-line">Episodes: <span id="memory-count">0</span>/<span id="memory-limit">0</span></div>
-          <div class="status-line">Mood baseline: <span id="mood-baseline">0.00</span></div>
-          <div class="status-line">Curiosity: <span id="trait-curiosity">0.00</span></div>
-          <div class="status-line">Emotionality: <span id="trait-emotionality">0.00</span></div>
+          <div class="status-line">
+            Episodes:
+            <span id="memory-count">0</span>/<span id="memory-limit">0</span>
+          </div>
+          <div class="status-line">
+            Mood baseline: <span id="mood-baseline">0.00</span>
+          </div>
+          <div class="status-line">
+            Curiosity: <span id="trait-curiosity">0.00</span>
+          </div>
+          <div class="status-line">
+            Emotionality: <span id="trait-emotionality">0.00</span>
+          </div>
         </div>
       </div>
 
@@ -240,13 +246,9 @@
       <div id="loss-display"></div>
       <div id="prediction-loss"></div>
       <div id="anomaly-display"></div>
-      <div id="attention-bars"></div>
       <div id="latent-3d-container"></div>
       <div id="latent-history"></div>
     </div>
-
-    <!-- Ghost painting canvas (lives outside the glass container) -->
-    <canvas id="ghostCanvas"></canvas>
 
     <script src="renderer.js"></script>
   </body>

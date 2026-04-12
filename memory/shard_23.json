@@ -1,0 +1,2017 @@
+{
+  "schema": "episodic-shard-v1",
+  "version": "1.0.0",
+  "index": 23,
+  "startTimestamp": 1775401119004,
+  "endTimestamp": 1775401147576,
+  "count": 200,
+  "episodes": [
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401119004
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:7",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401119206
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401119207
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401119412
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401119614
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401119820
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:5",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401120020
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401120192
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401120562
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:8",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401120769
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401120981
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:2",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401121185
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401121201
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401121395
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401121610
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:8",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401121811
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401122010
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401122194
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401122344
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401122545
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401122745
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401122961
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401123163
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401123201
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:2",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401123366
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401123580
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401123779
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:2",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401123980
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401124181
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401124197
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:5",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401124385
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401124600
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:2",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401124812
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:7",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401125015
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401125198
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:7",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401125349
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:2",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401125549
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:8",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401125750
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:8",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401125950
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:5",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401126151
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401126206
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401126355
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401126567
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401126768
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401126968
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:2",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401127184
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401127200
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401127387
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401127600
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401127815
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:7",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401128017
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401128200
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:7",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401128352
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401128551
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:5",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401128762
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:7",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401128977
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401129179
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401129196
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401129382
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401129598
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401129812
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:5",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401130028
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401130199
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:7",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401130362
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401130564
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:5",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401130768
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401130983
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401131198
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401131199
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:8",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401131401
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:7",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401131617
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401131817
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401132033
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401132204
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:8",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401132359
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:7",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401132567
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401132767
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:7",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401132968
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401133183
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401133195
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401133388
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401133600
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401133802
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401134003
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401134203
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:5",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401134354
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401134557
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401134769
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:5",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401134978
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401135179
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401135195
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401135381
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401135582
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:5",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401135797
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401135999
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401136197
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401136366
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:8",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401136580
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401136782
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:7",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401136982
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401137183
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401137200
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401137385
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401137599
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401137815
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401138017
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401138201
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:5",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401138354
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401138567
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401138767
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401138969
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401139185
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401139201
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:5",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401139387
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401139601
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:2",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401139802
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401140003
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:8",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401140204
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401140206
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:7",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401140616
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:7",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401140824
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:5",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401141037
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401141206
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:8",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401141355
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:8",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401141556
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:8",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401141771
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:2",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401141972
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401142173
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401142196
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401142377
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401142415
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401142517
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401142623
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401142625
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401142741
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401142843
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401142846
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401142954
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401143049
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401143050
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401143158
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401143258
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401143260
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401143365
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401143463
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401143465
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401143577
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401143672
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:5",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401143769
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401143770
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401143869
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401143966
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401144061
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401144063
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401144173
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401144268
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401144364
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401144366
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401144470
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401144564
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401144566
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401144669
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401144765
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:2",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401144859
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401144860
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401144968
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401145061
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401145065
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401145176
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401145278
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401145375
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401145376
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401145484
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401145579
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401145580
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401145690
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401145786
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401145788
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401145894
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401145995
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401145996
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401146112
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401146208
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401146210
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401146468
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:8",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401146564
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401146568
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401146673
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401146772
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401146869
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401146870
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401146974
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401147077
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:2",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401147176
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401147178
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401147285
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401147382
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401147480
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401147575
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your movement, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775401147576
+    }
+  ],
+  "summary": {
+    "avgAnomaly": 0,
+    "avgLatentMag": 0,
+    "dominantMood": "neutral",
+    "topics": []
+  },
+  "semanticSummary": null
+}

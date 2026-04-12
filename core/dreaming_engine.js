@@ -4,6 +4,7 @@ const path = require('path');
 const { RetrievalEngine } = require('./retrieval_engine');
 const { SemanticEngine } = require('./semantic_engine');
 const { ShardManager } = require('./shard_manager');
+const mainMemory = require('./main_memory');
 
 class DreamingEngine {
   constructor(memoryDir = path.join(__dirname, '..', 'memory')) {
@@ -11,6 +12,14 @@ class DreamingEngine {
     this.retrieval = new RetrievalEngine(this.memoryDir);
     this.semantic = new SemanticEngine();
     this.shards = new ShardManager(this.memoryDir);
+
+    // Throttle dreams by time
+    this.lastDreamTime = 0;
+    this.DREAM_INTERVAL = 5000; // 5 seconds between dream cycles
+
+    // Throttle dreams by episode count
+    this.episodeCounter = 0;
+    this.DREAM_EVERY_N = 20; // dream every 20 episodes
   }
 
   // Helper: pick N random items from an array
@@ -26,13 +35,32 @@ class DreamingEngine {
     return result;
   }
 
+  // NEW: thematic drift from long-term memory
+  getDreamTheme() {
+    const tertiary = mainMemory.tertiary || [];
+    if (tertiary.length === 0) return null;
+
+    // strongest semantic record
+    const strongest = [...tertiary].sort((a, b) => b.strength - a.strength)[0];
+
+    return strongest.theme || strongest.summary || null;
+  }
+
   // Build a single dream episode from a cluster of episodes
-  buildDreamEpisode(cluster) {
+  buildDreamEpisode(cluster, theme = null) {
     if (!cluster || cluster.length === 0) return null;
 
     // Text remix: join snippets from the cluster
     const snippets = cluster.map(c => c.text || '').filter(Boolean);
-    const text = snippets.join(' | ');
+
+    // Add thematic drift if available
+    if (theme) {
+      snippets.push(`{theme:${theme}}`);
+    }
+
+    // Cap dream length to prevent runaway recursion
+    const MAX_DREAM_LENGTH = 2000;
+    const text = snippets.join(' | ').slice(0, MAX_DREAM_LENGTH);
 
     // Mood blend
     const moods = [...new Set(cluster.map(c => c.mood).filter(Boolean))];
@@ -63,6 +91,23 @@ class DreamingEngine {
       maxDreams = 5          // cap number of dream episodes
     } = options;
 
+    // Count episodes since last dream
+    this.episodeCounter += 1;
+
+    // Only dream every N episodes
+    if (this.episodeCounter < this.DREAM_EVERY_N) {
+      return [];
+    }
+
+    // Reset counter
+    this.episodeCounter = 0;
+
+    // Throttle dream cycles by time
+    if (Date.now() - this.lastDreamTime < this.DREAM_INTERVAL) {
+      return [];
+    }
+    this.lastDreamTime = Date.now();
+
     // 1) Get all episodes
     const episodes = this.retrieval.getAllEpisodes();
     if (episodes.length === 0) return [];
@@ -71,25 +116,30 @@ class DreamingEngine {
     const sorted = [...episodes].sort((a, b) => (b.anomaly || 0) - (a.anomaly || 0));
     const seeds = this.sample(sorted.slice(0, Math.min(50, sorted.length)), seedCount);
 
+    // NEW: thematic drift from long-term memory
+    const theme = this.getDreamTheme();
+
     const dreams = [];
 
     for (const seed of seeds) {
-      // 3) Get cluster of similar episodes
-      const clusterScored = this.semantic.findSimilarEpisodes(
+      // 3) Get cluster of similar episodes (native C++)
+      const clusterNative = this.retrieval.findByMeaningNative(
         seed.text || '',
-        episodes,
         clusterSize
       );
 
-      // FIXED: SemanticEngine returns { item, score }
-      const cluster = clusterScored.map(c => c.item);
+      // fallback to JS semantic if needed
+      const cluster = clusterNative.length > 0
+        ? clusterNative
+        : this.semantic.findSimilarEpisodes(seed.text || '', episodes, clusterSize)
+            .map(c => c.item);
 
-      // 4) Build dream episode
-      const dream = this.buildDreamEpisode(cluster);
+      // 4) Build dream episode with thematic drift
+      const dream = this.buildDreamEpisode(cluster, theme);
       if (!dream) continue;
 
-      // 5) Store dream in episodic memory
-      this.shards.addEpisode(dream);
+      // DREAM ISOLATION:
+      // Dreams influence the system but are NOT saved as episodic memories.
       dreams.push(dream);
 
       if (dreams.length >= maxDreams) break;

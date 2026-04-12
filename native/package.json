@@ -1,0 +1,12 @@
+{
+  "name": "ghost_core",
+  "version": "1.0.0",
+  "description": "Native C++ engines for Ghost_OS",
+  "main": "index.js",
+  "scripts": {
+    "build": "node-gyp rebuild"
+  },
+  "dependencies": {
+    "node-addon-api": "^7.0.0"
+  }
+}

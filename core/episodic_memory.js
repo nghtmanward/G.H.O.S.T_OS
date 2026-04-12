@@ -24,9 +24,9 @@ class EpisodicMemory {
 
     // Soft and hard limits
     this.minSize = 10;
-    this.maxSize = 50;        // initial hard ceiling
-    this.currentLimit = 20;   // soft limit (adaptive)
-    this.growthFactor = 1.2;  // when we consistently hit the ceiling, expand it
+    this.maxSize = 50;       // initial hard ceiling
+    this.currentLimit = 20;  // soft limit (adaptive)
+    this.growthFactor = 1.2; // when we consistently hit the ceiling, expand it
   }
 
   // ---------------------------------------------------------
@@ -59,7 +59,7 @@ class EpisodicMemory {
     const safeMood = isFinite(moodBaseline) ? moodBaseline : 0;
 
     const safeTraits = Array.isArray(traits)
-      ? traits.map(v => (isFinite(v) ? v : 0))
+      ? traits.map((v) => (isFinite(v) ? v : 0))
       : [0, 0, 0, 0];
 
     let target = this.currentLimit;
@@ -115,10 +115,10 @@ class EpisodicMemory {
     latent = [0],
     anomaly = 0,
     mood = "neutral",
-    styleBias = {}
+    styleBias = {},
   }) {
     const safeLatent = Array.isArray(latent)
-      ? latent.map(v => (isFinite(v) ? v : 0))
+      ? latent.map((v) => (isFinite(v) ? v : 0))
       : [0];
 
     const safeAnomaly = isFinite(anomaly) ? anomaly : 0;
@@ -136,7 +136,7 @@ class EpisodicMemory {
       mood,
       style: this.dominantStyle(safeStyle),
       latentMag: this.latentMagnitude(safeLatent),
-      timestamp: Date.now()
+      timestamp: Date.now(),
     };
   }
 
@@ -178,30 +178,53 @@ class EpisodicMemory {
   }
 
   // ---------------------------------------------------------
-  // ADD EPISODE (NEW SCHEMA)
+  // ADD EPISODE (COMPAT + NEW SCHEMA)
   // ---------------------------------------------------------
-  addEpisode(thought, metadata) {
-    if (!metadata) return;
+  addEpisode(arg1, arg2) {
+    // New-style call: addEpisode(thought, metadata)
+    if (typeof arg1 === "string" && typeof arg2 === "object") {
+      const thought = arg1;
+      const metadata = arg2;
+      if (!metadata) return;
 
-    const compressed = this.compressEpisode({
-      thought: metadata.thought || thought,
-      latent: metadata.latent,
-      anomaly: metadata.anomaly,
-      mood: metadata.mood,
-      styleBias: metadata.styleBias
-    });
+      const compressed = this.compressEpisode({
+        thought: metadata.thought || thought,
+        latent: metadata.latent,
+        anomaly: metadata.anomaly,
+        mood: metadata.mood,
+        styleBias: metadata.styleBias,
+      });
 
-    this._validateEpisode(compressed);
+      this._validateEpisode(compressed);
+      this.episodes.push(compressed);
 
-    this.episodes.push(compressed);
+      // Adapt memory size safely
+      this.adaptMemorySize(metadata);
 
-    // Adapt memory size safely
-    this.adaptMemorySize(metadata);
-
-    // Trim if needed (using soft limit)
-    while (this.episodes.length > this.currentLimit) {
-      this.episodes.shift();
+      // Trim if needed (using soft limit)
+      while (this.episodes.length > this.currentLimit) {
+        this.episodes.shift();
+      }
+      return;
     }
+
+    // Old-style call: addEpisode(episodeObject)
+    if (typeof arg1 === "object" && arg1 !== null && !arg2) {
+      const ep = arg1;
+      const normalized = this.normalizeEpisode(ep);
+      this._validateEpisode(normalized);
+      this.episodes.push(normalized);
+
+      // After ingesting, allow ceiling to grow if needed
+      this._maybeExpandCeiling();
+      return;
+    }
+
+    // Fallback: unsupported signature
+    console.warn("EpisodicMemory.addEpisode: unsupported call signature", {
+      arg1,
+      arg2,
+    });
   }
 
   // ---------------------------------------------------------
@@ -233,7 +256,7 @@ class EpisodicMemory {
         mood: "neutral",
         style: "poetic",
         latentMag: 0,
-        timestamp: Date.now()
+        timestamp: Date.now(),
       };
     }
 
@@ -260,7 +283,7 @@ class EpisodicMemory {
       mood: safeMood,
       style,
       latentMag: safeLatentMag,
-      timestamp: isFinite(ep.timestamp) ? ep.timestamp : Date.now()
+      timestamp: isFinite(ep.timestamp) ? ep.timestamp : Date.now(),
     };
   }
 
@@ -303,8 +326,26 @@ class EpisodicMemory {
       count: this.episodes.length,
       limit: Math.round(this.currentLimit),
       maxSize: this.maxSize,
-      last: this.episodes[this.episodes.length - 1] || null
+      last: this.episodes[this.episodes.length - 1] || null,
     };
+  }
+
+  // ---------------------------------------------------------
+  // PERSISTENCE (DUMP + LOAD)
+  // ---------------------------------------------------------
+  dump() {
+    // main.js expects an array of episodes
+    return this.episodes;
+  }
+
+  load(data) {
+    if (!Array.isArray(data)) return;
+
+    // Accept both legacy and new schema episodes
+    this.episodes = data.map((ep) => this.normalizeEpisode(ep));
+
+    // After loading, allow ceiling to adapt
+    this._maybeExpandCeiling();
   }
 }
 

@@ -50,9 +50,14 @@ class BehaviorEngine {
   // ---------------------------------------------------------
   // MAIN UPDATE
   // ---------------------------------------------------------
-  update({ anomaly, predLoss }) {
+  update({ anomaly, predLoss, latent, thought }) {
     const safeAnomaly = isFinite(anomaly) ? anomaly : 0;
     const safePredLoss = isFinite(predLoss) ? predLoss : 0;
+    const safeLatent = Array.isArray(latent) ? latent : [];
+    const latentMag = safeLatent.reduce((sum, value) => {
+      const v = isFinite(value) ? value : 0;
+      return sum + Math.abs(v);
+    }, 0);
 
     // Mood based on anomaly
     if (safeAnomaly > 0.05) {
@@ -76,7 +81,9 @@ class BehaviorEngine {
     }
 
     // Text output
-    if (this.mood === "alert") {
+    if (typeof thought === "string" && thought.trim()) {
+      this.text = thought;
+    } else if (this.mood === "alert") {
       this.text = "The ghost senses disruption.";
     } else if (this.mood === "calm") {
       this.text = "The ghost drifts in quiet memory.";
@@ -88,6 +95,7 @@ class BehaviorEngine {
       version: this.version,
       mood: this.mood,
       intensity: this.intensity,
+      latentMag,
       color: this.color,
       text: this.text
     };
@@ -110,6 +118,10 @@ class BehaviorEngine {
 
     if (!isFinite(out.intensity)) {
       throw new Error("BehaviorEngine: intensity invalid");
+    }
+
+    if (!isFinite(out.latentMag)) {
+      throw new Error("BehaviorEngine: latentMag invalid");
     }
 
     if (typeof out.color !== "string") {

@@ -4,62 +4,145 @@ const fs = require("fs");
 const path = require("path");
 
 class DatasetStreamer {
-    constructor() {
-        this.datasetPath = path.join(__dirname, "..", "datasets", "mnist", "train.csv");
-        this.rows = [];
-        this.loaded = false;
+    constructor(dataset = "mnist") {
+        this.dataset = dataset.toLowerCase();
+
+        // MNIST fields
+        this.mnistPath = path.join(__dirname, "..", "datasets", "mnist", "train.csv");
+        this.mnistRows = [];
+        this.mnistLoaded = false;
         this.expectedPixels = 784;
+
+        // CIFAR fields (pure JS loader)
+        this.cifarLoaded = false;
+        this.cifarImages = [];
+        this.cifarLabels = [];
+        this.cifarCount = 50000; // 5 × 10k
+        this.cifarDir = path.join(__dirname, "..", "datasets", "cifar10");
     }
 
-    loadCSV() {
-        if (this.loaded) return;
+    // ------------------------------------------------------------
+    // MNIST LOADING
+    // ------------------------------------------------------------
+    loadMNIST() {
+        if (this.mnistLoaded) return;
 
-        const raw = fs.readFileSync(this.datasetPath, "utf8");
+        if (!fs.existsSync(this.mnistPath)) {
+            console.error("MNIST dataset missing:", this.mnistPath);
+            throw new Error("MNIST dataset not found");
+        }
 
-        // Split into lines and remove empty ones
+        const raw = fs.readFileSync(this.mnistPath, "utf8");
         const lines = raw.split("\n").filter(l => l.trim().length > 0);
 
-        // Remove header row
-        lines.shift();
+        lines.shift(); // remove header
 
-        this.rows = lines.map((line, idx) => {
-            const parts = line.split(",");
-
-            // Convert all values to numbers
-            const nums = parts.map(v => Number(v));
-
+        this.mnistRows = lines.map((line) => {
+            const nums = line.split(",").map(Number);
             const label = nums[0];
             let pixels = nums.slice(1);
 
-            // Fix short rows (rare but happens in some Kaggle exports)
+            // Normalize pixel count
             if (pixels.length < this.expectedPixels) {
-                const missing = this.expectedPixels - pixels.length;
-                console.warn(`⚠️ Row ${idx} is short by ${missing} pixels. Padding with zeros.`);
-                pixels = pixels.concat(Array(missing).fill(0));
-            }
-
-            // Fix long rows (also rare)
-            if (pixels.length > this.expectedPixels) {
-                console.warn(`⚠️ Row ${idx} has extra pixels. Truncating.`);
+                pixels = pixels.concat(Array(this.expectedPixels - pixels.length).fill(0));
+            } else if (pixels.length > this.expectedPixels) {
                 pixels = pixels.slice(0, this.expectedPixels);
             }
 
-            // Sanitize NaN or invalid values
             pixels = pixels.map(v => (isFinite(v) ? v : 0));
 
             return { label, pixels };
         });
 
-        this.loaded = true;
-        console.log(`📁 Loaded MNIST dataset locally: ${this.rows.length} samples`);
+        this.mnistLoaded = true;
+        console.log(`📁 Loaded MNIST dataset: ${this.mnistRows.length} samples`);
     }
 
     async streamMNIST(offset = 0) {
-        if (!this.loaded) this.loadCSV();
+        if (!this.mnistLoaded) this.loadMNIST();
+        if (offset >= this.mnistRows.length) return null;
+        return this.mnistRows[offset];
+    }
 
-        if (offset >= this.rows.length) return null;
+    // ------------------------------------------------------------
+    // PURE-JS CIFAR-10 LOADING
+    // ------------------------------------------------------------
+    loadCIFARBatch(filePath) {
+        if (!fs.existsSync(filePath)) {
+            console.error("Missing CIFAR batch:", filePath);
+            throw new Error("CIFAR batch file missing");
+        }
 
-        return this.rows[offset];
+        const buffer = fs.readFileSync(filePath);
+        const recordSize = 1 + 3072; // label + pixels
+        const numRecords = buffer.length / recordSize;
+
+        const images = [];
+        const labels = [];
+
+        for (let i = 0; i < numRecords; i++) {
+            const start = i * recordSize;
+            const label = buffer[start];
+            const pixels = Array.from(buffer.slice(start + 1, start + 1 + 3072));
+
+            labels.push(label);
+            images.push(pixels);
+        }
+
+        return { images, labels };
+    }
+
+    loadCIFAR() {
+        if (this.cifarLoaded) return;
+
+        console.log("📁 Loading CIFAR-10 dataset (pure JS)…");
+
+        const batches = [
+            "data_batch_1.bin",
+            "data_batch_2.bin",
+            "data_batch_3.bin",
+            "data_batch_4.bin",
+            "data_batch_5.bin"
+        ];
+
+        for (const batch of batches) {
+            const filePath = path.join(this.cifarDir, batch);
+            const { images, labels } = this.loadCIFARBatch(filePath);
+
+            this.cifarImages.push(...images);
+            this.cifarLabels.push(...labels);
+        }
+
+        this.cifarLoaded = true;
+        console.log(`📁 CIFAR-10 loaded: ${this.cifarImages.length} samples`);
+    }
+
+    async streamCIFAR(offset = 0) {
+        if (!this.cifarLoaded) this.loadCIFAR();
+        if (offset >= this.cifarImages.length) return null;
+
+        return {
+            label: this.cifarLabels[offset],
+            pixels: this.cifarImages[offset]
+        };
+    }
+
+    // ------------------------------------------------------------
+    // UNIFIED STREAMING API
+    // ------------------------------------------------------------
+    async stream(offset = 0) {
+        switch (this.dataset) {
+            case "mnist":
+                return this.streamMNIST(offset);
+
+            case "cifar":
+            case "cifar10":
+                return this.streamCIFAR(offset);
+
+            default:
+                console.warn(`⚠️ Unknown dataset "${this.dataset}".`);
+                return null;
+        }
     }
 }
 

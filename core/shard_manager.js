@@ -3,28 +3,28 @@
 const fs = require('fs');
 const path = require('path');
 const { EpisodicShard, MAX_EPISODES_PER_SHARD } = require('./episodic_shard');
+const { encodeText, extractKeywords, computeImportance } = require('./encoder');
 
 class ShardManager {
   constructor(memoryDir = path.join(__dirname, '..', 'memory')) {
     this.memoryDir = memoryDir;
 
-    // Ensure memory directory exists
     if (!fs.existsSync(this.memoryDir)) {
       fs.mkdirSync(this.memoryDir, { recursive: true });
     }
 
-    // Load index or create a new one
     this.indexFile = path.join(this.memoryDir, 'index.json');
     this.currentIndex = this.loadIndex();
 
-    // Load existing shard or create a new one
     this.currentShard = this.loadShard(this.currentIndex);
+
+    // For persistence compatibility with main.js
+    this.shards = [];
   }
 
   // -------------------------------
   // INDEX HANDLING
   // -------------------------------
-
   loadIndex() {
     if (!fs.existsSync(this.indexFile)) {
       fs.writeFileSync(this.indexFile, JSON.stringify({ lastShard: 1 }, null, 2));
@@ -45,7 +45,6 @@ class ShardManager {
   // -------------------------------
   // SHARD LOADING / SAVING
   // -------------------------------
-
   shardPath(index) {
     return path.join(this.memoryDir, `shard_${index}.json`);
   }
@@ -59,27 +58,67 @@ class ShardManager {
       shard.episodes = data.episodes || [];
       shard.startTimestamp = data.startTimestamp;
       shard.endTimestamp = data.endTimestamp;
+      shard.summary = data.summary || null;
       return shard;
     }
 
     return new EpisodicShard(index);
   }
 
+  // -------------------------------
+  // SHARD SUMMARY GENERATION
+  // -------------------------------
+  generateShardSummary(shard) {
+    if (!shard.episodes || shard.episodes.length === 0) {
+      return {
+        embedding: encodeText("empty shard"),
+        keywords: [],
+        importance: 0,
+        text: "Empty shard"
+      };
+    }
+
+    const combinedText = shard.episodes.map(ep => ep.text || "").join(" ");
+    const keywords = extractKeywords(combinedText);
+    const importance =
+      shard.episodes.reduce((sum, ep) => sum + computeImportance(ep), 0) /
+      shard.episodes.length;
+
+    const embedding = encodeText(combinedText);
+
+    return {
+      embedding,
+      keywords,
+      importance,
+      text: combinedText.slice(0, 5000)
+    };
+  }
+
   saveShard(shard) {
     const file = this.shardPath(shard.index);
-    fs.writeFileSync(file, JSON.stringify(shard.toJSON(), null, 2));
+
+    shard.summary = this.generateShardSummary(shard);
+
+    const json = JSON.stringify(shard.toJSON(), null, 2);
+
+    const MAX_SHARD_SIZE = 5_000_000;
+    if (json.length > MAX_SHARD_SIZE) {
+      console.warn(
+        `Shard ${shard.index} too large (${json.length} bytes). Skipping save.`
+      );
+      return;
+    }
+
+    fs.writeFileSync(file, json);
   }
 
   // -------------------------------
   // MAIN API
   // -------------------------------
-
   addEpisode(ep) {
     if (!ep || typeof ep !== "object") return;
 
     this.currentShard.addEpisode(ep);
-
-    // Save after each episode
     this.saveShard(this.currentShard);
 
     if (this.currentShard.isFull()) {
@@ -88,10 +127,8 @@ class ShardManager {
   }
 
   rotateShard() {
-    // Save old shard
     this.saveShard(this.currentShard);
 
-    // Move to next shard
     this.currentIndex += 1;
     this.saveIndex();
 
@@ -101,6 +138,53 @@ class ShardManager {
 
   getCurrentShardJSON() {
     return this.currentShard.toJSON();
+  }
+
+  // -------------------------------
+  // COMPAT: maybeShard (old API)
+  // -------------------------------
+  maybeShard(episodicMemory) {
+    if (!episodicMemory || !episodicMemory.episodes) return;
+
+    if (this.currentShard.isFull()) {
+      this.rotateShard();
+    }
+
+    const last = episodicMemory.episodes[episodicMemory.episodes.length - 1];
+    if (last) {
+      this.addEpisode(last);
+    }
+  }
+
+  // -------------------------------
+  // PERSISTENCE SUPPORT
+  // -------------------------------
+  dump() {
+    const files = fs.readdirSync(this.memoryDir)
+      .filter(f => f.startsWith("shard_") && f.endsWith(".json"));
+
+    return files.map(file => {
+      try {
+        return JSON.parse(fs.readFileSync(path.join(this.memoryDir, file), "utf8"));
+      } catch (err) {
+        console.error("Error reading shard file during dump:", file, err);
+        return null;
+      }
+    }).filter(Boolean);
+  }
+
+  load(data) {
+    if (!Array.isArray(data)) return;
+
+    for (const shardData of data) {
+      if (!shardData || typeof shardData !== "object") continue;
+
+      const file = this.shardPath(shardData.index);
+      fs.writeFileSync(file, JSON.stringify(shardData, null, 2));
+    }
+
+    this.currentIndex = this.loadIndex();
+    this.currentShard = this.loadShard(this.currentIndex);
   }
 }
 

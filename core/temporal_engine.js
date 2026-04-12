@@ -1,50 +1,34 @@
+// core/temporal_engine.js
+
 class TemporalEngine {
   constructor() {
-    this.windowSize = 200; // number of episodes to track
-    this.timeline = [];
+    this.lastTick = Date.now();
+    this.tickCount = 0;
+
+    // Optional: future expansion
+    this.circadianPhase = 0;
+    this.cycleLengthMs = 1000 * 60 * 60 * 24; // 24 hours
   }
 
-  ingestEpisode(ep) {
-    this.timeline.push({
-      timestamp: ep.timestamp,
-      type: ep.type,
-      anomaly: ep.anomaly || 0,
-      mood: ep.mood || "neutral",
-      emotionalWeight: ep.emotionalWeight || 0,
-      baseline: ep.baseline || 0
-    });
+  // ---------------------------------------------------------
+  // MAIN TICK LOOP (required by main.js)
+  // ---------------------------------------------------------
+  tick(now) {
+    this.lastTick = now;
+    this.tickCount++;
 
-    if (this.timeline.length > this.windowSize) {
-      this.timeline.shift();
-    }
+    // Simple circadian cycle progression
+    this.circadianPhase = (now % this.cycleLengthMs) / this.cycleLengthMs;
   }
 
-  buildSummary() {
-    if (this.timeline.length === 0) {
-      return {
-        count: 0,
-        moodTrend: 0,
-        anomalyTrend: 0,
-        dreamFrequency: 0,
-        baselineShift: 0
-      };
-    }
-
-    const moods = this.timeline.map(e => e.emotionalWeight || 0);
-    const anomalies = this.timeline.map(e => e.anomaly || 0);
-    const baselines = this.timeline.map(e => e.baseline || 0);
-    const dreams = this.timeline.filter(e => e.type === "dream").length;
-
-    const moodTrend = moods[moods.length - 1] - moods[0];
-    const anomalyTrend = anomalies[anomalies.length - 1] - anomalies[0];
-    const baselineShift = baselines[baselines.length - 1] - baselines[0];
-
+  // ---------------------------------------------------------
+  // OPTIONAL: STATE SNAPSHOT
+  // ---------------------------------------------------------
+  getState() {
     return {
-      count: this.timeline.length,
-      moodTrend,
-      anomalyTrend,
-      dreamFrequency: dreams / this.timeline.length,
-      baselineShift
+      lastTick: this.lastTick,
+      tickCount: this.tickCount,
+      circadianPhase: this.circadianPhase
     };
   }
 }

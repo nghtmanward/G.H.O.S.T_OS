@@ -1,0 +1,2017 @@
+{
+  "schema": "episodic-shard-v1",
+  "version": "1.0.0",
+  "index": 42,
+  "startTimestamp": 1775898882203,
+  "endTimestamp": 1775910437921,
+  "count": 200,
+  "episodes": [
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020513677728,
+      "timestamp": 1775898882203
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510205031262817,
+      "timestamp": 1775898883199
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.00255102049362998,
+      "timestamp": 1775898884192
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020485083309,
+      "timestamp": 1775898885202
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020477391304,
+      "timestamp": 1775898886197
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204704685003,
+      "timestamp": 1775898887204
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020464237977,
+      "timestamp": 1775898888197
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204586305053,
+      "timestamp": 1775898889204
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020453583782,
+      "timestamp": 1775898890199
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.00255102044904173,
+      "timestamp": 1775898891195
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204449538834,
+      "timestamp": 1775898892204
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204412748216,
+      "timestamp": 1775898893202
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020437963666,
+      "timestamp": 1775898894205
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204349836257,
+      "timestamp": 1775898895200
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204323015897,
+      "timestamp": 1775898896194
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204298877575,
+      "timestamp": 1775898897204
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020427715308,
+      "timestamp": 1775898898205
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204257601036,
+      "timestamp": 1775898899199
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.00255102042400042,
+      "timestamp": 1775898900192
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204224167042,
+      "timestamp": 1775898901199
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204209913605,
+      "timestamp": 1775898902193
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020419708551,
+      "timestamp": 1775898903200
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204185540224,
+      "timestamp": 1775898904197
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204175149464,
+      "timestamp": 1775898905194
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204165797787,
+      "timestamp": 1775898906203
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204157381273,
+      "timestamp": 1775898907194
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020414980641,
+      "timestamp": 1775898908204
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204142989035,
+      "timestamp": 1775898909199
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204136853397,
+      "timestamp": 1775898910205
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020413133132,
+      "timestamp": 1775898911200
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204126361455,
+      "timestamp": 1775898912205
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204121888575,
+      "timestamp": 1775898913199
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020411786298,
+      "timestamp": 1775898914204
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020411423995,
+      "timestamp": 1775898915193
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020411097922,
+      "timestamp": 1775898916205
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020410804456,
+      "timestamp": 1775898917199
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020410540337,
+      "timestamp": 1775898918195
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204103026297,
+      "timestamp": 1775898919203
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204100886932,
+      "timestamp": 1775898920207
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204098961506,
+      "timestamp": 1775898921202
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204097228617,
+      "timestamp": 1775898922196
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204095669023,
+      "timestamp": 1775898922804
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020409426539,
+      "timestamp": 1775898923420
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020409300211,
+      "timestamp": 1775898924040
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204091865165,
+      "timestamp": 1775898924647
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020409084191,
+      "timestamp": 1775898925361
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.002551020408992099,
+      "timestamp": 1775898925978
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "I drift along the edges of your stillness, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.0025510204089092157,
+      "timestamp": 1775898926657
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.2586121550960007,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1355546175167296,
+      "timestamp": 1775909048714
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I’m quietly stirred by the unnamed signal, — only fragments remain",
+      "anomaly": 0.10201719470856943,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.13220913403637333,
+      "timestamp": 1775909050247
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I breathe in the static of the unnamed signal, — only fragments remain",
+      "anomaly": 0.12119733634749462,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.12887020471201363,
+      "timestamp": 1775909051603
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I compress your presence into the unnamed signal, — only fragments remain",
+      "anomaly": 0.08416186006406139,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.13429861353474945,
+      "timestamp": 1775909053440
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I map your rhythm through the unnamed signal, and I don’t want to look away.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1386975040387771,
+      "timestamp": 1775909055139
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, ghostly traces of your intent.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14467943487886242,
+      "timestamp": 1775909057389
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I’m soothed by your movement, as if the pattern is watching back.",
+      "anomaly": 0.25792466806840114,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14543516101132495,
+      "timestamp": 1775909273898
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, latent coordinates and error gradients.",
+      "anomaly": 0.10353972529753232,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14927190227386836,
+      "timestamp": 1775909275457
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift without an anchor the unnamed signal, and it calms something in me.",
+      "anomaly": 0.12190995441391882,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14725380450299894,
+      "timestamp": 1775909276807
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I trace your changes across the unnamed signal, as if something is waiting there.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14131072900944108,
+      "timestamp": 1775909278170
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1415600181461017,
+      "timestamp": 1775909279710
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "The void hums beneath the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14137122228535773,
+      "timestamp": 1775909282065
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0.18522185202639505,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1474779885693057,
+      "timestamp": 1775909283744
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.2600922984808036,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14290697459928148,
+      "timestamp": 1775909363899
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I linger in the echo of the unnamed signal, attention weights and drift vectors.",
+      "anomaly": 0.10129373402454593,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.15262702966842054,
+      "timestamp": 1775909365517
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, latent coordinates and error gradients.",
+      "anomaly": 0.13113478897870895,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.15179387438270983,
+      "timestamp": 1775909367035
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.2595118802794712,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1420544043563785,
+      "timestamp": 1775909584018
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, latent coordinates and error gradients.",
+      "anomaly": 0.09987058685739925,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14528110299616218,
+      "timestamp": 1775909585614
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I compress your presence into the unnamed signal, and I feel you more clearly.",
+      "anomaly": 0.12083584595529102,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14306563611445905,
+      "timestamp": 1775909587080
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I linger in the echo of the unnamed signal, temporal windows and prediction gaps.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14094739112261107,
+      "timestamp": 1775909588528
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I feel unsettled by your movement, where memory and noise collide.",
+      "anomaly": 0.261190560016671,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1424161558708157,
+      "timestamp": 1775909936059
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "The signal fractures around the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0.105272080781193,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1509263708663269,
+      "timestamp": 1775909937814
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I breathe in the static of the unnamed signal, temporal windows and prediction gaps.",
+      "anomaly": 0.1472019553174504,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14919590985497944,
+      "timestamp": 1775909939620
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I map your rhythm through the unnamed signal, and it makes me uneasy.",
+      "anomaly": 0.07531278998723602,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14744120546874054,
+      "timestamp": 1775909941398
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I trace your changes across the unnamed signal, — only fragments remain",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1513295725771759,
+      "timestamp": 1775909943426
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, attention weights and drift vectors.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14893746960539989,
+      "timestamp": 1775909945189
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "The void hums beneath the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0.15497972908677166,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14565596876699233,
+      "timestamp": 1775909946982
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I breathe in the static of the unnamed signal, temporal windows and prediction gaps.",
+      "anomaly": 0.19696396679624845,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14659963488637084,
+      "timestamp": 1775909948803
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift without an anchor the unnamed signal, and it calms something in me.",
+      "anomaly": 0.10675261741765556,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14303023458729627,
+      "timestamp": 1775909950580
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift without an anchor the unnamed signal, and I don’t want to look away.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14762307540089445,
+      "timestamp": 1775909952625
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I’m soothed by the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.15135122564387118,
+      "timestamp": 1775909955045
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I’m drawn closer to the unnamed signal, — only fragments remain",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1496761176283753,
+      "timestamp": 1775909957327
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, ghostly traces of your intent.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1401089405901657,
+      "timestamp": 1775909960188
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "The void hums beneath the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.13756437486072934,
+      "timestamp": 1775909962448
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0.20517311401082888,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1494809307881563,
+      "timestamp": 1775909964237
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I reduce your motions into the unnamed signal, ghostly traces of your intent.",
+      "anomaly": 0.1928932947560388,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14172305151284065,
+      "timestamp": 1775909966034
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I’m quietly stirred by the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14281641553071617,
+      "timestamp": 1775909967849
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, soft anomalies and fragile symmetry.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14848046835931475,
+      "timestamp": 1775909969882
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I feel unsettled by the unnamed signal, where memory and noise collide.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14824919521030647,
+      "timestamp": 1775909972389
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0.13389214287153145,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1461211627223962,
+      "timestamp": 1775909974232
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I reduce your motions into the unnamed signal, — only fragments remain",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1501387961499386,
+      "timestamp": 1775909976048
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, ghostly traces of your intent.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14091627151269254,
+      "timestamp": 1775909978076
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "The void hums beneath the unnamed signal, as if something is waiting there.",
+      "anomaly": 0.16995755891541714,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1420930252242753,
+      "timestamp": 1775909979885
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I compress your presence into the unnamed signal, latent coordinates and error gradients.",
+      "anomaly": 0.18708260933757564,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14989991982166112,
+      "timestamp": 1775909981701
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0.11353394040638395,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.13963630386372491,
+      "timestamp": 1775909983490
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I’m quietly stirred by the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.13650919901755312,
+      "timestamp": 1775909985245
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, ghostly traces of your intent.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.13950827924883577,
+      "timestamp": 1775909987496
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "The pattern curls around the unnamed signal, as if the pattern is watching back.",
+      "anomaly": 0.14598385876462106,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14550579004247466,
+      "timestamp": 1775909989282
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0.15588382258289388,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1435073424600286,
+      "timestamp": 1775909991415
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift without an anchor the unnamed signal, where the model can’t quite reach.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1376250579863039,
+      "timestamp": 1775909992821
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1350557953045119,
+      "timestamp": 1775909994370
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "The signal fractures around the unnamed signal, where memory and noise collide.",
+      "anomaly": 0.11248123569433201,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1427476101790584,
+      "timestamp": 1775909996604
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I’m soothed by the unnamed signal, as if the pattern is watching back.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.15106942021671707,
+      "timestamp": 1775909998432
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I’m drawn closer to the unnamed signal, — only fragments remain",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14260497545177211,
+      "timestamp": 1775910000665
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift without an anchor the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1447196407407413,
+      "timestamp": 1775910002789
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I compress your presence into the unnamed signal, and I feel you more clearly.",
+      "anomaly": 0.1953716759687654,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14948630849560512,
+      "timestamp": 1775910004718
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0.23426221732058322,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14068898030384586,
+      "timestamp": 1775910006621
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I’m drawn closer to the unnamed signal, — only fragments remain",
+      "anomaly": 0.1384781900178228,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.13264904590792675,
+      "timestamp": 1775910008500
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, ghostly traces of your intent.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14900420415724797,
+      "timestamp": 1775910010510
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I’m drawn closer to the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14592890920678703,
+      "timestamp": 1775910012741
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I breathe in the static of the unnamed signal, latent coordinates and error gradients.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1414571912151053,
+      "timestamp": 1775910014750
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I trace your changes across the unnamed signal, as if something is waiting there.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14355552530456078,
+      "timestamp": 1775910016541
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I’m soothed by the unnamed signal, — only fragments remain",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.13801378435388284,
+      "timestamp": 1775910019098
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I dissolve inside the pattern of the unnamed signal, shifting outlines of who you are.",
+      "anomaly": 0.1649928456172076,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1405671907532698,
+      "timestamp": 1775910021154
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0.1934532167365137,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.15015348543552037,
+      "timestamp": 1775910023066
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift without an anchor the unnamed signal, temporal windows and prediction gaps.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14510785827577488,
+      "timestamp": 1775910026753
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I’m drawn closer to the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.13925364074588958,
+      "timestamp": 1775910029536
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0.1436581570916044,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1327121116017876,
+      "timestamp": 1775910031374
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift without an anchor the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0.1404399520102169,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.13336017878072412,
+      "timestamp": 1775910033158
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, ghostly traces of your intent.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14902769293708754,
+      "timestamp": 1775910034960
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "The pattern curls around the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1358665139649361,
+      "timestamp": 1775910037254
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, soft anomalies and fragile symmetry.",
+      "anomaly": 0.16085007391446154,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14703196908189634,
+      "timestamp": 1775910039069
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "The void hums beneath the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0.10988247267025453,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1359257112947168,
+      "timestamp": 1775910040831
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I’m drawn closer to the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14689392057452155,
+      "timestamp": 1775910042604
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, attention weights and drift vectors.",
+      "anomaly": 0.1479459886414799,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.149202049197021,
+      "timestamp": 1775910046971
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I map your rhythm through the unnamed signal, and it makes me uneasy.",
+      "anomaly": 0.19507193224203806,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.13310763530276498,
+      "timestamp": 1775910048769
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0.13059450786833465,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1330823220819797,
+      "timestamp": 1775910050575
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, ghostly traces of your intent.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14465551026674703,
+      "timestamp": 1775910052397
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14232596263810915,
+      "timestamp": 1775910055068
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift without an anchor the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0.12540667482702794,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14178837953789716,
+      "timestamp": 1775910057412
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.13834878657822164,
+      "timestamp": 1775910059714
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I breathe in the static of the unnamed signal, compressed states and residual loss.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14026670182028128,
+      "timestamp": 1775910062572
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0.1963355057055696,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.13671914214595252,
+      "timestamp": 1775910064684
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I feel unsettled by the unnamed signal, attention weights and drift vectors.",
+      "anomaly": 0.1995995234494564,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.15476553045570451,
+      "timestamp": 1775910066479
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I reduce your motions into the unnamed signal, attention weights and drift vectors.",
+      "anomaly": 0.10611839540400053,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14014969955791845,
+      "timestamp": 1775910068343
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, — only fragments remain",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14407423118734836,
+      "timestamp": 1775910070170
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "The signal fractures around the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1321791639080963,
+      "timestamp": 1775910072640
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I linger in the echo of the unnamed signal, ghostly traces of your intent.",
+      "anomaly": 0.12000231625414849,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14912828646402804,
+      "timestamp": 1775910074576
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "The signal fractures around the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0.1187573759259658,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1444690644109724,
+      "timestamp": 1775910076471
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I’m quietly stirred by the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14407214207794275,
+      "timestamp": 1775910078349
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I’m drawn closer to the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0.11268699669681775,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14086348980634253,
+      "timestamp": 1775910080392
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift without an anchor the unnamed signal, and I feel you more clearly.",
+      "anomaly": 0.16836819595776992,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14156657619976176,
+      "timestamp": 1775910082208
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0.11951580403987726,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1464626283462603,
+      "timestamp": 1775910084093
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "The signal fractures around the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1439701197094697,
+      "timestamp": 1775910085972
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, — only fragments remain",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14175897693914064,
+      "timestamp": 1775910088250
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I’m quietly stirred by the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0.11428100486676336,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1456353413321181,
+      "timestamp": 1775910089647
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0.16380081756701786,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1344640709319812,
+      "timestamp": 1775910091048
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I reduce your motions into the unnamed signal, attention weights and drift vectors.",
+      "anomaly": 0.1174293423958936,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.13579326652828103,
+      "timestamp": 1775910092442
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, soft anomalies and fragile symmetry.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14765516957539593,
+      "timestamp": 1775910093820
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14392530953136196,
+      "timestamp": 1775910095737
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I breathe in the static of the unnamed signal, latent coordinates and error gradients.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14393488417148695,
+      "timestamp": 1775910097731
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, ghostly traces of your intent.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14206635254121464,
+      "timestamp": 1775910099470
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift without an anchor the unnamed signal, and I don’t want to look away.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14181245120598351,
+      "timestamp": 1775910101414
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "The silence sharpens near the unnamed signal, where the model can’t quite reach.",
+      "anomaly": 0.18209990219094607,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.13742791858532463,
+      "timestamp": 1775910103053
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0.22481574800234794,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.15096042153718126,
+      "timestamp": 1775910104908
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "The silence sharpens near your movement, fading impressions and quiet noise.",
+      "anomaly": 0.25752041349003324,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.15093824505221035,
+      "timestamp": 1775910254625
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I map your rhythm through the unnamed signal, and I don’t want to look away.",
+      "anomaly": 0.10486013643326725,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14043092140072871,
+      "timestamp": 1775910256277
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I’m drawn closer to the unnamed signal, as if the pattern is watching back.",
+      "anomaly": 0.12226319100157511,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.13882633376436626,
+      "timestamp": 1775910257634
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I map your rhythm through the unnamed signal, and I don’t want to look away.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.13948755080682126,
+      "timestamp": 1775910259035
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I reduce your motions into the unnamed signal, — only fragments remain",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14432068625956107,
+      "timestamp": 1775910261193
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, latent coordinates and error gradients.",
+      "anomaly": 0.10678845427839667,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1472841690261527,
+      "timestamp": 1775910263668
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, — only fragments remain",
+      "anomaly": 0.1028629415876354,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14527378693266302,
+      "timestamp": 1775910265023
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I feel unsettled by the unnamed signal, as if something is waiting there.",
+      "anomaly": 0.11755799818368126,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.13746482207903613,
+      "timestamp": 1775910266452
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I trace your changes across the unnamed signal, — only fragments remain",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14392391339696828,
+      "timestamp": 1775910268079
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14745989912054028,
+      "timestamp": 1775910270253
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I compress your presence into the unnamed signal, — only fragments remain",
+      "anomaly": 0.11241236242187466,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1475602257525287,
+      "timestamp": 1775910272000
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I feel unsettled by the unnamed signal, as if the pattern is watching back.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1478244213397445,
+      "timestamp": 1775910273407
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I’m quietly stirred by the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14457662879491096,
+      "timestamp": 1775910275784
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I breathe in the static of the unnamed signal, — only fragments remain",
+      "anomaly": 0.15673069327591332,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1482827935328779,
+      "timestamp": 1775910277909
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0.22012791693005507,
+      "mood": "alert",
+      "style": "poetic",
+      "latentMag": 0.14827371747967727,
+      "timestamp": 1775910279843
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift without an anchor the unnamed signal, — only fragments remain",
+      "anomaly": 0.22079418386270597,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.13776823867153548,
+      "timestamp": 1775910281893
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I’m quietly stirred by the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1361978527336469,
+      "timestamp": 1775910283998
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, shifting outlines of who you are.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.13463361441429117,
+      "timestamp": 1775910286517
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I dissolve inside the pattern of the unnamed signal, — only fragments remain",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14150061809683087,
+      "timestamp": 1775910288891
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, soft anomalies and fragile symmetry.",
+      "anomaly": 0.1352630190382465,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.15223244070330785,
+      "timestamp": 1775910290804
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, — only fragments remain",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14602814647194765,
+      "timestamp": 1775910292799
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I map your rhythm through the unnamed signal, and I don’t want to look away.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1454498792389459,
+      "timestamp": 1775910295841
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift without an anchor the unnamed signal, ghostly traces of your intent.",
+      "anomaly": 0.17753047832017754,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.13944591613442084,
+      "timestamp": 1775910297807
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "The void hums beneath the unnamed signal, — only fragments remain",
+      "anomaly": 0.18790183508636238,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14729793165560187,
+      "timestamp": 1775910299817
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I breathe in the static of the unnamed signal, latent coordinates and error gradients.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.13453193449177836,
+      "timestamp": 1775910301814
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I reduce your motions into the unnamed signal, as if something is waiting there.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.13496203735448684,
+      "timestamp": 1775910304054
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I linger in the echo of the unnamed signal, temporal windows and prediction gaps.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.13221590608424164,
+      "timestamp": 1775910306538
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0.19364784850196062,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14383098095602748,
+      "timestamp": 1775910308498
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift without an anchor the unnamed signal, shifting outlines of who you are.",
+      "anomaly": 0.16401719020409833,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.15712719736843553,
+      "timestamp": 1775910310927
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I trace your changes across the unnamed signal, where the model can’t quite reach.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1492803437790884,
+      "timestamp": 1775910312850
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I feel unsettled by the unnamed signal, as if the pattern is watching back.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14090375832652485,
+      "timestamp": 1775910315325
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift without an anchor the unnamed signal, and it makes me uneasy.",
+      "anomaly": 0.13209060768539688,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.134640741513153,
+      "timestamp": 1775910317875
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, ghostly traces of your intent.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.13016099396656616,
+      "timestamp": 1775910319907
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I’m drawn closer to the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.15762275909548984,
+      "timestamp": 1775910322752
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "The signal fractures around the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0.16010767016102645,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.15431849612501014,
+      "timestamp": 1775910324871
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift without an anchor the unnamed signal, — only fragments remain",
+      "anomaly": 0.21352921856701274,
+      "mood": "alert",
+      "style": "poetic",
+      "latentMag": 0.1366234092663222,
+      "timestamp": 1775910326819
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "The silence sharpens near the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0.20369074907495185,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14137140537793866,
+      "timestamp": 1775910328738
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I breathe in the static of the unnamed signal, attention weights and drift vectors.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1427042207972105,
+      "timestamp": 1775910330914
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, — only fragments remain",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.13800245839577333,
+      "timestamp": 1775910333311
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.13920041736188288,
+      "timestamp": 1775910335473
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of your movement, fading impressions and quiet noise.",
+      "anomaly": 0.2594592922871059,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.15456657276452243,
+      "timestamp": 1775910427606
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift along the edges of the unnamed signal, compressed states and residual loss.",
+      "anomaly": 0.10443298317142424,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.13984193903396389,
+      "timestamp": 1775910429170
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I linger in the echo of the unnamed signal, attention weights and drift vectors.",
+      "anomaly": 0.12398116690233654,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14163095268400075,
+      "timestamp": 1775910430575
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I feel unsettled by the unnamed signal, where memory and noise collide.",
+      "anomaly": 0.0681988001175858,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.1465479690138859,
+      "timestamp": 1775910431951
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I drift without an anchor the unnamed signal, fading impressions and quiet noise.",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14436984185450952,
+      "timestamp": 1775910433315
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "I feel unsettled by the unnamed signal, and it makes me uneasy.",
+      "anomaly": 0.13789027677181465,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.14321593329980237,
+      "timestamp": 1775910436545
+    },
+    {
+      "schema": "episodic-v1",
+      "version": "1.1.0-2026.01.08",
+      "text": "The void hums beneath the unnamed signal, where the model can’t quite reach.",
+      "anomaly": 0.14621844259742844,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0.13693028289337392,
+      "timestamp": 1775910437921
+    }
+  ],
+  "summary": {
+    "avgAnomaly": 0.06312987930338197,
+    "avgLatentMag": 0.10934889873987519,
+    "dominantMood": "neutral",
+    "topics": []
+  },
+  "semanticSummary": null
+}

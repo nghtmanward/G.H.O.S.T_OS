@@ -5,20 +5,34 @@ const { encodeText } = require("./encoder");
 class SemanticEngine {
   constructor(embeddingFn = encodeText) {
     // embeddingFn: function(text) → vector
-    this.embed = embeddingFn;
+    this.embed = (text) => {
+      const vec = embeddingFn(text || "");
+      return this.normalize(vec);
+    };
+  }
+
+  // -------------------------------
+  // VECTOR NORMALIZATION
+  // -------------------------------
+  normalize(vec) {
+    let mag = 0;
+    for (let i = 0; i < vec.length; i++) {
+      mag += vec[i] * vec[i];
+    }
+    mag = Math.sqrt(mag) || 1e-9;
+
+    return vec.map((x) => x / mag);
   }
 
   // -------------------------------
   // COSINE SIMILARITY
   // -------------------------------
   cosine(a, b) {
-    let dot = 0, magA = 0, magB = 0;
+    let dot = 0;
     for (let i = 0; i < a.length; i++) {
       dot += a[i] * b[i];
-      magA += a[i] * a[i];
-      magB += b[i] * b[i];
     }
-    return dot / (Math.sqrt(magA) * Math.sqrt(magB) + 1e-9);
+    return dot; // already normalized
   }
 
   // -------------------------------
@@ -27,7 +41,7 @@ class SemanticEngine {
   _search(query, items, textFn, topK = 5) {
     const qVec = this.embed(query);
 
-    const scored = items.map(item => {
+    const scored = items.map((item) => {
       const text = textFn(item) || "";
       const vec = this.embed(text);
       const score = this.cosine(qVec, vec);
@@ -43,7 +57,7 @@ class SemanticEngine {
   // SEARCH RAW EPISODIC EPISODES
   // -------------------------------
   findSimilarEpisodes(query, episodes, topK = 5) {
-    return this._search(query, episodes, ep => ep.text, topK);
+    return this._search(query, episodes, (ep) => ep.text, topK);
   }
 
   // -------------------------------
@@ -51,7 +65,7 @@ class SemanticEngine {
   // (encoded shards from consolidation)
   // -------------------------------
   findSimilarShards(query, shards, topK = 5) {
-    return this._search(query, shards, shard => shard.originalText, topK);
+    return this._search(query, shards, (shard) => shard.originalText, topK);
   }
 
   // -------------------------------
@@ -59,7 +73,7 @@ class SemanticEngine {
   // (long-term semantic memory)
   // -------------------------------
   findSimilarTertiary(query, tertiaryRecords, topK = 5) {
-    return this._search(query, tertiaryRecords, rec => rec.summary, topK);
+    return this._search(query, tertiaryRecords, (rec) => rec.summary, topK);
   }
 
   // -------------------------------
@@ -67,7 +81,7 @@ class SemanticEngine {
   // (cluster labels)
   // -------------------------------
   findSimilarThemes(query, tertiaryRecords, topK = 5) {
-    return this._search(query, tertiaryRecords, rec => rec.theme, topK);
+    return this._search(query, tertiaryRecords, (rec) => rec.theme, topK);
   }
 
   // -------------------------------
@@ -78,7 +92,7 @@ class SemanticEngine {
       episodes: this.findSimilarEpisodes(query, episodes, 5),
       shards: this.findSimilarShards(query, shards, 5),
       tertiary: this.findSimilarTertiary(query, tertiary, 5),
-      themes: this.findSimilarThemes(query, tertiary, 5)
+      themes: this.findSimilarThemes(query, tertiary, 5),
     };
   }
 }

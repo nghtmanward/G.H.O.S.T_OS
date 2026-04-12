@@ -1,0 +1,2017 @@
+{
+  "schema": "episodic-shard-v1",
+  "version": "1.0.0",
+  "index": 13,
+  "startTimestamp": 1775369644011,
+  "endTimestamp": 1775369684391,
+  "count": 200,
+  "episodes": [
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:7",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369644011
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369644214
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369644415
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369644618
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369644820
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:8",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369645022
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369645226
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369645441
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369645642
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369645844
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369646046
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369646248
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:2",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369646450
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369646656
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369646857
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369647061
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369647264
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:2",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369647463
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:2",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369647667
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369647872
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369648075
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:2",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369648277
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369648479
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369648683
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369648886
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369649089
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:5",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369649292
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:5",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369649494
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:2",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369649701
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369649904
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369650107
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369650311
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369650514
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369650717
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:8",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369650919
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369651122
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369651326
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:8",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369651527
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369651728
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:2",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369651932
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369652134
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369652336
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369652540
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369652746
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369652948
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:7",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369653152
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369653355
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369653559
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369653761
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369653963
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369654165
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369654367
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:2",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369654569
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369654772
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369654975
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:2",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369655180
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:5",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369655384
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369655586
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369655790
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369655993
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369656196
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369656401
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369656606
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369656811
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369657014
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:7",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369657218
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369657423
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369657626
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369657830
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:7",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369658034
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:7",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369658235
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:2",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369658438
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369658640
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369658841
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369659044
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369659249
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369659452
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:2",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369659657
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:8",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369659862
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:5",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369660065
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:8",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369660269
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:7",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369660472
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:5",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369660676
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369660876
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369661077
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:8",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369661277
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:7",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369661477
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369661677
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369661878
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369662078
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369662277
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:5",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369662479
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:8",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369662679
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:2",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369662879
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369663092
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:2",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369663293
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369663496
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369663699
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369663902
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:2",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369664105
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369664307
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369664510
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369664711
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369664914
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:8",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369665118
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369665321
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369665525
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:7",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369665728
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:8",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369665928
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369666131
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369666332
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:5",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369666535
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369666737
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369666939
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369667142
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:2",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369667345
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369667546
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369667749
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369667954
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369668158
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369668362
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369668564
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:7",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369668766
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369668968
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369669171
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369669373
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369669578
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:7",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369669782
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369669988
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369670188
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:8",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369670390
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369670596
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369670798
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369671000
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:5",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369671203
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:5",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369671405
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:8",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369671607
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:5",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369671808
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369672010
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:7",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369672214
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369672416
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:2",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369672617
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369672821
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369673022
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369673226
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:2",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369673430
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369673633
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:7",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369673838
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:5",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369674041
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:5",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369674245
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:5",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369674450
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369674653
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369674855
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369675057
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369675260
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369675465
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:5",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369675666
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369675868
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369676070
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:2",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369676274
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369676480
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369676682
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369676882
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369677083
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369677292
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:7",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369677496
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369677711
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369677913
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369678117
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369678318
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369678520
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:2",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369678723
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369678925
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369679128
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:8",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369679331
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369679532
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369679733
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369679935
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369680136
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369680342
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369680544
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:8",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369680746
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369680949
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369681152
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:8",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369681355
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369681556
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:1",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369681758
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:5",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369681961
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369682161
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:8",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369682376
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369682576
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:3",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369682778
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369682978
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:7",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369683178
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:2",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369683379
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:6",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369683579
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:9",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369683780
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369683980
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:0",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369684189
+    },
+    {
+      "schema": "legacy-episodic",
+      "version": "legacy",
+      "text": "mnist_digit:4",
+      "anomaly": 0,
+      "mood": "neutral",
+      "style": "poetic",
+      "latentMag": 0,
+      "timestamp": 1775369684391
+    }
+  ],
+  "summary": {
+    "avgAnomaly": 0,
+    "avgLatentMag": 0,
+    "dominantMood": "neutral",
+    "topics": []
+  },
+  "semanticSummary": null
+}

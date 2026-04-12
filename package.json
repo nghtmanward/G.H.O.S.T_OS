@@ -11,10 +11,12 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "electron": "^39.2.7"
+    "node-gyp": "^12.2.0"
   },
   "dependencies": {
     "@huggingface/hub": "^2.7.1",
-    "uuid": "^13.0.0"
+    "electron": "^28.3.3",
+    "node-addon-api": "^8.6.0",
+    "uuid": "^8.3.2"
   }
 }

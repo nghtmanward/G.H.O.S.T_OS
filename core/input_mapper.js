@@ -23,20 +23,11 @@ class InputMapper {
     this.lastMouseY = 0;
     this.mouseSpeed = 0;
     this.mouseDirectionChange = 0;
-
     this.keypressCount = 0;
     this.clickCount = 0;
     this.scrollIntensity = 0;
-
     this.idleTime = 0;
     this.focused = true;
-
-    this.visual = {
-      brightness: 0,
-      motion: 0,
-      edges: 0,
-      entropy: 0
-    };
 
     // Idle timer (safe)
     setInterval(() => {
@@ -74,20 +65,6 @@ class InputMapper {
   }
 
   // ---------------------------------------------------------
-  // VISUAL INPUT
-  // ---------------------------------------------------------
-  updateVisual(data) {
-    if (!data || typeof data !== "object") return;
-
-    this.visual = {
-      brightness: this.safeVal(data.brightness),
-      motion: this.safeVal(data.motion),
-      edges: this.safeVal(data.edges),
-      entropy: this.safeVal(data.entropy)
-    };
-  }
-
-  // ---------------------------------------------------------
   // MOUSE INPUT
   // ---------------------------------------------------------
   updateMouse(x, y) {
@@ -95,27 +72,22 @@ class InputMapper {
 
     const dx = x - this.lastMouseX;
     const dy = y - this.lastMouseY;
-
     const speed = Math.sqrt(dx * dx + dy * dy);
+
     this.mouseSpeed = Math.min(1, this.safeVal(speed / 50));
 
     const direction = Math.atan2(dy, dx);
-    const lastDirection = Math.atan2(
-      this.lastMouseY - (this.lastMouseY - dy),
-      this.lastMouseX - (this.lastMouseX - dx)
-    );
-
+    const lastDirection = Math.atan2(this.lastMouseY, this.lastMouseX);
     const diff = Math.abs(direction - lastDirection);
     this.mouseDirectionChange = Math.min(1, this.safeVal(diff / Math.PI));
 
     this.lastMouseX = x;
     this.lastMouseY = y;
-
     this.idleTime = 0;
   }
 
   // ---------------------------------------------------------
-  // KEYBOARD / CLICK / SCROLL
+  // KEYBOARD / CLICK / SCROLL / FOCUS
   // ---------------------------------------------------------
   updateKeypress() {
     this.keypressCount = Math.min(1, this.keypressCount + 0.1);
@@ -135,6 +107,7 @@ class InputMapper {
 
   setFocus(state) {
     this.focused = !!state;
+    this.idleTime = 0;
   }
 
   // ---------------------------------------------------------
@@ -144,6 +117,8 @@ class InputMapper {
     this.keypressCount *= 0.9;
     this.clickCount *= 0.8;
     this.scrollIntensity *= 0.85;
+    this.mouseSpeed *= 0.9;
+    this.mouseDirectionChange *= 0.9;
   }
 
   // ---------------------------------------------------------
@@ -153,23 +128,25 @@ class InputMapper {
     this.decay();
 
     const vec = [
-      this.safeVal(this.mouseSpeed),                 // 0
-      this.safeVal(this.mouseDirectionChange),       // 1
-      this.safeVal(this.keypressCount),              // 2
+      this.safeVal(this.mouseSpeed),                 // 0 mouse speed
+      this.safeVal(this.mouseDirectionChange),       // 1 mouse direction change
+      this.safeVal(this.keypressCount),              // 2 keypress count
       Math.min(1, this.safeVal(this.idleTime / 10)), // 3
-      this.focused ? 1 : 0,                          // 4
-      this.safeVal(this.clickCount),                 // 5
-      this.safeVal(this.scrollIntensity),            // 6
+      this.focused ? 1 : 0,                          // 4 focused
+      this.safeVal(this.clickCount),                 // 5 click count
+      this.safeVal(this.scrollIntensity),            // 6 scroll intensity
       1,                                             // 7 heartbeat
-
-      this.safeVal(this.visual.brightness),          // 8
-      this.safeVal(this.visual.motion),              // 9
-      this.safeVal(this.visual.edges),               // 10
-      this.safeVal(this.visual.entropy)              // 11
+      0,                                             // 8 brightness
+      0,                                             // 9 motion
+      0,                                             // 10 edges
+      0                                              // 11 entropy
     ];
 
     this._validateOutput(vec);
-    return { version: this.version, vector: vec };
+    return {
+      version: this.version,
+      vector: vec
+    };
   }
 
   // ---------------------------------------------------------

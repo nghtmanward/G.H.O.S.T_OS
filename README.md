@@ -143,16 +143,6 @@ This loop runs continuously, giving Ghost continuity and personality.
 
 ## **Development Notes**
 
-### **.gitignore**
-Make sure your repo ignores:
-
-- `node_modules/`
-- `native/build/`
-- `*.obj`, `*.pdb`, `*.dll`
-- `__pycache__/`
-- `.venv/`
-- Electron build artifacts
-
 ### **Repo Size**
 Ghost_OS is currently ~**1.19 GB**, which is normal for:
 

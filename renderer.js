@@ -174,7 +174,7 @@ async function updateGhost() {
     // -----------------------------
     // 3. HEAVY UPDATES (1× per second)
     // -----------------------------
-    if (performance.now() - lastHeavyUpdate > 1000) {
+    if (performance.now() - lastHeavyUpdate > 600) {
       lastHeavyUpdate = performance.now();
 
       requestIdleCallback(() => {

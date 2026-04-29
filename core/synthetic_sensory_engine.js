@@ -22,22 +22,40 @@ class SyntheticSensoryEngine {
     const moodBias = this.clamp((this.safeVal(mood, 0) + 1) / 2);
     const memoryBias = this.clamp(memoryLoad);
 
-    this.phase = (this.phase + 0.07) % (Math.PI * 2);
+    // Faster phase drift
+    this.phase = (this.phase + 0.12) % (Math.PI * 2);
 
     const out = new Array(this.size);
+
     for (let i = 0; i < this.size; i++) {
       const direct = this.clamp(cleanInput[i] ?? 0);
-      const slowWave = (Math.sin(this.phase + i * 0.37) + 1) / 2;
-      const fastWave = (Math.cos(this.phase * 1.7 + tick * 0.03 + i * 0.19) + 1) / 2;
-      const memoryDrift = this.clamp(memoryBias * (0.15 + i * 0.01));
-      const moodDrift = this.clamp(moodBias * 0.2);
 
-      const blended =
-        direct * 0.55 +
+      // Smooth waves
+      const slowWave = (Math.sin(this.phase + i * 0.37) + 1) / 2;
+      const fastWave = (Math.cos(this.phase * 2.1 + tick * 0.05 + i * 0.19) + 1) / 2;
+
+      // Drift based on memory + mood
+      const memoryDrift = this.clamp(memoryBias * (0.2 + i * 0.015));
+      const moodDrift = this.clamp(moodBias * 0.25);
+
+      // 🔥 NEW: Random noise (creates emotional spikes)
+      const noise = (Math.random() - 0.5) * 0.35;
+
+      // 🔥 NEW: Micro-anomaly spikes (rare but meaningful)
+      const spike = Math.random() < 0.02 ? (Math.random() - 0.5) * 1.2 : 0;
+
+      // 🔥 NEW: Temporal turbulence (gives the ghost a heartbeat)
+      const turbulence = Math.sin(tick * 0.12 + i * 0.5) * 0.15;
+
+      let blended =
+        direct * 0.45 +
         slowWave * 0.2 +
         fastWave * 0.15 +
-        memoryDrift * 0.05 +
-        moodDrift * 0.05;
+        memoryDrift * 0.07 +
+        moodDrift * 0.07 +
+        noise +
+        spike +
+        turbulence;
 
       out[i] = this.clamp(blended);
     }

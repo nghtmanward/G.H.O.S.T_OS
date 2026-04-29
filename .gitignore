@@ -32,6 +32,7 @@ Thumbs.db
 # Ghost memory files (runtime state)
 ghost_memory.json
 ghost_memory_backup.json
+memory/
 
 # Any future memory snapshots
 memory_*.json
@@ -40,14 +41,35 @@ memory_*.json
 latent_dump_*.json
 debug_*.json
 
-# Webcam or frame captures (if you ever add them)
+# Webcam or frame captures
 frames/
 captures/
+
+# Datasets
+datasets/
 
 # Temporary scratch files
 tmp/
 temp/
 *.tmp
+
+# ───────────────────────────────────────────────
+# C++ build artifacts
+# ───────────────────────────────────────────────
+
+native/build/
+*.node
+
+# ───────────────────────────────────────────────
+# Python
+# ───────────────────────────────────────────────
+
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
 
 # ───────────────────────────────────────────────
 # VS Code
@@ -58,10 +80,3 @@ temp/
 !.vscode/extensions.json
 !.vscode/launch.json
 !.vscode/tasks.json
-
-# ───────────────────────────────────────────────
-# Git
-# ───────────────────────────────────────────────
-
-# Ignore everything in .gitignore itself
-.gitignore

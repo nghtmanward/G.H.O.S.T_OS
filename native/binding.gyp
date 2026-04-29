@@ -21,6 +21,7 @@
         "ghost_core/src/SemanticCore.cpp",
         "ghost_core/src/RetrievalEngine.cpp",
         "ghost_core/src/MemorySystem.cpp",
+        "ghost_core/src/EpisodicMemoryNative.cpp",
         "ghost_core/src/ghost_core_binding.cpp"
       ],
       "include_dirs": [

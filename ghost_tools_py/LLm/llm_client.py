@@ -9,7 +9,7 @@ def call_llm(prompt: str, *, max_tokens: int = 512) -> str:
         response = requests.post(
             "http://localhost:11434/api/generate",
             json={
-                "model": "llama3",
+                "model": "llama3-gpu",
                 "prompt": prompt,
                 "stream": False
             },

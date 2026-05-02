@@ -142,8 +142,9 @@ async function queryGhostTools(tool, query, context = {}) {
   try {
     const response = await fetch("http://127.0.0.1:8765/tool", {
       method: "POST",
-      headers: { "Content_Type": "application/json" },
-      body: JSON.stringify({ tool, query, context })
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ tool, query, context }),
+      signal: AbortSignal.timeout(20000)
     });
     return await response.json();
   } catch (err) {
@@ -217,6 +218,7 @@ let cachedRetrievalSnapshot = null;
 let cachedNativeEpisodes = [];
 let cachedDreams = [];
 let cachedExperiment = null;
+let cachedLLMFragments = null;
 
 function normalizePacket(packet = {}) {
   return {
@@ -388,6 +390,7 @@ async function runFastCycle() {
       styleBias: personalityState.styleBias,
       moodBaseline: personalityState.moodBaseline,
       traits: personalityState.traits,
+      cachedFragments: cachedLLMFragments,
     });
 
     const thought = thoughtOut.text || "";
@@ -447,6 +450,7 @@ async function runFastCycle() {
       latent: compressionOut.latent,
       styleBias: personalityState.styleBias,
       traits: personalityState.traits,
+      thought,
     });
 
     lastGhostState = normalizePacket({
@@ -563,6 +567,28 @@ async function runSlowCycle() {
       if (result?.answer) {
         log("[LLM]" + result.answer.slice(0, 120))
       }
+    }
+
+    // Fetch LLM thought fragments for fast loop cache
+    const dominantStyle = Object.entries(
+      lastGhostState?.personality?.styleBias || {}
+    ).sort((a, b) => b[1] - a[1])[0]?.[0] || "poetic";
+
+    const fragmentResult = await queryGhostTools(
+      "thought.generate",
+      lastGhostState?.metadata?.semanticTheme || "existence",
+      {
+        style: dominantStyle,
+        mood: lastGhostState?.mood || "neutral",
+        anomaly: lastGhostState?.anomalyFlag || 0
+      }
+    );
+
+    if (fragmentResult?.fragments) {
+      cachedLLMFragments = fragmentResult.fragments;
+      log("[LLM] Thought fragments cached: " +
+        fragmentResult.fragments.starts?.length + " starts, " +
+        fragmentResult.fragments.ends?.length + " ends");
     }
 
   } catch (err) {

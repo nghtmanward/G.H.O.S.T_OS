@@ -18,17 +18,20 @@ function extractKeywords(text = "") {
 
 // -----------------------------
 // Simple Text Embedding (64‑dim hashed bag-of-words)
+// TODO: Replace with Ollama real embeddings when Python bridge is live
 // -----------------------------
 function encodeText(text = "") {
   const words = extractKeywords(text);
   const vec = new Array(64).fill(0);
 
   for (let w of words) {
-    let hash = 0;
+    // FNV-1a hash — better distribution than polynomial
+    let hash = 2166136261;
     for (let i = 0; i < w.length; i++) {
-      hash = (hash * 31 + w.charCodeAt(i)) & 0xffffffff;
+      hash ^= w.charCodeAt(i);
+      hash = (hash * 16777619) >>> 0;
     }
-    const idx = Math.abs(hash) % vec.length;
+    const idx = hash % vec.length;
     vec[idx] += 1;
   }
 
@@ -56,11 +59,15 @@ function computeImportance(shard) {
   const latentWeight = 0.4;
   const lengthWeight = 0.1;
 
+  // Null guards — default to 0 if fields are missing
+  const anomaly = shard.anomaly ?? 0;
+  const latent = shard.latent_magnitude ?? 0;
   const textLength = shard.text ? shard.text.length : 0;
 
+  // TODO: Revisit 500 char ceiling once typical shard length is known
   return (
-    shard.anomaly * anomalyWeight +
-    shard.latent_magnitude * latentWeight +
+    anomaly * anomalyWeight +
+    latent * latentWeight +
     Math.min(textLength / 500, 1.0) * lengthWeight
   );
 }
@@ -71,8 +78,6 @@ function computeImportance(shard) {
 function encodeShard(shard) {
   const keywords = extractKeywords(shard.text);
   const importance = computeImportance(shard);
-
-  // NEW: embed shard text directly
   const embedding = encodeText(shard.text || "");
 
   return {

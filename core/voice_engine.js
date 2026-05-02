@@ -71,7 +71,8 @@ class VoiceEngine {
     intensity,
     latent,
     styleBias,
-    traits
+    traits,
+    thought = null
   }) {
     // 1. Safety layer
     const a = this.safeVal(anomaly, 0);
@@ -104,34 +105,19 @@ class VoiceEngine {
       p > 0.08 ||
       i > 0.75;
 
-    if (useThought && this.thoughtEngine) {
-      const thoughtObj = this.thoughtEngine.generate({
-        latent,
-        anomaly: a,
-        predLoss: p,
-        attention: safeAttention,
-        mood: safeMood,
-        intensity: i,
-        styleBias,
-        moodBaseline: safeBaseline,
-        traits,
-        emotionalMood: safeEmotionalMood,
-        emotionalIntensity: safeEmotionalIntensity
-      });
+    if (useThought && thought) {
+      const text = typeof thought === "string" && thought.trim().length > 0
+        ? thought
+        : "The ghost reflects.";
 
-      const text =
-        typeof thoughtObj === "string"
-          ? thoughtObj
-          : (thoughtObj?.text || "The ghost reflects.");
+    this.lastMessage = text;
+    this.cooldown = 10;
 
-      this.lastMessage = text;
-      this.cooldown = 10;
-
-      return {
-        version: this.version,
-        text
-      };
-    }
+    return {
+      version: this.version,
+      text
+    };
+}
 
     // ---------------------------------------------------------
     // Cooldown

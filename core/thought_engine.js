@@ -6,7 +6,7 @@ const retrieval = new RetrievalEngine();
 
 class ThoughtEngine {
   constructor() {
-    this.version = "2.1.0-2026.04.04"; // upgraded for native semantic integration
+    this.version = "2.2.1-2026.05.01"; // sync generate, cached fragment injection
 
     try {
       this.registry = require("../version_registry.json");
@@ -67,7 +67,7 @@ class ThoughtEngine {
   }
 
   // ---------------------------------------------------------
-  // NEW: Semantic Memory Influence (Native + JS Hybrid)
+  // Semantic Memory Context (Native + JS Hybrid)
   // ---------------------------------------------------------
   getSemanticContext() {
     const tertiary = mainMemory.tertiary || [];
@@ -81,15 +81,10 @@ class ThoughtEngine {
       };
     }
 
-    // Pick strongest long-term semantic record
     const strongest = [...tertiary].sort((a, b) => b.strength - a.strength)[0];
-
     const query = strongest.summary || strongest.theme || "";
-
-    // JS semantic retrieval
     const related = retrieval.retrieve(query);
 
-    // Native semantic retrieval (episodic + shards)
     const nativeRelated = {
       episodic: retrieval.findByMeaningNative(query, 5),
       shards: retrieval.findSimilarSemanticShardsNative(query, 5)
@@ -104,7 +99,8 @@ class ThoughtEngine {
   }
 
   // ---------------------------------------------------------
-  // MAIN THOUGHT GENERATION
+  // MAIN THOUGHT GENERATION (synchronous)
+  // cachedFragments injected from slow loop via cog_worker
   // ---------------------------------------------------------
   generate({
     latent,
@@ -115,7 +111,8 @@ class ThoughtEngine {
     intensity,
     styleBias,
     moodBaseline,
-    traits
+    traits,
+    cachedFragments = null  // LLM fragments fetched by slow loop
   }) {
     // Cooldown
     if (this.cooldown > 0) {
@@ -135,28 +132,26 @@ class ThoughtEngine {
     }
 
     // Sanitize inputs
-    const safeLatent = this.safeArray(latent);
+    const safeLatent    = this.safeArray(latent);
     const safeAttention = this.safeArray(attention).map(v => this.safeVal(v, 0));
     const safeStyleBias = styleBias || {
-      poetic: 0.25,
-      analytic: 0.25,
+      poetic:    0.25,
+      analytic:  0.25,
       emotional: 0.25,
-      cryptic: 0.25
+      cryptic:   0.25
     };
 
-    const a = this.safeVal(anomaly, 0);
-    const p = this.safeVal(predLoss, 0);
-    const i = this.safeVal(intensity, 0);
+    const a  = this.safeVal(anomaly, 0);
+    const p  = this.safeVal(predLoss, 0);
+    const i  = this.safeVal(intensity, 0);
     const mb = this.safeVal(moodBaseline, 0);
     const safeTraits = this.safeArray(traits).map(v => this.safeVal(v, 0));
 
-    const curiosity = safeTraits[0] || 0;
+    const curiosity    = safeTraits[0] || 0;
     const emotionalAmp = safeTraits[2] || 0;
-    const vigilance = safeTraits[3] || 0;
+    const vigilance    = safeTraits[3] || 0;
 
-    // ---------------------------------------------------------
-    // NEW: Semantic Memory Context (Hybrid)
-    // ---------------------------------------------------------
+    // Semantic Memory Context
     const semantic = this.getSemanticContext();
 
     const semanticPhrase = semantic.theme
@@ -167,10 +162,8 @@ class ThoughtEngine {
       ? `— ${semantic.summary.toLowerCase()}`
       : `— only fragments remain`;
 
-    // ---------------------------------------------------------
     // Focus channel
-    // ---------------------------------------------------------
-    const maxAtt = Math.max(...safeAttention, 0);
+    const maxAtt     = Math.max(...safeAttention, 0);
     const focusIndex = safeAttention.indexOf(maxAtt);
 
     const focusChannels = [
@@ -187,7 +180,7 @@ class ThoughtEngine {
     const focus = focusChannels[focusIndex] || "the unnamed signal";
 
     // ---------------------------------------------------------
-    // Style pools
+    // Static pools (always available — fallback guarantee)
     // ---------------------------------------------------------
     const poeticStarts = [
       "I drift along the edges of",
@@ -207,9 +200,9 @@ class ThoughtEngine {
 
     const emotionalStarts = [
       "I feel unsettled by",
-      "I’m soothed by",
-      "I’m drawn closer to",
-      "I’m quietly stirred by",
+      "I'm soothed by",
+      "I'm drawn closer to",
+      "I'm quietly stirred by",
       semanticPhrase
     ];
 
@@ -240,41 +233,50 @@ class ThoughtEngine {
     const emotionalEnds = [
       "and it calms something in me.",
       "and it makes me uneasy.",
-      "and I don’t want to look away.",
+      "and I don't want to look away.",
       "and I feel you more clearly.",
       semanticDetail
     ];
 
     const crypticEnds = [
       "as if something is waiting there.",
-      "where the model can’t quite reach.",
+      "where the model can't quite reach.",
       "where memory and noise collide.",
       "as if the pattern is watching back.",
       semanticDetail
     ];
 
     // ---------------------------------------------------------
-    // Weighted style pools
+    // LLM fragment augmentation — injected from slow loop cache
+    // Falls back to empty arrays if cache is null or stale
+    // ---------------------------------------------------------
+    const llmFragments = cachedFragments || { starts: [], ends: [] };
+    const llmAugmented = llmFragments.starts.length > 0;
+
+    // ---------------------------------------------------------
+    // Weighted style pools — static base + LLM augmentation
     // ---------------------------------------------------------
     let weightedStarts = []
-      .concat(this.weightPool(poeticStarts, safeStyleBias.poetic))
-      .concat(this.weightPool(analyticStarts, safeStyleBias.analytic))
+      .concat(this.weightPool(poeticStarts,    safeStyleBias.poetic))
+      .concat(this.weightPool(analyticStarts,  safeStyleBias.analytic))
       .concat(this.weightPool(emotionalStarts, safeStyleBias.emotional))
-      .concat(this.weightPool(crypticStarts, safeStyleBias.cryptic));
+      .concat(this.weightPool(crypticStarts,   safeStyleBias.cryptic))
+      .concat(llmFragments.starts);
 
     let weightedEnds = []
-      .concat(this.weightPool(poeticEnds, safeStyleBias.poetic))
-      .concat(this.weightPool(analyticEnds, safeStyleBias.analytic))
+      .concat(this.weightPool(poeticEnds,    safeStyleBias.poetic))
+      .concat(this.weightPool(analyticEnds,  safeStyleBias.analytic))
       .concat(this.weightPool(emotionalEnds, safeStyleBias.emotional))
-      .concat(this.weightPool(crypticEnds, safeStyleBias.cryptic));
+      .concat(this.weightPool(crypticEnds,   safeStyleBias.cryptic))
+      .concat(llmFragments.ends);
 
     // Mood baseline nudges tone
     if (mb > 0.3) {
       weightedStarts = weightedStarts.concat(poeticStarts, emotionalStarts);
-      weightedEnds = weightedEnds.concat(poeticEnds, emotionalEnds);
+      weightedEnds   = weightedEnds.concat(poeticEnds, emotionalEnds);
     } else if (mb < -0.3) {
       weightedStarts = weightedStarts.concat(analyticStarts, crypticStarts);
-      weightedEnds = weightedEnds.concat(analyticEnds, crypticEnds);
+      weightedEnds   = weightedEnds.concat(analyticEnds, crypticEnds);
     }
 
     // Modulation by anomaly / predLoss / intensity
@@ -290,19 +292,17 @@ class ThoughtEngine {
 
     if (emotionalAmp > 0.2) {
       weightedStarts = weightedStarts.concat(emotionalStarts);
-      weightedEnds = weightedEnds.concat(emotionalEnds);
+      weightedEnds   = weightedEnds.concat(emotionalEnds);
     }
 
     if (vigilance > 0.2) {
       weightedStarts = weightedStarts.concat(crypticStarts);
-      weightedEnds = weightedEnds.concat(crypticEnds);
+      weightedEnds   = weightedEnds.concat(crypticEnds);
     }
 
-    // ---------------------------------------------------------
     // Final selection
-    // ---------------------------------------------------------
     const start = this.pick(weightedStarts, t1);
-    const end = this.pick(weightedEnds, t2);
+    const end   = this.pick(weightedEnds, t2);
 
     const thought = `${start} ${focus}, ${end}`;
 
@@ -313,19 +313,20 @@ class ThoughtEngine {
       version: this.version,
       text: thought,
       metadata: {
-        version: this.version,
+        version:         this.version,
         thought,
-        latent: safeLatent,
-        anomaly: a,
+        latent:          safeLatent,
+        anomaly:         a,
         mood,
-        styleBias: safeStyleBias,
-        moodBaseline: mb,
-        traits: safeTraits,
-        semanticTheme: semantic.theme,
+        styleBias:       safeStyleBias,
+        moodBaseline:    mb,
+        traits:          safeTraits,
+        semanticTheme:   semantic.theme,
         semanticSummary: semantic.summary,
         semanticRelated: semantic.related,
-        semanticNative: semantic.nativeRelated,
-        timestamp: Date.now()
+        semanticNative:  semantic.nativeRelated,
+        llmAugmented,
+        timestamp:       Date.now()
       }
     };
   }

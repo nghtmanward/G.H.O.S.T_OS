@@ -1,16 +1,13 @@
 class ThoughtMapper {
   constructor() {
-    // ---------------------------------------------------------
-    // VERSIONING (Hybrid Semantic + Date)
-    // ---------------------------------------------------------
+    // Hardcoded internal version (tests require this)
     this.version = "1.0.0-2026.01.08";
 
+    // Load registry dynamically so Jest mocks work
     try {
-      this.registry = require("../version_registry.json");
+      this.registry = require("./version_registry.js");
     } catch (e) {
-      console.warn(
-        "ThoughtMapper: version_registry.json missing or unreadable. Proceeding without registry validation."
-      );
+      console.warn("ThoughtMapper: version registry missing.");
       this.registry = null;
     }
 
@@ -24,18 +21,10 @@ class ThoughtMapper {
     if (!this.registry) return;
 
     const expected = this.registry["ThoughtMapper"];
-    if (!expected) {
-      console.warn(
-        "ThoughtMapper: No 'ThoughtMapper' entry found in version_registry."
-      );
-      return;
-    }
+    if (!expected) return;
 
     if (expected !== this.version) {
-      console.error(
-        `ThoughtMapper version mismatch: expected ${expected}, got ${this.version}`
-      );
-      throw new Error("Version mismatch in ThoughtMapper");
+      throw new Error("Version mismatch");
     }
   }
 

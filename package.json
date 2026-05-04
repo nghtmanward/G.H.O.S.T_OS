@@ -4,6 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
+    "test": "cross-env NODE_ENV=test jest --runInBand",
     "start": "electron ."
   },
   "keywords": [],
@@ -11,11 +12,17 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "@babel/preset-env": "^7.29.3",
+    "babel-jest": "^30.3.0",
+    "cross-env": "^10.1.0",
+    "jest": "^30.3.0",
     "node-gyp": "^12.2.0"
   },
   "dependencies": {
     "@huggingface/hub": "^2.7.1",
     "electron": "^28.3.3",
+    "gl-matrix": "^3.4.4",
+    "mathjs": "^15.2.0",
     "node-addon-api": "^8.6.0",
     "uuid": "^8.3.2"
   }

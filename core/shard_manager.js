@@ -188,4 +188,4 @@ class ShardManager {
   }
 }
 
-module.exports = { ShardManager };
+module.exports = ShardManager;

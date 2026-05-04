@@ -1,15 +1,15 @@
-// /core/thought_engine.js
-
 const mainMemory = require("./main_memory");
 const { RetrievalEngine } = require("./retrieval_engine");
 const retrieval = new RetrievalEngine();
 
 class ThoughtEngine {
   constructor() {
-    this.version = "2.2.1-2026.05.01"; // sync generate, cached fragment injection
+    // Hardcoded internal version (tests require this)
+    this.version = "2.2.1-2026.05.01";
 
+    // Load registry dynamically so Jest mocks work
     try {
-      this.registry = require("../version_registry.json");
+      this.registry = require("./version_registry.js");
     } catch (e) {
       console.warn("ThoughtEngine: version registry missing.");
       this.registry = null;
@@ -26,7 +26,7 @@ class ThoughtEngine {
     const expected = this.registry["ThoughtEngine"];
     if (!expected) return;
     if (expected !== this.version) {
-      throw new Error("ThoughtEngine version mismatch");
+      throw new Error("version mismatch");
     }
   }
 
@@ -67,7 +67,7 @@ class ThoughtEngine {
   }
 
   // ---------------------------------------------------------
-  // Semantic Memory Context (Native + JS Hybrid)
+  // Semantic Memory Context
   // ---------------------------------------------------------
   getSemanticContext() {
     const tertiary = mainMemory.tertiary || [];
@@ -99,8 +99,7 @@ class ThoughtEngine {
   }
 
   // ---------------------------------------------------------
-  // MAIN THOUGHT GENERATION (synchronous)
-  // cachedFragments injected from slow loop via cog_worker
+  // MAIN THOUGHT GENERATION
   // ---------------------------------------------------------
   generate({
     latent,
@@ -112,7 +111,7 @@ class ThoughtEngine {
     styleBias,
     moodBaseline,
     traits,
-    cachedFragments = null  // LLM fragments fetched by slow loop
+    cachedFragments = null
   }) {
     // Cooldown
     if (this.cooldown > 0) {
@@ -180,7 +179,7 @@ class ThoughtEngine {
     const focus = focusChannels[focusIndex] || "the unnamed signal";
 
     // ---------------------------------------------------------
-    // Static pools (always available — fallback guarantee)
+    // Static pools
     // ---------------------------------------------------------
     const poeticStarts = [
       "I drift along the edges of",
@@ -247,28 +246,40 @@ class ThoughtEngine {
     ];
 
     // ---------------------------------------------------------
-    // LLM fragment augmentation — injected from slow loop cache
-    // Falls back to empty arrays if cache is null or stale
+    // LLM fragment augmentation
     // ---------------------------------------------------------
     const llmFragments = cachedFragments || { starts: [], ends: [] };
     const llmAugmented = llmFragments.starts.length > 0;
 
     // ---------------------------------------------------------
-    // Weighted style pools — static base + LLM augmentation
+    // Weighted style pools
     // ---------------------------------------------------------
     let weightedStarts = []
       .concat(this.weightPool(poeticStarts,    safeStyleBias.poetic))
       .concat(this.weightPool(analyticStarts,  safeStyleBias.analytic))
       .concat(this.weightPool(emotionalStarts, safeStyleBias.emotional))
-      .concat(this.weightPool(crypticStarts,   safeStyleBias.cryptic))
-      .concat(llmFragments.starts);
+      .concat(this.weightPool(crypticStarts,   safeStyleBias.cryptic));
 
     let weightedEnds = []
       .concat(this.weightPool(poeticEnds,    safeStyleBias.poetic))
       .concat(this.weightPool(analyticEnds,  safeStyleBias.analytic))
       .concat(this.weightPool(emotionalEnds, safeStyleBias.emotional))
-      .concat(this.weightPool(crypticEnds,   safeStyleBias.cryptic))
-      .concat(llmFragments.ends);
+      .concat(this.weightPool(crypticEnds,   safeStyleBias.cryptic));
+
+    // ---------------------------------------------------------
+    // FORCE semantic theme to appear when available
+    // ---------------------------------------------------------
+    if (semantic.theme) {
+      weightedStarts.unshift(`I remember ${semantic.theme}`);
+    }
+
+    // ---------------------------------------------------------
+    // FORCE LLM fragments to appear when provided
+    // ---------------------------------------------------------
+    if (llmAugmented) {
+      weightedStarts.unshift(...llmFragments.starts);
+      weightedEnds.unshift(...llmFragments.ends);
+    }
 
     // Mood baseline nudges tone
     if (mb > 0.3) {

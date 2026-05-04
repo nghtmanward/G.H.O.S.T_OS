@@ -15,11 +15,20 @@ class SemanticEngine {
   // VECTOR NORMALIZATION
   // -------------------------------
   normalize(vec) {
+    if (!vec || vec.length === 0) return vec;
+
     let mag = 0;
     for (let i = 0; i < vec.length; i++) {
       mag += vec[i] * vec[i];
     }
-    mag = Math.sqrt(mag) || 1e-9;
+    mag = Math.sqrt(mag);
+
+    // Zero vector fallback: return unit vector along first dimension
+    if (mag === 0) {
+      const fallback = new Array(vec.length).fill(0);
+      fallback[0] = 1;
+      return fallback;
+    }
 
     return vec.map((x) => x / mag);
   }

@@ -2,7 +2,7 @@
 
 const { EpisodicShard } = require("./memory_models");
 const { consolidate } = require("./consolidate");
-const { decay } = require("./decay");
+const decay = require("./decay");
 const {
     loadShards,
     saveShards,

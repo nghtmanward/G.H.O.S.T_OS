@@ -16,10 +16,19 @@ const InputMapper = require("./core/input_mapper");
 const AttentionEngine = require("./core/attention_engine");
 const Persistence = require("./core/persistence");
 const ThoughtEngine = require("./core/thought_engine");
-const VoiceEngine = require("./core/voice_engine");
+
+let VoiceEngine;
+function getVoiceEngine() {
+  if (!VoiceEngine) {
+    VoiceEngine = require("./core/voice_engine");
+  }
+  return VoiceEngine;
+}
+
+
 const PersonalityEngine = require("./core/personality_engine");
 const FacialEmotionalTellEngine = require("./core/facial_emotional_tell_engine");
-const { ShardManager } = require("./core/shard_manager");
+const ShardManager = require("./core/shard_manager");
 const { DreamingEngine } = require("./core/dreaming_engine");
 const { EmotionEngine } = require("./core/emotion_engine");
 const { TemporalEngine } = require("./core/temporal_engine");
@@ -70,7 +79,7 @@ const behavior = new BehaviorEngine();
 const attention = new AttentionEngine(12);
 const persistence = new Persistence();
 const thinker = new ThoughtEngine();
-const voice = new VoiceEngine(thinker);
+const voice = new (getVoiceEngine())(thinker);
 const personality = new PersonalityEngine();
 const facial = new FacialEmotionalTellEngine();
 const shards = new ShardManager();

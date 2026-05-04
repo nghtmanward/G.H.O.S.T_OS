@@ -13,6 +13,13 @@ class EmotionEngine {
   }
 
   // ---------------------------------------------------------
+  // SAFE HELPER
+  // ---------------------------------------------------------
+  safeNum(v, fallback = 0) {
+    return Number.isFinite(v) ? v : fallback;
+  }
+
+  // ---------------------------------------------------------
   // NEW: Semantic Emotional Influence
   // ---------------------------------------------------------
   semanticInfluence() {
@@ -43,14 +50,14 @@ class EmotionEngine {
     let shift = 0;
 
     // mood trend influences baseline
-    shift += (temporalSummary.moodTrend || 0) * 0.1;
+    shift += this.safeNum(temporalSummary.moodTrend) * 0.1;
 
     // frequent dreams soften emotional volatility
-    if ((temporalSummary.dreamFrequency || 0) > 0.5)
+    if (this.safeNum(temporalSummary.dreamFrequency) > 0.5)
       shift -= 0.02;
 
     // anomaly trend increases emotional tension
-    shift += (temporalSummary.anomalyTrend || 0) * 0.05;
+    shift += this.safeNum(temporalSummary.anomalyTrend) * 0.05;
 
     return shift;
   }
@@ -59,8 +66,12 @@ class EmotionEngine {
   // MAIN UPDATE
   // ---------------------------------------------------------
   update({ anomaly, predLoss, mood, dream = false, temporalSummary = null, traits = [] }) {
+    // Sanitize inputs
+    const safeAnomaly = this.safeNum(anomaly);
+    const safePredLoss = this.safeNum(predLoss);
+
     const safeTraits = Array.isArray(traits)
-      ? traits.map(v => (isFinite(v) ? v : 0))
+      ? traits.map(v => this.safeNum(v))
       : [0, 0, 0, 0];
 
     const curiosity = safeTraits[0] || 0;
@@ -68,7 +79,7 @@ class EmotionEngine {
     const vigilance = safeTraits[3] || 0;
 
     // Emotional intensity from anomaly + prediction error
-    let intensity = Math.min(1, anomaly + predLoss);
+    let intensity = Math.min(1, safeAnomaly + safePredLoss);
 
     // Dreams soften emotional impact
     const weight = dream ? 0.3 : 1.0;
@@ -96,7 +107,7 @@ class EmotionEngine {
       temporalShift +
       personalityBoost;
 
-    this.mood += totalShift;
+    this.mood += this.safeNum(totalShift);
 
     // Clamp mood
     this.mood = Math.max(-1, Math.min(1, this.mood));

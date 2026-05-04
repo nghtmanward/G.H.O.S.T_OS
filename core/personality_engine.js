@@ -1,17 +1,17 @@
 class PersonalityEngine {
   constructor(size = 8) {
     // ---------------------------------------------------------
-    // VERSIONING (Hybrid Semantic + Date)
+    // VERSIONING (Dynamic, registry-driven)
     // ---------------------------------------------------------
-    this.version = "1.0.0-2026.01.08";
-
     try {
-      this.registry = require("../version_registry.json");
+      this.registry = require("./version_registry.js");
+      this.version = "2.2.1-2026.05.01";
     } catch (e) {
       console.warn(
-        "PersonalityEngine: version_registry.json missing or unreadable. Proceeding without registry validation."
+        "PersonalityEngine: version_registry.js missing or unreadable. Proceeding without registry validation."
       );
       this.registry = null;
+      this.version = "unknown";
     }
 
     this._validateVersion();

@@ -8,16 +8,14 @@ let lastFrameGray = null;
 class VisualSensoryEngine {
   constructor() {
     // ---------------------------------------------------------
-    // VERSIONING (Hybrid Semantic + Date)
+    // VERSIONING (Dynamic, registry-driven)
     // ---------------------------------------------------------
     this.version = "1.0.0-2026.01.08";
 
     try {
-      this.registry = require("../version_registry.json");
+      this.registry = require("./version_registry.js");
     } catch (e) {
-      console.warn(
-        "VisualSensoryEngine: version_registry.json missing or unreadable. Proceeding without registry validation."
-      );
+      console.warn("VisualSensoryEngine: version_registry.js missing.");
       this.registry = null;
     }
 

@@ -1,5 +1,4 @@
 import { vec3, mat4, quat } from "gl-matrix";
-import { lerp } from "mathjs";
 
 export class MathEngine {
 
@@ -71,7 +70,24 @@ export class MathEngine {
 
     static toEuler(q) {
         const out = vec3.create();
-        quat.getEuler(out, q);
+        const [x, y, z, w] = q;
+
+        // Roll (x-axis)
+        const sinr = 2 * (w * x + y * z);
+        const cosr = 1 - 2 * (x * x + y * y);
+        out[0] = Math.atan2(sinr, cosr);
+
+        // Pitch (y-axis)
+        const sinp = 2 * (w * y - z * x);
+        out[1] = Math.abs(sinp) >= 1
+            ? Math.sign(sinp) * Math.PI / 2
+            : Math.asin(sinp);
+
+        // Yaw (z-axis)
+        const siny = 2 * (w * z + x * y);
+        const cosy = 1 - 2 * (y * y + z * z);
+        out[2] = Math.atan2(siny, cosy);
+
         return out;
     }
 
@@ -84,7 +100,7 @@ export class MathEngine {
     // --- Interpolation ---
 
     static lerp(a, b, t) {
-        return lerp(a, b, t);
+        return a + (b - a) * t;
     }
 
     static lerpVec3(a, b, t) {

@@ -1,17 +1,17 @@
 class InputMapper {
   constructor() {
     // ---------------------------------------------------------
-    // VERSIONING (Hybrid Semantic + Date)
+    // VERSIONING (Dynamic, registry-driven)
     // ---------------------------------------------------------
-    this.version = "1.0.0-2026.01.08";
-
     try {
-      this.registry = require("../version_registry.json");
+      this.registry = require("./version_registry.js");
+      this.version = "1.0.0-2026.01.08";
     } catch (e) {
       console.warn(
-        "InputMapper: version_registry.json missing or unreadable. Proceeding without registry validation."
+        "InputMapper: version_registry.js missing or unreadable. Proceeding without registry validation."
       );
       this.registry = null;
+      this.version = "unknown";
     }
 
     this._validateVersion();
@@ -131,7 +131,7 @@ class InputMapper {
       this.safeVal(this.mouseSpeed),                 // 0 mouse speed
       this.safeVal(this.mouseDirectionChange),       // 1 mouse direction change
       this.safeVal(this.keypressCount),              // 2 keypress count
-      Math.min(1, this.safeVal(this.idleTime / 10)), // 3
+      Math.min(1, this.safeVal(this.idleTime / 10)), // 3 idle normalized
       this.focused ? 1 : 0,                          // 4 focused
       this.safeVal(this.clickCount),                 // 5 click count
       this.safeVal(this.scrollIntensity),            // 6 scroll intensity

@@ -6,11 +6,11 @@ class Persistence {
     // ---------------------------------------------------------
     // VERSIONING (Hybrid Semantic + Date)
     // ---------------------------------------------------------
-    this.version = "1.1.0-2026.01.08"; // bumped for schema-aware upgrade
+    this.version = "1.1.0-2026.01.08";
     this.schema = "ghost-state-v1";
 
     try {
-      this.registry = require("../version_registry.json");
+      this.registry = require("./version_registry.js");
     } catch (e) {
       console.warn(
         "Persistence: version_registry.json missing or unreadable. Proceeding without registry validation."
@@ -79,10 +79,45 @@ class Persistence {
   // LOAD (safe, corruption-proof, backward-compatible)
   // ---------------------------------------------------------
   load() {
+    // Helper to attempt backup recovery
+    const tryBackup = () => {
+      try {
+        if (!fs.existsSync(this.tempPath)) return null;
+
+        const backup = fs.readFileSync(this.tempPath, "utf8");
+        const parsedBackup = JSON.parse(backup);
+
+        if (parsedBackup && typeof parsedBackup === "object") {
+          if (parsedBackup.state !== undefined) {
+            return this.migrateIfNeeded(parsedBackup);
+          }
+          return this.migrateIfNeeded({
+            schema: "legacy-ghost-state",
+            version: "legacy",
+            timestamp: Date.now(),
+            state: parsedBackup
+          });
+        }
+      } catch {
+        console.error("❌ Backup also corrupted.");
+      }
+      return null;
+    };
+
     try {
       if (!fs.existsSync(this.filePath)) return null;
 
-      const data = fs.readFileSync(this.filePath, "utf8");
+      let data;
+      try {
+        data = fs.readFileSync(this.filePath, "utf8");
+      } catch (readErr) {
+        // Main file unreadable — try backup
+        console.error("⚠️ Could not read main file. Attempting recovery…");
+        const result = tryBackup();
+        if (result !== null) return result;
+        console.error("❌ Backup also failed.");
+        return null;
+      }
 
       try {
         const parsed = JSON.parse(data);
@@ -92,8 +127,7 @@ class Persistence {
           return this.migrateIfNeeded(parsed);
         }
 
-        // CASE 2: Legacy format (bare state object)
-        // Wrap it on the fly so the rest of the system can treat it uniformly.
+        // CASE 2: Legacy format
         return this.migrateIfNeeded({
           schema: "legacy-ghost-state",
           version: "legacy",
@@ -102,29 +136,8 @@ class Persistence {
         });
       } catch (parseErr) {
         console.error("⚠️ Corrupted ghost memory file. Attempting recovery…");
-
-        if (fs.existsSync(this.tempPath)) {
-          try {
-            const backup = fs.readFileSync(this.tempPath, "utf8");
-            const parsedBackup = JSON.parse(backup);
-
-            if (parsedBackup && typeof parsedBackup === "object") {
-              if (parsedBackup.state !== undefined) {
-                return this.migrateIfNeeded(parsedBackup);
-              }
-
-              return this.migrateIfNeeded({
-                schema: "legacy-ghost-state",
-                version: "legacy",
-                timestamp: Date.now(),
-                state: parsedBackup
-              });
-            }
-          } catch {
-            console.error("❌ Backup also corrupted.");
-          }
-        }
-
+        const result = tryBackup();
+        if (result !== null) return result;
         return null;
       }
     } catch (err) {
@@ -138,16 +151,6 @@ class Persistence {
   // ---------------------------------------------------------
   migrateIfNeeded(wrapper) {
     if (!wrapper || typeof wrapper !== "object") return null;
-
-    // You can branch by wrapper.schema here if you add future schemas.
-    // For now, we just return the state as-is.
-    //
-    // Example of future use:
-    // if (wrapper.schema === "legacy-ghost-state") {
-    //   // e.g., normalize episodicMemory structure
-    //   // episodicMemory.ingestLegacyEpisodes(wrapper.state.episodes)
-    // }
-
     return wrapper.state || null;
   }
 

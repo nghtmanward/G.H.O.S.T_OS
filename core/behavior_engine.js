@@ -1,17 +1,17 @@
 class BehaviorEngine {
   constructor() {
     // ---------------------------------------------------------
-    // VERSIONING (Hybrid Semantic + Date)
+    // VERSIONING (Dynamic, registry-driven)
     // ---------------------------------------------------------
-    this.version = "1.0.0-2026.01.08";
-
     try {
-      this.registry = require("../version_registry.json");
+      this.registry = require("./version_registry.js");
+      this.version = "2.2.1-2026.05.01";
     } catch (e) {
       console.warn(
-        "BehaviorEngine: version_registry.json missing or unreadable. Proceeding without registry validation."
+        "BehaviorEngine: version_registry.js missing or unreadable. Proceeding without registry validation."
       );
       this.registry = null;
+      this.version = "unknown";
     }
 
     this._validateVersion();
@@ -22,7 +22,7 @@ class BehaviorEngine {
     this.mood = "neutral";
     this.intensity = 0;
     this.color = "#00ffff";
-    this.text = "The Ghost Stirs...";
+    this.text = "The ghost stirs...";
   }
 
   // ---------------------------------------------------------
@@ -54,6 +54,7 @@ class BehaviorEngine {
     const safeAnomaly = isFinite(anomaly) ? anomaly : 0;
     const safePredLoss = isFinite(predLoss) ? predLoss : 0;
     const safeLatent = Array.isArray(latent) ? latent : [];
+
     const latentMag = safeLatent.reduce((sum, value) => {
       const v = isFinite(value) ? value : 0;
       return sum + Math.abs(v);

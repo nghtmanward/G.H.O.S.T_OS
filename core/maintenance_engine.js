@@ -1,7 +1,7 @@
 // /core/maintenance_engine.js
 
 const path = require("path");
-const { ShardManager } = require("./shard_manager");
+const ShardManager = require("./shard_manager");
 const { ThemeEngine } = require("./theme_engine");
 const { RetrievalEngine } = require("./retrieval_engine");
 

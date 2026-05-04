@@ -46,7 +46,15 @@ function normalize(vec) {
   for (let i = 0; i < vec.length; i++) {
     mag += vec[i] * vec[i];
   }
-  mag = Math.sqrt(mag) || 1e-9;
+
+  // If magnitude is zero, return a stable fallback unit vector
+  if (mag === 0) {
+    const fallback = new Array(vec.length).fill(0);
+    fallback[0] = 1; // deterministic unit vector
+    return fallback;
+  }
+
+  mag = Math.sqrt(mag);
 
   return vec.map(x => x / mag);
 }

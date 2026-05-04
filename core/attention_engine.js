@@ -3,17 +3,17 @@ class AttentionEngine {
     this.inputDim = inputDim;
 
     // ---------------------------------------------------------
-    // VERSIONING (Hybrid Semantic + Date)
+    // VERSIONING (Dynamic, registry-driven)
     // ---------------------------------------------------------
-    this.version = "1.0.0-2026.01.08";
-
     try {
-      this.registry = require("../version_registry.json");
+      this.registry = require("./version_registry.js");
+      this.version = "2.2.1-2026.05.01";
     } catch (e) {
       console.warn(
-        "AttentionEngine: version_registry.json missing or unreadable. Proceeding without registry validation."
+        "AttentionEngine: version_registry.js missing or unreadable. Proceeding without registry validation."
       );
       this.registry = null;
+      this.version = "unknown";
     }
 
     this._validateVersion();
@@ -51,7 +51,12 @@ class AttentionEngine {
   // APPLY ATTENTION
   // ---------------------------------------------------------
   applyAttention(inputVector) {
-    if (!Array.isArray(inputVector)) return Array(this.inputDim).fill(0);
+    if (!Array.isArray(inputVector)) {
+      return {
+        attended: Array(this.inputDim).fill(0),
+        weights: this.weights
+      };
+    }
 
     const len = Math.min(inputVector.length, this.weights.length);
     const out = new Array(len);
@@ -63,6 +68,7 @@ class AttentionEngine {
     }
 
     this._validateOutput(out);
+
     return {
       attended: out,
       weights: this.weights

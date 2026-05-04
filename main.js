@@ -1,3 +1,4 @@
+
 // =========================
 // GHOST_OS MAIN PROCESS
 // =========================
@@ -6,6 +7,7 @@ const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
 const { Worker } = require("node:worker_threads");
 
+const isTest = process.env.NODE_ENV === "test";
 // Cognitive engine tick rate (kept here just for reference/logging)
 const COGNITIVE_TICK_MS = 400;
 
@@ -71,9 +73,14 @@ let ghostWorker = null;
 let lastGhostState = null;
 
 function startGhostWorker() {
-  console.log("[WORKER] Spawning cognitive worker...");
+  if (isTest) {
+    console.log("[WORKER] startGhostWorker() skipped in test mode.");
+    return;
+  }
 
+  console.log("[WORKER] Spawning cognitive worker...");
   ghostWorker = new Worker(path.join(__dirname, "cog_worker.js"));
+
 
   ghostWorker.on("message", (msg) => {
     if (!msg || typeof msg !== "object") return;
@@ -115,7 +122,14 @@ function sendToWorker(msg) {
 app.whenReady().then(() => {
   console.log("[APP] Electron app ready. Creating window and starting systems...");
   createWindow();
-  startGhostWorker();
+
+  if (!isTest) {
+    console.log("[MAIN] Starting cognitive worker...");
+    startGhostWorker();
+  } else {
+    console.log("[MAIN] Skipping cognitive worker in test mode.");
+  }
+
 
   app.on("activate", () => {
     if (BrowserWindow.getAllWindows().length === 0) {

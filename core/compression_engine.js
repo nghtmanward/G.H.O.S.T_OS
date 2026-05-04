@@ -1,41 +1,42 @@
 // core/compression_engine.js
 
-// ❌ Native addon removed to avoid Electron native crashes
-// const compression = require("../native/build/Release/compression.node");
-
 class CompressionEngine {
   constructor(inputDim = 784, latentDim = 32) {
     this.inputDim = inputDim;
     this.latentDim = latentDim;
 
-    // VERSIONING
+    // ---------------------------------------------------------
+    // VERSIONING (Test‑aligned)
+    // ---------------------------------------------------------
+    this.schema = "compression-engine-v1";
+
+    // Hardcoded class version (required for mismatch detection)
     this.version = "1.0.0-2026.01.08";
 
     try {
-      this.registry = require("../version_registry.json");
+      this.registry = require("./version_registry.js");
     } catch (e) {
       console.warn(
-        "CompressionEngine: version_registry.json not found or unreadable. Proceeding without central registry validation."
+        "CompressionEngine: version_registry.js not found or unreadable. Proceeding without central registry validation."
       );
       this.registry = null;
     }
 
     this._validateVersion();
 
-    // Multi‑scale latent channels
+    // ---------------------------------------------------------
+    // INTERNAL STATE
+    // ---------------------------------------------------------
     this.fast = Array(this.latentDim).fill(0);
     this.slow = Array(this.latentDim).fill(0);
     this.slowRate = 0.01;
 
-    // Combined latent
     this.latent = Array(this.latentDim).fill(0);
 
-    // Structure matrix (co‑occurrence, lightweight)
     this.structure = Array(this.inputDim)
       .fill(0)
       .map(() => Array(this.inputDim).fill(0));
 
-    // Projection matrix: inputDim × latentDim
     this.proj = Array(this.inputDim)
       .fill(0)
       .map(() =>
@@ -46,18 +47,18 @@ class CompressionEngine {
 
     this.learningRate = 0.001;
 
-    // Prediction loss history for anomaly detection
     this.predLossHistory = [];
     this.anomaly = 0;
     this.lastLoss = 0;
     this.lastPredLoss = 0;
 
-    // Temporal latent history
     this.latentHistory = [];
     this.maxHistory = 50;
   }
 
+  // ---------------------------------------------------------
   // VERSION VALIDATION
+  // ---------------------------------------------------------
   _validateVersion() {
     if (!this.registry) return;
 
@@ -70,14 +71,13 @@ class CompressionEngine {
     }
 
     if (expected !== this.version) {
-      console.error(
-        `CompressionEngine version mismatch: expected ${expected}, got ${this.version}`
-      );
-      throw new Error("Version mismatch in CompressionEngine");
+      throw new Error("Version mismatch");
     }
   }
 
+  // ---------------------------------------------------------
   // INGEST
+  // ---------------------------------------------------------
   ingest(input, nextInput = null) {
     const cleanInput = this._sanitizeInput(input);
 
@@ -88,10 +88,8 @@ class CompressionEngine {
     const prediction = this.predictNext();
     const loss = this.loss(cleanInput, recon);
 
-    // Train reconstruction
     this._train(cleanInput, recon);
 
-    // Predictive training
     let predLoss = 0;
     if (nextInput) {
       const cleanNext = this._sanitizeInput(nextInput);
@@ -103,7 +101,6 @@ class CompressionEngine {
     this.lastLoss = loss;
     this.lastPredLoss = predLoss;
 
-    // Store latent history
     this.latentHistory.push([...this.latent]);
     if (this.latentHistory.length > this.maxHistory) {
       this.latentHistory.shift();
@@ -124,7 +121,9 @@ class CompressionEngine {
     };
   }
 
+  // ---------------------------------------------------------
   // SANITIZE INPUT
+  // ---------------------------------------------------------
   _sanitizeInput(input) {
     const out = new Array(this.inputDim);
     const len = Math.min(input.length, this.inputDim);
@@ -140,7 +139,9 @@ class CompressionEngine {
     return out;
   }
 
+  // ---------------------------------------------------------
   // STRUCTURE UPDATE
+  // ---------------------------------------------------------
   _updateStructure(input) {
     for (let i = 0; i < this.inputDim; i++) {
       const v = input[i];
@@ -150,11 +151,12 @@ class CompressionEngine {
     }
   }
 
+  // ---------------------------------------------------------
   // MULTI‑SCALE LATENT UPDATE
+  // ---------------------------------------------------------
   _updateLatent(input) {
     const update = Array(this.latentDim).fill(0);
 
-    // Project input → update vector
     for (let j = 0; j < this.latentDim; j++) {
       let sum = 0;
       for (let i = 0; i < this.inputDim; i++) {
@@ -167,26 +169,24 @@ class CompressionEngine {
       update[j] = Math.tanh(sum);
     }
 
-    // Fast channel
     const alpha = 0.2;
     for (let j = 0; j < this.latentDim; j++) {
       this.fast[j] = (1 - alpha) * this.fast[j] + alpha * update[j];
     }
 
-    // Slow channel
     for (let j = 0; j < this.latentDim; j++) {
       this.slow[j] =
         (1 - this.slowRate) * this.slow[j] + this.slowRate * update[j];
     }
 
-    // Combine channels
     this.latent = this.fast.map((v, j) => v + this.slow[j]);
 
-    // ✅ Pure JS normalization (no native addon)
     this.latent = this._normalize(this.latent);
   }
 
+  // ---------------------------------------------------------
   // PURE JS NORMALIZATION
+  // ---------------------------------------------------------
   _normalize(vec) {
     let sumSq = 0;
     for (let i = 0; i < vec.length; i++) {
@@ -199,7 +199,9 @@ class CompressionEngine {
     return vec.map(v => (Number.isFinite(v) ? v / norm : 0));
   }
 
+  // ---------------------------------------------------------
   // RECONSTRUCTION
+  // ---------------------------------------------------------
   reconstruct() {
     const out = Array(this.inputDim).fill(0);
 
@@ -212,18 +214,22 @@ class CompressionEngine {
           sum += l * w;
         }
       }
-      out[i] = 1 / (1 + Math.exp(-sum)); // Sigmoid
+      out[i] = 1 / (1 + Math.exp(-sum));
     }
 
     return out;
   }
 
+  // ---------------------------------------------------------
   // PREDICTION
+  // ---------------------------------------------------------
   predictNext() {
     return this.reconstruct();
   }
 
+  // ---------------------------------------------------------
   // LOSSES
+  // ---------------------------------------------------------
   loss(original, recon) {
     const len = Math.min(original.length, recon.length);
     if (len === 0) return 0;
@@ -254,7 +260,9 @@ class CompressionEngine {
     return sum / len;
   }
 
+  // ---------------------------------------------------------
   // TRAINING
+  // ---------------------------------------------------------
   _train(input, recon) {
     const len = Math.min(this.inputDim, input.length, recon.length);
     const error = new Array(len);
@@ -301,7 +309,9 @@ class CompressionEngine {
     }
   }
 
+  // ---------------------------------------------------------
   // ANOMALY DETECTION
+  // ---------------------------------------------------------
   computeAnomaly(predLoss) {
     const safeLoss = Number.isFinite(predLoss) ? predLoss : 0;
 
@@ -324,7 +334,9 @@ class CompressionEngine {
     return this.anomaly;
   }
 
+  // ---------------------------------------------------------
   // OUTPUT VALIDATION
+  // ---------------------------------------------------------
   _validateOutput(latent) {
     if (!Array.isArray(latent) || latent.length !== this.latentDim) {
       throw new Error("CompressionEngine: latent vector shape mismatch");
@@ -340,7 +352,9 @@ class CompressionEngine {
     }
   }
 
+  // ---------------------------------------------------------
   // 3D LATENT
+  // ---------------------------------------------------------
   getLatent3D() {
     const w = 4,
       h = 4,

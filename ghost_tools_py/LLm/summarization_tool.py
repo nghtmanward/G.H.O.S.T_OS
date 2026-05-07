@@ -1,3 +1,4 @@
+import re
 from typing import Dict, Any, List
 from .llm_client import call_llm
 from .style_adapter import adapt_to_style
@@ -24,6 +25,10 @@ def summarize_episodes(request: Dict[str, Any]) -> Dict[str, Any]:
 
   logger.info(f"[summarization_tool] Summarizing {len(texts)} episodes")
   raw_answer = call_llm(prompt, max_tokens=256)
+
+  # Strip thinking blocks before passing to style adapter
+  raw_answer = re.sub(r"<think>.*?</think>", "", raw_answer, flags=re.DOTALL).strip()
+
   styled = adapt_to_style(raw_answer, style_bias)
 
   return {

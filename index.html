@@ -6,7 +6,17 @@
     <style>
       :root {
         --glow-color: rgba(255, 255, 255, 0.35);
+        --ghost: #00f5d4;
+        --ghost-dim: rgba(0, 245, 212, 0.15);
+        --ghost-glow: rgba(0, 245, 212, 0.5);
+        --warn: #f5a623;
+        --danger: #ff3b6b;
+        --panel: #0d1620;
+        --border: #1a3050;
+        --text-dim: #4a6a80;
       }
+
+      * { box-sizing: border-box; }
 
       body {
         background: #0a0a0c;
@@ -14,57 +24,64 @@
         font-family: monospace;
         margin: 0;
         height: 100vh;
-        overflow-x: hidden;
-        overflow-y: auto;
+        overflow: hidden;
         display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        padding-top: 20px;
+        flex-direction: column;
       }
 
       /* ----------------------------- */
-      /* DRAG REGION FIX               */
+      /* DRAG REGION                   */
       /* ----------------------------- */
-
       .titlebar {
         -webkit-app-region: drag;
         text-align: center;
-        margin-bottom: 10px;
+        padding: 10px 0 4px;
+        flex-shrink: 0;
       }
 
       .titlebar h1 {
         margin: 0;
         padding: 0;
-        font-size: 24px;
+        font-size: 22px;
         font-weight: bold;
         -webkit-app-region: drag;
+        color: white;
+        letter-spacing: 0.05em;
       }
 
-      /* Everything else must NOT drag */
       .ghost-container * {
         -webkit-app-region: no-drag;
       }
 
       /* ----------------------------- */
-      /* MAIN UI CONTAINER             */
+      /* HUD AREA (scrollable)         */
       /* ----------------------------- */
+      .hud-wrapper {
+        flex: 1;
+        overflow-y: auto;
+        overflow-x: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 10px 20px;
+        transition: padding-bottom 0.35s ease;
+      }
+
+      .hud-wrapper.chat-open {
+        padding-bottom: 10px;
+      }
 
       .ghost-container {
         position: relative;
         z-index: 2;
-
         padding: 20px;
         border-radius: 16px;
-
         backdrop-filter: blur(0.5px);
         background: rgba(0, 0, 0, 0.03);
-
         box-shadow: 0 0 30px var(--glow-color);
-
         text-align: center;
-
-        max-height: 82vh;
-        overflow-y: auto;
+        width: 100%;
+        max-width: 900px;
       }
 
       #ghost-state {
@@ -134,7 +151,6 @@
         grid-template-columns: repeat(4, 14px);
         grid-auto-rows: 14px;
         gap: 4px;
-
         position: relative;
         z-index: 0 !important;
         pointer-events: none;
@@ -192,64 +208,610 @@
       .status-line {
         margin: 2px 0;
       }
+
+      /* ----------------------------- */
+      /* CHAT TOGGLE BUTTON            */
+      /* ----------------------------- */
+      #chat-toggle {
+        position: fixed;
+        bottom: 20px;
+        right: 24px;
+        z-index: 200;
+        background: var(--ghost-dim);
+        border: 1px solid var(--ghost);
+        color: var(--ghost);
+        font-family: monospace;
+        font-size: 0.7rem;
+        letter-spacing: 0.15em;
+        padding: 8px 16px;
+        cursor: pointer;
+        border-radius: 2px;
+        text-transform: uppercase;
+        transition: all 0.15s;
+        -webkit-app-region: no-drag;
+      }
+
+      #chat-toggle:hover {
+        background: rgba(0, 245, 212, 0.25);
+        box-shadow: 0 0 16px var(--ghost-dim);
+      }
+
+      #chat-toggle.active {
+        background: rgba(0, 245, 212, 0.2);
+        box-shadow: 0 0 20px var(--ghost-glow);
+      }
+
+      /* ----------------------------- */
+      /* CHAT PANEL                    */
+      /* ----------------------------- */
+      #chat-panel {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 380px;
+        background: #080e16;
+        border-top: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        z-index: 100;
+        transform: translateY(100%);
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        -webkit-app-region: no-drag;
+      }
+
+      #chat-panel.open {
+        transform: translateY(0);
+      }
+
+      /* Chat header */
+      .chat-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 16px;
+        border-bottom: 1px solid var(--border);
+        background: #0a1520;
+        flex-shrink: 0;
+      }
+
+      .chat-header-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .chat-title {
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+        color: var(--ghost);
+        text-transform: uppercase;
+      }
+
+      .chat-title::before { content: '// '; color: var(--text-dim); }
+
+      .bridge-status {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 0.55rem;
+        color: var(--text-dim);
+        letter-spacing: 0.1em;
+      }
+
+      .status-dot {
+        width: 6px; height: 6px;
+        border-radius: 50%;
+        background: var(--danger);
+        transition: all 0.3s;
+      }
+
+      .status-dot.online {
+        background: var(--ghost);
+        box-shadow: 0 0 8px var(--ghost);
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      .status-dot.connecting {
+        background: var(--warn);
+        box-shadow: 0 0 8px var(--warn);
+      }
+
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.4; }
+      }
+
+      .chat-header-right {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 0.55rem;
+        color: var(--text-dim);
+        letter-spacing: 0.1em;
+      }
+
+      .shard-badge {
+        background: var(--ghost-dim);
+        border: 1px solid rgba(0,245,212,0.3);
+        color: var(--ghost);
+        padding: 2px 8px;
+        border-radius: 1px;
+        font-size: 0.55rem;
+      }
+
+      /* Messages area */
+      #chat-messages {
+        flex: 1;
+        overflow-y: auto;
+        padding: 12px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        scrollbar-width: thin;
+        scrollbar-color: var(--border) transparent;
+      }
+
+      /* Welcome */
+      .chat-welcome {
+        margin: auto;
+        text-align: center;
+        opacity: 0.5;
+        font-size: 0.7rem;
+        color: var(--text-dim);
+        letter-spacing: 0.1em;
+        line-height: 2;
+      }
+
+      .chat-welcome span { color: var(--ghost); }
+
+      /* Messages */
+      .chat-msg {
+        display: flex;
+        gap: 10px;
+        animation: msgIn 0.18s ease;
+        max-width: 80%;
+      }
+
+      @keyframes msgIn {
+        from { opacity: 0; transform: translateY(6px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .chat-msg.user { align-self: flex-end; flex-direction: row-reverse; }
+      .chat-msg.ghost { align-self: flex-start; }
+
+      .msg-av {
+        width: 26px; height: 26px;
+        border-radius: 2px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.55rem;
+        font-weight: bold;
+        margin-top: 2px;
+      }
+
+      .chat-msg.ghost .msg-av {
+        background: var(--ghost-dim);
+        border: 1px solid var(--ghost);
+        color: var(--ghost);
+      }
+
+      .chat-msg.user .msg-av {
+        background: rgba(245,166,35,0.1);
+        border: 1px solid rgba(245,166,35,0.35);
+        color: var(--warn);
+      }
+
+      .msg-inner { display: flex; flex-direction: column; gap: 3px; }
+
+      .msg-meta {
+        font-size: 0.5rem;
+        color: var(--text-dim);
+        letter-spacing: 0.08em;
+      }
+
+      .chat-msg.user .msg-meta { text-align: right; }
+
+      .msg-text {
+        padding: 8px 12px;
+        border-radius: 2px;
+        font-size: 0.8rem;
+        line-height: 1.6;
+      }
+
+      .chat-msg.ghost .msg-text {
+        background: #0d1620;
+        border: 1px solid var(--border);
+        border-left: 2px solid var(--ghost);
+        color: #c8dcea;
+      }
+
+      .chat-msg.user .msg-text {
+        background: rgba(245,166,35,0.06);
+        border: 1px solid rgba(245,166,35,0.2);
+        border-right: 2px solid var(--warn);
+        color: #c8dcea;
+      }
+
+      /* Thinking */
+      .thinking-msg {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        background: #0d1620;
+        border: 1px solid var(--border);
+        border-left: 2px solid var(--ghost);
+        font-size: 0.65rem;
+        color: var(--ghost);
+        letter-spacing: 0.1em;
+        border-radius: 2px;
+        align-self: flex-start;
+      }
+
+      .thinking-dots span {
+        display: inline-block;
+        width: 4px; height: 4px;
+        background: var(--ghost);
+        border-radius: 50%;
+        margin: 0 1px;
+        animation: blink 1.2s ease-in-out infinite;
+      }
+
+      .thinking-dots span:nth-child(2) { animation-delay: 0.2s; }
+      .thinking-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+      @keyframes blink {
+        0%, 80%, 100% { opacity: 0.2; }
+        40% { opacity: 1; }
+      }
+
+      /* Input row */
+      .chat-input-row {
+        display: flex;
+        gap: 8px;
+        padding: 10px 14px;
+        border-top: 1px solid var(--border);
+        background: #0a1218;
+        flex-shrink: 0;
+        align-items: flex-end;
+      }
+
+      #chat-input {
+        flex: 1;
+        background: #060c12;
+        border: 1px solid var(--border);
+        border-bottom: 2px solid var(--ghost-dim);
+        color: white;
+        font-family: monospace;
+        font-size: 0.78rem;
+        padding: 9px 12px;
+        resize: none;
+        outline: none;
+        border-radius: 2px;
+        min-height: 40px;
+        max-height: 100px;
+        line-height: 1.5;
+        transition: border-color 0.2s;
+      }
+
+      #chat-input:focus {
+        border-bottom-color: var(--ghost);
+        box-shadow: 0 4px 16px rgba(0,245,212,0.06);
+      }
+
+      #chat-input::placeholder { color: var(--text-dim); }
+
+      #chat-send {
+        background: var(--ghost-dim);
+        border: 1px solid var(--ghost);
+        color: var(--ghost);
+        font-family: monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.12em;
+        padding: 9px 16px;
+        cursor: pointer;
+        border-radius: 2px;
+        text-transform: uppercase;
+        transition: all 0.15s;
+        height: 40px;
+        white-space: nowrap;
+      }
+
+      #chat-send:hover:not(:disabled) {
+        background: rgba(0,245,212,0.2);
+        box-shadow: 0 0 16px var(--ghost-dim);
+      }
+
+      #chat-send:disabled { opacity: 0.35; cursor: not-allowed; }
+
+      /* Err banner */
+      #chat-err {
+        font-size: 0.6rem;
+        color: var(--danger);
+        padding: 4px 14px;
+        background: rgba(255,59,107,0.08);
+        border-top: 1px solid rgba(255,59,107,0.2);
+        display: none;
+        letter-spacing: 0.05em;
+      }
+
+      #chat-err.show { display: block; }
+
+      /* Scrollbar */
+      ::-webkit-scrollbar { width: 4px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
     </style>
   </head>
 
   <body>
-    <div class="ghost-container">
 
-      <!-- DRAGGABLE TITLEBAR -->
-      <div class="titlebar">
-        <h1>The Ghost Stirs...</h1>
-      </div>
+    <!-- DRAGGABLE TITLEBAR -->
+    <div class="titlebar">
+      <h1>The Ghost Stirs...</h1>
+    </div>
 
-      <div id="ghost-state"></div>
+    <!-- HUD -->
+    <div class="hud-wrapper" id="hud-wrapper">
+      <div class="ghost-container">
 
-      <div id="attention-bars"></div>
+        <div id="ghost-state"></div>
 
-      <div id="status-row">
-        <div class="status-block">
-          <span class="status-label">Emotional tell</span>
-          <div class="status-line">
-            Emotion: <span id="emotion-label">neutral</span>
+        <div id="attention-bars"></div>
+
+        <div id="status-row">
+          <div class="status-block">
+            <span class="status-label">Emotional tell</span>
+            <div class="status-line">Emotion: <span id="emotion-label">neutral</span></div>
+            <div class="status-line">Valence: <span id="emotion-valence">0.00</span></div>
+            <div class="status-line">Arousal: <span id="emotion-arousal">0.00</span></div>
+            <div class="status-line">Tension: <span id="emotion-tension">0.00</span></div>
           </div>
-          <div class="status-line">
-            Valence: <span id="emotion-valence">0.00</span>
-          </div>
-          <div class="status-line">
-            Arousal: <span id="emotion-arousal">0.00</span>
-          </div>
-          <div class="status-line">
-            Tension: <span id="emotion-tension">0.00</span>
+
+          <div class="status-block">
+            <span class="status-label">Memory & mood</span>
+            <div class="status-line">Episodes: <span id="memory-count">0</span>/<span id="memory-limit">0</span></div>
+            <div class="status-line">Mood baseline: <span id="mood-baseline">0.00</span></div>
+            <div class="status-line">Curiosity: <span id="trait-curiosity">0.00</span></div>
+            <div class="status-line">Emotionality: <span id="trait-emotionality">0.00</span></div>
           </div>
         </div>
 
-        <div class="status-block">
-          <span class="status-label">Memory & mood</span>
-          <div class="status-line">
-            Episodes:
-            <span id="memory-count">0</span>/<span id="memory-limit">0</span>
+        <div id="latent-visualizer"></div>
+        <div id="loss-display"></div>
+        <div id="prediction-loss"></div>
+        <div id="anomaly-display"></div>
+        <div id="latent-3d-container"></div>
+        <div id="latent-history"></div>
+
+      </div>
+    </div>
+
+    <!-- CHAT TOGGLE BUTTON -->
+    <button id="chat-toggle" title="Toggle Chat [C]">◈ CHAT</button>
+
+    <!-- CHAT PANEL -->
+    <div id="chat-panel">
+
+      <div class="chat-header">
+        <div class="chat-header-left">
+          <div class="chat-title">Ghost Interface</div>
+          <div class="bridge-status">
+            <div class="status-dot" id="bridge-dot"></div>
+            <span id="bridge-label">OFFLINE</span>
           </div>
-          <div class="status-line">
-            Mood baseline: <span id="mood-baseline">0.00</span>
-          </div>
-          <div class="status-line">
-            Curiosity: <span id="trait-curiosity">0.00</span>
-          </div>
-          <div class="status-line">
-            Emotionality: <span id="trait-emotionality">0.00</span>
-          </div>
+        </div>
+        <div class="chat-header-right">
+          <span class="shard-badge" id="shard-badge">0 shards</span>
+          <span>C to close</span>
         </div>
       </div>
 
-      <div id="latent-visualizer"></div>
-      <div id="loss-display"></div>
-      <div id="prediction-loss"></div>
-      <div id="anomaly-display"></div>
-      <div id="latent-3d-container"></div>
-      <div id="latent-history"></div>
+      <div id="chat-messages">
+        <div class="chat-welcome" id="chat-welcome">
+          GHOSTRA COGNITIVE INTERFACE<br>
+          <span>ws://localhost:8765</span><br>
+          Awaiting connection...
+        </div>
+      </div>
+
+      <div id="chat-err">⚠ Bridge unreachable — start Python server on port 8765</div>
+
+      <div class="chat-input-row">
+        <textarea id="chat-input" placeholder="Transmit to Ghost..." rows="1" maxlength="2000"></textarea>
+        <button id="chat-send">▶ SEND</button>
+      </div>
+
     </div>
 
     <script src="renderer.js"></script>
+    <script>
+      // ─── CHAT STATE ───
+      const BRIDGE = 'http://localhost:8765';
+      let chatOpen = false;
+      let chatBusy = false;
+      let shards = [];
+      let history = [];
+
+      // ─── ELEMENTS ───
+      const panel     = document.getElementById('chat-panel');
+      const toggle    = document.getElementById('chat-toggle');
+      const messages  = document.getElementById('chat-messages');
+      const input     = document.getElementById('chat-input');
+      const sendBtn   = document.getElementById('chat-send');
+      const dot       = document.getElementById('bridge-dot');
+      const label     = document.getElementById('bridge-label');
+      const errBanner = document.getElementById('chat-err');
+      const shardBadge= document.getElementById('shard-badge');
+      const welcome   = document.getElementById('chat-welcome');
+      const hudWrapper= document.getElementById('hud-wrapper');
+
+      // ─── TOGGLE ───
+      function openChat()  {
+        chatOpen = true;
+        panel.classList.add('open');
+        toggle.classList.add('active');
+        toggle.textContent = '◈ CLOSE';
+        hudWrapper.style.paddingBottom = '390px';
+        input.focus();
+      }
+
+      function closeChat() {
+        chatOpen = false;
+        panel.classList.remove('open');
+        toggle.classList.remove('active');
+        toggle.textContent = '◈ CHAT';
+        hudWrapper.style.paddingBottom = '';
+      }
+
+      toggle.addEventListener('click', () => chatOpen ? closeChat() : openChat());
+
+      document.addEventListener('keydown', e => {
+        if (e.key === 'c' || e.key === 'C') {
+          // Don't trigger if typing in input
+          if (document.activeElement === input) return;
+          chatOpen ? closeChat() : openChat();
+        }
+      });
+
+      // ─── INPUT ───
+      input.addEventListener('keydown', e => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          sendMessage();
+        }
+      });
+
+      input.addEventListener('input', () => {
+        input.style.height = 'auto';
+        input.style.height = Math.min(input.scrollHeight, 100) + 'px';
+      });
+
+      sendBtn.addEventListener('click', sendMessage);
+
+      // ─── STATUS ───
+      function setOnline()      { dot.className = 'status-dot online'; label.textContent = 'ONLINE'; }
+      function setOffline()     { dot.className = 'status-dot'; label.textContent = 'OFFLINE'; }
+      function setConnecting()  { dot.className = 'status-dot connecting'; label.textContent = 'LINKING...'; }
+
+      // ─── SHARDS ───
+      async function loadShards() {
+        try {
+          const r = await fetch(`${BRIDGE}/shards`, { mode: 'cors' });
+          if (!r.ok) throw new Error();
+          const data = await r.json();
+          shards = Array.isArray(data) ? data : (data.shards || []);
+          shardBadge.textContent = `${shards.length} shards`;
+          setOnline();
+          errBanner.classList.remove('show');
+        } catch {
+          setOffline();
+        }
+      }
+
+      function buildShardContext() {
+        if (!shards.length) return '';
+      }
+
+      // ─── SEND ───
+      async function sendMessage() {
+        const text = input.value.trim();
+        if (!text || chatBusy) return;
+
+        if (welcome) welcome.style.display = 'none';
+
+        appendMsg('user', text);
+        input.value = '';
+        input.style.height = 'auto';
+        history.push({ role: 'user', content: text });
+
+        chatBusy = true;
+        sendBtn.disabled = true;
+        setConnecting();
+
+        const thinkEl = appendThinking();
+
+        try {
+          const res = await fetch(`${BRIDGE}/chat`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              message: text,
+              history: history.slice(-20),
+              shards: shards.slice(0, 3),
+              shard_context: buildShardContext()
+            }),
+            mode: 'cors'
+          });
+
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+          const data = await res.json();
+          const reply = data.response || data.message || data.text || 'No response.';
+
+          thinkEl.remove();
+          appendMsg('ghost', reply);
+          history.push({ role: 'assistant', content: reply });
+
+          setOnline();
+          errBanner.classList.remove('show');
+
+        } catch (err) {
+          thinkEl.remove();
+          appendMsg('ghost', `Bridge unreachable: ${err.message}`);
+          setOffline();
+          errBanner.classList.add('show');
+        }
+
+        chatBusy = false;
+        sendBtn.disabled = false;
+      }
+
+      // ─── RENDER HELPERS ───
+      function appendMsg(role, text) {
+        const ts = new Date().toLocaleTimeString('en-US', { hour12: false });
+        const div = document.createElement('div');
+        div.className = `chat-msg ${role}`;
+        div.innerHTML = `
+          <div class="msg-av">${role === 'ghost' ? 'GH' : 'OP'}</div>
+          <div class="msg-inner">
+            <div class="msg-meta">${role === 'ghost' ? 'GHOSTRA' : 'OPERATOR'} · ${ts}</div>
+            <div class="msg-text">${escHtml(text).replace(/\n/g,'<br>')}</div>
+          </div>`;
+        messages.appendChild(div);
+        messages.scrollTop = messages.scrollHeight;
+        return div;
+      }
+
+      function appendThinking() {
+        const div = document.createElement('div');
+        div.className = 'thinking-msg';
+        div.innerHTML = `COGNITIVE CYCLE <div class="thinking-dots"><span></span><span></span><span></span></div>`;
+        messages.appendChild(div);
+        messages.scrollTop = messages.scrollHeight;
+        return div;
+      }
+
+      function escHtml(s) {
+        return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      }
+
+      // ─── INIT ───
+      (async () => {
+        try {
+          const r = await fetch(`${BRIDGE}/status`, { mode: 'cors', signal: AbortSignal.timeout(2000) });
+          if (r.ok) { setOnline(); loadShards(); }
+          else setOffline();
+        } catch { setOffline(); }
+      })();
+
+      // Re-sync shards every 30s when panel is open
+      setInterval(() => { if (chatOpen) loadShards(); }, 30000);
+    </script>
+
   </body>
 </html>

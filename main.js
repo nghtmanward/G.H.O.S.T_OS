@@ -1,4 +1,3 @@
-
 // =========================
 // GHOST_OS MAIN PROCESS
 // =========================
@@ -81,7 +80,6 @@ function startGhostWorker() {
   console.log("[WORKER] Spawning cognitive worker...");
   ghostWorker = new Worker(path.join(__dirname, "cog_worker.js"));
 
-
   ghostWorker.on("message", (msg) => {
     if (!msg || typeof msg !== "object") return;
 
@@ -130,7 +128,6 @@ app.whenReady().then(() => {
     console.log("[MAIN] Skipping cognitive worker in test mode.");
   }
 
-
   app.on("activate", () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       console.log("[APP] Reactivating app, creating new window...");
@@ -144,8 +141,18 @@ app.whenReady().then(() => {
 // -------------------------
 console.log("[IPC] Registering 'ghost-input' handler (invoke)...");
 ipcMain.handle("ghost-input", () => {
-  // Just return the last computed state from the worker.
   return lastGhostState || null;
+});
+
+// -------------------------
+// IPC: chat-message
+// Forwards operator chat input to the cognitive worker
+// so Ghost is aware of conversations at the loop level
+// -------------------------
+ipcMain.handle("chat-message", async (e, payload) => {
+  console.log("[CHAT] Operator message forwarded to cognitive worker.");
+  sendToWorker({ type: "chat-input", payload });
+  return null;
 });
 
 // -------------------------

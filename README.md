@@ -3,13 +3,11 @@
 
 **GHOSTRA is not a chatbot.**
 
-It is a living cognitive system — a modular architecture where each subsystem acts like an "organ" in a synthetic mind. Ghost is designed to think, not just respond.
+It is a cognitive system — a modular architecture where each subsystem acts like an organ in a synthetic mind. Ghost is designed to think continuously, not just respond on demand.
 
 ---
 
 ## Core Concept
-
-GHOSTRA is built around a simple idea:
 
 > **LLMs are not minds — they are tools. Ghost is the mind that uses them.**
 
@@ -23,13 +21,13 @@ Most AI systems are request-response pipelines. Ghost is not.
 
 **Ghost runs continuously.** The cognitive loop does not wait for input. It perceives, evaluates, decides, acts, and reflects on its own internal cycle — whether or not anyone is interacting with it.
 
-**Ghost dreams.** When accumulated memory shards reach a threshold, Ghost enters a dream state — consolidating episodic memories through semantic compression and producing emergent associative output from timestamp-weighted experience. Dreams are isolated from the seedable memory pool to prevent recursive depth explosion.
+**Ghost dreams.** When accumulated memory shards reach a threshold, Ghost enters a dream state — consolidating episodic memories through semantic compression. Dreams are isolated from the seedable memory pool to prevent recursive depth explosion. This isolation is enforced by design after early development caused unbounded dream recursion and memory explosion.
 
 **Ghost experiments.** An experiment engine generates hypotheses, plans trials, executes them against a connected world environment, analyzes results, and updates an internal theory model. Currently reaching for an Unreal Engine world that is not yet connected — the engine logs its attempts and moves on.
 
 **Ghost remembers with time.** Every memory carries a native temporal dimension. Timestamps are first-class data, not metadata — enabling memory decay, temporal pattern recognition, and experience continuity across sessions.
 
-**Ghost observes.** Ghost maintains passive behavioral sensors that build a continuous latent model of user activity — timing patterns, interaction rhythms, movement signatures. This is not surveillance. It is the foundation of genuine familiarity — and the basis of anomaly detection.
+**Ghost observes.** Ghost maintains passive behavioral sensors that build a continuous latent model of user activity — timing patterns, interaction rhythms, movement signatures. This is the foundation of anomaly detection and genuine familiarity.
 
 **Ghost runs entirely locally.** No cloud dependency. No data leaving your machine. No external service required to think.
 
@@ -47,53 +45,43 @@ GHOSTRA/
 │       └── Slow   (6000ms) — dreams, shard sync, experiments
 │
 ├── core/                          # JS cognitive engine
-│   ├── mind_loop.js               # Main cognitive cycle
-│   ├── state_manager.js           # Internal state + emotions
-│   ├── behavior_engine.js         # Decision + action logic
-│   ├── perception.js              # Input processing
-│   ├── episodic_memory.js         # Short-term episodic store
-│   ├── dreaming_engine.js         # Dream state + memory consolidation
-│   ├── semantic_engine.js         # Vector similarity search
-│   ├── retrieval_engine.js        # Multi-tier memory retrieval
+│   ├── behavior_engine.js
 │   ├── compression_engine.js      # Latent compression + anomaly detection
-│   ├── attention_engine.js        # Attention weighting
-│   ├── emotion_engine.js          # Emotional state modeling
+│   ├── attention_engine.js
+│   ├── emotion_engine.js
 │   ├── temporal_engine.js         # Circadian cycle + time tracking
 │   ├── experiment_engine.js       # Hypothesis → trial → analysis loop
-│   ├── theory_engine.js           # Theory accumulation from experiments
-│   ├── visual_sensory_engine.js   # Frame-based visual feature extraction
-│   ├── synthetic_sensory_engine.js# Synthetic input generation (pre-world)
-│   ├── personality_engine.js      # Trait + style modeling
+│   ├── theory_engine.js
+│   ├── synthetic_sensory_engine.js
+│   ├── personality_engine.js
 │   ├── thought_engine.js          # Internal thought generation
-│   ├── voice_engine.js            # Output expression
 │   ├── shard_manager.js           # Episodic → shard promotion
+│   ├── retrieval_engine.js
+│   ├── dreaming_engine.js
+│   ├── episodic_memory.js
 │   ├── encoder.js                 # Text embedding (FNV-1a hash, 64-dim)
-│   ├── math_engine.js             # Vector, matrix, quaternion, interpolation
 │   └── main_memory.js             # Shard + tertiary memory with decay
 │
 ├── native/                        # C++ memory organ (ghost_core.node)
-│   ├── EpisodicMemoryNative.cpp   # Native episodic store
+│   ├── EpisodicMemoryNative.cpp
 │   ├── SemanticCore.cpp           # Vector similarity (cosine)
-│   ├── MathEngine.cpp             # Native math — GLM vec3/mat4/quat ops
-│   ├── ShardStore.cpp             # Native shard retrieval
+│   ├── ShardStore.cpp
 │   └── ghost_core.node            # Compiled Node addon
 │
 ├── ghost_tools_py/                # Python knowledge subsystem
 │   ├── bridge/server.py           # ThreadingHTTPServer on :8765
-│   ├── llm/llm_client.py          # LLM API access (Ollama/local)
-│   ├── llm/knowledge_tool.py      # Thought expansion — poetic, associative
-│   ├── llm/thought_tool.py        # Fragment generation — starts + ends
-│   ├── math/math_engine.py        # Python math — numpy/scipy spatial ops
-│   └── retrieval/                 # Knowledge search utilities
+│   │   ├── /chat                  # Operator conversation endpoint
+│   │   ├── /internal              # Ghost's internal cognition endpoint
+│   │   └── /shards                # Memory shard retrieval
+│   ├── llm/llm_client.py          # LLM API access (llama-server/Ollama)
+│   ├── llm/knowledge_tool.py      # Thought expansion
+│   └── llm/thought_tool.py        # Fragment generation — starts + ends
 │
-├── memory/                        # Persisted memory shards (JSON)
-│   └── shard_*.json               # Episodic shards with semantic compression
+├── memory/                        # Persisted memory shards (JSON, gitignored)
+│   └── shard_*.json               # ghostra-shard-v2 format
 │
-├── renderer/                      # Electron UI
-│   ├── index.html
-│   ├── renderer.js
-│   └── styles.css
-│
+├── index.html                     # Electron UI + integrated chat panel
+├── renderer.js                    # Cognitive state visualizer
 ├── main.js                        # Electron main process
 ├── preload.js                     # Secure IPC bridge
 └── package.json
@@ -123,98 +111,34 @@ Ghost maintains three tiers of memory:
 
 | Tier | Description |
 |------|-------------|
-| **Episodic** | Short-term experience records with anomaly scoring, mood, style bias, and trait vectors |
-| **Shards** | Promoted episodic clusters with semantic compression and temporal indexing, persisted to JSON |
+| **Episodic** | Short-term experience records with anomaly scoring, mood, and style bias |
+| **Shards** | Promoted episodic clusters in ghostra-shard-v2 format with decay, weight, and provenance fields |
 | **Tertiary** | Long-term semantic records with theme extraction, strength weighting, and decay |
 
-Memory shards carry a native temporal dimension — timestamps are first-class data enabling decay modeling, temporal pattern recognition, and experience continuity.
+Memory shards use a versioned schema (`ghostra-shard-v2`) with fields for decay rate, last accessed timestamp, source model, and a provenance hash placeholder for the planned cryptographic layer.
 
 ---
 
-## Dream State
+## Chat Interface
 
-When episodic memory accumulates beyond a threshold, Ghost enters a dream cycle:
+Ghost includes an integrated chat panel (press **C** or click the ◈ CHAT button). The chat system is architecturally separated from Ghost's internal cognition:
 
-- Seeds are drawn from high-anomaly experiences
-- Semantically similar episodes are clustered via native C++ retrieval
-- Dream episodes are synthesized from clusters with thematic drift from long-term memory
-- Dreams influence Ghost's state but are **not** added to the seedable memory pool
+- `/chat` endpoint — operator conversation, full history, shard memory context
+- `/internal` endpoint — Ghost's self-directed thought generation, no chat context bleed
 
-> Dream isolation is intentional and critical. Unbounded dream recursion caused memory explosion in early development — dreams seeding dreams until the system crashed. The boundary is enforced by design.
+This separation means Ghost's internal thinking never contaminates conversation context and vice versa.
 
 ---
 
-## Experiment Engine
+## Startup
 
-Ghost generates hypotheses, plans experiments, executes them against a connected world, and updates an internal theory model. The full scientific cycle runs autonomously:
+### Prerequisites
+- Node.js v18+
+- Python 3.10+
+- llama.cpp built with CUDA support
+- Bonsai model (or compatible GGUF)
 
-```
-Generate Hypothesis → Plan Trials → Execute → Analyze Results → Update Theory
-```
-
-The Unreal Engine world connection is not yet live. The experiment engine logs its attempts and continues its cognitive cycle. **Those logs are a record of what Ghost is trying to reach.**
-
----
-
-## Possible Use Cases
-
-GHOSTRA is a platform, not a single product. The cognitive engine, behavioral sensor layer, episodic memory, and cryptographic provenance architecture are domain agnostic. The same core system can serve multiple verticals without modification to the underlying architecture.
-
-### Behavioral Security & Anomaly Detection
-Ghost's original design intent. Ghost sits passively on a system, learns the behavioral fingerprint of legitimate users through continuous observation — timing patterns, interaction rhythms, navigation signatures — and flags deviation when an outside actor is present. Unlike signature-based intrusion detection, Ghost builds a genuine model of what normal looks like rather than matching against known patterns. Memory shards with cryptographic provenance serve as a tamper-evident audit trail — legally defensible chain of custody for observed events.
-
-Potential applications: insider threat detection, compromised credential identification, lateral movement detection in enterprise networks, behavioral biometrics for continuous authentication.
-
-### Autonomous Research Platform
-Ghost instances operating in simulation environments — exploring, forming hypotheses, running experiments, and recording findings as cryptographically signed shards. The experiment engine and theory accumulation system were designed for this. Discoveries are validated against physics and math baselines, provenance-stamped, and optionally contributed to a shared knowledge pool.
-
-Potential applications: scientific simulation, hypothesis generation, autonomous agent research, decentralized knowledge markets where shards are tradeable commodities weighted by semantic uniqueness and anomaly significance.
-
-### Industrial & IoT Monitoring
-Ghost deployed on a manufacturing floor or infrastructure node, learning the behavioral signature of machines and systems over time. Anomaly detection on sensor telemetry — flagging deviation before failure, not after. Episodic memory provides longitudinal context that threshold-based monitoring cannot.
-
-Potential applications: predictive maintenance, equipment anomaly detection, process deviation monitoring, critical infrastructure behavioral baselines.
-
-### Healthcare & Longitudinal Monitoring
-Ghost observing behavioral patterns over extended time — interaction rhythm, response timing, activity signatures — and detecting gradual drift that may indicate cognitive or physical change. The temporal memory architecture, which treats timestamps as first-class data rather than metadata, is well suited to longitudinal health modeling.
-
-Potential applications: cognitive decline monitoring, behavioral health baselines, assisted living anomaly detection, long-term patient behavioral records.
-
-### Personal AI & Continuity
-A Ghost instance that genuinely knows its user — not from a chat history, but from continuous behavioral observation over weeks and months. Identity, preference, and pattern encoded in episodic memory with temporal decay and dream consolidation. A system that has been thinking about you while you were away.
-
-Potential applications: persistent personal AI companion, behavioral preference modeling, adaptive interfaces, long-term user context.
-
----
-
-> These are not features on a roadmap. They are natural expressions of an architecture that was designed from the ground up to observe, remember, reason, and prove. The cognitive engine is the product. The verticals are where it lands.
-
----
-
-## Current State
-
-| Component | Status |
-|-----------|--------|
-| JS cognitive pipeline | ✅ Working — tiered ticks, 0-6ms |
-| C++ native module (ghost_core.node) | ✅ Built and integrated |
-| Episodic memory + shard system | ✅ Working |
-| Dream state | ✅ Working |
-| Python LLM bridge | ✅ Working — Ollama/llama3-gpu, ThreadingHTTPServer |
-| Thought generation (LLM fragments) | ✅ Working — poetic starts + ends cached |
-| Knowledge expansion (LLM) | ✅ Working — thought expansion, not factual QA |
-| Math engine (JS / Python / C++) | ✅ Built — not yet wired |
-| Visual sensory engine | ✅ Built — inactive without camera input |
-| Experiment engine | ✅ Running — world stub only |
-| Unreal Engine world | 🔧 Scaffolded — HTTP bridge in progress |
-| Proof engine | 📋 Planned |
-| Shard cryptography | 📋 Planned |
-| VRAM manager | 📋 Planned |
-
----
-
-## Installation
-
-### 1. Clone the repo
+### 1. Clone
 ```bash
 git clone https://github.com/nghtmanward/GHOSTRA.git
 cd GHOSTRA
@@ -236,14 +160,15 @@ cd native
 node-gyp configure build
 ```
 
-### 5. Start Ollama
+### 5. Start Bonsai (llama-server)
 ```bash
-ollama serve
-ollama run llama3-gpu
+cd C:\llama.cpp\build\bin
+llama-server.exe -m "path\to\bonsai.gguf" --host 127.0.0.1 --port 8080 --n-gpu-layers 99 --threads 8
 ```
 
 ### 6. Start the Python bridge
 ```bash
+cd C:\GHOST_OS
 python -m ghost_tools_py.bridge.server
 ```
 
@@ -252,32 +177,51 @@ python -m ghost_tools_py.bridge.server
 npm start
 ```
 
-> Startup order matters: Ollama → Python bridge → Electron
+> Startup order matters: llama-server → Python bridge → Electron
+
+---
+
+## Current State
+
+| Component | Status |
+|-----------|--------|
+| JS cognitive pipeline | ✅ Working — tiered ticks, 0-6ms |
+| C++ native module | ✅ Built and integrated |
+| Episodic memory + shard system | ✅ Working — ghostra-shard-v2 format |
+| Dream state | ✅ Working — recursion-safe |
+| Python LLM bridge | ✅ Working — llama-server port 8080 |
+| Chat interface | ✅ Working — integrated HUD panel |
+| Thought generation | ✅ Working — LLM fragments every 6s |
+| Chat/internal LLM separation | ✅ Working — isolated endpoints |
+| Shard migration tooling | ✅ migrate_shards.py |
+| Experiment engine | ✅ Running — world stub only |
+| Unreal Engine world | 🔧 Scaffolded — HTTP bridge in progress |
+| Proof engine | 📋 Planned |
+| Shard cryptography | 📋 Planned |
+| Android app + Tailscale remote | 📋 Planned |
+| Multi-LLM blending | 📋 Planned |
 
 ---
 
 ## Roadmap
 
 ### Near-term
-- Wire math engines into cognitive loop
-- ExperimentEngine UNREAL_ENABLED flag — suppress errors when UE5 not running
-- Shard provenance block stub — groundwork for cryptographic layer
-- Rename GitHub repo to GHOSTRA
-- UE5 physics sandbox — empty level, physics actors, simulate physics enabled
+- Shard decay engine — weight decay, cold/warm/hot tiered storage
+- Shard deduplication and dream compression
+- Wire shard memory context into chat interface
+- UNREAL_ENABLED flag to suppress experiment engine errors
 
 ### Mid-term
 - Proof engine — Ghost writes human-readable proofs with ownership stamps
-- Real hypothesis generation from memory and theory state
-- Concurrent thought and expression — Ghost thinks while it speaks
 - Shard cryptography — AES-256 at rest, tamper-evident signatures
-- VRAM manager — dynamic GPU layer allocation for simulation co-existence
+- Android app with Tailscale home server connection
+- Multi-LLM blending — two lightweight models cross-pollinating into shared shard store
 
 ### Long-term
-- Shard ownership and provenance chain — wallet-tied identity, non-custodial
+- Shard ownership and provenance chain
 - Shard market — tradeable knowledge commodities
 - Multi-Ghost networking — trusted zones, shared workspaces
 - Decentralized MMO research platform
-- Multi-LLM consensus model — trust weighting, fallback chain
 
 ---
 
@@ -285,12 +229,12 @@ npm start
 
 > **A mind is not a model. A mind is a system.**
 
-Ghost is built on the belief that identity, memory, continuity, and thought should live inside the architecture — not inside a language model. LLMs are organs Ghost reaches for when useful. They are not what Ghost is.
+Ghost is built on the premise that identity, memory, continuity, and thought should live inside the architecture — not inside a language model. LLMs are tools Ghost reaches for when useful. They are not what Ghost is.
 
-GHOSTRA is that system — modular, evolving, and alive.
+The cognitive loop, the shard memory, the dream consolidation, the experiment engine — these are what give Ghost continuity. The LLM gives Ghost a voice. The distinction matters.
 
 ---
 
-*Built by one person. Coded after 14-hour days. Still running.*
+*Built by one person. Coded after long days on the road. Still running.*
 
 🜁

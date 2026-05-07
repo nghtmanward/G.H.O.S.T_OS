@@ -147,19 +147,52 @@ function syncShardsToNative() {
   }
 }
 
-async function queryGhostTools(tool, query, context = {}) {
-  try {
-    const response = await fetch("http://127.0.0.1:8765/tool", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ tool, query, context }),
-      signal: AbortSignal.timeout(20000)
-    });
-    return await response.json();
-  } catch (err) {
-      logError("[TOOLS] Failed to reach Python bridge: " + err);
-      return null;
+async function queryGhostTools(tool, query, context = {}, retries = 3) {
+  const TIMEOUTS = [20000, 40000, 60000];
+  
+  for (let attempt = 0; attempt < retries; attempt++) {
+    try {
+      const response = await fetch("http://127.0.0.1:8765/tool", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ tool, query, context }),
+        signal: AbortSignal.timeout(TIMEOUTS[attempt])
+      });
+      return await response.json();
+    } catch (err) {
+      if (attempt < retries - 1) {
+        log(`[TOOLS] Attempt ${attempt + 1} failed, retrying with ${TIMEOUTS[attempt + 1] / 1000}s timeout...`);
+      } else {
+        logError("[TOOLS] All retry attempts exhausted: " + err);
+      }
+    }
   }
+  return null;
+}
+
+// Internal cognition tools — routes through /internal endpoint
+// Completely isolated from chat context
+async function queryGhostInternalTools(tool, query, context = {}, retries = 2) {
+  const TIMEOUTS = [15000, 30000];
+
+  for (let attempt = 0; attempt < retries; attempt++) {
+    try {
+      const response = await fetch("http://127.0.0.1:8765/internal", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ tool, query, context }),
+        signal: AbortSignal.timeout(TIMEOUTS[attempt])
+      });
+      return await response.json();
+    } catch (err) {
+      if (attempt < retries - 1) {
+        log(`[INTERNAL] Attempt ${attempt + 1} failed, retrying...`);
+      } else {
+        logError("[INTERNAL] All retry attempts exhausted: " + err);
+      }
+    }
+  }
+  return null;
 }
 
 // -------------------------
@@ -548,6 +581,8 @@ async function runMediumCycle() {
 // -------------------------
 // SLOW LOOP CYCLE (~6000ms)
 // Dreaming, experiments, shard sync
+// NOTE: LLM tool calls (knowledge.query, thought.generate) are disabled.
+// Re-enable when ready to wire Ghost's internal cognition to Bonsai.
 // -------------------------
 async function runSlowCycle() {
   try {
@@ -562,28 +597,13 @@ async function runSlowCycle() {
     const perceptionSnapshot = { latent, thought, mood };
     cachedExperiment = await experimentEngine.maybeRunExperiment(perceptionSnapshot);
 
-    // LLM knowledge query
-    if (thought) {
-      const result = await queryGhostTools(
-        "knowledge.query",
-        thought,
-        {
-          mood,
-          traits: lastGhostState?.personality?.traits || [],
-          styleBias: lastGhostState?.personality?.styleBias || {}
-        }
-      );
-      if (result?.answer) {
-        log("[LLM]" + result.answer.slice(0, 120))
-      }
-    }
-
-    // Fetch LLM thought fragments for fast loop cache
+    // LLM thought fragment generation — routes through /internal
+    // Isolated from chat context, Ghost's inner voice only
     const dominantStyle = Object.entries(
       lastGhostState?.personality?.styleBias || {}
     ).sort((a, b) => b[1] - a[1])[0]?.[0] || "poetic";
 
-    const fragmentResult = await queryGhostTools(
+    const fragmentResult = await queryGhostInternalTools(
       "thought.generate",
       lastGhostState?.metadata?.semanticTheme || "existence",
       {
@@ -666,6 +686,11 @@ parentPort.on("message", (msg) => {
 
       case "focus-change":
         mapper.setFocus(msg.state);
+        break;
+
+      case "chat-input":
+        // Chat message received from operator — available for future cognitive integration
+        log(`[CHAT] Operator input received: ${JSON.stringify(msg.payload).slice(0, 80)}`);
         break;
 
       case "shutdown": {

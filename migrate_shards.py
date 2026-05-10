@@ -24,7 +24,7 @@ from datetime import datetime
 
 SHARD_DIR = r"C:\GHOST_OS\memory"
 BACKUP_DIR = r"C:\GHOST_OS\memory\backup"
-DRY_RUN = False  # Set True to preview without writing
+DRY_RUN = True  # Set True to preview without writing
 
 
 def dominant_style(style_val):

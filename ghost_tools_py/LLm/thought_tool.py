@@ -41,6 +41,7 @@ def generate_thought_fragments(request: Dict[str, Any]) -> Dict[str, Any]:
         # Strip markdown fences
         clean = re.sub(r"```(?:json)?", "", clean).strip()
         clean = clean.strip("`").strip()
+        clean = clean[:clean.rfind('}')+1]
 
         # Find JSON object in response even if there's surrounding text
         match = re.search(r'\{.*\}', clean, re.DOTALL)

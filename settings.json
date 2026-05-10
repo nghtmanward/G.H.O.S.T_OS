@@ -1,0 +1,34 @@
+﻿{
+    "dates":  [
+
+              ],
+    "operator":  {
+                     "notes":  "",
+                     "name":  "Shawn",
+                     "role":  "OTR truck driver and Computer Science student"
+                 },
+    "ghost":  {
+                  "phase":  "rapport",
+                  "purpose":  "A mind that does not wait."
+              },
+    "ui":  {
+               "font_size":  15,
+               "bg_color":  "#0a0a0c",
+               "accent_color":  "#00f5d4"
+           },
+    "llm":  {
+                "frag_tokens":  256,
+                "chat_tokens":  1024,
+                "models":  {
+                               "safety":  "llama3-gpu:latest",
+                               "chat":  "deepseek-r1:7b",
+                               "code":  "qwen2.5-coder:7b",
+                               "reasoning":  "deepseek-r1:7b",
+                               "default":  "llama3-gpu:latest",
+                               "memory":  "llama3-gpu:latest",
+                               "math":  "deepseek-r1:7b",
+                               "fragment":  "llama3-gpu:latest"
+                           },
+                "bridge_url":  "http://127.0.0.1:8765"
+            }
+}

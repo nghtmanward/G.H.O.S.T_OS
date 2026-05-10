@@ -260,7 +260,7 @@ let cachedRetrievalSnapshot = null;
 let cachedNativeEpisodes = [];
 let cachedDreams = [];
 let cachedExperiment = null;
-let cachedLLMFragments = null;
+let cachedLLMFragments = false; // BUSY LOCK: prevents fragment pileup
 
 function normalizePacket(packet = {}) {
   return {
@@ -603,21 +603,30 @@ async function runSlowCycle() {
       lastGhostState?.personality?.styleBias || {}
     ).sort((a, b) => b[1] - a[1])[0]?.[0] || "poetic";
 
-    const fragmentResult = await queryGhostInternalTools(
-      "thought.generate",
-      lastGhostState?.metadata?.semanticTheme || "existence",
-      {
-        style: dominantStyle,
-        mood: lastGhostState?.mood || "neutral",
-        anomaly: lastGhostState?.anomalyFlag || 0
-      }
-    );
+    if (!llmFragmentBusy) {
+      llmFragmentBusy = true;
+      try {
+        const fragmentResult = await queryGhostInternalTools(
+          "thought.generate",
+          lastGhostState?.metadata?.semanticTheme || "existence",
+          {
+            style: dominantStyle,
+            mood: lastGhostState?.mood || "neutral",
+            anomaly: lastGhostState?.anomalyFlag || 0
+          }
+        );
 
-    if (fragmentResult?.fragments) {
-      cachedLLMFragments = fragmentResult.fragments;
-      log("[LLM] Thought fragments cached: " +
-        fragmentResult.fragments.starts?.length + " starts, " +
-        fragmentResult.fragments.ends?.length + " ends");
+        if (fragmentResult?.fragments) {
+          cachedLLMFragments = fragmentResult.fragments;
+          log("[LLM] Thought fragments cached: " +
+            fragmentResult.fragments.starts?.length + " starts, " +
+            fragmentResult.fragments.ends?.length + " ends");
+        }
+      } catch (err) {
+        logError("[LLM] Fragment generation failed: " + err);
+      } finally {
+        llmFragmentBusy = false;
+      }
     }
 
   } catch (err) {

@@ -4,7 +4,7 @@ const path = require("path");
 class Persistence {
   constructor(filename = "ghost_memory.json") {
     // ---------------------------------------------------------
-    // VERSIONING (Hybrid Semantic + Date)
+    // VERSIONING
     // ---------------------------------------------------------
     this.version = "1.1.0-2026.01.08";
     this.schema = "ghost-state-v1";
@@ -12,9 +12,7 @@ class Persistence {
     try {
       this.registry = require("./version_registry.js");
     } catch (e) {
-      console.warn(
-        "Persistence: version_registry.json missing or unreadable. Proceeding without registry validation."
-      );
+      console.warn("Persistence: version_registry missing. Proceeding without validation.");
       this.registry = null;
     }
 
@@ -32,30 +30,35 @@ class Persistence {
   // ---------------------------------------------------------
   _validateVersion() {
     if (!this.registry) return;
-
     const expected = this.registry["Persistence"];
     if (!expected) {
-      console.warn(
-        "Persistence: No 'Persistence' entry found in version_registry."
-      );
+      console.warn("Persistence: No 'Persistence' entry in version_registry.");
       return;
     }
-
     if (expected !== this.version) {
-      console.error(
-        `Persistence version mismatch: expected ${expected}, got ${this.version}`
-      );
+      console.error(`Persistence version mismatch: expected ${expected}, got ${this.version}`);
       throw new Error("Version mismatch in Persistence");
     }
   }
 
   // ---------------------------------------------------------
-  // SAVE (atomic, safe, schema-aware)
+  // SANITIZE — strip unserializable values
+  // ---------------------------------------------------------
+  _sanitize(obj) {
+    try {
+      return JSON.parse(JSON.stringify(obj));
+    } catch (e) {
+      console.error("Persistence: Could not sanitize state.", e);
+      return {};
+    }
+  }
+
+  // ---------------------------------------------------------
+  // SAVE — atomic write via temp file
   // ---------------------------------------------------------
   save(state) {
     try {
       const safeState = this._sanitize(state);
-
       const wrapped = {
         schema: this.schema,
         version: this.version,
@@ -70,102 +73,75 @@ class Persistence {
       );
 
       fs.renameSync(this.tempPath, this.filePath);
+      console.log(`[Persistence] Saved. Episodic=${safeState.episodic?.length || 0}, Shards=${safeState.shards?.length || 0}`);
     } catch (err) {
-      console.error("❌ Error saving ghost memory:", err);
+      console.error("[Persistence] Save failed:", err);
     }
   }
 
   // ---------------------------------------------------------
-  // LOAD (safe, corruption-proof, backward-compatible)
+  // LOAD — reads ghost_memory.json, falls back to .tmp
   // ---------------------------------------------------------
   load() {
-    // Helper to attempt backup recovery
-    const tryBackup = () => {
+    // Try main file first
+    if (fs.existsSync(this.filePath)) {
       try {
-        if (!fs.existsSync(this.tempPath)) return null;
+        const raw = fs.readFileSync(this.filePath, "utf8");
+        const parsed = JSON.parse(raw);
 
-        const backup = fs.readFileSync(this.tempPath, "utf8");
-        const parsedBackup = JSON.parse(backup);
-
-        if (parsedBackup && typeof parsedBackup === "object") {
-          if (parsedBackup.state !== undefined) {
-            return this.migrateIfNeeded(parsedBackup);
-          }
-          return this.migrateIfNeeded({
-            schema: "legacy-ghost-state",
-            version: "legacy",
-            timestamp: Date.now(),
-            state: parsedBackup
-          });
+        if (parsed && typeof parsed === "object") {
+          const result = this.migrateIfNeeded(parsed);
+          console.log(`[Persistence] Loaded. Episodic=${result?.episodic?.length || 0}, Shards=${result?.shards?.length || 0}`);
+          return result;
         }
-      } catch {
-        console.error("❌ Backup also corrupted.");
+      } catch (err) {
+        console.error("[Persistence] Main file corrupted, trying backup:", err);
       }
-      return null;
-    };
+    }
 
-    try {
-      if (!fs.existsSync(this.filePath)) return null;
-
-      let data;
+    // Fall back to temp file
+    if (fs.existsSync(this.tempPath)) {
       try {
-        data = fs.readFileSync(this.filePath, "utf8");
-      } catch (readErr) {
-        // Main file unreadable — try backup
-        console.error("⚠️ Could not read main file. Attempting recovery…");
-        const result = tryBackup();
-        if (result !== null) return result;
-        console.error("❌ Backup also failed.");
-        return null;
-      }
+        const raw = fs.readFileSync(this.tempPath, "utf8");
+        const parsed = JSON.parse(raw);
 
-      try {
-        const parsed = JSON.parse(data);
-
-        // CASE 1: New schema-wrapped format
-        if (parsed && typeof parsed === "object" && parsed.state !== undefined) {
+        if (parsed && typeof parsed === "object") {
+          console.warn("[Persistence] Loaded from backup .tmp file.");
           return this.migrateIfNeeded(parsed);
         }
-
-        // CASE 2: Legacy format
-        return this.migrateIfNeeded({
-          schema: "legacy-ghost-state",
-          version: "legacy",
-          timestamp: Date.now(),
-          state: parsed
-        });
-      } catch (parseErr) {
-        console.error("⚠️ Corrupted ghost memory file. Attempting recovery…");
-        const result = tryBackup();
-        if (result !== null) return result;
-        return null;
+      } catch (err) {
+        console.error("[Persistence] Backup file also corrupted:", err);
       }
-    } catch (err) {
-      console.error("❌ Error loading ghost memory:", err);
-      return null;
     }
+
+    console.warn("[Persistence] No valid memory file found. Starting fresh.");
+    return null;
   }
 
   // ---------------------------------------------------------
-  // MIGRATION HOOK
+  // MIGRATE — handles legacy format and current schema
   // ---------------------------------------------------------
-  migrateIfNeeded(wrapper) {
-    if (!wrapper || typeof wrapper !== "object") return null;
-    return wrapper.state || null;
-  }
-
-  // ---------------------------------------------------------
-  // SANITIZE STATE (remove undefined, functions, circular refs)
-  // ---------------------------------------------------------
-  _sanitize(obj) {
-    try {
-      return JSON.parse(JSON.stringify(obj));
-    } catch {
-      console.warn(
-        "⚠️ State contained unserializable data. Saving minimal fallback."
-      );
-      return {};
+  migrateIfNeeded(parsed) {
+    // Current schema — state is nested under .state
+    if (parsed.schema === this.schema && parsed.state) {
+      return parsed.state;
     }
+
+    // Legacy schema — state is the root object
+    if (parsed.schema === "legacy-ghost-state" || !parsed.schema) {
+      console.warn("[Persistence] Migrating legacy memory format.");
+      return {
+        episodic: parsed.episodic || parsed.state?.episodic || [],
+        shards: parsed.shards || parsed.state?.shards || []
+      };
+    }
+
+    // Unknown schema — attempt to extract what we can
+    console.warn("[Persistence] Unknown schema, attempting partial recovery.");
+    return {
+      episodic: parsed.episodic || parsed.state?.episodic || [],
+      shards: parsed.shards || parsed.state?.shards || []
+    };
   }
 }
 

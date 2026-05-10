@@ -27,56 +27,67 @@
         overflow: hidden;
         display: flex;
         flex-direction: column;
+        user-select: text;
+        -webkit-user-select: text;
       }
 
-      /* ----------------------------- */
-      /* DRAG REGION                   */
-      /* ----------------------------- */
+      /* TITLEBAR */
       .titlebar {
         -webkit-app-region: drag;
         text-align: center;
-        padding: 10px 0 4px;
+        padding: 8px 0 4px;
         flex-shrink: 0;
+        position: relative;
       }
 
       .titlebar h1 {
         margin: 0;
-        padding: 0;
-        font-size: 22px;
+        font-size: 20px;
         font-weight: bold;
-        -webkit-app-region: drag;
         color: white;
         letter-spacing: 0.05em;
       }
 
-      .ghost-container * {
+      .settings-btn {
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
         -webkit-app-region: no-drag;
+        background: transparent;
+        border: 1px solid var(--border);
+        color: var(--text-dim);
+        font-family: monospace;
+        font-size: 11px;
+        letter-spacing: 0.15em;
+        padding: 4px 10px;
+        cursor: pointer;
+        border-radius: 2px;
+        text-transform: uppercase;
+        transition: all 0.15s;
       }
 
-      /* ----------------------------- */
-      /* HUD AREA (scrollable)         */
-      /* ----------------------------- */
+      .settings-btn:hover {
+        border-color: var(--ghost);
+        color: var(--ghost);
+      }
+
+      /* HUD */
       .hud-wrapper {
-        flex: 1;
-        overflow-y: auto;
-        overflow-x: hidden;
+        flex-shrink: 0;
+        overflow: hidden;
         display: flex;
         justify-content: center;
         align-items: flex-start;
-        padding: 10px 20px;
-        transition: padding-bottom 0.35s ease;
-      }
-
-      .hud-wrapper.chat-open {
-        padding-bottom: 10px;
+        padding: 8px 20px;
+        -webkit-app-region: no-drag;
       }
 
       .ghost-container {
         position: relative;
         z-index: 2;
-        padding: 20px;
-        border-radius: 16px;
-        backdrop-filter: blur(0.5px);
+        padding: 14px 20px;
+        border-radius: 12px;
         background: rgba(0, 0, 0, 0.03);
         box-shadow: 0 0 30px var(--glow-color);
         text-align: center;
@@ -84,192 +95,81 @@
         max-width: 900px;
       }
 
-      #ghost-state {
-        margin-top: 10px;
-        font-size: 20px;
-        color: #ffffff;
-        opacity: 0.9;
-      }
-
-      #ghost-voice {
-        margin-top: 10px;
-        font-size: 18px;
-        opacity: 0.8;
-      }
-
-      #attention-bars {
-        display: flex;
-        gap: 4px;
-        min-height: 100px;
-        height: 100px;
-        margin-top: 12px;
-        justify-content: center;
-        align-items: flex-end;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        padding: 6px;
-        border-radius: 6px;
-      }
-
-      .attention-bar {
-        width: 1px;
-        background: #ffaa00;
-        transition: height 0.25s ease;
-      }
-
-      #latent-visualizer {
-        display: flex;
-        gap: 4px;
-        margin-top: 20px;
-        height: 120px;
-        align-items: flex-end;
-        justify-content: center;
-      }
-
-      .latent-bar {
-        width: 8px;
-        background: #00ffff55;
-        transition: height 0.25s ease;
-      }
-
-      #loss-display,
-      #prediction-loss,
-      #anomaly-display {
-        margin-top: 10px;
-        font-size: 18px;
-        color: #00ffff;
-      }
-
-      #latent-3d-container {
-        margin-top: 16px;
-        display: flex;
-        gap: 16px;
-        justify-content: center;
-      }
-
-      .latent-layer {
-        display: grid;
-        grid-template-columns: repeat(4, 14px);
-        grid-auto-rows: 14px;
-        gap: 4px;
-        position: relative;
-        z-index: 0 !important;
-        pointer-events: none;
-      }
-
-      .latent-cell {
-        width: 14px;
-        height: 14px;
-        border-radius: 3px;
-        background: rgba(0, 255, 255, 0.2);
-      }
-
-      #latent-history {
-        margin-top: 12px;
-        display: flex;
-        flex-direction: column;
-        gap: 2px;
-        max-height: 160px;
-        overflow: hidden;
-      }
-
-      .history-row {
-        display: flex;
-        gap: 2px;
-      }
-
-      .history-cell {
-        width: 6px;
-        height: 6px;
-        background: rgba(0, 255, 255, 0.2);
-      }
-
       #status-row {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         gap: 16px;
-        margin-top: 12px;
-        font-size: 14px;
+        font-size: 13px;
         opacity: 0.85;
       }
 
-      .status-block {
-        min-width: 160px;
-      }
+      .status-block { min-width: 160px; }
 
       .status-label {
         font-weight: bold;
-        font-size: 13px;
-        margin-bottom: 4px;
+        font-size: 12px;
+        margin-bottom: 3px;
         display: block;
         color: #a0ffff;
       }
 
-      .status-line {
-        margin: 2px 0;
+      .status-line { margin: 2px 0; }
+
+      #status-lights {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 10px;
+        align-items: center;
+        justify-content: center;
+        padding: 0 10px;
       }
 
-      /* ----------------------------- */
-      /* CHAT TOGGLE BUTTON            */
-      /* ----------------------------- */
-      #chat-toggle {
-        position: fixed;
-        bottom: 20px;
-        right: 24px;
-        z-index: 200;
-        background: var(--ghost-dim);
-        border: 1px solid var(--ghost);
-        color: var(--ghost);
-        font-family: monospace;
-        font-size: 0.7rem;
-        letter-spacing: 0.15em;
-        padding: 8px 16px;
-        cursor: pointer;
-        border-radius: 2px;
-        text-transform: uppercase;
-        transition: all 0.15s;
-        -webkit-app-region: no-drag;
+      .light-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        color: #a0b8c8;
       }
 
-      #chat-toggle:hover {
-        background: rgba(0, 245, 212, 0.25);
-        box-shadow: 0 0 16px var(--ghost-dim);
+      .status-light {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: #1a3050;
+        transition: background 0.3s, box-shadow 0.3s;
+        flex-shrink: 0;
       }
 
-      #chat-toggle.active {
-        background: rgba(0, 245, 212, 0.2);
-        box-shadow: 0 0 20px var(--ghost-glow);
+      .status-light.green  { background: #00e676; box-shadow: 0 0 7px #00e676; }
+      .status-light.yellow { background: #f5a623; box-shadow: 0 0 7px #f5a623; animation: pulse 1.5s ease-in-out infinite; }
+      .status-light.red    { background: #ff3b6b; box-shadow: 0 0 5px #ff3b6b; }
+
+      .metrics-line {
+        margin-top: 6px;
+        font-size: 11px;
+        color: #4a6a80;
+        text-align: center;
       }
 
-      /* ----------------------------- */
-      /* CHAT PANEL                    */
-      /* ----------------------------- */
+      /* CHAT PANEL */
       #chat-panel {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 380px;
+        flex: 1;
+        min-height: 300px;
         background: #080e16;
         border-top: 1px solid var(--border);
         display: flex;
         flex-direction: column;
-        z-index: 100;
-        transform: translateY(100%);
-        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         -webkit-app-region: no-drag;
       }
 
-      #chat-panel.open {
-        transform: translateY(0);
-      }
-
-      /* Chat header */
       .chat-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 8px 16px;
+        padding: 6px 16px;
         border-bottom: 1px solid var(--border);
         background: #0a1520;
         flex-shrink: 0;
@@ -282,7 +182,7 @@
       }
 
       .chat-title {
-        font-size: 0.65rem;
+        font-size: 11px;
         letter-spacing: 0.2em;
         color: var(--ghost);
         text-transform: uppercase;
@@ -294,9 +194,8 @@
         display: flex;
         align-items: center;
         gap: 5px;
-        font-size: 0.55rem;
+        font-size: 10px;
         color: var(--text-dim);
-        letter-spacing: 0.1em;
       }
 
       .status-dot {
@@ -306,29 +205,12 @@
         transition: all 0.3s;
       }
 
-      .status-dot.online {
-        background: var(--ghost);
-        box-shadow: 0 0 8px var(--ghost);
-        animation: pulse 2s ease-in-out infinite;
-      }
-
-      .status-dot.connecting {
-        background: var(--warn);
-        box-shadow: 0 0 8px var(--warn);
-      }
+      .status-dot.online     { background: var(--ghost); box-shadow: 0 0 8px var(--ghost); animation: pulse 2s ease-in-out infinite; }
+      .status-dot.connecting { background: var(--warn); box-shadow: 0 0 8px var(--warn); }
 
       @keyframes pulse {
         0%, 100% { opacity: 1; }
         50% { opacity: 0.4; }
-      }
-
-      .chat-header-right {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-size: 0.55rem;
-        color: var(--text-dim);
-        letter-spacing: 0.1em;
       }
 
       .shard-badge {
@@ -337,10 +219,9 @@
         color: var(--ghost);
         padding: 2px 8px;
         border-radius: 1px;
-        font-size: 0.55rem;
+        font-size: 10px;
       }
 
-      /* Messages area */
       #chat-messages {
         flex: 1;
         overflow-y: auto;
@@ -350,14 +231,15 @@
         gap: 12px;
         scrollbar-width: thin;
         scrollbar-color: var(--border) transparent;
+        user-select: text;
+        -webkit-user-select: text;
       }
 
-      /* Welcome */
       .chat-welcome {
         margin: auto;
         text-align: center;
         opacity: 0.5;
-        font-size: 0.7rem;
+        font-size: 12px;
         color: var(--text-dim);
         letter-spacing: 0.1em;
         line-height: 2;
@@ -365,20 +247,19 @@
 
       .chat-welcome span { color: var(--ghost); }
 
-      /* Messages */
       .chat-msg {
         display: flex;
         gap: 10px;
         animation: msgIn 0.18s ease;
-        max-width: 80%;
+        max-width: 82%;
       }
 
       @keyframes msgIn {
         from { opacity: 0; transform: translateY(6px); }
-        to { opacity: 1; transform: translateY(0); }
+        to   { opacity: 1; transform: translateY(0); }
       }
 
-      .chat-msg.user { align-self: flex-end; flex-direction: row-reverse; }
+      .chat-msg.user  { align-self: flex-end; flex-direction: row-reverse; }
       .chat-msg.ghost { align-self: flex-start; }
 
       .msg-av {
@@ -388,55 +269,32 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 0.55rem;
+        font-size: 9px;
         font-weight: bold;
         margin-top: 2px;
       }
 
-      .chat-msg.ghost .msg-av {
-        background: var(--ghost-dim);
-        border: 1px solid var(--ghost);
-        color: var(--ghost);
-      }
-
-      .chat-msg.user .msg-av {
-        background: rgba(245,166,35,0.1);
-        border: 1px solid rgba(245,166,35,0.35);
-        color: var(--warn);
-      }
+      .chat-msg.ghost .msg-av { background: var(--ghost-dim); border: 1px solid var(--ghost); color: var(--ghost); }
+      .chat-msg.user  .msg-av { background: rgba(245,166,35,0.1); border: 1px solid rgba(245,166,35,0.35); color: var(--warn); }
 
       .msg-inner { display: flex; flex-direction: column; gap: 3px; }
 
-      .msg-meta {
-        font-size: 0.5rem;
-        color: var(--text-dim);
-        letter-spacing: 0.08em;
-      }
-
+      .msg-meta { font-size: 9px; color: var(--text-dim); letter-spacing: 0.08em; }
       .chat-msg.user .msg-meta { text-align: right; }
 
       .msg-text {
-        padding: 8px 12px;
+        padding: 10px 14px;
         border-radius: 2px;
-        font-size: 0.8rem;
-        line-height: 1.6;
+        font-size: var(--chat-font-size, 15px);
+        line-height: 1.7;
+        user-select: text;
+        -webkit-user-select: text;
+        cursor: text;
       }
 
-      .chat-msg.ghost .msg-text {
-        background: #0d1620;
-        border: 1px solid var(--border);
-        border-left: 2px solid var(--ghost);
-        color: #c8dcea;
-      }
+      .chat-msg.ghost .msg-text { background: #0d1620; border: 1px solid var(--border); border-left: 2px solid var(--ghost); color: #c8dcea; }
+      .chat-msg.user  .msg-text { background: rgba(245,166,35,0.06); border: 1px solid rgba(245,166,35,0.2); border-right: 2px solid var(--warn); color: #c8dcea; }
 
-      .chat-msg.user .msg-text {
-        background: rgba(245,166,35,0.06);
-        border: 1px solid rgba(245,166,35,0.2);
-        border-right: 2px solid var(--warn);
-        color: #c8dcea;
-      }
-
-      /* Thinking */
       .thinking-msg {
         display: flex;
         align-items: center;
@@ -445,7 +303,7 @@
         background: #0d1620;
         border: 1px solid var(--border);
         border-left: 2px solid var(--ghost);
-        font-size: 0.65rem;
+        font-size: 11px;
         color: var(--ghost);
         letter-spacing: 0.1em;
         border-radius: 2px;
@@ -469,7 +327,17 @@
         40% { opacity: 1; }
       }
 
-      /* Input row */
+      #chat-err {
+        font-size: 11px;
+        color: var(--danger);
+        padding: 4px 14px;
+        background: rgba(255,59,107,0.08);
+        border-top: 1px solid rgba(255,59,107,0.2);
+        display: none;
+      }
+
+      #chat-err.show { display: block; }
+
       .chat-input-row {
         display: flex;
         gap: 8px;
@@ -487,22 +355,20 @@
         border-bottom: 2px solid var(--ghost-dim);
         color: white;
         font-family: monospace;
-        font-size: 0.78rem;
+        font-size: var(--chat-font-size, 15px);
         padding: 9px 12px;
         resize: none;
         outline: none;
         border-radius: 2px;
         min-height: 40px;
-        max-height: 100px;
+        max-height: 120px;
         line-height: 1.5;
         transition: border-color 0.2s;
+        user-select: text;
+        -webkit-user-select: text;
       }
 
-      #chat-input:focus {
-        border-bottom-color: var(--ghost);
-        box-shadow: 0 4px 16px rgba(0,245,212,0.06);
-      }
-
+      #chat-input:focus { border-bottom-color: var(--ghost); }
       #chat-input::placeholder { color: var(--text-dim); }
 
       #chat-send {
@@ -510,7 +376,7 @@
         border: 1px solid var(--ghost);
         color: var(--ghost);
         font-family: monospace;
-        font-size: 0.65rem;
+        font-size: 11px;
         letter-spacing: 0.12em;
         padding: 9px 16px;
         cursor: pointer;
@@ -521,27 +387,293 @@
         white-space: nowrap;
       }
 
-      #chat-send:hover:not(:disabled) {
-        background: rgba(0,245,212,0.2);
-        box-shadow: 0 0 16px var(--ghost-dim);
-      }
-
+      #chat-send:hover:not(:disabled) { background: rgba(0,245,212,0.2); box-shadow: 0 0 16px var(--ghost-dim); }
       #chat-send:disabled { opacity: 0.35; cursor: not-allowed; }
 
-      /* Err banner */
-      #chat-err {
-        font-size: 0.6rem;
-        color: var(--danger);
-        padding: 4px 14px;
-        background: rgba(255,59,107,0.08);
-        border-top: 1px solid rgba(255,59,107,0.2);
+      /* SETTINGS OVERLAY */
+      #settings-overlay {
         display: none;
-        letter-spacing: 0.05em;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.7);
+        z-index: 500;
+        align-items: center;
+        justify-content: center;
       }
 
-      #chat-err.show { display: block; }
+      #settings-overlay.open {
+        display: flex;
+      }
 
-      /* Scrollbar */
+      #settings-panel {
+        background: #0a1218;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        width: 560px;
+        max-height: 85vh;
+        overflow-y: auto;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        box-shadow: 0 0 40px rgba(0,245,212,0.1);
+      }
+
+      .settings-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 12px;
+      }
+
+      .settings-header h2 {
+        margin: 0;
+        font-size: 14px;
+        letter-spacing: 0.2em;
+        color: var(--ghost);
+        text-transform: uppercase;
+      }
+
+      .settings-close {
+        background: transparent;
+        border: none;
+        color: var(--text-dim);
+        font-size: 18px;
+        cursor: pointer;
+        padding: 0 4px;
+        line-height: 1;
+      }
+
+      .settings-close:hover { color: var(--danger); }
+
+      .settings-section {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .settings-section-title {
+        font-size: 10px;
+        letter-spacing: 0.2em;
+        color: var(--text-dim);
+        text-transform: uppercase;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 6px;
+      }
+
+      .settings-field {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .settings-field label {
+        font-size: 11px;
+        color: #a0b8c8;
+        letter-spacing: 0.08em;
+      }
+
+      .settings-field input,
+      .settings-field textarea,
+      .settings-field select {
+        background: #060c12;
+        border: 1px solid var(--border);
+        border-bottom: 2px solid var(--ghost-dim);
+        color: white;
+        font-family: monospace;
+        font-size: 13px;
+        padding: 7px 10px;
+        border-radius: 2px;
+        outline: none;
+        transition: border-color 0.2s;
+        width: 100%;
+      }
+
+      .settings-field input:focus,
+      .settings-field textarea:focus,
+      .settings-field select:focus { border-bottom-color: var(--ghost); }
+
+      .settings-field textarea { resize: vertical; min-height: 60px; }
+
+      .settings-field select option { background: #0a1218; }
+
+      .settings-row {
+        display: flex;
+        gap: 10px;
+      }
+
+      .settings-row .settings-field { flex: 1; }
+
+      /* Color picker row */
+      .color-field {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .color-field input[type="color"] {
+        width: 44px;
+        height: 32px;
+        padding: 2px;
+        border-radius: 4px;
+        cursor: pointer;
+        flex-shrink: 0;
+      }
+
+      .color-field input[type="text"] {
+        flex: 1;
+      }
+
+      /* Font size slider */
+      .slider-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .slider-row input[type="range"] {
+        flex: 1;
+        accent-color: var(--ghost);
+        border: none;
+        padding: 0;
+        background: transparent;
+        border-bottom: none;
+      }
+
+      .slider-val {
+        font-size: 13px;
+        color: var(--ghost);
+        min-width: 32px;
+        text-align: right;
+      }
+
+      /* Dates list */
+      #dates-list {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        max-height: 150px;
+        overflow-y: auto;
+      }
+
+      .date-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: #0d1620;
+        border: 1px solid var(--border);
+        padding: 6px 10px;
+        border-radius: 2px;
+        font-size: 12px;
+      }
+
+      .date-item span { flex: 1; }
+      .date-item button {
+        background: transparent;
+        border: none;
+        color: var(--danger);
+        cursor: pointer;
+        font-size: 14px;
+        padding: 0 2px;
+        line-height: 1;
+      }
+
+      .add-date-row {
+        display: flex;
+        gap: 6px;
+      }
+
+      .add-date-row input, .add-date-row select {
+        flex: 1;
+        background: #060c12;
+        border: 1px solid var(--border);
+        color: white;
+        font-family: monospace;
+        font-size: 12px;
+        padding: 5px 8px;
+        border-radius: 2px;
+        outline: none;
+      }
+
+      .add-date-row button {
+        background: var(--ghost-dim);
+        border: 1px solid var(--ghost);
+        color: var(--ghost);
+        font-family: monospace;
+        font-size: 11px;
+        padding: 5px 12px;
+        border-radius: 2px;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      /* Settings action buttons */
+      .settings-actions {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+        border-top: 1px solid var(--border);
+        padding-top: 14px;
+      }
+
+      .btn-save {
+        background: var(--ghost-dim);
+        border: 1px solid var(--ghost);
+        color: var(--ghost);
+        font-family: monospace;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        padding: 8px 20px;
+        cursor: pointer;
+        border-radius: 2px;
+        text-transform: uppercase;
+        transition: all 0.15s;
+      }
+
+      .btn-save:hover { background: rgba(0,245,212,0.2); }
+
+      .btn-test {
+        background: transparent;
+        border: 1px solid var(--border);
+        color: var(--text-dim);
+        font-family: monospace;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        padding: 8px 16px;
+        cursor: pointer;
+        border-radius: 2px;
+        text-transform: uppercase;
+        transition: all 0.15s;
+      }
+
+      .btn-test:hover { border-color: var(--warn); color: var(--warn); }
+
+      .btn-danger {
+        background: transparent;
+        border: 1px solid rgba(255,59,107,0.4);
+        color: var(--danger);
+        font-family: monospace;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        padding: 8px 16px;
+        cursor: pointer;
+        border-radius: 2px;
+        text-transform: uppercase;
+        transition: all 0.15s;
+      }
+
+      .btn-danger:hover { background: rgba(255,59,107,0.1); }
+
+      .test-result {
+        font-size: 11px;
+        padding: 4px 0;
+        min-height: 18px;
+      }
+
+      .test-result.ok  { color: #00e676; }
+      .test-result.err { color: var(--danger); }
+
       ::-webkit-scrollbar { width: 4px; }
       ::-webkit-scrollbar-track { background: transparent; }
       ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
@@ -550,19 +682,15 @@
 
   <body>
 
-    <!-- DRAGGABLE TITLEBAR -->
+    <!-- TITLEBAR -->
     <div class="titlebar">
       <h1>The Ghost Stirs...</h1>
+      <button class="settings-btn" id="open-settings">⚙ SETTINGS</button>
     </div>
 
     <!-- HUD -->
-    <div class="hud-wrapper" id="hud-wrapper">
+    <div class="hud-wrapper">
       <div class="ghost-container">
-
-        <div id="ghost-state"></div>
-
-        <div id="attention-bars"></div>
-
         <div id="status-row">
           <div class="status-block">
             <span class="status-label">Emotional tell</span>
@@ -571,7 +699,6 @@
             <div class="status-line">Arousal: <span id="emotion-arousal">0.00</span></div>
             <div class="status-line">Tension: <span id="emotion-tension">0.00</span></div>
           </div>
-
           <div class="status-block">
             <span class="status-label">Memory & mood</span>
             <div class="status-line">Episodes: <span id="memory-count">0</span>/<span id="memory-limit">0</span></div>
@@ -581,22 +708,23 @@
           </div>
         </div>
 
-        <div id="latent-visualizer"></div>
-        <div id="loss-display"></div>
-        <div id="prediction-loss"></div>
-        <div id="anomaly-display"></div>
-        <div id="latent-3d-container"></div>
-        <div id="latent-history"></div>
+        <div id="status-lights">
+          <div class="light-item"><div class="status-light" id="light-cognitive"></div><span>Cognitive Loop</span></div>
+          <div class="light-item"><div class="status-light" id="light-bridge"></div><span>LLM Bridge</span></div>
+          <div class="light-item"><div class="status-light" id="light-memory"></div><span>Memory</span></div>
+          <div class="light-item"><div class="status-light" id="light-shards"></div><span id="light-shards-label">Shards</span></div>
+        </div>
 
+        <div class="metrics-line">
+          Loss: <span id="loss-display" style="color:#00f5d4;">0.0000</span> &nbsp;
+          Pred: <span id="prediction-loss" style="color:#00f5d4;">0.0000</span> &nbsp;
+          Anom: <span id="anomaly-display" style="color:#00f5d4;">0.0000</span>
+        </div>
       </div>
     </div>
 
-    <!-- CHAT TOGGLE BUTTON -->
-    <button id="chat-toggle" title="Toggle Chat [C]">◈ CHAT</button>
-
     <!-- CHAT PANEL -->
     <div id="chat-panel">
-
       <div class="chat-header">
         <div class="chat-header-left">
           <div class="chat-title">Ghost Interface</div>
@@ -605,16 +733,13 @@
             <span id="bridge-label">OFFLINE</span>
           </div>
         </div>
-        <div class="chat-header-right">
-          <span class="shard-badge" id="shard-badge">0 shards</span>
-          <span>C to close</span>
-        </div>
+        <span class="shard-badge" id="shard-badge">0 shards</span>
       </div>
 
       <div id="chat-messages">
         <div class="chat-welcome" id="chat-welcome">
           GHOSTRA COGNITIVE INTERFACE<br>
-          <span>ws://localhost:8765</span><br>
+          <span>bridge://localhost:8765</span><br>
           Awaiting connection...
         </div>
       </div>
@@ -625,80 +750,205 @@
         <textarea id="chat-input" placeholder="Transmit to Ghost..." rows="1" maxlength="2000"></textarea>
         <button id="chat-send">▶ SEND</button>
       </div>
+    </div>
 
+    <!-- SETTINGS OVERLAY -->
+    <div id="settings-overlay">
+      <div id="settings-panel">
+
+        <div class="settings-header">
+          <h2>⚙ GHOSTRA Settings</h2>
+          <button class="settings-close" id="close-settings">✕</button>
+        </div>
+
+        <!-- OPERATOR PROFILE -->
+        <div class="settings-section">
+          <div class="settings-section-title">Operator Profile</div>
+          <div class="settings-field">
+            <label>Name</label>
+            <input type="text" id="s-op-name" placeholder="Your name" />
+          </div>
+          <div class="settings-field">
+            <label>Role</label>
+            <input type="text" id="s-op-role" placeholder="Your role" />
+          </div>
+          <div class="settings-field">
+            <label>Notes</label>
+            <textarea id="s-op-notes" placeholder="Additional context for Ghost..."></textarea>
+          </div>
+        </div>
+
+        <!-- IMPORTANT DATES -->
+        <div class="settings-section">
+          <div class="settings-section-title">Important Dates</div>
+          <div id="dates-list"></div>
+          <div class="add-date-row">
+            <input type="text" id="s-date-name" placeholder="Label (e.g. Mom's Birthday)" />
+            <input type="date" id="s-date-value" />
+            <select id="s-date-type">
+              <option value="birthday">Birthday</option>
+              <option value="anniversary">Anniversary</option>
+              <option value="milestone">Milestone</option>
+              <option value="custom">Custom</option>
+            </select>
+            <button id="s-date-add">+ Add</button>
+          </div>
+        </div>
+
+        <!-- GHOST IDENTITY -->
+        <div class="settings-section">
+          <div class="settings-section-title">Ghost Identity</div>
+          <div class="settings-field">
+            <label>Purpose Statement</label>
+            <textarea id="s-ghost-purpose" placeholder="What Ghost is for..."></textarea>
+          </div>
+          <div class="settings-field">
+            <label>Current Phase</label>
+            <select id="s-ghost-phase">
+              <option value="rapport">Phase 1 — Rapport Building</option>
+              <option value="presence">Phase 2 — Presence</option>
+              <option value="discovery">Phase 3 — Discovery</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- LLM CONFIG -->
+        <div class="settings-section">
+          <div class="settings-section-title">LLM Configuration</div>
+          <div class="settings-field">
+            <label>Bridge URL</label>
+            <input type="text" id="s-bridge-url" placeholder="http://127.0.0.1:8765" />
+          </div>
+
+          <div class="settings-section-title" style="margin-top:8px;">Model Roles — leave blank to use default</div>
+
+          <div class="settings-row">
+            <div class="settings-field">
+              <label>Chat (operator conversation)</label>
+              <input type="text" id="s-model-chat" placeholder="deepseek-r1:7b" />
+            </div>
+            <div class="settings-field">
+              <label>Fragment Generation (inner thoughts)</label>
+              <input type="text" id="s-model-fragment" placeholder="llama3-gpu:latest" />
+            </div>
+          </div>
+
+          <div class="settings-row">
+            <div class="settings-field">
+              <label>Reasoning (deep problems)</label>
+              <input type="text" id="s-model-reasoning" placeholder="deepseek-r1:7b" />
+            </div>
+            <div class="settings-field">
+              <label>Code (technical queries)</label>
+              <input type="text" id="s-model-code" placeholder="qwen2.5-coder:7b" />
+            </div>
+          </div>
+
+          <div class="settings-row">
+            <div class="settings-field">
+              <label>Math</label>
+              <input type="text" id="s-model-math" placeholder="deepseek-r1:7b" />
+            </div>
+            <div class="settings-field">
+              <label>Memory / Summarization</label>
+              <input type="text" id="s-model-memory" placeholder="llama3-gpu:latest" />
+            </div>
+          </div>
+
+          <div class="settings-row">
+            <div class="settings-field">
+              <label>Safety / Guardrail</label>
+              <input type="text" id="s-model-safety" placeholder="llama3-gpu:latest" />
+            </div>
+            <div class="settings-field">
+              <label>Default Fallback</label>
+              <input type="text" id="s-model-default" placeholder="llama3-gpu:latest" />
+            </div>
+          </div>
+
+          <div class="settings-row">
+            <div class="settings-field">
+              <label>Chat Token Limit</label>
+              <input type="number" id="s-chat-tokens" placeholder="1024" min="256" max="4096" />
+            </div>
+            <div class="settings-field">
+              <label>Fragment Token Limit</label>
+              <input type="number" id="s-frag-tokens" placeholder="256" min="64" max="512" />
+            </div>
+          </div>
+
+          <div class="test-result" id="test-result"></div>
+          <div style="display:flex;gap:8px;">
+            <button class="btn-test" id="btn-test-bridge">Test Connection</button>
+            <button class="btn-danger" id="btn-shutdown-llm">Shutdown LLM</button>
+          </div>
+        </div>
+
+        <!-- UI CUSTOMIZATION -->
+        <div class="settings-section">
+          <div class="settings-section-title">UI Customization</div>
+          <div class="settings-field">
+            <label>Font Size</label>
+            <div class="slider-row">
+              <input type="range" id="s-font-size" min="11" max="22" step="1" value="15" />
+              <span class="slider-val" id="s-font-size-val">15px</span>
+            </div>
+          </div>
+          <div class="settings-field">
+            <label>Accent Color</label>
+            <div class="color-field">
+              <input type="color" id="s-accent-color" value="#00f5d4" />
+              <input type="text" id="s-accent-hex" value="#00f5d4" placeholder="#00f5d4" />
+            </div>
+          </div>
+          <div class="settings-field">
+            <label>Background Color</label>
+            <div class="color-field">
+              <input type="color" id="s-bg-color" value="#0a0a0c" />
+              <input type="text" id="s-bg-hex" value="#0a0a0c" placeholder="#0a0a0c" />
+            </div>
+          </div>
+        </div>
+
+        <!-- ACTIONS -->
+        <div class="settings-actions">
+          <button class="btn-test" id="btn-reset">Reset Defaults</button>
+          <button class="btn-save" id="btn-save-settings">Save Settings</button>
+        </div>
+
+      </div>
     </div>
 
     <script src="renderer.js"></script>
     <script>
-      // ─── CHAT STATE ───
       const BRIDGE = 'http://localhost:8765';
-      let chatOpen = false;
       let chatBusy = false;
       let shards = [];
       let history = [];
+      let importantDates = [];
 
-      // ─── ELEMENTS ───
-      const panel     = document.getElementById('chat-panel');
-      const toggle    = document.getElementById('chat-toggle');
-      const messages  = document.getElementById('chat-messages');
-      const input     = document.getElementById('chat-input');
-      const sendBtn   = document.getElementById('chat-send');
-      const dot       = document.getElementById('bridge-dot');
-      const label     = document.getElementById('bridge-label');
-      const errBanner = document.getElementById('chat-err');
-      const shardBadge= document.getElementById('shard-badge');
-      const welcome   = document.getElementById('chat-welcome');
-      const hudWrapper= document.getElementById('hud-wrapper');
+      // Elements
+      const messages   = document.getElementById('chat-messages');
+      const input      = document.getElementById('chat-input');
+      const sendBtn    = document.getElementById('chat-send');
+      const dot        = document.getElementById('bridge-dot');
+      const label      = document.getElementById('bridge-label');
+      const errBanner  = document.getElementById('chat-err');
+      const shardBadge = document.getElementById('shard-badge');
+      const welcome    = document.getElementById('chat-welcome');
 
-      // ─── TOGGLE ───
-      function openChat()  {
-        chatOpen = true;
-        panel.classList.add('open');
-        toggle.classList.add('active');
-        toggle.textContent = '◈ CLOSE';
-        hudWrapper.style.paddingBottom = '390px';
-        input.focus();
-      }
+      const lightCognitive = document.getElementById('light-cognitive');
+      const lightBridge    = document.getElementById('light-bridge');
+      const lightMemory    = document.getElementById('light-memory');
+      const lightShards    = document.getElementById('light-shards');
+      const lightShardsLbl = document.getElementById('light-shards-label');
 
-      function closeChat() {
-        chatOpen = false;
-        panel.classList.remove('open');
-        toggle.classList.remove('active');
-        toggle.textContent = '◈ CHAT';
-        hudWrapper.style.paddingBottom = '';
-      }
+      function setLight(el, state) { el.className = `status-light ${state}`; }
 
-      toggle.addEventListener('click', () => chatOpen ? closeChat() : openChat());
+      function setOnline()     { dot.className = 'status-dot online'; label.textContent = 'ONLINE'; setLight(lightBridge, 'green'); errBanner.classList.remove('show'); }
+      function setOffline()    { dot.className = 'status-dot'; label.textContent = 'OFFLINE'; setLight(lightBridge, 'red'); }
+      function setConnecting() { dot.className = 'status-dot connecting'; label.textContent = 'LINKING...'; setLight(lightBridge, 'yellow'); }
 
-      document.addEventListener('keydown', e => {
-        if (e.key === 'c' || e.key === 'C') {
-          // Don't trigger if typing in input
-          if (document.activeElement === input) return;
-          chatOpen ? closeChat() : openChat();
-        }
-      });
-
-      // ─── INPUT ───
-      input.addEventListener('keydown', e => {
-        if (e.key === 'Enter' && !e.shiftKey) {
-          e.preventDefault();
-          sendMessage();
-        }
-      });
-
-      input.addEventListener('input', () => {
-        input.style.height = 'auto';
-        input.style.height = Math.min(input.scrollHeight, 100) + 'px';
-      });
-
-      sendBtn.addEventListener('click', sendMessage);
-
-      // ─── STATUS ───
-      function setOnline()      { dot.className = 'status-dot online'; label.textContent = 'ONLINE'; }
-      function setOffline()     { dot.className = 'status-dot'; label.textContent = 'OFFLINE'; }
-      function setConnecting()  { dot.className = 'status-dot connecting'; label.textContent = 'LINKING...'; }
-
-      // ─── SHARDS ───
       async function loadShards() {
         try {
           const r = await fetch(`${BRIDGE}/shards`, { mode: 'cors' });
@@ -706,72 +956,59 @@
           const data = await r.json();
           shards = Array.isArray(data) ? data : (data.shards || []);
           shardBadge.textContent = `${shards.length} shards`;
+          setLight(lightShards, 'green');
+          lightShardsLbl.textContent = `Shards (${shards.length})`;
           setOnline();
-          errBanner.classList.remove('show');
-        } catch {
-          setOffline();
-        }
+        } catch { setLight(lightShards, 'red'); setOffline(); }
       }
 
-      function buildShardContext() {
-        if (!shards.length) return '';
-      }
+      input.addEventListener('keydown', e => {
+        if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+      });
 
-      // ─── SEND ───
+      input.addEventListener('input', () => {
+        input.style.height = 'auto';
+        input.style.height = Math.min(input.scrollHeight, 120) + 'px';
+      });
+
+      sendBtn.addEventListener('click', sendMessage);
+
       async function sendMessage() {
         const text = input.value.trim();
         if (!text || chatBusy) return;
-
         if (welcome) welcome.style.display = 'none';
-
         appendMsg('user', text);
         input.value = '';
         input.style.height = 'auto';
         history.push({ role: 'user', content: text });
-
         chatBusy = true;
         sendBtn.disabled = true;
         setConnecting();
-
         const thinkEl = appendThinking();
-
         try {
           const res = await fetch(`${BRIDGE}/chat`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              message: text,
-              history: history.slice(-20),
-              shards: shards.slice(0, 3),
-              shard_context: buildShardContext()
-            }),
+            body: JSON.stringify({ message: text, history: history.slice(-20), shards: shards.slice(0, 3), shard_context: '' }),
             mode: 'cors'
           });
-
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
-
           const data = await res.json();
           const reply = data.response || data.message || data.text || 'No response.';
-
           thinkEl.remove();
           appendMsg('ghost', reply);
           history.push({ role: 'assistant', content: reply });
-
           setOnline();
-          errBanner.classList.remove('show');
-
         } catch (err) {
           thinkEl.remove();
           appendMsg('ghost', `Bridge unreachable: ${err.message}`);
           setOffline();
           errBanner.classList.add('show');
         }
-
         chatBusy = false;
         sendBtn.disabled = false;
       }
 
-      // ─── RENDER HELPERS ───
       function appendMsg(role, text) {
         const ts = new Date().toLocaleTimeString('en-US', { hour12: false });
         const div = document.createElement('div');
@@ -800,7 +1037,17 @@
         return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
       }
 
-      // ─── INIT ───
+      // Cognitive loop lights
+      let lastCogTick = 0;
+      window.onCognitiveUpdate = () => { lastCogTick = Date.now(); setLight(lightCognitive, 'green'); };
+      setInterval(() => {
+        if (Date.now() - lastCogTick > 2000 && lastCogTick > 0) {
+          setLight(lightCognitive, Date.now() - lastCogTick > 5000 ? 'red' : 'yellow');
+        }
+      }, 1000);
+      window.onMemoryUpdate = (count) => { setLight(lightMemory, count > 0 ? 'green' : 'yellow'); };
+
+      // Init
       (async () => {
         try {
           const r = await fetch(`${BRIDGE}/status`, { mode: 'cors', signal: AbortSignal.timeout(2000) });
@@ -808,9 +1055,215 @@
           else setOffline();
         } catch { setOffline(); }
       })();
+      setInterval(loadShards, 30000);
 
-      // Re-sync shards every 30s when panel is open
-      setInterval(() => { if (chatOpen) loadShards(); }, 30000);
+      // ─── SETTINGS ───────────────────────────────────────────
+      const overlay    = document.getElementById('settings-overlay');
+      const btnOpen    = document.getElementById('open-settings');
+      const btnClose   = document.getElementById('close-settings');
+      const btnSave    = document.getElementById('btn-save-settings');
+      const btnTest    = document.getElementById('btn-test-bridge');
+      const btnShutdown= document.getElementById('btn-shutdown-llm');
+      const btnReset   = document.getElementById('btn-reset');
+      const testResult = document.getElementById('test-result');
+
+      btnOpen.addEventListener('click', () => { loadSettingsIntoForm(); overlay.classList.add('open'); });
+      btnClose.addEventListener('click', () => overlay.classList.remove('open'));
+      overlay.addEventListener('click', e => { if (e.target === overlay) overlay.classList.remove('open'); });
+
+      // Font size live preview
+      const fontSlider = document.getElementById('s-font-size');
+      const fontVal    = document.getElementById('s-font-size-val');
+      fontSlider.addEventListener('input', () => {
+        const sz = fontSlider.value + 'px';
+        fontVal.textContent = sz;
+        document.documentElement.style.setProperty('--chat-font-size', sz);
+      });
+
+      // Color live preview
+      function syncColor(colorInput, hexInput, varName) {
+        colorInput.addEventListener('input', () => {
+          hexInput.value = colorInput.value;
+          document.documentElement.style.setProperty(varName, colorInput.value);
+        });
+        hexInput.addEventListener('input', () => {
+          if (/^#[0-9a-f]{6}$/i.test(hexInput.value)) {
+            colorInput.value = hexInput.value;
+            document.documentElement.style.setProperty(varName, hexInput.value);
+          }
+        });
+      }
+
+      syncColor(document.getElementById('s-accent-color'), document.getElementById('s-accent-hex'), '--ghost');
+      syncColor(document.getElementById('s-bg-color'), document.getElementById('s-bg-hex'), '--glow-color');
+
+      // Dates
+      function renderDates() {
+        const list = document.getElementById('dates-list');
+        list.innerHTML = '';
+        importantDates.forEach((d, i) => {
+          const item = document.createElement('div');
+          item.className = 'date-item';
+          item.innerHTML = `<span>${d.name} — ${d.date} (${d.type})</span><button onclick="removeDate(${i})">✕</button>`;
+          list.appendChild(item);
+        });
+      }
+
+      window.removeDate = (i) => { importantDates.splice(i, 1); renderDates(); };
+
+      document.getElementById('s-date-add').addEventListener('click', () => {
+        const name  = document.getElementById('s-date-name').value.trim();
+        const date  = document.getElementById('s-date-value').value;
+        const type  = document.getElementById('s-date-type').value;
+        if (!name || !date) return;
+        importantDates.push({ name, date, type });
+        document.getElementById('s-date-name').value = '';
+        document.getElementById('s-date-value').value = '';
+        renderDates();
+      });
+
+      // Test connection
+      btnTest.addEventListener('click', async () => {
+        testResult.textContent = 'Testing...';
+        testResult.className = 'test-result';
+        try {
+          const url = document.getElementById('s-bridge-url').value || BRIDGE;
+          const r = await fetch(`${url}/status`, { mode: 'cors', signal: AbortSignal.timeout(3000) });
+          if (r.ok) { testResult.textContent = '✓ Bridge connected'; testResult.className = 'test-result ok'; }
+          else { testResult.textContent = `✗ HTTP ${r.status}`; testResult.className = 'test-result err'; }
+        } catch (e) {
+          testResult.textContent = `✗ ${e.message}`;
+          testResult.className = 'test-result err';
+        }
+      });
+
+      // Shutdown LLM
+      btnShutdown.addEventListener('click', async () => {
+        try {
+          await fetch(`${BRIDGE}/shutdown-llm`, { method: 'POST', mode: 'cors' });
+          testResult.textContent = 'LLM shutdown requested';
+          testResult.className = 'test-result ok';
+        } catch {
+          testResult.textContent = 'Shutdown endpoint not yet wired';
+          testResult.className = 'test-result err';
+        }
+      });
+
+      // Defaults
+      const DEFAULTS = {
+        operator: { name: 'Shawn', role: 'OTR truck driver and Computer Science student', notes: '' },
+        ghost: { purpose: 'A mind that does not wait.', phase: 'rapport' },
+        llm: {
+          bridge_url: 'http://127.0.0.1:8765',
+          chat_tokens: 1024,
+          frag_tokens: 256,
+          models: {
+            chat:      'deepseek-r1:7b',
+            fragment:  'llama3-gpu:latest',
+            reasoning: 'deepseek-r1:7b',
+            code:      'qwen2.5-coder:7b',
+            math:      'deepseek-r1:7b',
+            memory:    'llama3-gpu:latest',
+            safety:    'llama3-gpu:latest',
+            default:   'llama3-gpu:latest'
+          }
+        },
+  ui: { font_size: 15, accent_color: '#00f5d4', bg_color: '#0a0a0c' },
+  dates: []
+};
+
+      function loadSettingsIntoForm() {
+        const s = JSON.parse(localStorage.getItem('ghostra-settings') || 'null') || DEFAULTS;
+        document.getElementById('s-op-name').value        = s.operator?.name || '';
+        document.getElementById('s-op-role').value        = s.operator?.role || '';
+        document.getElementById('s-op-notes').value       = s.operator?.notes || '';
+        document.getElementById('s-ghost-purpose').value  = s.ghost?.purpose || '';
+        document.getElementById('s-ghost-phase').value    = s.ghost?.phase || 'rapport';
+        document.getElementById('s-bridge-url').value     = s.llm?.bridge_url || '';
+        document.getElementById('s-bridge-url').value      = s.llm?.bridge_url || '';
+        document.getElementById('s-chat-tokens').value     = s.llm?.chat_tokens || 1024;
+        document.getElementById('s-frag-tokens').value     = s.llm?.frag_tokens || 256;
+        document.getElementById('s-model-chat').value      = s.llm?.models?.chat || '';
+        document.getElementById('s-model-fragment').value  = s.llm?.models?.fragment || '';
+        document.getElementById('s-model-reasoning').value = s.llm?.models?.reasoning || '';
+        document.getElementById('s-model-code').value      = s.llm?.models?.code || '';
+        document.getElementById('s-model-math').value      = s.llm?.models?.math || '';
+        document.getElementById('s-model-memory').value    = s.llm?.models?.memory || '';
+        document.getElementById('s-model-safety').value    = s.llm?.models?.safety || '';
+        document.getElementById('s-model-default').value   = s.llm?.models?.default || '';
+        document.getElementById('s-font-size').value      = s.ui?.font_size || 15;
+        fontVal.textContent = (s.ui?.font_size || 15) + 'px';
+        document.getElementById('s-accent-color').value   = s.ui?.accent_color || '#00f5d4';
+        document.getElementById('s-accent-hex').value     = s.ui?.accent_color || '#00f5d4';
+        document.getElementById('s-bg-color').value       = s.ui?.bg_color || '#0a0a0c';
+        document.getElementById('s-bg-hex').value         = s.ui?.bg_color || '#0a0a0c';
+        importantDates = s.dates || [];
+        renderDates();
+      }
+
+      btnSave.addEventListener('click', () => {
+        const settings = {
+          operator: {
+            name:  document.getElementById('s-op-name').value.trim(),
+            role:  document.getElementById('s-op-role').value.trim(),
+            notes: document.getElementById('s-op-notes').value.trim()
+          },
+          ghost: {
+            purpose: document.getElementById('s-ghost-purpose').value.trim(),
+            phase:   document.getElementById('s-ghost-phase').value
+          },
+          llm: {
+            bridge_url:    document.getElementById('s-bridge-url').value.trim(),
+            chat_tokens:   parseInt(document.getElementById('s-chat-tokens').value) || 1024,
+            frag_tokens:   parseInt(document.getElementById('s-frag-tokens').value) || 256,
+            models: {
+              chat:      document.getElementById('s-model-chat').value.trim()      || 'llama3-gpu:latest',
+              fragment:  document.getElementById('s-model-fragment').value.trim()  || 'llama3-gpu:latest',
+              reasoning: document.getElementById('s-model-reasoning').value.trim() || 'llama3-gpu:latest',
+              code:      document.getElementById('s-model-code').value.trim()      || 'llama3-gpu:latest',
+              math:      document.getElementById('s-model-math').value.trim()      || 'llama3-gpu:latest',
+              memory:    document.getElementById('s-model-memory').value.trim()    || 'llama3-gpu:latest',
+              safety:    document.getElementById('s-model-safety').value.trim()    || 'llama3-gpu:latest',
+              default:   document.getElementById('s-model-default').value.trim()   || 'llama3-gpu:latest'
+            }
+          },
+
+          ui: {
+            font_size:    parseInt(document.getElementById('s-font-size').value),
+            accent_color: document.getElementById('s-accent-hex').value,
+            bg_color:     document.getElementById('s-bg-hex').value
+          },
+          dates: importantDates
+        };
+
+        localStorage.setItem('ghostra-settings', JSON.stringify(settings));
+
+        // Apply UI settings live
+        document.documentElement.style.setProperty('--chat-font-size', settings.ui.font_size + 'px');
+        document.documentElement.style.setProperty('--ghost', settings.ui.accent_color);
+
+        // Save to master.json via bridge
+        fetch(`${BRIDGE}/settings`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(settings),
+          mode: 'cors'
+        }).catch(() => {});
+
+        overlay.classList.remove('open');
+      });
+
+      btnReset.addEventListener('click', () => {
+        localStorage.removeItem('ghostra-settings');
+        loadSettingsIntoForm();
+      });
+
+      // Apply saved UI on load
+      const saved = JSON.parse(localStorage.getItem('ghostra-settings') || 'null');
+      if (saved?.ui) {
+        document.documentElement.style.setProperty('--chat-font-size', (saved.ui.font_size || 15) + 'px');
+        if (saved.ui.accent_color) document.documentElement.style.setProperty('--ghost', saved.ui.accent_color);
+      }
     </script>
 
   </body>

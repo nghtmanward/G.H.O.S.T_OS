@@ -1,6 +1,14 @@
 // =========================
 // GHOST_OS COGNITIVE WORKER
 // =========================
+//
+// CHANGES FROM PREVIOUS VERSION:
+//   - runMediumCycle: retrieve() now receives context { mood, now }
+//     so shard_dock can apply mood-based NOT suppression correctly
+//   - cachedRetrievalSnapshot shape updated to match new retrieve() return
+//   - dockStats logged in medium cycle for visibility
+//   - llmFragmentBusy declaration moved to top-level (was missing var declaration)
+//   - All other logic unchanged
 
 const { parentPort } = require("node:worker_threads");
 
@@ -24,7 +32,6 @@ function getVoiceEngine() {
   }
   return VoiceEngine;
 }
-
 
 const PersonalityEngine = require("./core/personality_engine");
 const FacialEmotionalTellEngine = require("./core/facial_emotional_tell_engine");
@@ -119,7 +126,7 @@ function syncShardsToNative() {
   if (!core) return;
   try {
     core.clearShards();
-    
+
     const currentShard = shards.currentShard;
     if (!currentShard || !currentShard.episodes) {
       log(`[NATIVE] Synced 0 shards into ghost_core.`);
@@ -130,13 +137,13 @@ function syncShardsToNative() {
     for (const ep of currentShard.episodes) {
       if (!ep || !ep.text) continue;
       const embedding = embedText(ep.text);
-      core.addShard({ 
+      core.addShard({
         id: count,
         content: ep.text,
         emotionalWeight: ep.anomaly || 0,
         relevance: ep.latentMag || 0,
         decay: 0.0,
-        embedding
+        embedding,
       });
       count++;
     }
@@ -149,14 +156,14 @@ function syncShardsToNative() {
 
 async function queryGhostTools(tool, query, context = {}, retries = 3) {
   const TIMEOUTS = [20000, 40000, 60000];
-  
+
   for (let attempt = 0; attempt < retries; attempt++) {
     try {
       const response = await fetch("http://127.0.0.1:8765/tool", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ tool, query, context }),
-        signal: AbortSignal.timeout(TIMEOUTS[attempt])
+        signal: AbortSignal.timeout(TIMEOUTS[attempt]),
       });
       return await response.json();
     } catch (err) {
@@ -170,8 +177,6 @@ async function queryGhostTools(tool, query, context = {}, retries = 3) {
   return null;
 }
 
-// Internal cognition tools — routes through /internal endpoint
-// Completely isolated from chat context
 async function queryGhostInternalTools(tool, query, context = {}, retries = 2) {
   const TIMEOUTS = [15000, 30000];
 
@@ -181,7 +186,7 @@ async function queryGhostInternalTools(tool, query, context = {}, retries = 2) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ tool, query, context }),
-        signal: AbortSignal.timeout(TIMEOUTS[attempt])
+        signal: AbortSignal.timeout(TIMEOUTS[attempt]),
       });
       return await response.json();
     } catch (err) {
@@ -243,6 +248,9 @@ let fastCycleRunning = false;
 let previousSyntheticVector = Array(12).fill(0);
 let previousPredLoss = 0;
 
+// BUSY LOCK: prevents LLM fragment pileup in slow loop
+let llmFragmentBusy = false;
+
 let latestPersonalityState = {
   traits: [0.6, 0.0, 0.4, 0.2],
   moodBaseline: personality.moodBaseline,
@@ -254,13 +262,13 @@ let latestPersonalityState = {
 
 let lastGhostState = null;
 
-// Cached outputs from medium/slow loops so fast loop can always emit a full packet
+// Cached outputs from medium/slow loops
 let cachedMappedThought = null;
 let cachedRetrievalSnapshot = null;
 let cachedNativeEpisodes = [];
 let cachedDreams = [];
 let cachedExperiment = null;
-let cachedLLMFragments = false; // BUSY LOCK: prevents fragment pileup
+let cachedLLMFragments = false;
 
 function normalizePacket(packet = {}) {
   return {
@@ -551,10 +559,15 @@ async function runFastCycle() {
 // -------------------------
 // MEDIUM LOOP CYCLE (~1200ms)
 // Retrieval, mapped thought, latent history, personality drift
+//
+// CHANGE: retrieve() now receives context { mood, now } so shard_dock
+// can apply mood-opposition suppression using the live cognitive state.
+// dockStats are logged so you can see what the gate is doing each cycle.
 // -------------------------
 async function runMediumCycle() {
   try {
     const thought = lastGhostState?.thought || "";
+    const mood    = lastGhostState?.mood    || "neutral";
 
     const reflectionState = reflection.build({
       latentHistory: compressor.latentHistory || [],
@@ -567,7 +580,21 @@ async function runMediumCycle() {
     });
 
     cachedMappedThought = thoughtMapper.map(reflectionState);
-    cachedRetrievalSnapshot = retrieval.retrieve(thought);
+
+    // Pass live mood + timestamp into retrieve so dock gates have context
+    cachedRetrievalSnapshot = retrieval.retrieve(thought, {
+      mood,
+      now: Date.now(),
+    });
+
+    // Log dock activity so you can see gate behavior in the console
+    const stats = cachedRetrievalSnapshot.dockStats;
+    if (stats) {
+      log(
+        `[DOCK] in=${stats.input} dedup=${stats.afterDedup} not=${stats.afterNot} ` +
+        `pass=${stats.pass} flag=${stats.flag} suppress=${stats.suppress}`
+      );
+    }
 
     if (core && core.retrieveEpisodesNative) {
       const queryEmbedding = embedText(thought);
@@ -580,9 +607,7 @@ async function runMediumCycle() {
 
 // -------------------------
 // SLOW LOOP CYCLE (~6000ms)
-// Dreaming, experiments, shard sync
-// NOTE: LLM tool calls (knowledge.query, thought.generate) are disabled.
-// Re-enable when ready to wire Ghost's internal cognition to Bonsai.
+// Dreaming, experiments, shard sync, LLM fragment generation
 // -------------------------
 async function runSlowCycle() {
   try {
@@ -591,14 +616,12 @@ async function runSlowCycle() {
     log(`[DEBUG] currentShard episodes: ${shards.currentShard?.episodes?.length}, index: ${shards.currentShard?.index}`);
 
     const thought = lastGhostState?.thought || "";
-    const latent = lastGhostState?.latent || [];
-    const mood = lastGhostState?.mood || "neutral";
+    const latent  = lastGhostState?.latent  || [];
+    const mood    = lastGhostState?.mood    || "neutral";
 
     const perceptionSnapshot = { latent, thought, mood };
     cachedExperiment = await experimentEngine.maybeRunExperiment(perceptionSnapshot);
 
-    // LLM thought fragment generation — routes through /internal
-    // Isolated from chat context, Ghost's inner voice only
     const dominantStyle = Object.entries(
       lastGhostState?.personality?.styleBias || {}
     ).sort((a, b) => b[1] - a[1])[0]?.[0] || "poetic";
@@ -611,16 +634,18 @@ async function runSlowCycle() {
           lastGhostState?.metadata?.semanticTheme || "existence",
           {
             style: dominantStyle,
-            mood: lastGhostState?.mood || "neutral",
-            anomaly: lastGhostState?.anomalyFlag || 0
+            mood:    lastGhostState?.mood         || "neutral",
+            anomaly: lastGhostState?.anomalyFlag  || 0,
           }
         );
 
         if (fragmentResult?.fragments) {
           cachedLLMFragments = fragmentResult.fragments;
-          log("[LLM] Thought fragments cached: " +
+          log(
+            "[LLM] Thought fragments cached: " +
             fragmentResult.fragments.starts?.length + " starts, " +
-            fragmentResult.fragments.ends?.length + " ends");
+            fragmentResult.fragments.ends?.length + " ends"
+          );
         }
       } catch (err) {
         logError("[LLM] Fragment generation failed: " + err);
@@ -628,7 +653,6 @@ async function runSlowCycle() {
         llmFragmentBusy = false;
       }
     }
-
   } catch (err) {
     logError("[SLOW] Error: " + err);
   }
@@ -647,21 +671,21 @@ setInterval(() => {
   }
 }, 250);
 
-// Fast loop — 200ms (perception, compression, emotion, behavior, voice, face)
+// Fast loop — 200ms
 setInterval(() => {
   runFastCycle().catch((err) => {
     logError("[FAST] Background tick failed: " + err);
   });
 }, 200);
 
-// Medium loop — 1200ms (retrieval, mapped thought, native episodes)
+// Medium loop — 1200ms
 setInterval(() => {
   runMediumCycle().catch((err) => {
     logError("[MEDIUM] Background tick failed: " + err);
   });
 }, 1200);
 
-// Slow loop — 6000ms (dreaming, experiments, shard sync)
+// Slow loop — 6000ms
 setInterval(() => {
   runSlowCycle().catch((err) => {
     logError("[SLOW] Background tick failed: " + err);
@@ -698,7 +722,6 @@ parentPort.on("message", (msg) => {
         break;
 
       case "chat-input":
-        // Chat message received from operator — available for future cognitive integration
         log(`[CHAT] Operator input received: ${JSON.stringify(msg.payload).slice(0, 80)}`);
         break;
 

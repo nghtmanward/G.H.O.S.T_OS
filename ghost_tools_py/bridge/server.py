@@ -9,6 +9,14 @@ from ..utils.config import SERVER_HOST, SERVER_PORT
 from ..utils.logging_utils import logger
 from ..llm.llm_client import call_llm_chat, get_model
 
+# CHANGES FROM PREVIOUS VERSION:
+#   - _build_shard_context_from_payload now reads docked episodes from
+#     payload["docked_episodes"] when present (set by index.html send path)
+#     and falls back to raw shard loading when not present (legacy path).
+#   - _handle_chat logs dock stats when available.
+#   - shards_used in the /chat response now reflects actual docked episode IDs.
+#   - All other logic unchanged.
+
 SETTINGS_PATH = r"C:\GHOST_OS\settings.json"
 MASTER_PATH   = r"C:\GHOST_OS\memory\master.json"
 
@@ -113,12 +121,21 @@ class GhostToolHandler(BaseHTTPRequestHandler):
 
             messages = [{"role": "system", "content": GHOST_SYSTEM_PROMPT}]
 
-            clean_context = self._build_shard_context_from_payload(payload)
+            # Build shard context — prefers docked episodes from payload
+            clean_context, shards_used = self._build_shard_context_from_payload(payload)
             if clean_context:
                 messages.append({
                     "role": "system",
                     "content": f"Your active memory:\n{clean_context}"
                 })
+
+            # Log dock stats if frontend sent them
+            dock_stats = payload.get("dock_stats")
+            if dock_stats:
+                logger.info(
+                    f"[dock] pass={dock_stats.get('pass')} flag={dock_stats.get('flag')} "
+                    f"suppress={dock_stats.get('suppress')} input={dock_stats.get('input')}"
+                )
 
             for turn in history[-20:]:
                 role = turn.get("role", "user")
@@ -129,7 +146,8 @@ class GhostToolHandler(BaseHTTPRequestHandler):
             messages.append({"role": "user", "content": user_message})
 
             chat_model = get_model("chat")
-            logger.info(f"[chat] Sending to {chat_model}: {len(messages)} messages")
+            logger.info(f"[chat] Sending to {chat_model}: {len(messages)} messages, "
+                        f"{len(shards_used)} docked shards in context")
 
             reply = call_llm_chat(messages, timeout=120)
 
@@ -142,9 +160,9 @@ class GhostToolHandler(BaseHTTPRequestHandler):
 
             self._set_headers(200)
             self.wfile.write(json.dumps({
-                "response": reply,
-                "model": chat_model,
-                "shards_used": []
+                "response":    reply,
+                "model":       chat_model,
+                "shards_used": shards_used,
             }).encode("utf-8"))
 
         except Exception as e:
@@ -167,17 +185,13 @@ class GhostToolHandler(BaseHTTPRequestHandler):
 
     # ----------------------------------------------------------
     # SETTINGS HANDLER
-    # Receives settings JSON from UI, writes to settings.json
-    # and updates master.json with operator profile
     # ----------------------------------------------------------
     def _handle_settings(self, payload):
         try:
-            # Write full settings.json
             with open(SETTINGS_PATH, "w", encoding="utf-8") as f:
                 json.dump(payload, f, indent=2)
             logger.info("[settings] settings.json updated")
 
-            # Update master.json with operator profile
             op    = payload.get("operator", {})
             ghost = payload.get("ghost", {})
             dates = payload.get("dates", [])
@@ -217,7 +231,6 @@ class GhostToolHandler(BaseHTTPRequestHandler):
 
     # ----------------------------------------------------------
     # SHUTDOWN LLM HANDLER
-    # Stops all loaded Ollama models to free VRAM
     # ----------------------------------------------------------
     def _handle_shutdown_llm(self):
         try:
@@ -262,50 +275,85 @@ class GhostToolHandler(BaseHTTPRequestHandler):
 
     # ----------------------------------------------------------
     # SHARD CONTEXT BUILDER
+    #
+    # Priority:
+    #   1. payload["docked_episodes"] — pre-filtered by shard_dock in the
+    #      frontend (index.html sendMessage path); these are already pass-only,
+    #      weight-sorted, and capped at 5. Use them directly.
+    #   2. payload["shards"] — raw shard objects sent by older/fallback path.
+    #   3. Disk load — fallback when neither is present.
+    #
+    # Returns: (context_string, shards_used_ids)
     # ----------------------------------------------------------
     def _build_shard_context_from_payload(self, payload):
         master_context = self._load_master_shard()
-
-        raw_shards = payload.get("shards", [])
-        if not raw_shards:
-            raw_shards = self._load_shards()
-
-        seen = set()
         clean = []
+        shards_used = []
 
-        for shard in raw_shards:
-            episodes = shard.get("episodes", []) if isinstance(shard, dict) else []
-            for ep in episodes:
-                if ep.get("schema") == "legacy-episodic":
-                    continue
-                if ep.get("type") == "legacy":
-                    continue
-
+        # ── Path 1: docked episodes (preferred) ──────────────────────────────
+        docked_episodes = payload.get("docked_episodes", [])
+        if docked_episodes:
+            seen = set()
+            for ep in docked_episodes:
                 text = ep.get("text", "").strip()
-                if not text or text.startswith("mnist_digit"):
+                if not text or text in seen:
                     continue
-
-                if text in seen:
+                if text.startswith("mnist_digit"):
                     continue
                 seen.add(text)
 
                 mood    = ep.get("mood", "neutral")
                 anomaly = round(ep.get("anomaly", 0), 3)
                 style   = ep.get("dominantStyle", "poetic")
+                weight  = round(ep.get("weight", 1.0), 3)
+                ep_id   = ep.get("id", "")
 
-                clean.append(f"[{style}|{mood}|anomaly:{anomaly}] {text}")
+                clean.append(f"[{style}|{mood}|w:{weight}|anom:{anomaly}] {text}")
+                if ep_id:
+                    shards_used.append(ep_id)
 
                 if len(clean) >= 5:
                     break
 
-            if len(clean) >= 5:
-                break
+        # ── Path 2 / 3: raw shards (legacy fallback) ─────────────────────────
+        else:
+            raw_shards = payload.get("shards", [])
+            if not raw_shards:
+                raw_shards = self._load_shards()
 
-        episodic_context = '\n'.join(clean) if clean else ''
+            seen = set()
+            for shard in raw_shards:
+                episodes = shard.get("episodes", []) if isinstance(shard, dict) else []
+                for ep in episodes:
+                    if ep.get("schema") == "legacy-episodic":
+                        continue
+                    if ep.get("type") == "legacy":
+                        continue
+
+                    text = ep.get("text", "").strip()
+                    if not text or text.startswith("mnist_digit"):
+                        continue
+                    if text in seen:
+                        continue
+                    seen.add(text)
+
+                    mood    = ep.get("mood", "neutral")
+                    anomaly = round(ep.get("anomaly", 0), 3)
+                    style   = ep.get("dominantStyle", "poetic")
+
+                    clean.append(f"[{style}|{mood}|anomaly:{anomaly}] {text}")
+
+                    if len(clean) >= 5:
+                        break
+
+                if len(clean) >= 5:
+                    break
+
+        episodic_context = "\n".join(clean) if clean else ""
 
         if master_context and episodic_context:
-            return master_context + '\n' + episodic_context
-        return master_context or episodic_context
+            return master_context + "\n" + episodic_context, shards_used
+        return master_context or episodic_context, shards_used
 
     # ----------------------------------------------------------
     # MASTER SHARD LOADER
@@ -313,8 +361,8 @@ class GhostToolHandler(BaseHTTPRequestHandler):
     def _load_master_shard(self):
         try:
             if not os.path.exists(MASTER_PATH):
-                return ''
-            with open(MASTER_PATH, 'r', encoding='utf-8-sig') as f:
+                return ""
+            with open(MASTER_PATH, "r", encoding="utf-8-sig") as f:
                 data = json.load(f)
 
             op    = data.get("operator", {})
@@ -334,14 +382,14 @@ class GhostToolHandler(BaseHTTPRequestHandler):
                 for d in dates:
                     lines.append(f"  {d.get('name')} — {d.get('date')} ({d.get('type')})")
 
-            result = '\n'.join(lines) if lines else ''
+            result = "\n".join(lines) if lines else ""
             if result:
                 logger.info(f"[master] Loaded master shard for operator: {op.get('name', 'unknown')}")
             return result
 
         except Exception as e:
             logger.warning(f"[master] Could not load master shard: {e}")
-            return ''
+            return ""
 
     # ----------------------------------------------------------
     # SHARD LOADER

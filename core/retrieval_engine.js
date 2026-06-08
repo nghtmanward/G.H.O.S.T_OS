@@ -1,8 +1,15 @@
 // /core/retrieval_engine.js
+//
+// CHANGES FROM PREVIOUS VERSION:
+//   - retrieve() now accepts a context object { mood, now } and passes it to dock()
+//   - retrieve() pulls topK=10 candidates then runs shard_dock before returning
+//   - Return shape updated: episodic = docked.pass (safe for LLM), plus flag/suppress/dockStats
+//   - All other methods (findByMood, findByMeaning, etc.) unchanged
 
 const fs = require("fs");
 const path = require("path");
 const { SemanticEngine } = require("./semantic_engine");
+const { dock } = require("./shard_dock");
 const mainMemory = require("./main_memory");
 
 // Try loading native C++ engine
@@ -21,7 +28,7 @@ class RetrievalEngine {
 
     this.shards = [];
     this._episodicEpisodes = [];
-    this._episodicItems = []; // [{ id, embedding }]
+    this._episodicItems = [];
     this.refresh();
   }
 
@@ -125,12 +132,11 @@ class RetrievalEngine {
 
   findByMeaning(query, topK = 5) {
     this.refresh();
-    const episodes = this._episodicEpisodes;
-    return this.semantic.findSimilarEpisodes(query, episodes, topK);
+    return this.semantic.findSimilarEpisodes(query, this._episodicEpisodes, topK);
   }
 
   // -------------------------------
-  // EPISODIC SEMANTIC SEARCH (NATIVE, OPTIMIZED)
+  // EPISODIC SEMANTIC SEARCH (NATIVE)
   // -------------------------------
   findByMeaningNative(query, topK = 5) {
     if (!native) return this.findByMeaning(query, topK);
@@ -138,7 +144,6 @@ class RetrievalEngine {
     this.refresh();
 
     if (!this._episodicItems.length) {
-      // No episodes or no embeddings; fall back
       return this.findByMeaning(query, topK);
     }
 
@@ -159,7 +164,7 @@ class RetrievalEngine {
   }
 
   // -------------------------------
-  // SHARD SEMANTIC SEARCH (NATIVE, OPTIMIZED)
+  // SHARD SEMANTIC SEARCH (NATIVE)
   // -------------------------------
   findSimilarSemanticShardsNative(query, topK = 5) {
     if (!native) return this.findSimilarSemanticShards(query, topK);
@@ -169,7 +174,6 @@ class RetrievalEngine {
       return this.findSimilarSemanticShards(query, topK);
     }
 
-    // Build items on demand (mainMemory can change independently)
     const items = encodedShards.map((shard, idx) => ({
       id: idx,
       embedding: this.semantic.embed(shard.originalText || ""),
@@ -198,17 +202,43 @@ class RetrievalEngine {
 
   // -------------------------------
   // UNIFIED SEMANTIC RETRIEVAL
+  // Now runs shard_dock on episodic results before returning.
+  //
+  // context: { mood?: string, now?: number }
+  //   mood — current session mood from cog_worker (behaviorOut.mood)
+  //   now  — current timestamp; defaults to Date.now() inside dock
+  //
+  // Returns:
+  //   episodic      — docked PASS episodes only (safe for LLM, max 5)
+  //   episodicFlag  — contradicted episodes (feed to scoring loop)
+  //   episodicSuppress — removed episodes (log only)
+  //   dockStats     — counts from dedup/NOT/XOR passes
+  //   episodicNative, shards, shardsNative, tertiary, themes — unchanged
   // -------------------------------
-  retrieve(query) {
+  retrieve(query, context = {}) {
     this.refresh();
 
+    // Pull wider candidate set so dock has material to filter
+    const rawEpisodic = this.findByMeaning(query, 10).map(r => r.item || r);
+
+    // Run dock gate scaffold
+    const docked = dock(rawEpisodic, {
+      mood: context.mood || "neutral",
+      now:  context.now  || Date.now(),
+    });
+
     return {
-      episodic: this.findByMeaning(query, 5),
-      episodicNative: this.findByMeaningNative(query, 5),
-      shards: this.findSimilarSemanticShards(query, 5),
-      shardsNative: this.findSimilarSemanticShardsNative(query, 5),
-      tertiary: this.findSimilarTertiary(query, 5),
-      themes: this.findSimilarThemes(query, 5),
+      episodic:         docked.pass,       // LLM-safe, weight-sorted, capped at 5
+      episodicFlag:     docked.flag,       // contradicted — feed scoring loop
+      episodicSuppress: docked.suppress,   // removed — log only
+      dockStats:        docked.stats,
+
+      // These paths unchanged — dock only runs on episodic for now
+      episodicNative:  this.findByMeaningNative(query, 5),
+      shards:          this.findSimilarSemanticShards(query, 5),
+      shardsNative:    this.findSimilarSemanticShardsNative(query, 5),
+      tertiary:        this.findSimilarTertiary(query, 5),
+      themes:          this.findSimilarThemes(query, 5),
     };
   }
 }

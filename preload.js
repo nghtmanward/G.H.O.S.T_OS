@@ -28,5 +28,5 @@ contextBridge.exposeInMainWorld("ghost", {
   // Request the current cognitive-loop snapshot
   requestGhostUpdate: () => {
     return ipcRenderer.invoke("ghost-input");
-  }
+  },
 });

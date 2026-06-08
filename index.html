@@ -919,13 +919,22 @@
       </div>
     </div>
 
+    <script src="core/shard_dock.js"></script>
     <script src="renderer.js"></script>
     <script>
+      // ── Shard dock (Electron renderer — Node integration enabled) ──────────
+      
+
       const BRIDGE = 'http://localhost:8765';
       let chatBusy = false;
       let shards = [];
       let history = [];
       let importantDates = [];
+
+      // Live cognitive mood from renderer.js state handler
+      // renderer.js should set this via: window.lastGhostMood = state.mood
+      // Falls back to 'neutral' when not yet wired
+      let lastGhostMood = 'neutral';
 
       // Elements
       const messages   = document.getElementById('chat-messages');
@@ -973,10 +982,17 @@
 
       sendBtn.addEventListener('click', sendMessage);
 
+      // ── sendMessage — dock-aware ────────────────────────────────────────────
+      // Changes from previous version:
+      //   1. Flatten all episodes from loaded shards
+      //   2. Run dock() with live session mood — dedup → NOT → XOR/XNOR
+      //   3. Send docked_episodes (pass-only) and dock_stats to server.py
+      //   4. Shard badge updated to show "X docked / Y total"
       async function sendMessage() {
         const text = input.value.trim();
         if (!text || chatBusy) return;
         if (welcome) welcome.style.display = 'none';
+
         appendMsg('user', text);
         input.value = '';
         input.style.height = 'auto';
@@ -985,13 +1001,36 @@
         sendBtn.disabled = true;
         setConnecting();
         const thinkEl = appendThinking();
+
         try {
+          // Flatten all episodes from currently loaded shards
+          const allEpisodes = shards.flatMap(s =>
+            Array.isArray(s.episodes) ? s.episodes : []
+          );
+
+          // Run shard dock — returns { pass, flag, suppress, stats }
+          const docked = window.shardDock.dock(allEpisodes, {
+            mood: lastGhostMood || 'neutral',
+            now:  Date.now(),
+          });
+
+          // Update badge: show docked count vs total
+          shardBadge.textContent = `${docked.pass.length} docked / ${allEpisodes.length} total`;
+
           const res = await fetch(`${BRIDGE}/chat`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ message: text, history: history.slice(-20), shards: shards.slice(0, 3), shard_context: '' }),
+            body: JSON.stringify({
+              message:         text,
+              history:         history.slice(-20),
+              docked_episodes: docked.pass,      // server.py Path 1 — pre-filtered
+              dock_stats:      docked.stats,     // logged by server.py
+              shards:          shards.slice(0, 3), // legacy fallback kept
+              shard_context:   '',
+            }),
             mode: 'cors'
           });
+
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
           const data = await res.json();
           const reply = data.response || data.message || data.text || 'No response.';
@@ -999,12 +1038,14 @@
           appendMsg('ghost', reply);
           history.push({ role: 'assistant', content: reply });
           setOnline();
+
         } catch (err) {
           thinkEl.remove();
           appendMsg('ghost', `Bridge unreachable: ${err.message}`);
           setOffline();
           errBanner.classList.add('show');
         }
+
         chatBusy = false;
         sendBtn.disabled = false;
       }
@@ -1168,9 +1209,9 @@
             default:   'llama3-gpu:latest'
           }
         },
-  ui: { font_size: 15, accent_color: '#00f5d4', bg_color: '#0a0a0c' },
-  dates: []
-};
+        ui: { font_size: 15, accent_color: '#00f5d4', bg_color: '#0a0a0c' },
+        dates: []
+      };
 
       function loadSettingsIntoForm() {
         const s = JSON.parse(localStorage.getItem('ghostra-settings') || 'null') || DEFAULTS;
@@ -1180,17 +1221,16 @@
         document.getElementById('s-ghost-purpose').value  = s.ghost?.purpose || '';
         document.getElementById('s-ghost-phase').value    = s.ghost?.phase || 'rapport';
         document.getElementById('s-bridge-url').value     = s.llm?.bridge_url || '';
-        document.getElementById('s-bridge-url').value      = s.llm?.bridge_url || '';
-        document.getElementById('s-chat-tokens').value     = s.llm?.chat_tokens || 1024;
-        document.getElementById('s-frag-tokens').value     = s.llm?.frag_tokens || 256;
-        document.getElementById('s-model-chat').value      = s.llm?.models?.chat || '';
-        document.getElementById('s-model-fragment').value  = s.llm?.models?.fragment || '';
-        document.getElementById('s-model-reasoning').value = s.llm?.models?.reasoning || '';
-        document.getElementById('s-model-code').value      = s.llm?.models?.code || '';
-        document.getElementById('s-model-math').value      = s.llm?.models?.math || '';
-        document.getElementById('s-model-memory').value    = s.llm?.models?.memory || '';
-        document.getElementById('s-model-safety').value    = s.llm?.models?.safety || '';
-        document.getElementById('s-model-default').value   = s.llm?.models?.default || '';
+        document.getElementById('s-chat-tokens').value    = s.llm?.chat_tokens || 1024;
+        document.getElementById('s-frag-tokens').value    = s.llm?.frag_tokens || 256;
+        document.getElementById('s-model-chat').value     = s.llm?.models?.chat || '';
+        document.getElementById('s-model-fragment').value = s.llm?.models?.fragment || '';
+        document.getElementById('s-model-reasoning').value= s.llm?.models?.reasoning || '';
+        document.getElementById('s-model-code').value     = s.llm?.models?.code || '';
+        document.getElementById('s-model-math').value     = s.llm?.models?.math || '';
+        document.getElementById('s-model-memory').value   = s.llm?.models?.memory || '';
+        document.getElementById('s-model-safety').value   = s.llm?.models?.safety || '';
+        document.getElementById('s-model-default').value  = s.llm?.models?.default || '';
         document.getElementById('s-font-size').value      = s.ui?.font_size || 15;
         fontVal.textContent = (s.ui?.font_size || 15) + 'px';
         document.getElementById('s-accent-color').value   = s.ui?.accent_color || '#00f5d4';
@@ -1213,9 +1253,9 @@
             phase:   document.getElementById('s-ghost-phase').value
           },
           llm: {
-            bridge_url:    document.getElementById('s-bridge-url').value.trim(),
-            chat_tokens:   parseInt(document.getElementById('s-chat-tokens').value) || 1024,
-            frag_tokens:   parseInt(document.getElementById('s-frag-tokens').value) || 256,
+            bridge_url:  document.getElementById('s-bridge-url').value.trim(),
+            chat_tokens: parseInt(document.getElementById('s-chat-tokens').value) || 1024,
+            frag_tokens: parseInt(document.getElementById('s-frag-tokens').value) || 256,
             models: {
               chat:      document.getElementById('s-model-chat').value.trim()      || 'llama3-gpu:latest',
               fragment:  document.getElementById('s-model-fragment').value.trim()  || 'llama3-gpu:latest',
@@ -1227,7 +1267,6 @@
               default:   document.getElementById('s-model-default').value.trim()   || 'llama3-gpu:latest'
             }
           },
-
           ui: {
             font_size:    parseInt(document.getElementById('s-font-size').value),
             accent_color: document.getElementById('s-accent-hex').value,
@@ -1237,12 +1276,9 @@
         };
 
         localStorage.setItem('ghostra-settings', JSON.stringify(settings));
-
-        // Apply UI settings live
         document.documentElement.style.setProperty('--chat-font-size', settings.ui.font_size + 'px');
         document.documentElement.style.setProperty('--ghost', settings.ui.accent_color);
 
-        // Save to master.json via bridge
         fetch(`${BRIDGE}/settings`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },

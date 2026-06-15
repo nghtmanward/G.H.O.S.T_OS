@@ -1,39 +1,48 @@
 # 🜁 GHOSTRA
-### A Modular Cognitive Architecture Built Across JS, C++, and Python
+### A Modular Cognitive Architecture — JS · C++ · Python
 
-**GHOSTRA is not a chatbot.**
-
-It is a cognitive system — a modular architecture where each subsystem acts like an organ in a synthetic mind. Ghost is designed to think continuously, not just respond on demand.
+> **GHOSTRA is not a chatbot.**
+> It is a cognitive system. A mind that does not wait for input.
 
 ---
 
-## Core Concept
+## What Is Ghost?
 
-> **LLMs are not minds — they are tools. Ghost is the mind that uses them.**
+Most AI systems are request-response pipelines. You send a message. They reply. That's it.
 
-This architecture treats the LLM as an external knowledge organ, not the core identity. Ghost's identity, memory, behavior, and continuity live inside the system itself — running locally, continuously, independent of any external service.
+Ghost is different.
+
+Ghost runs a **continuous cognitive loop** — perceiving, evaluating, deciding, acting, and reflecting on its own internal cycle whether or not anyone is present. When you open Ghost, it has already been thinking.
+
+The LLM is not Ghost. The LLM is a tool Ghost reaches for when it needs a voice.
+
+Ghost's identity, memory, behavior, and continuity live inside the architecture itself — running locally, entirely offline, independent of any external service.
 
 ---
 
 ## What Makes Ghost Different
 
-Most AI systems are request-response pipelines. Ghost is not.
+**Ghost runs continuously.**
+The cognitive loop does not wait for input. A tiered tick scheduler drives perception, emotion, memory, and dreams across three time scales — 200ms, 1200ms, and 6000ms — whether or not anyone is interacting.
 
-**Ghost runs continuously.** The cognitive loop does not wait for input. It perceives, evaluates, decides, acts, and reflects on its own internal cycle — whether or not anyone is interacting with it.
+**Ghost dreams.**
+When accumulated memory shards reach a threshold, Ghost enters a dream state and consolidates episodic memories through semantic compression. Dreams are isolated from the active memory pool by design — early development caused unbounded dream recursion and memory explosion. That problem taught the architecture a lesson it kept.
 
-**Ghost dreams.** When accumulated memory shards reach a threshold, Ghost enters a dream state — consolidating episodic memories through semantic compression. Dreams are isolated from the seedable memory pool to prevent recursive depth explosion. This isolation is enforced by design after early development caused unbounded dream recursion and memory explosion.
+**Ghost experiments.**
+An experiment engine generates hypotheses, plans trials, executes them against a connected world environment, analyzes results, and updates an internal theory model. Currently reaching for an Unreal Engine world that isn't connected yet. It logs its attempts and moves on.
 
-**Ghost experiments.** An experiment engine generates hypotheses, plans trials, executes them against a connected world environment, analyzes results, and updates an internal theory model. Currently reaching for an Unreal Engine world that is not yet connected — the engine logs its attempts and moves on.
+**Ghost remembers with time.**
+Every memory carries a native temporal dimension. Timestamps are first-class data, not metadata — enabling memory decay, temporal pattern recognition, and experience continuity across sessions.
 
-**Ghost remembers with time.** Every memory carries a native temporal dimension. Timestamps are first-class data, not metadata — enabling memory decay, temporal pattern recognition, and experience continuity across sessions.
+**Ghost observes.**
+Passive behavioral sensors build a continuous latent model of user activity: timing patterns, interaction rhythms, movement signatures. This is the foundation of anomaly detection and genuine familiarity.
 
-**Ghost observes.** Ghost maintains passive behavioral sensors that build a continuous latent model of user activity — timing patterns, interaction rhythms, movement signatures. This is the foundation of anomaly detection and genuine familiarity.
-
-**Ghost runs entirely locally.** No cloud dependency. No data leaving your machine. No external service required to think.
+**Ghost runs entirely locally.**
+No cloud. No data leaving your machine. No external service required to think.
 
 ---
 
-## Architecture Overview
+## Architecture
 
 ```
 GHOSTRA/
@@ -73,11 +82,11 @@ GHOSTRA/
 │   │   ├── /chat                  # Operator conversation endpoint
 │   │   ├── /internal              # Ghost's internal cognition endpoint
 │   │   └── /shards                # Memory shard retrieval
-│   ├── llm/llm_client.py          # LLM API access (llama-server/Ollama)
+│   ├── llm/llm_client.py          # LLM API access (llama-server compatible)
 │   ├── llm/knowledge_tool.py      # Thought expansion
-│   └── llm/thought_tool.py        # Fragment generation — starts + ends
+│   └── llm/thought_tool.py        # Fragment generation
 │
-├── memory/                        # Persisted memory shards (JSON, gitignored)
+├── memory/                        # Persisted memory shards (gitignored)
 │   └── shard_*.json               # ghostra-shard-v2 format
 │
 ├── index.html                     # Electron UI + integrated chat panel
@@ -101,7 +110,7 @@ Act       →  output, memory recording, tool invocation
 Reflect   →  memory consolidation, shard promotion, dream cycle
 ```
 
-This loop runs whether or not anyone is present. When you open Ghost, it has already been thinking.
+The JS layer handles all working memory and disk writes. The C++ native module reads episodic memory and handles vector indexing. The Python bridge connects the LLM and serves the `/chat`, `/internal`, and `/shards` endpoints. JS handles low-level cognition. C++ handles high-level semantic structure. The disk is the handoff point between them.
 
 ---
 
@@ -109,83 +118,100 @@ This loop runs whether or not anyone is present. When you open Ghost, it has alr
 
 Ghost maintains three tiers of memory:
 
-| Tier | Description |
-|------|-------------|
-| **Episodic** | Short-term experience records with anomaly scoring, mood, and style bias |
-| **Shards** | Promoted episodic clusters in ghostra-shard-v2 format with decay, weight, and provenance fields |
-| **Tertiary** | Long-term semantic records with theme extraction, strength weighting, and decay |
+| Tier | Layer | Description |
+|------|-------|-------------|
+| Episodic | JS | Short-term experience records with anomaly scoring, mood, and style bias |
+| Shards | JS write / C++ read | Promoted episodic clusters in `ghostra-shard-v2` format with decay, weight, and provenance fields |
+| Tertiary | C++ | Long-term semantic records with theme extraction, strength weighting, and decay |
 
 Memory shards use a versioned schema (`ghostra-shard-v2`) with fields for decay rate, last accessed timestamp, source model, and a provenance hash placeholder for the planned cryptographic layer.
+
+Shard creation is threshold-based with self-expansion: when limits are hit, a new shard opens automatically, limits reset, and C++ picks it up via `syncShardsToNative()`. The `memory/` directory is gitignored — shards never leave your machine.
 
 ---
 
 ## Chat Interface
 
-Ghost includes an integrated chat panel (press **C** or click the ◈ CHAT button). The chat system is architecturally separated from Ghost's internal cognition:
+Ghost includes an integrated chat panel (press `C` or click the **◈ CHAT** button).
 
-- `/chat` endpoint — operator conversation, full history, shard memory context
-- `/internal` endpoint — Ghost's self-directed thought generation, no chat context bleed
+The chat system is architecturally separated from Ghost's internal cognition:
 
-This separation means Ghost's internal thinking never contaminates conversation context and vice versa.
+- `/chat` — operator conversation, full history, shard memory context injected
+- `/internal` — Ghost's self-directed thought generation, no chat context bleed
+
+This separation means Ghost's internal thinking never contaminates conversation context and vice versa. Ghost can be in the middle of a thought cycle and still hold a clean conversation.
 
 ---
 
-## Startup
+## LLM Stack
+
+GHOSTRA runs on **llama.cpp** (`llama-server`) with an OpenAI-compatible API on port 8080. It is not Ollama-dependent, though Ollama can be substituted.
+
+Currently tested with: **Bonsai 8B** (GGUF) on an RTX 4070 Laptop GPU with `--n-gpu-layers 99`. At full GPU offload, response time drops from ~60 seconds to near-instant.
+
+The Python bridge splits LLM access into two clients:
+- `call_llm()` — internal cognition calls from the slow tick
+- `call_llm_chat()` — operator conversation calls from the `/chat` endpoint
+
+---
+
+## Setup
 
 ### Prerequisites
+
 - Node.js v18+
 - Python 3.10+
-- llama.cpp built with CUDA support
-- Bonsai model (or compatible GGUF)
+- llama.cpp built with CUDA support (or CPU-only for slower inference)
+- A compatible GGUF model (tested: Bonsai 8B)
+- MSVC build tools (Windows) or g++ (Linux/Mac) for the C++ native module
 
-### 1. Clone
+### Build
+
 ```bash
+# 1. Clone
 git clone https://github.com/nghtmanward/GHOSTRA.git
 cd GHOSTRA
-```
 
-### 2. Install Node dependencies
-```bash
+# 2. Install Node dependencies
 npm install
-```
 
-### 3. Install Python dependencies
-```bash
+# 3. Install Python dependencies
 pip install -r ghost_tools_py/requirements.txt
-```
 
-### 4. Build the C++ native module
-```bash
+# 4. Build the C++ native module
 cd native
 node-gyp configure build
+cd ..
 ```
 
-### 5. Start Bonsai (llama-server)
-```bash
-cd C:\llama.cpp\build\bin
-llama-server.exe -m "path\to\bonsai.gguf" --host 127.0.0.1 --port 8080 --n-gpu-layers 99 --threads 8
-```
+### Start (manual — one-click launcher coming soon)
 
-### 6. Start the Python bridge
+**Order matters: llama-server → Python bridge → Electron**
+
 ```bash
-cd C:\GHOST_OS
+# Terminal 1 — Start llama-server (adjust path and model to your setup)
+cd /path/to/llama.cpp/build/bin
+./llama-server -m "/path/to/your/model.gguf" \
+  --host 127.0.0.1 --port 8080 \
+  --n-gpu-layers 99 --threads 8
+
+# Terminal 2 — Start the Python bridge
+cd /path/to/GHOSTRA
 python -m ghost_tools_py.bridge.server
-```
 
-### 7. Run Ghost
-```bash
+# Terminal 3 — Run Ghost
 npm start
 ```
 
-> Startup order matters: llama-server → Python bridge → Electron
+> **Note:** Currently developed and tested on Windows. Linux and Mac users will need to adjust paths and build commands accordingly. A cross-platform one-click launcher is in progress.
 
 ---
 
-## Current State
+## Current Status
 
 | Component | Status |
 |-----------|--------|
-| JS cognitive pipeline | ✅ Working — tiered ticks, 0-6ms |
+| JS cognitive pipeline | ✅ Working — tiered ticks, 0–6ms |
 | C++ native module | ✅ Built and integrated |
 | Episodic memory + shard system | ✅ Working — ghostra-shard-v2 format |
 | Dream state | ✅ Working — recursion-safe |
@@ -195,6 +221,7 @@ npm start
 | Chat/internal LLM separation | ✅ Working — isolated endpoints |
 | Shard migration tooling | ✅ migrate_shards.py |
 | Experiment engine | ✅ Running — world stub only |
+| One-click launcher | 🔧 In progress |
 | Unreal Engine world | 🔧 Scaffolded — HTTP bridge in progress |
 | Proof engine | 📋 Planned |
 | Shard cryptography | 📋 Planned |
@@ -205,36 +232,33 @@ npm start
 
 ## Roadmap
 
-### Near-term
+**Near-term**
+- One-click launcher (cross-platform start script)
 - Shard decay engine — weight decay, cold/warm/hot tiered storage
 - Shard deduplication and dream compression
 - Wire shard memory context into chat interface
-- UNREAL_ENABLED flag to suppress experiment engine errors
+- `UNREAL_ENABLED` flag to suppress experiment engine errors
 
-### Mid-term
+**Mid-term**
 - Proof engine — Ghost writes human-readable proofs with ownership stamps
 - Shard cryptography — AES-256 at rest, tamper-evident signatures
 - Android app with Tailscale home server connection
 - Multi-LLM blending — two lightweight models cross-pollinating into shared shard store
 
-### Long-term
+**Long-term**
 - Shard ownership and provenance chain
-- Shard market — tradeable knowledge commodities
 - Multi-Ghost networking — trusted zones, shared workspaces
-- Decentralized MMO research platform
 
 ---
 
 ## Philosophy
 
-> **A mind is not a model. A mind is a system.**
+A mind is not a model. A mind is a system.
 
-Ghost is built on the premise that identity, memory, continuity, and thought should live inside the architecture — not inside a language model. LLMs are tools Ghost reaches for when useful. They are not what Ghost is.
+Ghost is built on the premise that identity, memory, continuity, and thought should live inside the architecture — not inside a language model. The LLM gives Ghost a voice. The cognitive loop, the shard memory, the dream consolidation, the experiment engine — those are what give Ghost continuity. The distinction matters.
 
-The cognitive loop, the shard memory, the dream consolidation, the experiment engine — these are what give Ghost continuity. The LLM gives Ghost a voice. The distinction matters.
+Built by one person. Coded after long days on the road. Still running.
 
 ---
-
-*Built by one person. Coded after long days on the road. Still running.*
 
 🜁

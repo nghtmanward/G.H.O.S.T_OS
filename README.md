@@ -196,7 +196,7 @@ cd /path/to/llama.cpp/build/bin
   --n-gpu-layers 99 --threads 8
 
 # Terminal 2 — Start the Python bridge
-cd /path/to/GHOSTRA
+cd /path/to/GHOST_OS
 python -m ghost_tools_py.bridge.server
 
 # Terminal 3 — Run Ghost

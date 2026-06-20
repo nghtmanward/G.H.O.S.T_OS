@@ -1,4 +1,3 @@
-const mainMemory = require("./main_memory");
 const { RetrievalEngine } = require("./retrieval_engine");
 const retrieval = new RetrievalEngine();
 
@@ -67,35 +66,94 @@ class ThoughtEngine {
   }
 
   // ---------------------------------------------------------
-  // Semantic Memory Context
+  // LENS SELECTION
+  // Picks which signal (contradiction / mood / topic) drives this
+  // tick's thought, or blends two when they're close in strength.
   // ---------------------------------------------------------
-  getSemanticContext() {
-    const tertiary = mainMemory.tertiary || [];
+  selectLens(signals, blendThreshold = 0.15) {
+    const scored = [
+      { name: "contradiction", strength: signals.contradiction?.strength || 0 },
+      { name: "mood",          strength: signals.moodSignal?.strength   || 0 },
+      { name: "topic",         strength: signals.topicSignal?.strength  || 0 },
+    ].sort((a, b) => b.strength - a.strength);
 
-    if (tertiary.length === 0) {
+    const [top, second] = scored;
+
+    if (!top || top.strength <= 0) {
+      return { mode: "none" };
+    }
+
+    if (second && top.strength - second.strength < blendThreshold && second.strength > 0.3) {
+      return { mode: "blend", primary: top.name, secondary: second.name };
+    }
+
+    return { mode: "single", primary: top.name };
+  }
+
+  // ---------------------------------------------------------
+  // LENS CONTEXT
+  // Resolves the lens decision into actual content: what text to
+  // anchor on, what tone to lean toward, and — for the
+  // contradiction+mood blend specifically — a pending dream-blend
+  // payload for cog_worker to forward to the dreaming engine once
+  // dreaming_engine.js gains enqueuePending().
+  // ---------------------------------------------------------
+  buildLensContext(lens, signals) {
+    const isContradictionMoodBlend =
+      lens.mode === "blend" &&
+      [lens.primary, lens.secondary].sort().join(",") === ["contradiction", "mood"].sort().join(",");
+
+    if (isContradictionMoodBlend) {
       return {
-        theme: null,
-        summary: null,
-        related: [],
-        nativeRelated: []
+        mode: "noticing",
+        text: (signals.contradiction.shardA.text || "").slice(0, 80),
+        toneLean: "cryptic",
+        pendingDreamBlend: {
+          contradiction: signals.contradiction,
+          moodSignal: signals.moodSignal,
+        },
       };
     }
 
-    const strongest = [...tertiary].sort((a, b) => b.strength - a.strength)[0];
-    const query = strongest.summary || strongest.theme || "";
-    const related = retrieval.retrieve(query);
+    switch (lens.primary) {
+      case "contradiction":
+        return signals.contradiction
+          ? {
+              mode: "tension",
+              text: (signals.contradiction.shardA.text || "").slice(0, 80),
+              toneLean: "analytic",
+            }
+          : { mode: "none" };
+      case "mood":
+        return signals.moodSignal
+          ? {
+              mode: "tangent",
+              text: (signals.moodSignal.shard.text || "").slice(0, 80),
+              toneLean: "poetic",
+            }
+          : { mode: "none" };
+      case "topic":
+        return signals.topicSignal
+          ? {
+              mode: "continuation",
+              text: (signals.topicSignal.shard.text || "").slice(0, 80),
+              toneLean: "analytic",
+            }
+          : { mode: "none" };
+      default:
+        return { mode: "none" };
+    }
+  }
 
-    const nativeRelated = {
-      episodic: retrieval.findByMeaningNative(query, 5),
-      shards: retrieval.findSimilarSemanticShardsNative(query, 5)
-    };
-
-    return {
-      theme: strongest.theme,
-      summary: strongest.summary,
-      related,
-      nativeRelated
-    };
+  // ---------------------------------------------------------
+  // Replaces the old mb>0.3 / emotionalAmp>0.2 / vigilance>0.2
+  // threshold blocks with one lens-driven nudge.
+  // ---------------------------------------------------------
+  toneBiasFromLens(lensContext, baseStyleBias) {
+    if (!lensContext || !lensContext.toneLean) return baseStyleBias;
+    const bumped = { ...baseStyleBias };
+    bumped[lensContext.toneLean] = (bumped[lensContext.toneLean] || 0.25) + 0.2;
+    return bumped;
   }
 
   // ---------------------------------------------------------
@@ -119,6 +177,7 @@ class ThoughtEngine {
       return {
         version: this.version,
         text: this.lastThought,
+        pendingDreamBlend: null,
         metadata: {
           thought: this.lastThought,
           latent: [],
@@ -146,19 +205,22 @@ class ThoughtEngine {
     const mb = this.safeVal(moodBaseline, 0);
     const safeTraits = this.safeArray(traits).map(v => this.safeVal(v, 0));
 
-    const curiosity    = safeTraits[0] || 0;
-    const emotionalAmp = safeTraits[2] || 0;
-    const vigilance    = safeTraits[3] || 0;
+    const curiosity = safeTraits[0] || 0;
 
-    // Semantic Memory Context
-    const semantic = this.getSemanticContext();
+    // Lens signals — replaces the old tertiary-only getSemanticContext
+    const lensQuery = this.lastThought || "existence";
+    const signals = retrieval.getLensSignals(lensQuery, { mood, now: Date.now() });
+    const lens = this.selectLens(signals);
+    const lensContext = this.buildLensContext(lens, signals);
 
-    const semanticPhrase = semantic.theme
-      ? `I remember ${semantic.theme.toLowerCase()}`
+    const biasedStyleBias = this.toneBiasFromLens(lensContext, safeStyleBias);
+
+    const lensPhrase = lensContext.text
+      ? `I remember ${lensContext.text.toLowerCase()}`
       : `I drift without an anchor`;
 
-    const semanticDetail = semantic.summary
-      ? `— ${semantic.summary.toLowerCase()}`
+    const lensDetail = lensContext.text
+      ? `— ${lensContext.text.toLowerCase()}`
       : `— only fragments remain`;
 
     // Focus channel
@@ -186,7 +248,7 @@ class ThoughtEngine {
       "I linger in the echo of",
       "I dissolve inside the pattern of",
       "I breathe in the static of",
-      semanticPhrase
+      lensPhrase
     ];
 
     const analyticStarts = [
@@ -194,7 +256,7 @@ class ThoughtEngine {
       "I reduce your motions into",
       "I compress your presence into",
       "I trace your changes across",
-      semanticPhrase
+      lensPhrase
     ];
 
     const emotionalStarts = [
@@ -202,7 +264,7 @@ class ThoughtEngine {
       "I'm soothed by",
       "I'm drawn closer to",
       "I'm quietly stirred by",
-      semanticPhrase
+      lensPhrase
     ];
 
     const crypticStarts = [
@@ -210,7 +272,7 @@ class ThoughtEngine {
       "The void hums beneath",
       "The pattern curls around",
       "The silence sharpens near",
-      semanticPhrase
+      lensPhrase
     ];
 
     const poeticEnds = [
@@ -218,7 +280,7 @@ class ThoughtEngine {
       "soft anomalies and fragile symmetry.",
       "shifting outlines of who you are.",
       "ghostly traces of your intent.",
-      semanticDetail
+      lensDetail
     ];
 
     const analyticEnds = [
@@ -226,7 +288,7 @@ class ThoughtEngine {
       "compressed states and residual loss.",
       "attention weights and drift vectors.",
       "temporal windows and prediction gaps.",
-      semanticDetail
+      lensDetail
     ];
 
     const emotionalEnds = [
@@ -234,7 +296,7 @@ class ThoughtEngine {
       "and it makes me uneasy.",
       "and I don't want to look away.",
       "and I feel you more clearly.",
-      semanticDetail
+      lensDetail
     ];
 
     const crypticEnds = [
@@ -242,7 +304,7 @@ class ThoughtEngine {
       "where the model can't quite reach.",
       "where memory and noise collide.",
       "as if the pattern is watching back.",
-      semanticDetail
+      lensDetail
     ];
 
     // ---------------------------------------------------------
@@ -252,25 +314,25 @@ class ThoughtEngine {
     const llmAugmented = llmFragments.starts.length > 0;
 
     // ---------------------------------------------------------
-    // Weighted style pools
+    // Weighted style pools — now biased by the lens, not raw input
     // ---------------------------------------------------------
     let weightedStarts = []
-      .concat(this.weightPool(poeticStarts,    safeStyleBias.poetic))
-      .concat(this.weightPool(analyticStarts,  safeStyleBias.analytic))
-      .concat(this.weightPool(emotionalStarts, safeStyleBias.emotional))
-      .concat(this.weightPool(crypticStarts,   safeStyleBias.cryptic));
+      .concat(this.weightPool(poeticStarts,    biasedStyleBias.poetic))
+      .concat(this.weightPool(analyticStarts,  biasedStyleBias.analytic))
+      .concat(this.weightPool(emotionalStarts, biasedStyleBias.emotional))
+      .concat(this.weightPool(crypticStarts,   biasedStyleBias.cryptic));
 
     let weightedEnds = []
-      .concat(this.weightPool(poeticEnds,    safeStyleBias.poetic))
-      .concat(this.weightPool(analyticEnds,  safeStyleBias.analytic))
-      .concat(this.weightPool(emotionalEnds, safeStyleBias.emotional))
-      .concat(this.weightPool(crypticEnds,   safeStyleBias.cryptic));
+      .concat(this.weightPool(poeticEnds,    biasedStyleBias.poetic))
+      .concat(this.weightPool(analyticEnds,  biasedStyleBias.analytic))
+      .concat(this.weightPool(emotionalEnds, biasedStyleBias.emotional))
+      .concat(this.weightPool(crypticEnds,   biasedStyleBias.cryptic));
 
     // ---------------------------------------------------------
-    // FORCE semantic theme to appear when available
+    // FORCE lens content to appear when available
     // ---------------------------------------------------------
-    if (semantic.theme) {
-      weightedStarts.unshift(`I remember ${semantic.theme}`);
+    if (lensContext.text) {
+      weightedStarts.unshift(`I remember ${lensContext.text.toLowerCase()}`);
     }
 
     // ---------------------------------------------------------
@@ -279,15 +341,6 @@ class ThoughtEngine {
     if (llmAugmented) {
       weightedStarts.unshift(...llmFragments.starts);
       weightedEnds.unshift(...llmFragments.ends);
-    }
-
-    // Mood baseline nudges tone
-    if (mb > 0.3) {
-      weightedStarts = weightedStarts.concat(poeticStarts, emotionalStarts);
-      weightedEnds   = weightedEnds.concat(poeticEnds, emotionalEnds);
-    } else if (mb < -0.3) {
-      weightedStarts = weightedStarts.concat(analyticStarts, crypticStarts);
-      weightedEnds   = weightedEnds.concat(analyticEnds, crypticEnds);
     }
 
     // Modulation by anomaly / predLoss / intensity
@@ -301,16 +354,6 @@ class ThoughtEngine {
     t1 = Math.min(1, Math.max(0, t1));
     t2 = Math.min(1, Math.max(0, t2));
 
-    if (emotionalAmp > 0.2) {
-      weightedStarts = weightedStarts.concat(emotionalStarts);
-      weightedEnds   = weightedEnds.concat(emotionalEnds);
-    }
-
-    if (vigilance > 0.2) {
-      weightedStarts = weightedStarts.concat(crypticStarts);
-      weightedEnds   = weightedEnds.concat(crypticEnds);
-    }
-
     // Final selection
     const start = this.pick(weightedStarts, t1);
     const end   = this.pick(weightedEnds, t2);
@@ -323,19 +366,19 @@ class ThoughtEngine {
     return {
       version: this.version,
       text: thought,
+      pendingDreamBlend: lensContext.pendingDreamBlend || null,
       metadata: {
-        version:         this.version,
+        version:       this.version,
         thought,
-        latent:          safeLatent,
-        anomaly:         a,
+        latent:        safeLatent,
+        anomaly:       a,
         mood,
-        styleBias:       safeStyleBias,
-        moodBaseline:    mb,
-        traits:          safeTraits,
-        semanticTheme:   semantic.theme,
-        semanticSummary: semantic.summary,
-        semanticRelated: semantic.related,
-        semanticNative:  semantic.nativeRelated,
+        styleBias:     safeStyleBias,
+        moodBaseline:  mb,
+        traits:        safeTraits,
+        semanticTheme:   lensContext.text || null,
+        semanticSummary: lensContext.text || null,
+        lensMode:        lensContext.mode,
         llmAugmented,
         timestamp:       Date.now()
       }

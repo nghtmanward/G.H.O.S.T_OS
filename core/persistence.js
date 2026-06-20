@@ -48,7 +48,7 @@ class Persistence {
     try {
       return JSON.parse(JSON.stringify(obj));
     } catch (e) {
-      console.error("Persistence: Could not sanitize state.", e);
+      console.warn("Persistence: Could not sanitize state.", e);
       return {};
     }
   }
@@ -122,18 +122,21 @@ class Persistence {
   // MIGRATE — handles legacy format and current schema
   // ---------------------------------------------------------
   migrateIfNeeded(parsed) {
+    if (!parsed || typeof parsed !== "object") return null;
+
     // Current schema — state is nested under .state
     if (parsed.schema === this.schema && parsed.state) {
       return parsed.state;
     }
 
-    // Legacy schema — state is the root object
+    // Legacy schema — either a wrapper with .state but no/old schema tag,
+    // or a fully flat legacy object with no wrapper at all
     if (parsed.schema === "legacy-ghost-state" || !parsed.schema) {
+      if (parsed.state && typeof parsed.state === "object") {
+        return parsed.state;
+      }
       console.warn("[Persistence] Migrating legacy memory format.");
-      return {
-        episodic: parsed.episodic || parsed.state?.episodic || [],
-        shards: parsed.shards || parsed.state?.shards || []
-      };
+      return parsed;
     }
 
     // Unknown schema — attempt to extract what we can

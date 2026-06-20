@@ -17,7 +17,11 @@ class DreamingEngine {
     this.DREAM_INTERVAL = 5000;
 
     this.episodeCounter = 0;
-    this.DREAM_EVERY_N = 20;
+    this.DREAM_EVERY_N = 5;
+
+    // Second seed source: contradiction+mood blends queued by
+    // thought_engine when both signals fire on the same tick.
+    this.pendingBlends = [];
   }
 
   sample(array, n) {
@@ -38,6 +42,28 @@ class DreamingEngine {
 
     const strongest = [...tertiary].sort((a, b) => b.strength - a.strength)[0];
     return strongest.theme || strongest.summary || null;
+  }
+
+  // Dream-recursion guard: an unvalidated dream-derived shard isn't
+  // eligible raw material for another dream cycle until it's been
+  // reviewed and validated through waking ticks.
+  isDreamEligible(ep) {
+    if (!ep) return false;
+    if (ep.type !== "dream") return true;
+    return ep.validated === true;
+  }
+
+  // Entry point thought_engine calls when contradiction and mood-
+  // misalignment both fire on the same tick rather than one cleanly
+  // winning. Queued here rather than resolved immediately in waking
+  // thought.
+  enqueuePending(contradiction, moodSignal) {
+    if (!contradiction || !moodSignal) return;
+    this.pendingBlends.push({
+      contradiction,
+      moodSignal,
+      timestamp: Date.now()
+    });
   }
 
   buildDreamEpisode(cluster, theme = null) {
@@ -65,6 +91,7 @@ class DreamingEngine {
       mood,
       style: "dreamlike",
       latentMag: avgLatentMag,
+      validated: false,
       timestamp: Date.now()
     };
   }
@@ -97,8 +124,35 @@ class DreamingEngine {
       this.lastDreamTime = 0;
     }
 
+    const dreams = [];
+    const theme = this.getDreamTheme();
     const episodes = this.retrieval.getAllEpisodes();
-    if (!episodes || episodes.length === 0) return [];
+    console.log(`[DREAM] Cycle attempt — pendingBlends: ${this.pendingBlends.length}, episodes: ${episodes?.length || 0}, theme: ${theme}`);
+
+    // -----------------------------
+    // PENDING BLENDS — second seed source, queued by thought_engine
+    // when contradiction and mood-misalignment both fire on the same
+    // tick. Processed first since they carry an explicit signal
+    // rather than ambient anomaly sampling. Runs alongside, not
+    // instead of, the anomaly-based seeding below.
+    // -----------------------------
+    while (this.pendingBlends.length > 0 && dreams.length < maxDreams) {
+      const { contradiction, moodSignal } = this.pendingBlends.shift();
+      if (!contradiction || !moodSignal) continue;
+
+      const cluster = [contradiction.shardA, contradiction.shardB, moodSignal.shard]
+        .filter(Boolean)
+        .filter(s => this.isDreamEligible(s));
+
+      if (cluster.length < 2) continue; // not enough eligible material to blend
+
+      const dream = this.buildDreamEpisode(cluster, theme);
+      if (dream) dreams.push(dream);
+    }
+
+    if (dreams.length >= maxDreams) return dreams;
+
+    if (!episodes || episodes.length === 0) return dreams;
 
     const sorted = [...episodes].sort(
       (a, b) => (b.anomaly || 0) - (a.anomaly || 0)
@@ -128,9 +182,6 @@ class DreamingEngine {
         return true;
       });
     }
-
-    const theme = this.getDreamTheme();
-    const dreams = [];
 
     for (const seed of seeds) {
       let clusterNative = this.retrieval.findByMeaningNative(

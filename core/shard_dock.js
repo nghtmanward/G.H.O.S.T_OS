@@ -95,6 +95,26 @@ function annotate(episode, dockResult, gateLog) {
   });
 }
 
+// Positive mood-alignment score for shards that survive the NOT gate.
+// moodOpposites only encodes exclusion; this gives a positive signal for
+// ranking survivors by how well they fit the current session mood.
+function computeMoodAlignment(epMood, sessionMood) {
+  if (!sessionMood || sessionMood === "neutral") return 0.5;
+  if (epMood === sessionMood) return 1.0;
+  if (!epMood || epMood === "neutral") return 0.5;
+  return 0.3;
+}
+
+// Dream-recursion guard: an unvalidated dream-derived shard is not eligible
+// to surface anywhere downstream — including in contradiction/mood signals
+// that feed back into a new dream cycle — until it's been reviewed and
+// validated through waking ticks.
+function isDreamEligible(ep) {
+  if (!ep) return false;
+  if (ep.type !== "dream") return true;
+  return ep.validated === true;
+}
+
 // ─── DEDUP PASS ──────────────────────────────────────────────────────────────
 
 function dedupPass(episodes) {
@@ -144,6 +164,14 @@ function notGate(episodes, context = {}) {
   for (const ep of episodes) {
     const log = [];
 
+    // Rule 0: unvalidated dream-derived shard — not eligible to surface in
+    // retrieval signals (including dream re-seeding) until reviewed
+    if (!isDreamEligible(ep)) {
+      log.push("NOT: unvalidated dream-derived shard");
+      suppressed.push(annotate(ep, "suppress", log));
+      continue;
+    }
+
     // Rule 1: stale shard (lastAccessed too old)
     const age = now - (ep.lastAccessed || ep.timestamp || 0);
     if (age > CONFIG.stalenessThresholdMs) {
@@ -168,6 +196,10 @@ function notGate(episodes, context = {}) {
       continue;
     }
 
+    // Positive mood-alignment score for survivors, used by retrieval_engine
+    // to pick the strongest mood-aligned shard for thought_engine's lens.
+    ep.moodAlignment = computeMoodAlignment(epMood, sessionMood);
+
     passed.push(ep);
   }
 
@@ -180,6 +212,10 @@ function xorGate(episodes) {
   const pool = episodes.map((ep) =>
     Object.assign({}, ep, { _gateLog: ep._gateLog ? [...ep._gateLog] : [] })
   );
+
+  // Structured contradiction pairs, separate from the human-readable
+  // _gateLog narration, so callers can rank/query them programmatically.
+  const contradictions = [];
 
   for (let i = 0; i < pool.length; i++) {
     for (let j = i + 1; j < pool.length; j++) {
@@ -217,6 +253,14 @@ function xorGate(episodes) {
         loser.dockResult  = "flag";
         winner.dockResult = winner.dockResult || "pass";
 
+        contradictions.push({
+          shardA: winner,
+          shardB: loser,
+          overlap,
+          aNet,
+          bNet,
+        });
+
       } else if (aNet !== 0 && aNet === bNet) {
         a.weight = (a.weight || 1) + CONFIG.xnorWeightBoost;
         b.weight = (b.weight || 1) + CONFIG.xnorWeightBoost;
@@ -231,22 +275,22 @@ function xorGate(episodes) {
     if (!ep.dockResult) ep.dockResult = "pass";
   }
 
-  return pool;
+  return { pool, contradictions };
 }
 
 // ─── PUBLIC API ──────────────────────────────────────────────────────────────
 
 function dock(episodes, context = {}) {
   if (!Array.isArray(episodes) || episodes.length === 0) {
-    return { pass: [], flag: [], suppress: [], stats: { input: 0 } };
+    return { pass: [], flag: [], suppress: [], contradictions: [], stats: { input: 0 } };
   }
 
   const { survivors: deduped, suppressed: dedupSuppressed } = dedupPass(episodes);
   const { passed: notPassed, suppressed: notSuppressed } = notGate(deduped, context);
-  const gated = xorGate(notPassed);
+  const { pool: gatedPool, contradictions } = xorGate(notPassed);
 
-  const pass    = gated.filter((ep) => ep.dockResult === "pass");
-  const flagged = gated.filter((ep) => ep.dockResult === "flag");
+  const pass    = gatedPool.filter((ep) => ep.dockResult === "pass");
+  const flagged = gatedPool.filter((ep) => ep.dockResult === "flag");
 
   pass.sort((a, b) => (b.weight || 1) - (a.weight || 1));
   const finalPass = pass.slice(0, CONFIG.maxPassShards);
@@ -274,6 +318,7 @@ function dock(episodes, context = {}) {
     pass:     finalPass,
     flag:     allFlagged,
     suppress: allSuppressed,
+    contradictions,
     stats,
   };
 }

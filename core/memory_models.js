@@ -16,7 +16,9 @@ class EpisodicShard {
         tags = [],
         embedding = null,
         consolidated = false,
-        consolidated_at = null
+        consolidated_at = null,
+        type = "episodic",
+        validated = true
     } = {}) {
         this.id = id;
         this.timestamp = timestamp;
@@ -28,6 +30,8 @@ class EpisodicShard {
         this.embedding = embedding;
         this.consolidated = consolidated;
         this.consolidated_at = consolidated_at;
+        this.type = type;
+        this.validated = validated;
     }
 }
 

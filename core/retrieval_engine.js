@@ -5,6 +5,11 @@
 //   - retrieve() pulls topK=10 candidates then runs shard_dock before returning
 //   - Return shape updated: episodic = docked.pass (safe for LLM), plus flag/suppress/dockStats
 //   - All other methods (findByMood, findByMeaning, etc.) unchanged
+//   - retrieve() now preserves each candidate's topic-similarity score as
+//     _topicScore instead of discarding it, and passes through dock()'s
+//     new contradictions array as episodicContradictions
+//   - new method getLensSignals(query, context) resolves the four signals
+//     thought_engine needs for lens selection
 
 const fs = require("fs");
 const path = require("path");
@@ -212,14 +217,20 @@ class RetrievalEngine {
   //   episodic      — docked PASS episodes only (safe for LLM, max 5)
   //   episodicFlag  — contradicted episodes (feed to scoring loop)
   //   episodicSuppress — removed episodes (log only)
+  //   episodicContradictions — structured contradiction pairs from xorGate
   //   dockStats     — counts from dedup/NOT/XOR passes
   //   episodicNative, shards, shardsNative, tertiary, themes — unchanged
   // -------------------------------
   retrieve(query, context = {}) {
     this.refresh();
 
-    // Pull wider candidate set so dock has material to filter
-    const rawEpisodic = this.findByMeaning(query, 10).map(r => r.item || r);
+    // Pull wider candidate set so dock has material to filter.
+    // Preserve each candidate's topic-similarity score as _topicScore
+    // instead of discarding it, so lens selection can rank by topic match.
+    const rawEpisodic = this.findByMeaning(query, 10).map((r) => ({
+      ...(r.item || r),
+      _topicScore: r.score,
+    }));
 
     // Run dock gate scaffold
     const docked = dock(rawEpisodic, {
@@ -228,10 +239,11 @@ class RetrievalEngine {
     });
 
     return {
-      episodic:         docked.pass,       // LLM-safe, weight-sorted, capped at 5
-      episodicFlag:     docked.flag,       // contradicted — feed scoring loop
-      episodicSuppress: docked.suppress,   // removed — log only
-      dockStats:        docked.stats,
+      episodic:               docked.pass,          // LLM-safe, weight-sorted, capped at 5
+      episodicFlag:           docked.flag,           // contradicted — feed scoring loop
+      episodicSuppress:       docked.suppress,       // removed — log only
+      episodicContradictions: docked.contradictions, // structured contradiction pairs
+      dockStats:              docked.stats,
 
       // These paths unchanged — dock only runs on episodic for now
       episodicNative:  this.findByMeaningNative(query, 5),
@@ -239,6 +251,56 @@ class RetrievalEngine {
       shardsNative:    this.findSimilarSemanticShardsNative(query, 5),
       tertiary:        this.findSimilarTertiary(query, 5),
       themes:          this.findSimilarThemes(query, 5),
+    };
+  }
+
+  // -------------------------------
+  // LENS SIGNALS FOR THOUGHT GENERATION
+  //
+  // Resolves the four signals thought_engine needs to pick a lens for a
+  // given tick: the full candidate pool, the strongest contradiction pair,
+  // the strongest mood-aligned shard, and the strongest topic match.
+  // shard_dock only gates and scores; this is where "top pick" happens.
+  // -------------------------------
+  getLensSignals(query, context = {}) {
+    const retrieved = this.retrieve(query, context);
+
+    const activeCandidates = [...retrieved.episodic, ...retrieved.episodicFlag];
+
+    const contradictionList = retrieved.episodicContradictions || [];
+    const topContradiction = contradictionList.length
+      ? [...contradictionList].sort((a, b) => b.overlap - a.overlap)[0]
+      : null;
+
+    const moodRanked = activeCandidates
+      .filter((ep) => typeof ep.moodAlignment === "number")
+      .sort((a, b) => b.moodAlignment - a.moodAlignment);
+
+    const topicRanked = activeCandidates
+      .filter((ep) => typeof ep._topicScore === "number")
+      .sort((a, b) => b._topicScore - a._topicScore);
+
+    return {
+      activeCandidates,
+      contradiction: topContradiction
+        ? {
+            shardA: topContradiction.shardA,
+            shardB: topContradiction.shardB,
+            strength: topContradiction.overlap,
+          }
+        : null,
+      moodSignal: moodRanked.length
+        ? {
+            shard: moodRanked[0],
+            strength: moodRanked[0].moodAlignment,
+          }
+        : null,
+      topicSignal: topicRanked.length
+        ? {
+            shard: topicRanked[0],
+            strength: topicRanked[0]._topicScore,
+          }
+        : null,
     };
   }
 }

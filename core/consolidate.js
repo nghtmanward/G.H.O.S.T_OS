@@ -20,6 +20,14 @@ function isImportant(encodedShard, minImportance = 0.15) {
 }
 
 // -----------------------------
+// Helper: Check dream eligibility
+// -----------------------------
+function isDreamEligible(shard) {
+    if (shard.type !== "dream") return true;  // episodic shards always eligible
+    return shard.validated === true;           // dream-derived: only once validated
+}
+
+// -----------------------------
 // Strength calculation
 // -----------------------------
 function computeStrength(cluster) {
@@ -78,7 +86,7 @@ function mergeIntoRecord(record, summaryData, cluster, strength) {
 function consolidate(shards, tertiaryRecords) {
     // Step 1: Encode shards
     const encoded = shards
-        .filter(s => !s.consolidated && isRecent(s))
+        .filter(s => !s.consolidated && isRecent(s) && isDreamEligible(s))
         .map(s => {
             const enc = encodeShard(s);
             enc.timestamp = s.timestamp;

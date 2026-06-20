@@ -34,8 +34,10 @@ class MainMemory {
         console.log("[Memory] Saved shards + tertiary records");
     }
 
-    addShard({ text = "", mood = null, tags = [] }) {
+    addShard(input = {}) {
+        const { text = "", mood = null, tags = [] } = input;
         const shard = new EpisodicShard({
+            ...input,
             text,
             mood,
             tags

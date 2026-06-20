@@ -1,26 +1,30 @@
-// Shared mock so ThoughtEngine and tests see the same memory object
-const mockMemory = { tertiary: [] };
-
-jest.mock("./main_memory", () => mockMemory);
+// Shared mutable mock so tests can control what getLensSignals returns,
+// the same pattern the old file used with mockMemory.tertiary.
+let mockLensSignals = {
+  activeCandidates: [],
+  contradiction: null,
+  moodSignal: null,
+  topicSignal: null
+};
 
 jest.mock("./retrieval_engine", () => ({
   RetrievalEngine: jest.fn().mockImplementation(() => ({
-    retrieve: jest.fn(() => ({ episodic: [], shards: [] })),
-    findByMeaningNative: jest.fn(() => ["native-ep"]),
-    findSimilarSemanticShardsNative: jest.fn(() => ["native-shard"])
+    getLensSignals: jest.fn(() => mockLensSignals)
   }))
 }));
-
-const mainMemory = require("./main_memory");
-const { RetrievalEngine } = require("./retrieval_engine");
 
 describe("ThoughtEngine", () => {
   beforeEach(() => {
     jest.clearAllMocks();
     jest.spyOn(Date, "now").mockReturnValue(123456);
 
-    // Reset semantic memory before each test
-    mockMemory.tertiary = [];
+    // Reset lens signals before each test
+    mockLensSignals = {
+      activeCandidates: [],
+      contradiction: null,
+      moodSignal: null,
+      topicSignal: null
+    };
   });
 
   afterEach(() => {
@@ -127,9 +131,9 @@ describe("ThoughtEngine", () => {
   });
 
   // ---------------------------------------------------------
-  // getSemanticContext
+  // selectLens
   // ---------------------------------------------------------
-  test("getSemanticContext returns fallback when no tertiary", () => {
+  test("selectLens returns mode 'none' when no signals present", () => {
     jest.resetModules();
     jest.mock("./version_registry.js", () => ({
       ThoughtEngine: "2.2.1-2026.05.01"
@@ -138,14 +142,11 @@ describe("ThoughtEngine", () => {
     const ThoughtEngine = require("./thought_engine");
     const te = new ThoughtEngine();
 
-    mockMemory.tertiary = [];
-
-    const ctx = te.getSemanticContext();
-    expect(ctx.theme).toBeNull();
-    expect(ctx.related).toEqual([]);
+    const lens = te.selectLens({ contradiction: null, moodSignal: null, topicSignal: null });
+    expect(lens.mode).toBe("none");
   });
 
-  test("getSemanticContext returns strongest record", () => {
+  test("selectLens picks the single strongest signal", () => {
     jest.resetModules();
     jest.mock("./version_registry.js", () => ({
       ThoughtEngine: "2.2.1-2026.05.01"
@@ -154,16 +155,106 @@ describe("ThoughtEngine", () => {
     const ThoughtEngine = require("./thought_engine");
     const te = new ThoughtEngine();
 
-    mockMemory.tertiary = [
-      { strength: 1, theme: "alpha", summary: "sumA" },
-      { strength: 5, theme: "beta", summary: "sumB" }
-    ];
+    const lens = te.selectLens({
+      contradiction: { strength: 0.9 },
+      moodSignal: { strength: 0.2 },
+      topicSignal: { strength: 0.1 }
+    });
+    expect(lens).toEqual({ mode: "single", primary: "contradiction" });
+  });
 
-    const ctx = te.getSemanticContext();
+  test("selectLens blends when top two signals are close", () => {
+    jest.resetModules();
+    jest.mock("./version_registry.js", () => ({
+      ThoughtEngine: "2.2.1-2026.05.01"
+    }));
 
-    expect(ctx.theme).toBe("beta");
-    expect(ctx.summary).toBe("sumB");
-    expect(ctx.nativeRelated.episodic).toEqual(["native-ep"]);
+    const ThoughtEngine = require("./thought_engine");
+    const te = new ThoughtEngine();
+
+    const lens = te.selectLens({
+      contradiction: { strength: 0.8 },
+      moodSignal: { strength: 0.75 },
+      topicSignal: { strength: 0.1 }
+    });
+    expect(lens.mode).toBe("blend");
+    expect([lens.primary, lens.secondary].sort()).toEqual(["contradiction", "mood"]);
+  });
+
+  // ---------------------------------------------------------
+  // buildLensContext
+  // ---------------------------------------------------------
+  test("buildLensContext returns noticing mode + pendingDreamBlend for a contradiction+mood blend", () => {
+    jest.resetModules();
+    jest.mock("./version_registry.js", () => ({
+      ThoughtEngine: "2.2.1-2026.05.01"
+    }));
+
+    const ThoughtEngine = require("./thought_engine");
+    const te = new ThoughtEngine();
+
+    const signals = {
+      contradiction: { shardA: { text: "shard A text" }, shardB: { text: "shard B text" }, strength: 0.8 },
+      moodSignal: { shard: { text: "mood shard text" }, strength: 0.75 }
+    };
+    const lens = { mode: "blend", primary: "contradiction", secondary: "mood" };
+
+    const ctx = te.buildLensContext(lens, signals);
+    expect(ctx.mode).toBe("noticing");
+    expect(ctx.pendingDreamBlend.contradiction).toBe(signals.contradiction);
+    expect(ctx.pendingDreamBlend.moodSignal).toBe(signals.moodSignal);
+  });
+
+  test("buildLensContext returns tension mode for a single contradiction lens", () => {
+    jest.resetModules();
+    jest.mock("./version_registry.js", () => ({
+      ThoughtEngine: "2.2.1-2026.05.01"
+    }));
+
+    const ThoughtEngine = require("./thought_engine");
+    const te = new ThoughtEngine();
+
+    const signals = {
+      contradiction: { shardA: { text: "the contested memory" }, shardB: { text: "other" }, strength: 0.9 }
+    };
+    const lens = { mode: "single", primary: "contradiction" };
+
+    const ctx = te.buildLensContext(lens, signals);
+    expect(ctx.mode).toBe("tension");
+    expect(ctx.text).toContain("the contested memory");
+    expect(ctx.toneLean).toBe("analytic");
+  });
+
+  // ---------------------------------------------------------
+  // toneBiasFromLens
+  // ---------------------------------------------------------
+  test("toneBiasFromLens bumps the lens-indicated tone", () => {
+    jest.resetModules();
+    jest.mock("./version_registry.js", () => ({
+      ThoughtEngine: "2.2.1-2026.05.01"
+    }));
+
+    const ThoughtEngine = require("./thought_engine");
+    const te = new ThoughtEngine();
+
+    const base = { poetic: 0.25, analytic: 0.25, emotional: 0.25, cryptic: 0.25 };
+    const bumped = te.toneBiasFromLens({ toneLean: "cryptic" }, base);
+
+    expect(bumped.cryptic).toBeCloseTo(0.45);
+    expect(base.cryptic).toBe(0.25); // original untouched
+  });
+
+  test("toneBiasFromLens returns base unchanged when lens has no toneLean", () => {
+    jest.resetModules();
+    jest.mock("./version_registry.js", () => ({
+      ThoughtEngine: "2.2.1-2026.05.01"
+    }));
+
+    const ThoughtEngine = require("./thought_engine");
+    const te = new ThoughtEngine();
+
+    const base = { poetic: 0.25 };
+    expect(te.toneBiasFromLens({ mode: "none" }, base)).toEqual(base);
   });
 
   // ---------------------------------------------------------
@@ -177,10 +268,6 @@ describe("ThoughtEngine", () => {
 
     const ThoughtEngine = require("./thought_engine");
     const te = new ThoughtEngine();
-
-    mockMemory.tertiary = [
-      { strength: 10, theme: "gamma", summary: "sumG" }
-    ];
 
     const out = te.generate({
       latent: [0.1, 0.2],
@@ -196,7 +283,7 @@ describe("ThoughtEngine", () => {
 
     expect(out.text.length).toBeGreaterThan(0);
     expect(out.metadata.thought).toBe(out.text);
-    expect(out.metadata.semanticNative.episodic).toEqual(["native-ep"]);
+    expect(out.pendingDreamBlend).toBeNull();
     expect(te.cooldown).toBe(15);
   });
 
@@ -270,20 +357,23 @@ describe("ThoughtEngine", () => {
   });
 
   // ---------------------------------------------------------
-  // semantic integration inside generate
+  // lens integration inside generate
   // ---------------------------------------------------------
-  test("generate incorporates semantic theme when available", () => {
+  test("generate incorporates lens content when a topic signal is available", () => {
     jest.resetModules();
     jest.mock("./version_registry.js", () => ({
       ThoughtEngine: "2.2.1-2026.05.01"
     }));
 
+    mockLensSignals = {
+      activeCandidates: [],
+      contradiction: null,
+      moodSignal: null,
+      topicSignal: { shard: { text: "MemoryAlpha, a long forgotten place" }, strength: 0.9 }
+    };
+
     const ThoughtEngine = require("./thought_engine");
     const te = new ThoughtEngine();
-
-    mockMemory.tertiary = [
-      { strength: 10, theme: "MemoryAlpha", summary: "A long forgotten place" }
-    ];
 
     const out = te.generate({
       latent: [],
@@ -297,6 +387,39 @@ describe("ThoughtEngine", () => {
       traits: []
     });
 
-    expect(out.text.toLowerCase()).toContain("memoryalpha".toLowerCase());
+    expect(out.text.toLowerCase()).toContain("memoryalpha");
+  });
+
+  test("generate surfaces pendingDreamBlend when contradiction and mood both fire", () => {
+    jest.resetModules();
+    jest.mock("./version_registry.js", () => ({
+      ThoughtEngine: "2.2.1-2026.05.01"
+    }));
+
+    mockLensSignals = {
+      activeCandidates: [],
+      contradiction: { shardA: { text: "shard A" }, shardB: { text: "shard B" }, strength: 0.8 },
+      moodSignal: { shard: { text: "mood shard" }, strength: 0.75 },
+      topicSignal: null
+    };
+
+    const ThoughtEngine = require("./thought_engine");
+    const te = new ThoughtEngine();
+
+    const out = te.generate({
+      latent: [],
+      anomaly: 0,
+      predLoss: 0,
+      attention: [1],
+      mood: "neutral",
+      intensity: 0,
+      styleBias: {},
+      moodBaseline: 0,
+      traits: []
+    });
+
+    expect(out.pendingDreamBlend).not.toBeNull();
+    expect(out.pendingDreamBlend.contradiction).toBe(mockLensSignals.contradiction);
+    expect(out.pendingDreamBlend.moodSignal).toBe(mockLensSignals.moodSignal);
   });
 });

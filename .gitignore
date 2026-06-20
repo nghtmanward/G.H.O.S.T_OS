@@ -87,3 +87,5 @@ __pycache__/
 !.vscode/launch.json
 !.vscode/tasks.json
 datasets/
+
+coverage/

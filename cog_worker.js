@@ -444,6 +444,13 @@ async function runFastCycle() {
     });
 
     const thought = thoughtOut.text || "";
+    if (thoughtOut.pendingDreamBlend) {
+      dreaming.enqueuePending(
+        thoughtOut.pendingDreamBlend.contradiction,
+        thoughtOut.pendingDreamBlend.moodSignal
+      );
+      log("[DREAM] Queued contradiction+mood blend for next dream cycle.");
+    }
     behaviorOut.text = thought || behaviorOut.text;
 
     const emotionOut = emotion.update({
@@ -612,6 +619,13 @@ async function runMediumCycle() {
 async function runSlowCycle() {
   try {
     cachedDreams = dreaming.runDreamCycle();
+    if (cachedDreams.length > 0) {
+      const mainMemory = require("./core/main_memory");
+      for (const dream of cachedDreams) {
+        mainMemory.addShard(dream);
+      }
+      log(`[DREAM] Persisted ${cachedDreams.length} dream(s) to memory`);
+    }
     syncShardsToNative();
     log(`[DEBUG] currentShard episodes: ${shards.currentShard?.episodes?.length}, index: ${shards.currentShard?.index}`);
 
